@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
-import { ServiceCard } from "@/components/ServiceCard";
 import { Section, SectionHeading } from "@/components/Section";
+import { ServiceCard } from "@/components/ServiceCard";
 import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
 import { QuoteForm } from "@/components/QuoteForm";
-import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Colorado's trusted source for lifetime ceramic coatings, PPF, window tinting, vinyl wraps, paint correction, and RV & boat detailing. Front Range Detail Studio in Centennial, CO.",
+};
 
 const serviceCards = [
   {
@@ -38,34 +44,16 @@ const serviceCards = [
   },
 ];
 
-const partnerLogos = [
-  { src: "/images/logos/Rupes-Logo.webp", alt: "Rupes logo" },
-  { src: "/images/logos/glidecoat-pro-logo.svg", alt: "Glidecoat authorized dealer" },
-  { src: "/images/logos/eastman-logo-inverse.png", alt: "Eastman logo" },
-  { src: "/images/logos/suntek-logo.svg", alt: "SunTek Llumar logo" },
-  { src: "/images/logos/system-x2.png", alt: "System X logo" },
-];
-
-const vehicleLogos = [
-  "Mercedes-Benz-Logo-1.svg", "Porsche-Logo.svg", "Ford-logo.svg",
-  "Logo-della-Jaguar.svg", "Lamborghini-Logo.svg", "Audi-logo.svg",
-  "BMW-logo.svg", "LandRover-logo.svg", "Ferrari-Logo.svg",
-  "rivian-logo.svg", "McLaren-Automotive-logo.svg", "Tesla-Motors-logo.svg",
-  "Rolls-royce.svg", "Cadillac-logo.svg",
-];
-
-export default function HomePage() {
+export default function ServicesPage() {
   return (
     <>
       <Hero
         image="/images/hero/colorado-package-scaled.jpg"
-        imageAlt="PPF Clear Bra Denver Tint Ceramic Coating Paint Correction"
-        title="Front Range Detail Studio"
-        tagline="Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"
-        subtitle="RV, Boat, Auto. Paint Protection Film, Ceramic Coating, Tint, Vinyl Wrap"
+        imageAlt="Front Range Detail Studio services — PPF, ceramic coating, tinting, wraps"
+        title="Our Services"
+        subtitle="Colorado's Trusted Source for Lifetime Ceramic Coatings and Premium Detailing."
         cta={{ label: "Get A Free Quote", href: "/free-quote" }}
         ctaSecondary={{ label: "Call (303) 520-8023", href: "tel:3035208023" }}
-        fullHeight
       />
 
       {/* Services Grid */}
@@ -80,8 +68,21 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* Maintenance Copy */}
+      <Section bg="black">
+        <SectionHeading>
+          Professional Ceramic Coating &amp; Paint Correction
+        </SectionHeading>
+        <p className="text-white/70 leading-relaxed">
+          The highest caliber treatment for protecting your prized vehicle.
+          Maintain your ceramic coating and retain your warranty through periodic
+          maintenance washes. Ceramic top coat applied to boost existing coating
+          and extend longevity.
+        </p>
+      </Section>
+
       {/* Reviews */}
-      <Section bg="black" wide>
+      <Section bg="dark" wide>
         <SectionHeading>
           Front Range Detail Studio Client Reviews
         </SectionHeading>
@@ -89,45 +90,8 @@ export default function HomePage() {
         <ReviewCarousel />
       </Section>
 
-      {/* Partners */}
-      <Section bg="dark" wide>
-        <SectionHeading>Our Partners — Trusted Brands</SectionHeading>
-        <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
-          {partnerLogos.map((logo) => (
-            <Image
-              key={logo.src}
-              src={logo.src}
-              alt={logo.alt}
-              width={120}
-              height={40}
-              className="opacity-60 hover:opacity-100 transition-opacity object-contain h-10"
-            />
-          ))}
-        </div>
-      </Section>
-
-      {/* Vehicle Brands */}
-      <Section bg="black" wide>
-        <SectionHeading>
-          Protection For All Brands and Models Including Tesla, Rivian, Porsche,
-          BMW, Mercedes Benz and More
-        </SectionHeading>
-        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-6 items-center">
-          {vehicleLogos.map((logo) => (
-            <Image
-              key={logo}
-              src={`/images/logos/${logo}`}
-              alt={logo.replace(/-|\.svg/g, " ").trim()}
-              width={60}
-              height={60}
-              className="opacity-40 hover:opacity-80 transition-opacity mx-auto object-contain h-12"
-            />
-          ))}
-        </div>
-      </Section>
-
       {/* Contact & Quote */}
-      <Section bg="dark" wide id="contact">
+      <Section bg="black" wide id="contact">
         <SectionHeading>
           Serving The Denver Metro And Surrounding Areas
         </SectionHeading>
@@ -148,7 +112,7 @@ export default function HomePage() {
                 info@frontrangedetailstudio.com
               </a>
               <p>12559 E Broncos Pkwy, Centennial, CO 80112</p>
-              <p>Monday – Sunday: By Appointment Only</p>
+              <p>Monday &ndash; Sunday: By Appointment Only</p>
             </div>
           </div>
           <QuoteForm />
