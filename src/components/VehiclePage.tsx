@@ -328,8 +328,6 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   position: "relative",
                   aspectRatio: "4/3",
                   borderRadius: 8,
-                  overflow: "hidden",
-                  border: "1px solid rgba(255,255,255,0.08)",
                 }}
               >
                 <Image
@@ -337,7 +335,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   alt={`${d.brand} paint protection film`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             </div>
@@ -365,8 +363,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   position: "relative",
                   aspectRatio: "4/3",
                   borderRadius: 8,
-                  overflow: "hidden",
-                  border: "1px solid rgba(255,255,255,0.08)",
+
                 }}
               >
                 <Image
@@ -374,7 +371,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   alt={`${d.brand} PPF installation`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                 />
               </div>
               {/* Text right */}
@@ -613,8 +610,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   position: "relative",
                   aspectRatio: "4/3",
                   borderRadius: 8,
-                  overflow: "hidden",
-                  border: "1px solid rgba(255,255,255,0.08)",
+
                 }}
               >
                 <Image
@@ -622,7 +618,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   alt={`${d.brand} Front Range Package`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             </div>
@@ -799,8 +795,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   position: "relative",
                   aspectRatio: "4/3",
                   borderRadius: 8,
-                  overflow: "hidden",
-                  border: "1px solid rgba(255,255,255,0.08)",
+
                 }}
               >
                 <Image
@@ -808,7 +803,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   alt={`${d.brand} ceramic coating`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                 />
               </div>
             </div>
@@ -836,8 +831,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   position: "relative",
                   aspectRatio: "4/3",
                   borderRadius: 8,
-                  overflow: "hidden",
-                  border: "1px solid rgba(255,255,255,0.08)",
+
                 }}
               >
                 <Image
@@ -845,7 +839,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   alt={`${d.brand} window tinting`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                 />
               </div>
               {/* Text right */}
