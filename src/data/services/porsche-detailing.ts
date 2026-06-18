@@ -11,7 +11,7 @@ export const porscheDetailingData: VehiclePageData = {
   logoImg: "/images/logos/Porsche-Logo.svg",
   introH2: "Premier Porsche Paint Protection in Englewood, CO",
   introBody:
-    "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your Porsche. Whether you own a classic 911, a powerful Cayenne, or a cutting-edge Taycan, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services \u2014 all designed for Colorado\u2019s demanding driving conditions. We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
+    "At Front Range Detail Studio in Englewood, CO, we specialize in protecting the beauty, performance, and long-term value of your Porsche, whether it\u2019s a classic 911, a powerful Cayenne, or a sleek Taycan, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services \u2014 all designed for Colorado\u2019s demanding driving conditions. We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
   introQuote:
     "We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
 
@@ -56,7 +56,7 @@ export const porscheDetailingData: VehiclePageData = {
 
   /* Ceramic section */
   ceramicImg: "/images/vehicles/porsche-ceramic-coating.png",
-  ceramicH2: "Porsche Ceramic Coating in Englewood",
+  ceramicH2: "Porsche Ceramic Coating In Englewood",
   ceramicBenefits: [
     {
       title: "High-Gloss, Hydrophobic Finish",
@@ -72,7 +72,7 @@ export const porscheDetailingData: VehiclePageData = {
     },
     {
       title: "Perfect for Daily Drivers and Track Cars",
-      body: "Whether you drive a 911 GT3 or a Cayenne daily commuter, ceramic coating preserves your Porsche\u2019s finish and value.",
+      body: "Whether you drive a 911, a powerful Cayenne, or a sleek Taycan, ceramic coating preserves your Porsche\u2019s finish and value.",
     },
   ],
 
@@ -82,15 +82,15 @@ export const porscheDetailingData: VehiclePageData = {
   tintBenefits: [
     {
       title: "Ceramic Window Tint",
-      body: "Blocks up to 99% of UV rays and dramatically reduces interior heat, keeping your cabin cooler and protecting sensitive materials like leather and Alcantara.",
+      body: "Blocks up to 99% of UV rays and dramatically reduces interior heat, keeping your cabin cooler and protecting sensitive materials like leather and carbon trim.",
     },
     {
       title: "Privacy & Aesthetic Boost",
-      body: "Clean, precision-installed tint enhances your Porsche\u2019s sleek styling.",
+      body: "Clean, precision-installed tint enhances your Porsche\u2019s aggressive styling.",
     },
     {
       title: "Safe for Driver-Assist Systems",
-      body: "Our ceramic films are safe for Porsche\u2019s driver-assist systems and cameras.",
+      body: "Our ceramic films are 100% compatible with Porsche\u2019s blind-spot monitors, heads-up displays, and cameras.",
     },
   ],
 

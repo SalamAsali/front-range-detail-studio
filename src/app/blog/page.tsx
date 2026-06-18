@@ -15,7 +15,7 @@ const blogPosts = [
   {
     slug: "2025-dodge-ram-1500-etorque-hemi-limited-protected-with-the-front-range-package-centennial-co",
     title:
-      "2025 Dodge Ram 1500 eTorque HEMI Limited Protected with the Front Range Package -- Centennial, CO",
+      "2025 Dodge Ram 1500 eTorque HEMI Limited Protected with the Front Range Package \u2014 Centennial, CO",
     date: "October 29, 2025",
     categories: ["PPF", "Automotive Window Tint"],
     image: "/images/blog/image-6-1024x576.jpeg",
@@ -27,7 +27,7 @@ const blogPosts = [
   {
     slug: "2024-corvette-stingray-annual-system-x-ceramic-coating-maintenance-in-denver",
     title:
-      "2024 Corvette Stingray -- Annual System X Ceramic Coating Maintenance in Denver",
+      "2024 Corvette Stingray \u2013 Annual System X Ceramic Coating Maintenance in Denver",
     date: "October 29, 2025",
     categories: ["Ceramic Coating", "PPF"],
     image: "/images/blog/image-1024x576.jpeg",

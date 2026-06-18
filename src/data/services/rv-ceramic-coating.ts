@@ -6,57 +6,53 @@ export const rvCeramicCoatingData: ServicePageData = {
   h1: "RV Ceramic Coating in Denver, CO \u2014 Protect Your Home on Wheels",
   introH2: "Premium RV Ceramic Coating for Lasting Protection",
   introBody:
-    "Your RV is more than just a vehicle \u2014 it\u2019s your home on the road. Protect it from the elements and keep it looking new with our professional System X Ceramic Coating services. Your RV faces constant exposure to harsh environments \u2014 from the sun\u2019s intense UV rays to road salt, dirt, and grime. System X Ceramic Coating creates a durable, hydrophobic barrier that protects your RV\u2019s exterior and makes maintenance easier than ever.",
+    "Your RV is more than just a vehicle \u2014 it\u2019s your home on the road. Protect it from the elements and keep it looking new with our professional System X Ceramic Coating services. At Front Range Detail Studio, we specialize in high-quality ceramic coatings for all types of RVs and motorhomes, ensuring long-lasting protection against UV rays, oxidation, and the wear and tear of the open road.",
   featuresEyebrow: "Why System X",
   featuresH2: "Why Choose System X Ceramic Coating for Your RV?",
   features: [
     {
       title: "Warranty Protection",
-      body: "3-year manufacturer warranty on new RVs with annual top coat required for warranty coverage.",
+      body: "All System X Ceramic Coatings come with a manufacturer-backed warranty for long-lasting peace of mind.",
     },
     {
       title: "Prevents Oxidation & Fading",
-      body: "Creates a UV-resistant barrier that keeps fiberglass and gelcoat from chalking.",
+      body: "The ceramic coating shields your RV\u2019s paint from UV damage, oxidation, and fading, keeping it looking vibrant for years.",
     },
     {
       title: "Hydrophobic Properties",
-      body: "Water beads and rolls off, reducing water spots and making cleaning effortless.",
-    },
-    {
-      title: "Certified Installers",
-      body: "Factory-trained System X applicators ensuring professional-grade results every time.",
+      body: "Water, dirt, and grime slide right off the surface, reducing buildup and making washing a breeze.",
     },
   ],
   stepsH2: "Our Ceramic Coating Process",
   steps: [
     {
       title: "Comprehensive Inspection",
-      body: "We assess your RV\u2019s condition, noting any oxidation, damage or areas needing special attention.",
+      body: "We begin with a thorough assessment of your RV\u2019s exterior to identify any areas needing special attention.",
     },
     {
       title: "Surface Preparation",
-      body: "Thorough hand wash and decontamination to remove all road grime and contaminants.",
+      body: "Our team performs a meticulous wash and decontamination process to remove all impurities.",
     },
     {
       title: "Paint Correction",
-      body: "Oxidation removal and gelcoat correction to restore a deep, even shine before coating.",
+      body: "We address any imperfections, such as swirl marks or oxidation, to ensure a flawless surface.",
     },
     {
       title: "Ceramic Coating Application",
-      body: "System X MAX G Plus is applied panel by panel for complete, even coverage.",
+      body: "System X Ceramic Coating is carefully applied to all exterior surfaces, including paint, fiberglass, gel coat, windows, and wheels.",
     },
     {
       title: "Curing",
-      body: "The coating cures fully to create a durable, long-lasting bond to every surface.",
+      body: "The coating is allowed to cure properly, forming a strong bond that offers long-lasting protection.",
     },
   ],
   includedH2: "Ultimate Protection Max G+ Package",
   included: [
-    "Max G+ over all paintwork",
-    "Max G+ on badges, emblems, trim",
-    "Max G+ on wheels",
-    "Glass on the windshield/windscreen",
-    "Interior protection of leather, vinyl, fabric, and carpet",
+    "Max G+\u2122 over all paintwork",
+    "Max G+\u2122 on badges, emblems, trim",
+    "Max G+\u2122 on wheels",
+    "Glass\u2122 on the windshield/windscreen",
+    "Interior\u2122 protection of leather, vinyl, fabric, and carpet",
   ],
   pricingH2: "Service Packages & Pricing",
   pricing: [
@@ -66,14 +62,14 @@ export const rvCeramicCoatingData: ServicePageData = {
       body: "Hand wash, bug and tar removal, high-quality sealant application, wheel and tire cleaning.",
     },
     {
-      title: "Oxidation Removal & Correction",
+      title: "Oxidation Removal & Paint Correction",
       price: "$20\u2013$35/ft",
       body: "Machine compounding and polishing to restore faded fiberglass and gelcoat.",
     },
     {
-      title: "System X Ceramic Coating",
+      title: "System X Ceramic Coating Application",
       price: "From $100/ft",
-      body: "Multi-stage paint correction followed by System X MAX G Plus application with warranty.",
+      body: "Multi-stage paint correction followed by System X Ceramic Coating application with warranty.",
     },
   ],
   /* Deluxe and Custom packages from original */
@@ -90,19 +86,19 @@ export const rvCeramicCoatingData: ServicePageData = {
     },
     {
       q: "What\u2019s the difference between wax and ceramic coating?",
-      a: "Wax offers a few months of shine and protection. Our System X ceramic coating provides up to 3 years of real-world defense.",
+      a: "Wax offers a few months of shine and protection. Our System X ceramic coating provides up to 3 years of real-world defense and makes cleaning much easier.",
     },
     {
       q: "Can you remove heavy oxidation and faded gelcoat?",
-      a: "Yes \u2014 our multi-stage machine compounding and polishing process restores chalky, faded surfaces to a deep, even shine.",
+      a: "Absolutely \u2014 our multi-step correction process restores shine to even badly faded surfaces.",
     },
     {
       q: "How long does the process take?",
-      a: "Most exterior packages take 1\u20133 days depending on the size and condition of your RV.",
+      a: "Most exterior packages take 1\u20133 days depending on the size and condition of your RV. We\u2019ll provide a firm timeline with your quote.",
     },
     {
       q: "Do you offer mobile or on-site service?",
-      a: "All ceramic coating work is performed in our climate-controlled facility for the best results. We do not offer mobile coating services.",
+      a: "For best results and warranty, we recommend our controlled shop environment. Mobile service may be available for select maintenance jobs \u2014 ask for details.",
     },
   ],
   crossTitle: "Protect The Front End With PPF",

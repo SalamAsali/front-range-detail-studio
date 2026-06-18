@@ -6,7 +6,7 @@ export const boatDetailingData: ServicePageData = {
   h1: "Boat Detailing & Ceramic Coating in Denver, CO \u2014 Protect Your Watercraft",
   introH2: "Keep Your Boat Looking Pristine and Protected",
   introBody:
-    "Keep your boat looking pristine and protected from harsh water elements with professional detailing and System X Marine Ceramic Coating. From exterior buffing and gelcoat restoration to interior cleaning and annual waxing, we deliver total care for your watercraft.",
+    "At Front Range Detail Studio, we specialize in high-quality boat detailing and System X Marine Ceramic Coating to keep your watercraft looking like new. Our services are tailored for boats on Colorado lakes and reservoirs, helping you maintain beauty, value, and protection season after season.",
   pricingH2: "Comprehensive Boat Detailing Services",
   pricing: [
     {
@@ -42,19 +42,19 @@ export const boatDetailingData: ServicePageData = {
   features: [
     {
       title: "Marine Detailing Specialists",
-      body: "Our experienced team understands the unique challenges boats face and uses only marine-grade products.",
+      body: "Our experienced team understands the unique challenges boats face and uses only marine-grade products for superior protection.",
     },
     {
       title: "Certified System X Installers",
-      body: "Factory-trained applicators of System X Marine Ceramic Coating ensuring professional results.",
+      body: "We are certified applicators of System X Marine Ceramic Coating, ensuring professional-grade results.",
     },
     {
       title: "Attention to Detail",
-      body: "From hull to topside, we meticulously address every surface for comprehensive protection.",
+      body: "From hull to topside, we meticulously coat every surface for comprehensive protection.",
     },
     {
       title: "Seasonal, Appointment-Only Service",
-      body: "Boat services available by appointment during boating season for the highest quality care.",
+      body: "We offer boat ceramic coating services by appointment during the boating season to ensure the highest quality care.",
     },
   ],
   gallery: [
