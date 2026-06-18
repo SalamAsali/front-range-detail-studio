@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<nav style="position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,5vw,64px);background:{{ navBg }};backdrop-filter:{{ navBlur }};-webkit-backdrop-filter:{{ navBlur }};border-bottom:1px solid {{ navBorder }};transition:background .35s ease,border-color .35s ease;font-family:'Inter',sans-serif;">
+  <a href="Home.dc.html" style="display:flex;align-items:center;flex:none;">
+    <img src="public/logo-inverse.svg" alt="Front Range Detail Studio" style="height:46px;width:auto;display:block;" />
+  </a>
+  <div style="display:flex;align-items:center;gap:clamp(18px,2.6vw,40px);">
+    <div style="display:flex;align-items:center;gap:clamp(16px,2vw,34px);" data-desktop-nav>
+      <sc-for list="{{ links }}" as="link" hint-placeholder-count="5">
+        <a href="{{ link.href }}" style="font-family:'Inter',sans-serif;font-size:14px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;color:{{ link.color }};text-decoration:none;transition:color .2s ease;white-space:nowrap;" onMouseEnter="{{ onLinkEnter }}" onMouseLeave="{{ onLinkLeave }}">{{ link.label }}</a>
+      </sc-for>
+    </div>
+    <a href="Home.dc.html#quote" data-desktop-cta style="font-family:'Michroma',sans-serif;text-transform:uppercase;letter-spacing:0.05em;font-size:12.5px;color:#fff;background:#00BCD4;border-radius:3.125rem;padding:14px 26px;text-decoration:none;white-space:nowrap;transition:background .2s ease,transform .2s ease,box-shadow .2s ease;box-shadow:0 6px 22px rgba(0,188,212,0.28);" onMouseEnter="{{ onCtaEnter }}" onMouseLeave="{{ onCtaLeave }}">Get A Free Quote</a>
+    <button aria-label="Menu" onClick="{{ toggleMenu }}" data-hamburger style="display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:transparent;border:none;cursor:pointer;padding:0;">
+      <span style="display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .3s ease,opacity .3s ease;transform:{{ bar1 }};"></span>
+      <span style="display:block;width:26px;height:2px;background:#fff;border-radius:2px;opacity:{{ bar2op }};transition:opacity .2s ease;"></span>
+      <span style="display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .3s ease;transform:{{ bar3 }};"></span>
+    </button>
+  </div>
+
+  <div onClick="{{ closeMenu }}" style="position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:120;opacity:{{ overlayOpacity }};pointer-events:{{ overlayEvents }};transition:opacity .3s ease;backdrop-filter:blur(2px);"></div>
+  <aside style="position:fixed;top:0;right:0;height:100%;width:min(82vw,340px);background:#0a0a0a;border-left:1px solid rgba(255,255,255,0.08);z-index:130;transform:{{ panelTransform }};transition:transform .38s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:28px 28px 40px;box-shadow:-30px 0 60px rgba(0,0,0,0.5);">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;">
+      <img src="public/logo-inverse.svg" alt="" style="height:38px;" />
+      <button aria-label="Close" onClick="{{ closeMenu }}" style="background:transparent;border:none;color:#fff;font-size:26px;line-height:1;cursor:pointer;font-family:'Inter',sans-serif;">&#10005;</button>
+    </div>
+    <sc-for list="{{ links }}" as="link" hint-placeholder-count="5">
+      <a href="{{ link.href }}" onClick="{{ closeMenu }}" style="font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.02em;font-size:22px;color:#fff;text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.07);">{{ link.label }}</a>
+    </sc-for>
+    <a href="Home.dc.html#quote" onClick="{{ closeMenu }}" style="margin-top:28px;font-family:'Michroma',sans-serif;text-transform:uppercase;letter-spacing:0.05em;font-size:13px;color:#fff;background:#00BCD4;border-radius:3.125rem;padding:16px 26px;text-decoration:none;text-align:center;">Get A Free Quote</a>
+    <a href="tel:+13035208023" style="margin-top:18px;font-family:'Inter',sans-serif;font-size:15px;color:#00BCD4;text-decoration:none;text-align:center;letter-spacing:0.02em;">(303) 520-8023</a>
+  </aside>
+
+  <style>
+    @media (max-width: 880px){
+      nav [data-desktop-nav]{display:none !important;}
+      nav [data-desktop-cta]{display:none !important;}
+      nav [data-hamburger]{display:flex !important;}
+    }
+  </style>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:90},&quot;active&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { scrolled: false, open: false, hovered: null, ctaHover: false };
+
+  componentDidMount() {
+    this._onScroll = () => {
+      const s = window.scrollY > 40;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+
+  renderVals() {
+    const active = this.props.active || '';
+    const scrolled = this.state.scrolled;
+    const open = this.state.open;
+    const defs = [
+      { label: 'Services', href: 'Services.dc.html' },
+      { label: 'Vehicles', href: 'BMW-Detailing.dc.html' },
+      { label: 'About', href: '#' },
+      { label: 'Blog', href: '#' },
+      { label: 'Contact', href: 'Home.dc.html#contact' },
+    ];
+    const links = defs.map((l, i) => ({
+      label: l.label,
+      href: l.href,
+      color: (this.state.hovered === i || active === l.label) ? '#00BCD4' : 'rgba(255,255,255,0.9)',
+    }));
+    return {
+      links,
+      navBg: scrolled ? 'rgba(0,0,0,0.9)' : 'linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0))',
+      navBlur: scrolled ? 'blur(14px)' : 'blur(0px)',
+      navBorder: scrolled ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0)',
+      onLinkEnter: (e) => { const i = this._idx(e); this.setState({ hovered: i }); },
+      onLinkLeave: () => this.setState({ hovered: null }),
+      _noop: null,
+      onCtaEnter: (e) => { e.currentTarget.style.background = '#008AA2'; e.currentTarget.style.transform = 'translateY(-2px)'; },
+      onCtaLeave: (e) => { e.currentTarget.style.background = '#00BCD4'; e.currentTarget.style.transform = 'translateY(0)'; },
+      toggleMenu: () => this.setState({ open: !open }),
+      closeMenu: () => this.setState({ open: false }),
+      overlayOpacity: open ? 1 : 0,
+      overlayEvents: open ? 'auto' : 'none',
+      panelTransform: open ? 'translateX(0)' : 'translateX(105%)',
+      bar1: open ? 'translateY(7px) rotate(45deg)' : 'none',
+      bar2op: open ? 0 : 1,
+      bar3: open ? 'translateY(-7px) rotate(-45deg)' : 'none',
+    };
+  }
+  _idx(e){ const nodes=[...e.currentTarget.parentNode.children]; return nodes.indexOf(e.currentTarget); }
+}
+</script>
+</body>
+</html>

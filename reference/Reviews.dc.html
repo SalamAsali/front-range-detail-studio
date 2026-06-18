@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<section style="background:#0a0a0a;padding:clamp(56px,7vw,96px) 0;font-family:'Inter',sans-serif;overflow:hidden;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,56px);">
+    <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-0.1px;font-size:clamp(1.75rem,0.5vw+1.625rem,2.15rem);color:#fff;line-height:1.15;max-width:760px;">Front Range Detail Studio Client Reviews</h2>
+    <hr style="width:96px;height:2px;background:#00BCD4;border:none;margin:18px 0 36px;" />
+
+    <div style="display:flex;flex-wrap:wrap;gap:18px;margin-bottom:48px;">
+      <sc-for list="{{ badges }}" as="b" hint-placeholder-count="3">
+        <a href="#" style="display:flex;flex-direction:column;gap:6px;padding:20px 30px;background:#1e1e1e;border-radius:4px;border-top:4px solid {{ b.color }};box-shadow:0 3px 3px -2px rgba(0,0,0,0.4),0 3px 4px 0 rgba(0,0,0,0.28);text-decoration:none;min-width:170px;transition:transform .2s ease,box-shadow .2s ease;" onMouseEnter="{{ b.enter }}" onMouseLeave="{{ b.leave }}">
+          <span style="font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;color:#fff;">{{ b.name }}</span>
+          <span style="color:{{ b.color }};font-size:18px;letter-spacing:3px;line-height:1;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span style="font-family:'Manrope',sans-serif;font-weight:300;font-size:13px;color:rgba(255,255,255,0.55);">{{ b.rating }} &middot; {{ b.count }} reviews</span>
+        </a>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px;">
+      <span style="font-family:'Inter',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);">What our clients say</span>
+      <div style="display:flex;gap:10px;">
+        <button aria-label="Previous" onClick="{{ prev }}" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);background:transparent;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease;" onMouseEnter="{{ arrowEnter }}" onMouseLeave="{{ arrowLeave }}">&#8592;</button>
+        <button aria-label="Next" onClick="{{ next }}" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);background:transparent;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease;" onMouseEnter="{{ arrowEnter }}" onMouseLeave="{{ arrowLeave }}">&#8594;</button>
+      </div>
+    </div>
+  </div>
+
+  <div ref="{{ trackRef }}" style="display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px clamp(20px,5vw,56px) 30px;scrollbar-width:none;-ms-overflow-style:none;">
+    <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="8">
+      <div style="scroll-snap-align:start;flex:0 0 clamp(290px,80vw,400px);background:#1e1e1e;border:1px solid rgba(255,255,255,0.06);border-radius:4px;padding:30px 30px 28px;display:flex;flex-direction:column;box-shadow:0 3px 3px -2px rgba(0,0,0,0.4),0 8px 24px rgba(0,0,0,0.35);">
+        <span style="color:#00BCD4;font-size:17px;letter-spacing:3px;line-height:1;margin-bottom:16px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <p style="margin:0 0 22px;font-family:'Manrope',sans-serif;font-weight:300;font-size:15px;line-height:1.62;color:rgba(255,255,255,0.82);flex:1;">{{ r.quote }}</p>
+        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid rgba(255,255,255,0.07);padding-top:18px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00BCD4,#008AA2);display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:700;color:#fff;font-size:15px;flex:none;">{{ r.initial }}</div>
+          <div style="display:flex;flex-direction:column;">
+            <span style="font-family:'Inter',sans-serif;font-weight:600;font-size:14px;color:#fff;">{{ r.name }}</span>
+            <span style="font-family:'Manrope',sans-serif;font-size:12px;color:rgba(255,255,255,0.45);">Verified client</span>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:620}}">
+class Component extends DCLogic {
+  renderVals() {
+    const arrowEnter = (e) => { e.currentTarget.style.background = '#00BCD4'; e.currentTarget.style.borderColor = '#00BCD4'; };
+    const arrowLeave = (e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; };
+    const bEnter = (e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 34px rgba(0,0,0,0.5)'; };
+    const bLeave = (e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 3px 3px -2px rgba(0,0,0,0.4),0 3px 4px 0 rgba(0,0,0,0.28)'; };
+    const scrollBy = (dir) => { const el = this._track; if (el) el.scrollBy({ left: dir * Math.min(el.clientWidth * 0.85, 440), behavior: 'smooth' }); };
+    return {
+      trackRef: (el) => { this._track = el; },
+      prev: () => scrollBy(-1),
+      next: () => scrollBy(1),
+      arrowEnter, arrowLeave,
+      badges: [
+        { name: 'Google', rating: '5.0', count: 106, color: '#e7711b', enter: bEnter, leave: bLeave },
+        { name: 'Yelp', rating: '5.0', count: 2, color: '#c41200', enter: bEnter, leave: bLeave },
+        { name: 'Facebook', rating: '5.0', count: 170, color: '#3c5b9b', enter: bEnter, leave: bLeave },
+      ],
+      reviews: [
+        { name: 'Geri P.', initial: 'G', quote: 'Same day service. Excellent and professional service. My RV is 7 years old and just completed a 1500 mile journey covered in dust, dirt and bug covered windshield. Sam cleaned everything and made it look brand new and shiny. I\u2019m very happy with the results.' },
+        { name: 'TG G.', initial: 'T', quote: 'Brought 10 year old Navion motorhome to Sam for wash, polish and wax job. The quality of workmanship performed by Sam and crew was simply outstanding. We are more than pleased with the results. This is the best RV detailing service I\u2019ve ever used.' },
+        { name: 'Cindy T.', initial: 'C', quote: 'We used Front Range to detail the exterior of our 20+ year old boat\u2026it looks new. The service was boat oxidation removal and buffing. Sam is very responsive and communicated through the whole process.' },
+        { name: 'Alyson W.', initial: 'A', quote: 'Front Range did an excellent job on our 5th wheel & F350! Sam was extremely knowledgeable and explained how he only uses top line products. His team brought the brand new shine back!' },
+        { name: 'Steve E.', initial: 'S', quote: 'I have nothing but good things to say about Front Range Detail Studio. Impeccable work, driven by attention to detail and obvious care for their customers. Experts at ceramic coating and maintenance. We just added clear bra to the mix and they did an excellent job. Very trusting of these guys with my CT5-V.' },
+        { name: 'Alex', initial: 'A', quote: 'On Point!!! Communication, Quality, Customer Service\u2026 All 5 star. I needed to get my truck ready to sell asap. They told me I didn\u2019t need all the extras and gave me a detailed explanation and a package that would suffice for a great price.' },
+        { name: 'T.', initial: 'T', quote: 'My experience started out looking for ceramic coating and thankfully Front Range Detail came up. It has the most 5 star reviews and I am another 5 star for them. The first thing that stood out was when we did the walk around my vehicle, they didn\u2019t try to up sell me.' },
+        { name: 'Dean P.', initial: 'D', quote: 'We recently bought a new Jayco Class A Motorhome and engaged Sam and his team over 12 months ago to apply a ceramic coating and regularly maintain it since. They have done an amazing job and the unit still looks like it rolled off the assembly line despite Colorado weather and the miles.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

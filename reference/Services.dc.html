@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="background:#000;min-height:100vh;">
+  <dc-import name="ServicePage" data="{{ data }}" hint-size="100%,100%"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  _i(id, w) { return 'https://lh3.googleusercontent.com/d/' + id + '=w' + (w || 1200); }
+  renderVals() {
+    const I = (id, w) => this._i(id, w);
+    return { data: {
+      active: 'Services',
+      heroImg: I('1YuH2FrTvbIrOHVgCiCXzuZZO9dEERskN', 1920),
+      eyebrow: 'Our Services',
+      h1: 'Premium Vehicle Care, Start To Finish',
+      introH2: 'One Studio For Every Protection Need',
+      introBody: 'Paint protection film, ceramic coating, window tint, vinyl wrap, paint correction and full RV & boat services \u2014 all performed by certified technicians in our climate-controlled Centennial studio. Explore each service below.',
+      cardsH2: 'Explore Our Services',
+      cards: [
+        { tag: '10 Year Warranty', title: 'Paint Protection Film', img: I('1swTodqS-GhqBj63Kn-_N-qMlFsV_c4fi', 900), href: 'Paint-Protection-Film.dc.html' },
+        { tag: 'Lifetime Warranty', title: 'Window Tinting', img: I('16PE1RIQMf1rhd2Uy91mwwChTl1DsXzBF', 900), href: 'Window-Tint.dc.html' },
+        { tag: 'Lifetime Warranty', title: 'Ceramic Coating', img: I('1qGzGX1RDD4lYH0S6s1U0JRoqKWF5YcGD', 900), href: 'Ceramic-Coating.dc.html' },
+        { tag: 'Multi-Stage Polish', title: 'Auto Detailing & Correction', img: I('1h-DBbCfdVCZ6aeWfcd3sgWyd-A0Pz9zv', 900), href: 'Auto-Detailing.dc.html' },
+        { tag: '200+ Finishes', title: 'Vinyl Wrap & Decals', img: I('1IRtH0xYA4PqSLqMEQAA2VEg_1cVdPqkJ', 900), href: 'Vinyl-Wraps.dc.html' },
+        { tag: 'RV \u00B7 Boat \u00B7 Marine', title: 'RV & Boat Services', img: I('12q_gosMdurlaTL6fmHmzKSg9xPmFCrin', 900), href: 'RV-Detailing.dc.html' },
+      ],
+      featuresEyebrow: 'The Front Range Difference',
+      featuresH2: 'Why Denver Drivers Choose Us',
+      features: [
+        { title: 'Certified Installers', body: 'System X and SunTek certified \u2014 manufacturer-backed warranties on every job.' },
+        { title: 'Climate-Controlled Studio', body: 'No dust, no heat, no humidity. Coatings cure exactly as engineered.' },
+        { title: 'Honest Recommendations', body: 'We explain what your vehicle actually needs \u2014 no upsells, no hard sell.' },
+        { title: '15+ Years Experience', body: 'Over a decade and a half perfecting automotive aesthetics in Colorado.' },
+      ],
+      faqs: [
+        { q: 'Do you work by appointment only?', a: 'Yes \u2014 our studio is appointment-only so every vehicle receives dedicated, undivided attention.' },
+        { q: 'Where are you located?', a: 'Our studio is at 12559 E Broncos Pkwy, Centennial, CO 80112, serving the entire Denver metro area.' },
+        { q: 'Can you bundle multiple services?', a: 'Absolutely \u2014 PPF, ceramic and tint are frequently combined. Tell us your goals and we\u2019ll build the right package.' },
+      ],
+    } };
+  }
+}
+</script>
+</body>
+</html>

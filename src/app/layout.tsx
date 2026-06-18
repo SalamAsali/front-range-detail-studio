@@ -18,7 +18,7 @@ const inter = Inter({
 const archivo = Archivo({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["700", "800"],
 });
 
 const michroma = Michroma({

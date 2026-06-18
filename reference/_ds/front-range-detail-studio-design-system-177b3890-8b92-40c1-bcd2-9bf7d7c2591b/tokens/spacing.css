@@ -1,0 +1,29 @@
+/* Front Range Detail Studio — Spacing & layout tokens */
+:root {
+  /* ---- Spacing scale (4px base) ---- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ---- Fluid section spacing ---- */
+  --space-fluid-sm: clamp(1rem, 2.5vw, 1.5rem);
+  --space-fluid-md: clamp(30px, 7vw, 70px);
+  --space-fluid-lg: clamp(50px, 7vw, 90px);  /* default section gap */
+  --space-fluid-xl: clamp(70px, 10vw, 140px);
+
+  /* ---- Layout widths ---- */
+  --width-content: 840px;
+  --width-wide: 1440px;
+  --width-max: 1920px;
+  --gutter: 20px;
+}

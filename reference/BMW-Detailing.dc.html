@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="background:#000;min-height:100vh;">
+  <dc-import name="ServicePage" data="{{ data }}" hint-size="100%,100%"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  _i(id, w) { return 'https://lh3.googleusercontent.com/d/' + id + '=w' + (w || 1200); }
+  renderVals() {
+    const I = (id, w) => this._i(id, w);
+    return { data: {
+      active: 'Vehicles',
+      heroImg: I('1LzLVsKEV1u4s_7O_fVP18NY4EU8NE50v', 1920),
+      eyebrow: 'BMW Specialists',
+      h1: 'BMW Detailing & Protection in Englewood, CO',
+      introH2: 'Precision Care For The Ultimate Driving Machine',
+      introBody: 'Your BMW is engineered to exacting standards \u2014 its finish deserves the same. From deep metallics and Individual paint to M-specific aero, our certified technicians tailor every coating, film and tint to your model. We protect the paint that makes a BMW unmistakable, in our climate-controlled Englewood-area studio.',
+      cardsH2: 'Protection Tailored To Your BMW',
+      cards: [
+        { tag: 'Lifetime Warranty', title: 'Ceramic Coating', img: I('16rp0aAxvpgwg0xo-Le_rhgUwpddYe3C9', 900), href: 'Ceramic-Coating.dc.html' },
+        { tag: '12 Year Warranty', title: 'Paint Protection Film', img: I('1eRLUrWFxNaXllpBdLF2e1LorimHjt_cE', 900), href: 'Paint-Protection-Film.dc.html' },
+        { tag: 'Lifetime Warranty', title: 'Window Tint', img: I('1ucfes4rt--meKNixSOte1tICamCm8Kic', 900), href: 'Window-Tint.dc.html' },
+      ],
+      featuresEyebrow: 'Why BMW Owners Trust Us',
+      featuresH2: 'Engineered Protection For German Engineering',
+      features: [
+        { title: 'Model-Specific Expertise', body: 'From 3 Series to X5 to M cars \u2014 we know BMW paint, panels and trim intimately.' },
+        { title: 'System X & SunTek Certified', body: 'Manufacturer-certified installers using only premium, warranty-backed products.' },
+        { title: 'Climate-Controlled Studio', body: 'Coatings and film applied in a dust-free environment for a flawless finish.' },
+        { title: 'Resale Value Protected', body: 'Keep that BMW finish factory-fresh \u2014 protecting both pride and resale.' },
+      ],
+      gallery: [
+        I('1Jv9BqycX21sOeB_qNfvBcxmiPdBynPhu', 700),
+        I('1TZshLRz1Xl5WNNQkGphAdfTdhqbn_qZ1', 700),
+      ],
+      faqs: [
+        { q: 'Which BMW models do you work on?', a: 'All of them \u2014 from the 2 Series and 3 Series to X-models, i-series EVs and full M cars. Every package is tailored to your specific model.' },
+        { q: 'Should I protect a new BMW right away?', a: 'Yes. A new BMW is the ideal time for PPF and ceramic \u2014 the paint is pristine, so protection locks in that factory finish from day one.' },
+        { q: 'Can you coat BMW Individual or matte paint?', a: 'Absolutely. We offer coatings formulated for matte and frozen finishes that preserve the look while adding protection.' },
+        { q: 'Do you tint BMW EVs like the i4 and iX?', a: 'Yes \u2014 our non-metallic ceramic tint rejects heat and UV without interfering with the sensors and connectivity in modern BMW EVs.' },
+      ],
+      crossTitle: 'Build Your BMW Protection Package',
+      crossBody: 'Combine PPF, ceramic and tint for complete, layered protection. Tell us your model and we\u2019ll recommend the ideal setup \u2014 no upsells.',
+      crossHref: 'Ceramic-Coating.dc.html',
+      crossLabel: 'Explore Ceramic',
+    } };
+  }
+}
+</script>
+</body>
+</html>

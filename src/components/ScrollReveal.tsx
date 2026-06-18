@@ -17,9 +17,9 @@ export function ScrollReveal({
   direction = "up",
 }: ScrollRevealProps) {
   const directionMap = {
-    up: { y: 40, x: 0 },
-    left: { y: 0, x: -40 },
-    right: { y: 0, x: 40 },
+    up: { y: 34, x: 0 },
+    left: { y: 0, x: -34 },
+    right: { y: 0, x: 34 },
     none: { y: 0, x: 0 },
   };
 
@@ -37,9 +37,9 @@ export function ScrollReveal({
       }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{
-        duration: 0.7,
+        duration: 0.8,
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: [0.2, 0.7, 0.2, 1],
       }}
     >
       {children}
@@ -84,11 +84,11 @@ export function StaggerItem({
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 34 },
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+          transition: { duration: 0.8, ease: [0.2, 0.7, 0.2, 1] },
         },
       }}
     >

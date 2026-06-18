@@ -1,0 +1,29 @@
+/* Front Range Detail Studio — Effects: radii, shadows, motion */
+:root {
+  /* ---- Border radius ---- */
+  --radius-none: 0;
+  --radius-sm: 3px;
+  --radius-md: 4px;      /* cards, service tiles — default */
+  --radius-lg: 8px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  --radius-button: 3.125rem;  /* pill buttons */
+
+  /* ---- Shadows (Material elevation) ---- */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+  --shadow-md: 0 3px 3px -2px rgba(0,0,0,0.2), 0 3px 4px 0 rgba(0,0,0,0.14), 0 1px 8px 0 rgba(0,0,0,0.12);
+  --shadow-lg: 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12), 0 3px 5px -1px rgba(0,0,0,0.2);
+  --shadow-cyan-glow: 0 8px 30px rgba(0,188,212,0.35);
+
+  /* ---- Motion ---- */
+  --dur-fast: 0.2s;   /* @kind other */
+  --dur-normal: 0.3s; /* @kind other */
+  --dur-slow: 0.5s;   /* @kind other */
+  --ease-default: ease-out;                    /* @kind other */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+
+  /* ---- Interaction transforms ---- */
+  --lift-card: -20px; /* @kind other */ /* hover lift on cards */
+  --lift-button: -2px; /* @kind other */ /* hover lift on buttons */
+  --zoom-image: 1.06; /* @kind other */ /* image zoom on hover */
+}

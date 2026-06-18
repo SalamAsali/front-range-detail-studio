@@ -9,10 +9,10 @@ interface SectionProps {
 }
 
 const bgMap = {
-  black: "bg-black",
-  dark: "bg-dark",
-  elevated: "bg-dark-elevated",
-  surface: "bg-dark-surface",
+  black: "#000",
+  dark: "#0d0d0d",
+  elevated: "#1a1a1a",
+  surface: "#1e1e1e",
 };
 
 export function Section({
@@ -25,10 +25,18 @@ export function Section({
   return (
     <section
       id={id}
-      className={`${bgMap[bg]} py-[clamp(50px,7vw,90px)] ${className}`}
+      style={{
+        background: bgMap[bg],
+        padding: "clamp(64px, 8vw, 110px) 0",
+      }}
+      className={className}
     >
       <div
-        className={`mx-auto px-5 ${wide ? "max-w-[1440px]" : "max-w-[840px]"}`}
+        style={{
+          maxWidth: wide ? 1280 : 840,
+          margin: "0 auto",
+          padding: "0 clamp(20px, 5vw, 56px)",
+        }}
       >
         {children}
       </div>
@@ -44,10 +52,18 @@ export function SectionHeading({
   accent?: boolean;
 }) {
   return (
-    <div className="mb-8">
+    <div style={{ marginBottom: 32 }}>
       <h2>{children}</h2>
       {accent && (
-        <hr className="w-24 h-0.5 bg-primary border-none mt-3 mb-0" />
+        <hr
+          style={{
+            width: 96,
+            height: 2,
+            background: "#00BCD4",
+            border: "none",
+            margin: "22px 0 0",
+          }}
+        />
       )}
     </div>
   );

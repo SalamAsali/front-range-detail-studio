@@ -1,0 +1,46 @@
+/* Front Range Detail Studio — Typography tokens
+   Four families. Archivo = headings, Manrope = body, Inter = display/contact,
+   Michroma = buttons only. Fira Code = mono/code. */
+:root {
+  /* ---- Families ---- */
+  --font-heading: 'Archivo', sans-serif;   /* headings, card titles — 700, uppercase */
+  --font-body: 'Manrope', sans-serif;      /* body copy — 300 */
+  --font-display: 'Inter', sans-serif;     /* subheads, contact info */
+  --font-button: 'Michroma', sans-serif;   /* CTA buttons only, uppercase, wide */
+  --font-mono: 'Fira Code', monospace;     /* code blocks */
+
+  /* ---- Weights ---- */
+  --fw-light: 300;    /* @kind font */
+  --fw-regular: 400;  /* @kind font */
+  --fw-medium: 500;   /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold: 700;     /* @kind font */
+
+  /* ---- Fixed scale ---- */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.15rem;
+  --text-4xl: 3rem;
+  --text-5xl: 3.75rem;
+
+  /* ---- Fluid scale (responsive headings/body) ---- */
+  --fluid-h1: clamp(2.15rem, 1.5vw + 1.775rem, 3rem); /* @kind other */
+  --fluid-h2: clamp(1.75rem, 0.5vw + 1.625rem, 2rem); /* @kind other */
+  --fluid-h3: clamp(1.125rem, 0.75vw + 0.9375rem, 1.375rem); /* @kind other */
+  --fluid-body: clamp(1rem, 0.5vw + 0.875rem, 1.125rem); /* @kind other */
+
+  /* ---- Line height ---- */
+  --lh-tight: 1.2;   /* @kind font */
+  --lh-base: 1.4;    /* @kind font */
+  --lh-relaxed: 1.6; /* @kind font */
+
+  /* ---- Letter spacing ---- */
+  --ls-tight: -0.1px; /* @kind font */ /* global default */
+  --ls-normal: 0;       /* @kind font */
+  --ls-wide: 0.05em; /* @kind font */ /* buttons, card titles */
+  --ls-wider: 0.1em;    /* @kind font */
+}

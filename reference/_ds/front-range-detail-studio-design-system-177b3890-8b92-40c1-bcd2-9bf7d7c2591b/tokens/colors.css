@@ -1,0 +1,45 @@
+/* Front Range Detail Studio — Color tokens
+   Dark, cinematic luxury palette. Cyan accent over deep blacks. */
+:root {
+  /* ---- Primary / cyan ---- */
+  --color-cyan: #00BCD4;          /* CTAs, accents, links, hover, gradient start */
+  --color-cyan-dark: #008AA2;     /* active / pressed states */
+  --color-cyan-light: #32EEFF;    /* highlights, hover glow */
+  --color-cyan-icon: #04A8CB;     /* logo icon mark */
+
+  /* ---- Neutral / dark surfaces ---- */
+  --color-black: #000000;         /* hero backgrounds, deepest sections */
+  --color-dark: #111111;          /* primary page background */
+  --color-dark-elevated: #1a1a1a; /* elevated surfaces */
+  --color-dark-surface: #1e1e1e;  /* cards, testimonials */
+  --color-dark-card: #2d2d2d;     /* form containers, tertiary surfaces */
+  --color-gray: #686868;          /* secondary text, metadata */
+  --color-gray-border: #686E77;   /* input borders, subtle dividers */
+  --color-gray-text: #585E6A;     /* muted text on light */
+  --color-off-white: #FBFAF3;     /* rare light sections, code backgrounds */
+  --color-white: #FFFFFF;         /* text on dark, logo text */
+
+  /* ---- Functional / review platforms ---- */
+  --color-google: #e7711b;
+  --color-yelp: #c41200;
+  --color-facebook: #3c5b9b;
+
+  /* ---- Gradients ---- */
+  --gradient-hero: linear-gradient(100deg, rgba(0,188,212,0.6) 0%, rgba(0,0,0,0.6) 100%); /* @kind color */
+  --gradient-card-overlay: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%); /* @kind color */
+  --gradient-cyan: linear-gradient(100deg, #00BCD4 0%, #008AA2 100%); /* @kind color */
+
+  /* ---- Semantic aliases ---- */
+  --bg-page: var(--color-dark);
+  --bg-deep: var(--color-black);
+  --surface-elevated: var(--color-dark-elevated);
+  --surface-card: var(--color-dark-surface);
+  --surface-form: var(--color-dark-card);
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-gray);
+  --text-accent: var(--color-cyan);
+  --border-subtle: var(--color-gray-border);
+  --accent: var(--color-cyan);
+  --accent-hover: var(--color-cyan-light);
+  --accent-active: var(--color-cyan-dark);
+}

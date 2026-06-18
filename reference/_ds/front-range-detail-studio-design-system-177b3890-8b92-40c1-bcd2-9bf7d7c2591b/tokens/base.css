@@ -1,0 +1,47 @@
+/* Front Range Detail Studio — Base element defaults
+   Dark theme. Applied to specimen cards and consuming pages. */
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: var(--fw-light);
+  font-size: var(--fluid-body);
+  line-height: var(--lh-base);
+  letter-spacing: var(--ls-tight);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+  margin: 0;
+}
+h1 { font-size: var(--fluid-h1); }
+h2 { font-size: var(--fluid-h2); }
+h3 { font-size: var(--fluid-h3); }
+h4 {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-base);
+  margin: 0;
+}
+
+a {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-default);
+}
+a:hover { color: var(--accent-hover); }
+
+::selection {
+  background: var(--color-cyan);
+  color: var(--color-black);
+}

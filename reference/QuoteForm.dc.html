@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="background:#161616;border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:clamp(26px,3.4vw,40px);font-family:'Inter',sans-serif;box-shadow:0 24px 60px rgba(0,0,0,0.45);">
+  <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:40px 10px;">
+      <div style="width:66px;height:66px;border-radius:50%;background:rgba(0,188,212,0.12);border:1px solid rgba(0,188,212,0.4);display:flex;align-items:center;justify-content:center;color:#00BCD4;font-size:30px;">&#10003;</div>
+      <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.02em;font-size:24px;color:#fff;">Request Received</h3>
+      <p style="margin:0;max-width:380px;font-family:'Manrope',sans-serif;font-weight:300;font-size:15px;line-height:1.6;color:rgba(255,255,255,0.7);">Thanks &mdash; we&rsquo;ll review your vehicle details and reach out shortly to schedule your consultation.</p>
+      <button onClick="{{ reset }}" style="margin-top:6px;font-family:'Michroma',sans-serif;text-transform:uppercase;letter-spacing:0.05em;font-size:12px;color:#00BCD4;background:transparent;border:1px solid #00BCD4;border-radius:3.125rem;padding:13px 28px;cursor:pointer;">Send Another</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+  <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:20px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;">
+      <label style="display:flex;flex-direction:column;gap:7px;">
+        <span style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.55);">Name</span>
+        <input type="text" placeholder="Your name" style="background:#2d2d2d;border:1px solid #3a3a3a;border-radius:4px;padding:13px 14px;color:#fff;font-family:'Manrope',sans-serif;font-size:15px;outline:none;transition:border-color .2s ease,box-shadow .2s ease;" style-focus="border-color:#00BCD4;box-shadow:0 0 0 3px rgba(0,188,212,0.18);" />
+      </label>
+      <label style="display:flex;flex-direction:column;gap:7px;">
+        <span style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.55);">Email</span>
+        <input type="email" placeholder="you@email.com" style="background:#2d2d2d;border:1px solid #3a3a3a;border-radius:4px;padding:13px 14px;color:#fff;font-family:'Manrope',sans-serif;font-size:15px;outline:none;transition:border-color .2s ease,box-shadow .2s ease;" style-focus="border-color:#00BCD4;box-shadow:0 0 0 3px rgba(0,188,212,0.18);" />
+      </label>
+      <label style="display:flex;flex-direction:column;gap:7px;">
+        <span style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.55);">Phone</span>
+        <input type="tel" placeholder="(303) 000-0000" style="background:#2d2d2d;border:1px solid #3a3a3a;border-radius:4px;padding:13px 14px;color:#fff;font-family:'Manrope',sans-serif;font-size:15px;outline:none;transition:border-color .2s ease,box-shadow .2s ease;" style-focus="border-color:#00BCD4;box-shadow:0 0 0 3px rgba(0,188,212,0.18);" />
+      </label>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;">
+      <label style="display:flex;flex-direction:column;gap:7px;">
+        <span style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.55);">Vehicle Make</span>
+        <input type="text" placeholder="e.g. BMW" style="background:#2d2d2d;border:1px solid #3a3a3a;border-radius:4px;padding:13px 14px;color:#fff;font-family:'Manrope',sans-serif;font-size:15px;outline:none;transition:border-color .2s ease,box-shadow .2s ease;" style-focus="border-color:#00BCD4;box-shadow:0 0 0 3px rgba(0,188,212,0.18);" />
+      </label>
+      <label style="display:flex;flex-direction:column;gap:7px;">
+        <span style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.55);">Model</span>
+        <input type="text" placeholder="e.g. M5" style="background:#2d2d2d;border:1px solid #3a3a3a;border-radius:4px;padding:13px 14px;color:#fff;font-family:'Manrope',sans-serif;font-size:15px;outline:none;transition:border-color .2s ease,box-shadow .2s ease;" style-focus="border-color:#00BCD4;box-shadow:0 0 0 3px rgba(0,188,212,0.18);" />
+      </label>
+      <label style="display:flex;flex-direction:column;gap:7px;">
+        <span style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.55);">Year</span>
+        <input type="text" placeholder="2024" style="background:#2d2d2d;border:1px solid #3a3a3a;border-radius:4px;padding:13px 14px;color:#fff;font-family:'Manrope',sans-serif;font-size:15px;outline:none;transition:border-color .2s ease,box-shadow .2s ease;" style-focus="border-color:#00BCD4;box-shadow:0 0 0 3px rgba(0,188,212,0.18);" />
+      </label>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:11px;">
+      <span style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.55);">Services of interest</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;">
+        <sc-for list="{{ services }}" as="svc" hint-placeholder-count="7">
+          <label style="display:flex;align-items:center;gap:10px;background:#2d2d2d;border:1px solid #3a3a3a;border-radius:4px;padding:11px 13px;cursor:pointer;font-family:'Manrope',sans-serif;font-size:14px;color:rgba(255,255,255,0.85);">
+            <input type="checkbox" style="width:16px;height:16px;accent-color:#00BCD4;cursor:pointer;" />
+            <span>{{ svc }}</span>
+          </label>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
+      <span style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.55);">Preferred contact</span>
+      <div style="display:flex;gap:10px;">
+        <sc-for list="{{ prefs }}" as="p" hint-placeholder-count="3">
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:'Manrope',sans-serif;font-size:14px;color:rgba(255,255,255,0.85);">
+            <input type="radio" name="pref" style="width:15px;height:15px;accent-color:#00BCD4;cursor:pointer;" />
+            <span>{{ p }}</span>
+          </label>
+        </sc-for>
+      </div>
+    </div>
+
+    <label style="display:flex;flex-direction:column;gap:7px;">
+      <span style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.55);">Comments</span>
+      <textarea rows="3" placeholder="Tell us about your vehicle and what you\u2019re looking for\u2026" style="background:#2d2d2d;border:1px solid #3a3a3a;border-radius:4px;padding:13px 14px;color:#fff;font-family:'Manrope',sans-serif;font-size:15px;outline:none;resize:vertical;transition:border-color .2s ease,box-shadow .2s ease;" style-focus="border-color:#00BCD4;box-shadow:0 0 0 3px rgba(0,188,212,0.18);"></textarea>
+    </label>
+
+    <label style="display:flex;align-items:flex-start;gap:11px;cursor:pointer;">
+      <input type="checkbox" required="required" style="width:16px;height:16px;accent-color:#00BCD4;margin-top:2px;cursor:pointer;" />
+      <span style="font-family:'Manrope',sans-serif;font-size:13px;line-height:1.5;color:rgba(255,255,255,0.6);">I consent to be contacted by Front Range Detail Studio regarding my request. We never share your information.</span>
+    </label>
+
+    <button type="submit" style="font-family:'Michroma',sans-serif;text-transform:uppercase;letter-spacing:0.05em;font-size:14px;color:#fff;background:#00BCD4;border:none;border-radius:3.125rem;padding:17px 32px;cursor:pointer;align-self:flex-start;transition:background .2s ease,transform .2s ease,box-shadow .2s ease;box-shadow:0 8px 26px rgba(0,188,212,0.3);" onMouseEnter="{{ btnEnter }}" onMouseLeave="{{ btnLeave }}">Request My Free Quote</button>
+  </form>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:640,&quot;height&quot;:760}}">
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return {
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); try { window.scrollTo({ top: window.scrollY }); } catch(_){} },
+      reset: () => this.setState({ sent: false }),
+      btnEnter: (e) => { e.currentTarget.style.background = '#008AA2'; e.currentTarget.style.transform = 'translateY(-2px)'; },
+      btnLeave: (e) => { e.currentTarget.style.background = '#00BCD4'; e.currentTarget.style.transform = 'translateY(0)'; },
+      services: ['PPF / Clear Bra', 'Window Tint', 'Ceramic Coating', 'Vinyl Wrap', 'Paint Correction', 'Oxidation Removal', 'Other'],
+      prefs: ['Text', 'Call', 'Email'],
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,192 +1,294 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Auto Detailing", href: "/auto-detailing" },
-  {
-    label: "Protect",
-    href: "/services",
-    children: [
-      { label: "PPF (Clear Bra)", href: "/paint-protection-film-ppf" },
-      { label: "Ceramic Coating", href: "/ceramic-coating" },
-      { label: "Window Tinting", href: "/window-tint" },
-    ],
-  },
-  { label: "System X", href: "/system-x-automotive-ceramic-coatings" },
-  { label: "Wraps", href: "/vinyl-wraps" },
-  {
-    label: "RV & Boat",
-    href: "/rv-detailing",
-    children: [
-      { label: "RV Detailing", href: "/rv-detailing" },
-      { label: "RV Ceramic Coating", href: "/rv-ceramic-coating" },
-      { label: "Boat Detailing", href: "/boat-detailing" },
-      { label: "Boat Ceramic Coating", href: "/boat-ceramic-coating" },
-    ],
-  },
-  { label: "Contact", href: "/contact" },
+const navLinks = [
+  { label: "Services", href: "/services" },
+  { label: "Vehicles", href: "/bmw-detailing" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      const s = window.scrollY > 40;
+      if (s !== scrolled) setScrolled(s);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  });
+
+  const closeMenu = useCallback(() => setMobileOpen(false), []);
 
   return (
-    <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-black/95 backdrop-blur-md shadow-lg"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="max-w-[1440px] mx-auto px-5 flex items-center justify-between h-16 lg:h-20">
-          <Link href="/" className="flex-shrink-0">
-            <Image
-              src="/logo-inverse.svg"
-              alt="Front Range Detail Studio logo"
-              width={180}
-              height={40}
-              priority
-            />
-          </Link>
+    <nav
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 100,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "18px clamp(20px, 5vw, 64px)",
+        background: scrolled
+          ? "rgba(0,0,0,0.9)"
+          : "linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0))",
+        backdropFilter: scrolled ? "blur(14px)" : "blur(0px)",
+        WebkitBackdropFilter: scrolled ? "blur(14px)" : "blur(0px)",
+        borderBottom: `1px solid ${scrolled ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0)"}`,
+        transition: "background .35s ease, border-color .35s ease",
+        fontFamily: "var(--font-display)",
+      }}
+    >
+      {/* Logo */}
+      <Link href="/" style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
+        <Image
+          src="/logo-inverse.svg"
+          alt="Front Range Detail Studio"
+          width={180}
+          height={46}
+          style={{ height: 46, width: "auto", display: "block" }}
+          priority
+        />
+      </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
-              <div
-                key={item.label}
-                className="relative"
-                onMouseEnter={() =>
-                  item.children && setOpenDropdown(item.label)
-                }
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
-                <Link
-                  href={item.href}
-                  className="px-3 py-2 text-sm text-white/80 hover:text-primary transition-colors font-[var(--font-body)]"
-                >
-                  {item.label}
-                  {item.children && (
-                    <span className="ml-1 text-xs">▾</span>
-                  )}
-                </Link>
-                {item.children && openDropdown === item.label && (
-                  <div className="absolute top-full left-0 mt-0 bg-dark-elevated border border-gray-border/20 rounded min-w-[200px] py-2 shadow-xl">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-4 py-2 text-sm text-white/70 hover:text-primary hover:bg-white/5 transition-colors"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
-
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="tel:3035208023"
-              className="text-sm text-white/70 hover:text-primary transition-colors"
-            >
-              (303) 520-8023
-            </a>
+      {/* Desktop links + CTA */}
+      <div style={{ display: "flex", alignItems: "center", gap: "clamp(18px, 2.6vw, 40px)" }}>
+        <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "clamp(16px, 2vw, 34px)" }}>
+          {navLinks.map((link) => (
             <Link
-              href="/free-quote"
-              className="px-6 py-2.5 bg-primary text-white text-xs uppercase tracking-widest rounded-full font-[var(--font-button)] hover:bg-primary-dark transition-colors"
+              key={link.label}
+              href={link.href}
+              className="nav-link"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: 14,
+                fontWeight: 500,
+                letterSpacing: "0.04em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.9)",
+                textDecoration: "none",
+                transition: "color .2s ease",
+                whiteSpace: "nowrap",
+              }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#00BCD4"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.9)"; }}
             >
-              Free Quote
+              {link.label}
             </Link>
-          </div>
+          ))}
+        </div>
 
-          {/* Mobile burger */}
+        {/* CTA */}
+        <Link
+          href="/#quote"
+          className="desktop-cta"
+          style={{
+            fontFamily: "var(--font-button)",
+            textTransform: "uppercase",
+            letterSpacing: "0.05em",
+            fontSize: "12.5px",
+            color: "#fff",
+            background: "#00BCD4",
+            borderRadius: "3.125rem",
+            padding: "14px 26px",
+            textDecoration: "none",
+            whiteSpace: "nowrap",
+            transition: "background .2s ease, transform .2s ease, box-shadow .2s ease",
+            boxShadow: "0 6px 22px rgba(0,188,212,0.28)",
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLElement).style.background = "#008AA2";
+            (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLElement).style.background = "#00BCD4";
+            (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+          }}
+        >
+          Get A Free Quote
+        </Link>
+
+        {/* Hamburger */}
+        <button
+          aria-label="Menu"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="hamburger"
+          style={{
+            display: "none",
+            flexDirection: "column",
+            justifyContent: "center",
+            gap: 5,
+            width: 44,
+            height: 44,
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
+          }}
+        >
+          <span
+            style={{
+              display: "block",
+              width: 26,
+              height: 2,
+              background: "#fff",
+              borderRadius: 2,
+              transition: "transform .3s ease, opacity .3s ease",
+              transform: mobileOpen ? "translateY(7px) rotate(45deg)" : "none",
+            }}
+          />
+          <span
+            style={{
+              display: "block",
+              width: 26,
+              height: 2,
+              background: "#fff",
+              borderRadius: 2,
+              transition: "opacity .2s ease",
+              opacity: mobileOpen ? 0 : 1,
+            }}
+          />
+          <span
+            style={{
+              display: "block",
+              width: 26,
+              height: 2,
+              background: "#fff",
+              borderRadius: 2,
+              transition: "transform .3s ease",
+              transform: mobileOpen ? "translateY(-7px) rotate(-45deg)" : "none",
+            }}
+          />
+        </button>
+      </div>
+
+      {/* Mobile overlay */}
+      <div
+        onClick={closeMenu}
+        style={{
+          position: "fixed",
+          inset: 0,
+          background: "rgba(0,0,0,0.6)",
+          zIndex: 120,
+          opacity: mobileOpen ? 1 : 0,
+          pointerEvents: mobileOpen ? "auto" : "none",
+          transition: "opacity .3s ease",
+          backdropFilter: "blur(2px)",
+        }}
+      />
+
+      {/* Mobile panel */}
+      <aside
+        style={{
+          position: "fixed",
+          top: 0,
+          right: 0,
+          height: "100%",
+          width: "min(82vw, 340px)",
+          background: "#0a0a0a",
+          borderLeft: "1px solid rgba(255,255,255,0.08)",
+          zIndex: 130,
+          transform: mobileOpen ? "translateX(0)" : "translateX(105%)",
+          transition: "transform .38s cubic-bezier(.4,0,.2,1)",
+          display: "flex",
+          flexDirection: "column",
+          padding: "28px 28px 40px",
+          boxShadow: "-30px 0 60px rgba(0,0,0,0.5)",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 36 }}>
+          <Image src="/logo-inverse.svg" alt="" width={120} height={38} style={{ height: 38, width: "auto" }} />
           <button
-            className="lg:hidden p-2 text-white"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            aria-label="Close"
+            onClick={closeMenu}
+            style={{
+              background: "transparent",
+              border: "none",
+              color: "#fff",
+              fontSize: 26,
+              lineHeight: 1,
+              cursor: "pointer",
+              fontFamily: "var(--font-display)",
+            }}
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              {mobileOpen ? (
-                <path d="M6 6l12 12M6 18L18 6" />
-              ) : (
-                <path d="M3 6h18M3 12h18M3 18h18" />
-              )}
-            </svg>
+            &#10005;
           </button>
         </div>
-      </header>
 
-      {/* Mobile slide-in */}
-      {mobileOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
-          <div
-            className="absolute inset-0 bg-black/60"
-            onClick={() => setMobileOpen(false)}
-          />
-          <div className="absolute right-0 top-0 bottom-0 w-72 bg-dark-elevated overflow-y-auto">
-            <div className="pt-20 px-6 pb-8">
-              {navItems.map((item) => (
-                <div key={item.label} className="mb-1">
-                  <Link
-                    href={item.href}
-                    className="block py-3 text-white/80 hover:text-primary transition-colors border-b border-white/5"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                  {item.children?.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className="block py-2 pl-4 text-sm text-white/50 hover:text-primary transition-colors"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              ))}
-              <div className="mt-6 space-y-3">
-                <a
-                  href="tel:3035208023"
-                  className="block text-center py-3 text-primary border border-primary rounded-full text-sm"
-                >
-                  (303) 520-8023
-                </a>
-                <Link
-                  href="/free-quote"
-                  className="block text-center py-3 bg-primary text-white rounded-full text-xs uppercase tracking-widest font-[var(--font-button)]"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Free Quote
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
+        {navLinks.map((link) => (
+          <Link
+            key={link.label}
+            href={link.href}
+            onClick={closeMenu}
+            style={{
+              fontFamily: "var(--font-heading)",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.02em",
+              fontSize: 22,
+              color: "#fff",
+              textDecoration: "none",
+              padding: "16px 0",
+              borderBottom: "1px solid rgba(255,255,255,0.07)",
+            }}
+          >
+            {link.label}
+          </Link>
+        ))}
+
+        <Link
+          href="/#quote"
+          onClick={closeMenu}
+          style={{
+            marginTop: 28,
+            fontFamily: "var(--font-button)",
+            textTransform: "uppercase",
+            letterSpacing: "0.05em",
+            fontSize: 13,
+            color: "#fff",
+            background: "#00BCD4",
+            borderRadius: "3.125rem",
+            padding: "16px 26px",
+            textDecoration: "none",
+            textAlign: "center",
+          }}
+        >
+          Get A Free Quote
+        </Link>
+
+        <a
+          href="tel:+13035208023"
+          style={{
+            marginTop: 18,
+            fontFamily: "var(--font-display)",
+            fontSize: 15,
+            color: "#00BCD4",
+            textDecoration: "none",
+            textAlign: "center",
+            letterSpacing: "0.02em",
+          }}
+        >
+          (303) 520-8023
+        </a>
+      </aside>
+
+      {/* Mobile breakpoint styles */}
+      <style>{`
+        @media (max-width: 880px) {
+          .desktop-nav { display: none !important; }
+          .desktop-cta { display: none !important; }
+          .hamburger { display: flex !important; }
+        }
+      `}</style>
+    </nav>
   );
 }

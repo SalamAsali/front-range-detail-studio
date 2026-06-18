@@ -15,26 +15,47 @@ interface ServiceCardProps {
 export function ServiceCard({ title, subtitle, image, href, videoSrc }: ServiceCardProps) {
   const [hovering, setHovering] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const loadedRef = useRef(false);
 
   const handleMouseEnter = () => {
     setHovering(true);
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
+    const vid = videoRef.current;
+    if (vid) {
+      if (!loadedRef.current) {
+        vid.load();
+        loadedRef.current = true;
+      }
+      vid.style.opacity = "1";
+      const p = vid.play();
+      if (p && p.catch) p.catch(() => {});
     }
   };
 
   const handleMouseLeave = () => {
     setHovering(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
+    const vid = videoRef.current;
+    if (vid) {
+      vid.style.opacity = "0";
+      try { vid.pause(); } catch (_) {}
     }
   };
 
   return (
     <Link
       href={href}
-      className="group relative block overflow-hidden rounded-lg aspect-[4/3]"
+      style={{
+        position: "relative",
+        display: "block",
+        overflow: "hidden",
+        borderRadius: 6,
+        aspectRatio: "4/3",
+        textDecoration: "none",
+        boxShadow: hovering
+          ? "0 26px 60px rgba(0,0,0,0.6)"
+          : "0 14px 40px rgba(0,0,0,0.4)",
+        transform: hovering ? "translateY(-8px)" : "translateY(0)",
+        transition: "transform .3s ease, box-shadow .3s ease",
+      }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -43,9 +64,11 @@ export function ServiceCard({ title, subtitle, image, href, videoSrc }: ServiceC
         src={image}
         alt={title}
         fill
-        className={`object-cover transition-all duration-700 ${
-          hovering ? "scale-110 opacity-0" : "scale-100 opacity-100"
-        }`}
+        className="object-cover"
+        style={{
+          transition: "transform .6s cubic-bezier(.2,.7,.2,1)",
+          transform: hovering ? "scale(1.07)" : "scale(1)",
+        }}
         sizes="(max-width: 768px) 100vw, 33vw"
       />
 
@@ -58,57 +81,59 @@ export function ServiceCard({ title, subtitle, image, href, videoSrc }: ServiceC
           loop
           playsInline
           preload="none"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-            hovering ? "opacity-100" : "opacity-0"
-          }`}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            opacity: 0,
+            transition: "opacity .4s ease",
+          }}
         />
       )}
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-
-      {/* Cyan glow on hover */}
       <div
-        className={`absolute inset-0 transition-opacity duration-500 ${
-          hovering ? "opacity-100" : "opacity-0"
-        }`}
         style={{
-          boxShadow: "inset 0 0 60px rgba(0, 188, 212, 0.15)",
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.05) 62%)",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          padding: 26,
+          gap: 6,
+          zIndex: 2,
         }}
-      />
-
-      {/* Content */}
-      <div className="absolute bottom-0 left-0 right-0 p-6">
-        <h3
-          className={`text-white text-lg sm:text-xl font-bold uppercase tracking-wide leading-tight transition-transform duration-500 ${
-            hovering ? "-translate-y-1" : ""
-          }`}
-          style={{ fontFamily: "var(--font-heading)" }}
-        >
-          {title}
-        </h3>
+      >
         {subtitle && (
-          <p
-            className={`text-primary text-sm mt-2 transition-all duration-500 ${
-              hovering ? "opacity-100 translate-y-0" : "opacity-60 translate-y-1"
-            }`}
+          <span
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: 11,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "#32EEFF",
+            }}
           >
             {subtitle}
-          </p>
+          </span>
         )}
-      </div>
-
-      {/* Arrow indicator */}
-      <div
-        className={`absolute top-4 right-4 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500 ${
-          hovering
-            ? "bg-primary border-primary scale-100 opacity-100"
-            : "scale-75 opacity-0"
-        }`}
-      >
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="2">
-          <path d="M4 12L12 4M12 4H5M12 4V11" />
-        </svg>
+        <span
+          style={{
+            fontFamily: "var(--font-heading)",
+            fontWeight: 700,
+            textTransform: "uppercase",
+            letterSpacing: "0.02em",
+            fontSize: "1.4rem",
+            lineHeight: 1.08,
+            color: "#fff",
+          }}
+        >
+          {title}
+        </span>
       </div>
     </Link>
   );
