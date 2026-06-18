@@ -9,43 +9,60 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Over 15 years of automotive detailing experience. System X & SunTek certified. Climate-controlled studio in Englewood, CO serving the Denver Metro area.",
+  alternates: {
+    canonical: "https://frontrangedetailstudio.com/about/",
+  },
+  openGraph: {
+    title: "About | Front Range Detail Studio",
+    description:
+      "Over 15 years of automotive detailing experience. System X & SunTek certified. Climate-controlled studio in Englewood, CO.",
+    url: "https://frontrangedetailstudio.com/about/",
+    images: [
+      {
+        url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EVpSF8J7BYGcfrDJ4Z3bxfTn0C/hf_20260617_234445_6c35146a-5d69-4372-80d6-a91c3c0cd694.png",
+        width: 1200,
+        height: 630,
+        alt: "About - Front Range Detail Studio",
+      },
+    ],
+  },
 };
 
 const serviceCards = [
   {
     title: "Paint Protection Film & Clear Bra",
     tag: "12 Year Warranty",
-    img: "/images/services/ppf-card.jpg",
+    img: "/images/services/new-ppf-scaled.jpg",
     href: "/paint-protection-film-ppf",
   },
   {
     title: "Window Tinting",
     tag: "Lifetime Warranty",
-    img: "/images/services/tint-card.jpg",
+    img: "/images/services/new-tint.jpg",
     href: "/window-tint",
   },
   {
     title: "Ceramic Coating",
     tag: "Lifetime Warranty",
-    img: "/images/services/ceramic-card.jpg",
+    img: "/images/services/car-ceramic-1.jpg",
     href: "/ceramic-coating",
   },
   {
     title: "Paint Correction",
     tag: "Multi-Stage Polish",
-    img: "/images/services/detailing-card.jpg",
+    img: "/images/services/paint-correction-new.jpg",
     href: "/auto-detailing",
   },
   {
     title: "Vinyl Wrap & Decals",
     tag: "200+ Finishes",
-    img: "/images/services/wrap-card.jpg",
+    img: "/images/services/vinylwraps-1920w.webp",
     href: "/vinyl-wraps",
   },
   {
     title: "RV & Boat Services",
     tag: "RV \u00B7 Boat \u00B7 Marine",
-    img: "/images/services/rv-card.jpg",
+    img: "/images/services/rv-detailing.jpg",
     href: "/rv-detailing",
   },
 ];

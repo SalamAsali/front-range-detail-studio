@@ -1,13 +1,47 @@
 import type { Metadata } from "next";
 import { ServicePage } from "@/components/ServicePage";
+import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd";
 import { rvDetailingData } from "@/data/services/rv-detailing";
 
 export const metadata: Metadata = {
   title: "RV Detailing & Ceramic Coating",
   description:
     "RV detailing, oxidation removal and ceramic coating in Denver, CO. Class A, B, C, fifth-wheels, travel trailers. Per-foot pricing. Front Range Detail Studio.",
+  alternates: {
+    canonical: "https://frontrangedetailstudio.com/rv-detailing/",
+  },
+  openGraph: {
+    title: "RV Detailing & Ceramic Coating | Front Range Detail Studio",
+    description:
+      "RV detailing, oxidation removal and ceramic coating in Denver, CO. Class A, B, C, fifth-wheels, travel trailers. Per-foot pricing.",
+    url: "https://frontrangedetailstudio.com/rv-detailing/",
+    images: [
+      {
+        url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EVpSF8J7BYGcfrDJ4Z3bxfTn0C/hf_20260617_234445_6c35146a-5d69-4372-80d6-a91c3c0cd694.png",
+        width: 1200,
+        height: 630,
+        alt: "RV Detailing - Front Range Detail Studio",
+      },
+    ],
+  },
 };
 
 export default function RVDetailingPage() {
-  return <ServicePage data={rvDetailingData} />;
+  return (
+    <>
+      <ServiceSchema
+        name="RV Detailing & Ceramic Coating"
+        description="RV exterior wash, oxidation removal, ceramic coating and PPF. Per-foot pricing for Class A, B, C motorhomes, fifth-wheels and travel trailers."
+        url="/rv-detailing"
+      />
+      <FAQSchema faqs={rvDetailingData.faqs!} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "RV Detailing", url: "/rv-detailing" },
+        ]}
+      />
+      <ServicePage data={rvDetailingData} />
+    </>
+  );
 }

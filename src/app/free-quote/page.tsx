@@ -7,6 +7,23 @@ export const metadata: Metadata = {
   title: "Free Quote",
   description:
     "Request a free, no-obligation car detailing quote from Front Range Detail Studio. PPF, ceramic coating, window tinting, vinyl wraps & more in Englewood, CO.",
+  alternates: {
+    canonical: "https://frontrangedetailstudio.com/free-quote/",
+  },
+  openGraph: {
+    title: "Free Quote | Front Range Detail Studio",
+    description:
+      "Request a free, no-obligation car detailing quote. PPF, ceramic coating, window tinting, vinyl wraps & more in Englewood, CO.",
+    url: "https://frontrangedetailstudio.com/free-quote/",
+    images: [
+      {
+        url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EVpSF8J7BYGcfrDJ4Z3bxfTn0C/hf_20260617_234445_6c35146a-5d69-4372-80d6-a91c3c0cd694.png",
+        width: 1200,
+        height: 630,
+        alt: "Free Quote - Front Range Detail Studio",
+      },
+    ],
+  },
 };
 
 export default function FreeQuotePage() {

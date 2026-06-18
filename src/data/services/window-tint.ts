@@ -31,6 +31,14 @@ export const windowTintData: ServicePageData = {
       body: "Premium film backed for life \u2014 no bubbling, no purpling, no peeling.",
     },
   ],
+  includedH2: "What\u2019s Included With Every Window Tint Install",
+  included: [
+    "Premium ceramic window film with lifetime warranty",
+    "99% UV ray rejection and up to 94% infrared heat rejection",
+    "Professional installation in our climate-controlled studio",
+    "Colorado-legal shade consultation and compliance",
+    "Personalized aftercare instructions",
+  ],
   /* "Want maximum privacy or a custom look?" section from original */
   additionalSections: [
     {
