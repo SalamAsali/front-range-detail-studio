@@ -1,3 +1,4 @@
+import { videos } from "@/data/videos";
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Section, SectionHeading } from "@/components/Section";
@@ -109,6 +110,7 @@ export default function PPFPage() {
       <Hero
         image="/images/services/clear-bra-vertical.webp"
         imageAlt="Paint protection film PPF clear bra installation in Denver"
+        videoSrc={videos.services.ppf}
         title="Paint Protection Film (PPF) & Clear Bra in Denver"
         subtitle="Keep Your Car Looking New\u2014No Matter What Colorado Throws At It"
         cta={{ label: "Get A Free Quote", href: "/free-quote" }}

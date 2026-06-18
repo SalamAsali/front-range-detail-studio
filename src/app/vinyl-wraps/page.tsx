@@ -1,3 +1,4 @@
+import { videos } from "@/data/videos";
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Section, SectionHeading } from "@/components/Section";
@@ -65,6 +66,7 @@ export default function VinylWrapsPage() {
       <Hero
         image="/images/services/vinylwraps-1920w.webp"
         imageAlt="Custom vinyl wrap application in Denver Colorado"
+        videoSrc={videos.services.wrap}
         title="Denver Metro Premier Choice in Vinyl Wraps Application"
         subtitle="Transform Your Ride with Custom Vinyl Wraps"
         cta={{ label: "Get A Free Quote", href: "/free-quote" }}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Section, SectionHeading } from "@/components/Section";
+import { videos } from "@/data/videos";
 import { FAQ } from "@/components/FAQ";
 import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
 import { QuoteForm } from "@/components/QuoteForm";
@@ -196,6 +197,7 @@ export default function CeramicCoatingPage() {
       <Hero
         image="/images/vehicles/Corvette-2.webp"
         imageAlt="Ceramic coating application on Corvette at Front Range Detail Studio"
+        videoSrc={videos.services.ceramic}
         title="Ceramic Coating in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines"
         subtitle="Ultimate Protection and Lasting Gloss for Colorado Drivers"
         cta={{ label: "Get A Free Quote", href: "/free-quote" }}

@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface HeroProps {
@@ -30,7 +33,7 @@ export function Hero({
   return (
     <section
       className={`relative overflow-hidden ${
-        fullHeight ? "min-h-screen" : "min-h-[60vh]"
+        fullHeight ? "min-h-screen" : "min-h-[70vh]"
       } flex items-center`}
     >
       {/* Background image */}
@@ -43,7 +46,7 @@ export function Hero({
         sizes="100vw"
       />
 
-      {/* Background video (autoplay, service page heroes) */}
+      {/* Autoplay background video for service pages */}
       {videoSrc && (
         <video
           src={videoSrc}
@@ -61,30 +64,55 @@ export function Hero({
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(100deg, rgba(0,188,212,0.6) 0%, rgba(0,0,0,0.6) 100%)",
+            "linear-gradient(100deg, rgba(0,188,212,0.45) 0%, rgba(0,0,0,0.75) 100%)",
         }}
       />
 
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-dark to-transparent" />
+
       {/* Content */}
-      <div className="relative z-10 max-w-[840px] mx-auto px-5 py-32">
+      <div className="relative z-10 max-w-[1000px] mx-auto px-5 py-36">
         {tagline && (
-          <p className="text-sm text-white/80 font-[var(--font-display)] mb-4 tracking-wide">
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sm text-primary font-[var(--font-display)] mb-4 tracking-[0.15em] uppercase"
+          >
             {tagline}
-          </p>
+          </motion.p>
         )}
-        <h1 className="text-white mb-4">{title}</h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="text-white mb-6"
+        >
+          {title}
+        </motion.h1>
         {subtitle && (
-          <p className="text-lg text-white/80 font-[var(--font-display)] mb-8 max-w-xl">
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-xl text-white/80 font-[var(--font-display)] mb-8 max-w-2xl"
+          >
             {subtitle}
-          </p>
+          </motion.p>
         )}
         {children}
         {(cta || ctaSecondary) && (
-          <div className="flex flex-wrap gap-4 mt-8">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="flex flex-wrap gap-4 mt-8"
+          >
             {cta && (
               <Link
                 href={cta.href}
-                className="px-8 py-3.5 bg-primary text-white text-xs uppercase tracking-widest rounded-full font-[var(--font-button)] hover:bg-primary-dark transition-colors"
+                className="px-10 py-4 bg-primary text-white text-xs uppercase tracking-[0.2em] rounded-full font-[var(--font-button)] hover:bg-primary-dark hover:shadow-[0_0_30px_rgba(0,188,212,0.4)] transition-all duration-300"
               >
                 {cta.label}
               </Link>
@@ -92,12 +120,12 @@ export function Hero({
             {ctaSecondary && (
               <a
                 href={ctaSecondary.href}
-                className="px-8 py-3.5 border border-white/40 text-white text-xs uppercase tracking-widest rounded-full font-[var(--font-button)] hover:border-primary hover:text-primary transition-colors"
+                className="px-10 py-4 border border-white/30 text-white text-xs uppercase tracking-[0.2em] rounded-full font-[var(--font-button)] hover:border-primary hover:text-primary transition-all duration-300"
               >
                 {ctaSecondary.label}
               </a>
             )}
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

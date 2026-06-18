@@ -1,3 +1,4 @@
+import { videos } from "@/data/videos";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Hero } from "@/components/Hero";

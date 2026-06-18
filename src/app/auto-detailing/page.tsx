@@ -1,3 +1,4 @@
+import { videos } from "@/data/videos";
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Section, SectionHeading } from "@/components/Section";
@@ -116,6 +117,7 @@ export default function AutoDetailingPage() {
       <Hero
         image="/images/services/IMG_2236-ceramic.jpg"
         imageAlt="Auto detailing and paint correction in Denver Colorado"
+        videoSrc={videos.services.correction}
         title="Auto Detailing and Paint Correction"
         subtitle="Colorado's Vehicle Paint Correction and Detailing Experts"
         cta={{ label: "Get A Free Quote", href: "/free-quote" }}

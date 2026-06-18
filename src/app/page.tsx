@@ -1,40 +1,54 @@
-import { Hero } from "@/components/Hero";
-import { ServiceCard } from "@/components/ServiceCard";
 import { Section, SectionHeading } from "@/components/Section";
 import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
 import { QuoteForm } from "@/components/QuoteForm";
+import { ServiceCard } from "@/components/ServiceCard";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import { HomeHero } from "@/components/HomeHero";
 import Image from "next/image";
+import { videos } from "@/data/videos";
 
 const serviceCards = [
   {
-    title: "Paint Protection Film & Clear Bra — 10 Year Warranty",
+    title: "Paint Protection Film & Clear Bra",
+    subtitle: "12 Year Warranty",
     image: "/images/services/new-ppf-scaled.jpg",
     href: "/paint-protection-film-ppf",
+    videoSrc: videos.services.ppf,
   },
   {
-    title: "Window Tinting — Lifetime Warranty",
+    title: "Window Tinting",
+    subtitle: "Lifetime Warranty",
     image: "/images/services/new-tint.jpg",
     href: "/window-tint",
+    videoSrc: videos.services.tint,
   },
   {
-    title: "Ceramic Coating — Lifetime Warranty",
+    title: "Ceramic Coating",
+    subtitle: "Lifetime Warranty",
     image: "/images/services/car-ceramic-1.jpg",
     href: "/ceramic-coating",
+    videoSrc: videos.services.ceramic,
   },
   {
     title: "Paint Correction",
+    subtitle: "Multi-Stage Polishing",
     image: "/images/services/paint-correction-new.jpg",
     href: "/auto-detailing",
+    videoSrc: videos.services.correction,
   },
   {
     title: "Vinyl Wrap & Decals",
+    subtitle: "200+ Colors",
     image: "/images/services/vinylwraps-1920w.webp",
     href: "/vinyl-wraps",
+    videoSrc: videos.services.wrap,
   },
   {
     title: "RV & Boat Services",
+    subtitle: "All Vehicle Types",
     image: "/images/hero/coach-scaled.jpg",
     href: "/rv-detailing",
+    videoSrc: videos.services.rv,
   },
 ];
 
@@ -57,101 +71,117 @@ const vehicleLogos = [
 export default function HomePage() {
   return (
     <>
-      <Hero
-        image="/images/hero/colorado-package-scaled.jpg"
-        imageAlt="PPF Clear Bra Denver Tint Ceramic Coating Paint Correction"
-        title="Front Range Detail Studio"
-        tagline="Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"
-        subtitle="RV, Boat, Auto. Paint Protection Film, Ceramic Coating, Tint, Vinyl Wrap"
-        cta={{ label: "Get A Free Quote", href: "/free-quote" }}
-        ctaSecondary={{ label: "Call (303) 520-8023", href: "tel:3035208023" }}
-        fullHeight
-      />
+      <HomeHero />
 
       {/* Services Grid */}
       <Section bg="dark" wide>
-        <SectionHeading>
-          Denver&apos;s Most Trusted Vehicle Aesthetic Experts
-        </SectionHeading>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <ScrollReveal>
+          <SectionHeading>
+            Denver&apos;s Most Trusted Vehicle Aesthetic Experts
+          </SectionHeading>
+        </ScrollReveal>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {serviceCards.map((card) => (
-            <ServiceCard key={card.href} {...card} />
+            <StaggerItem key={card.href}>
+              <ServiceCard {...card} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </Section>
 
       {/* Reviews */}
       <Section bg="black" wide>
-        <SectionHeading>
-          Front Range Detail Studio Client Reviews
-        </SectionHeading>
-        <ReviewBadges />
-        <ReviewCarousel />
+        <ScrollReveal>
+          <SectionHeading>
+            Front Range Detail Studio Client Reviews
+          </SectionHeading>
+        </ScrollReveal>
+        <ScrollReveal delay={0.2}>
+          <ReviewBadges />
+        </ScrollReveal>
+        <ScrollReveal delay={0.3}>
+          <ReviewCarousel />
+        </ScrollReveal>
       </Section>
 
       {/* Partners */}
       <Section bg="dark" wide>
-        <SectionHeading>Our Partners — Trusted Brands</SectionHeading>
-        <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
-          {partnerLogos.map((logo) => (
-            <Image
-              key={logo.src}
-              src={logo.src}
-              alt={logo.alt}
-              width={120}
-              height={40}
-              className="opacity-60 hover:opacity-100 transition-opacity object-contain h-10"
-            />
-          ))}
-        </div>
+        <ScrollReveal>
+          <SectionHeading>Our Partners — Trusted Brands</SectionHeading>
+        </ScrollReveal>
+        <ScrollReveal delay={0.2}>
+          <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-16">
+            {partnerLogos.map((logo) => (
+              <Image
+                key={logo.src}
+                src={logo.src}
+                alt={logo.alt}
+                width={140}
+                height={50}
+                className="opacity-50 hover:opacity-100 transition-opacity duration-500 object-contain h-12"
+              />
+            ))}
+          </div>
+        </ScrollReveal>
       </Section>
 
       {/* Vehicle Brands */}
       <Section bg="black" wide>
-        <SectionHeading>
-          Protection For All Brands and Models Including Tesla, Rivian, Porsche,
-          BMW, Mercedes Benz and More
-        </SectionHeading>
-        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-6 items-center">
+        <ScrollReveal>
+          <SectionHeading>
+            Protection For All Brands and Models
+          </SectionHeading>
+          <p className="text-white/50 text-lg -mt-4 mb-10">
+            Including Tesla, Rivian, Porsche, BMW, Mercedes Benz and More
+          </p>
+        </ScrollReveal>
+        <StaggerContainer className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-8 items-center">
           {vehicleLogos.map((logo) => (
-            <Image
-              key={logo}
-              src={`/images/logos/${logo}`}
-              alt={logo.replace(/-|\.svg/g, " ").trim()}
-              width={60}
-              height={60}
-              className="opacity-40 hover:opacity-80 transition-opacity mx-auto object-contain h-12"
-            />
+            <StaggerItem key={logo}>
+              <Image
+                src={`/images/logos/${logo}`}
+                alt={logo.replace(/-|\.svg/g, " ").trim()}
+                width={70}
+                height={70}
+                className="opacity-30 hover:opacity-80 transition-opacity duration-500 mx-auto object-contain h-14"
+              />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </Section>
 
       {/* Contact & Quote */}
       <Section bg="dark" wide id="contact">
-        <SectionHeading>
-          Serving The Denver Metro And Surrounding Areas
-        </SectionHeading>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div className="space-y-6">
-            <h3>Connect with Us</h3>
-            <div className="space-y-3 text-white/70">
-              <a
-                href="tel:3035208023"
-                className="block text-lg text-primary hover:text-primary-light transition-colors"
-              >
-                (303) 520-8023
-              </a>
-              <a
-                href="mailto:info@frontrangedetailstudio.com"
-                className="block hover:text-primary transition-colors"
-              >
-                info@frontrangedetailstudio.com
-              </a>
-              <p>12559 E Broncos Pkwy, Centennial, CO 80112</p>
-              <p>Monday – Sunday: By Appointment Only</p>
+        <ScrollReveal>
+          <SectionHeading>
+            Serving The Denver Metro And Surrounding Areas
+          </SectionHeading>
+        </ScrollReveal>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <ScrollReveal direction="left">
+            <div className="space-y-8">
+              <h3 className="text-gradient">Connect with Us</h3>
+              <div className="space-y-4 text-lg text-white/70">
+                <a
+                  href="tel:3035208023"
+                  className="block text-2xl text-primary hover:text-primary-light transition-colors font-semibold"
+                >
+                  (303) 520-8023
+                </a>
+                <a
+                  href="mailto:info@frontrangedetailstudio.com"
+                  className="block hover:text-primary transition-colors"
+                >
+                  info@frontrangedetailstudio.com
+                </a>
+                <p>12559 E Broncos Pkwy, Centennial, CO 80112</p>
+                <p>Monday – Sunday: By Appointment Only</p>
+              </div>
             </div>
-          </div>
-          <QuoteForm />
+          </ScrollReveal>
+          <ScrollReveal direction="right">
+            <QuoteForm />
+          </ScrollReveal>
         </div>
       </Section>
     </>

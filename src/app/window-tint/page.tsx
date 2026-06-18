@@ -1,3 +1,4 @@
+import { videos } from "@/data/videos";
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Section, SectionHeading } from "@/components/Section";
@@ -76,6 +77,7 @@ export default function WindowTintPage() {
       <Hero
         image="/images/services/window-tint-vertical.webp"
         imageAlt="Ceramic window tint installation in Denver Colorado"
+        videoSrc={videos.services.tint}
         title="Ceramic Window Tint in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines"
         subtitle="Unmatched heat rejection, UV protection, and style"
         cta={{ label: "Get A Free Quote", href: "/free-quote" }}
