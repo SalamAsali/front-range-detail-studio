@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ServicePage } from "@/components/ServicePage";
+import { VehiclePage } from "@/components/VehiclePage";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd";
 import { fordTruckDetailingData } from "@/data/services/ford-truck-detailing";
 
@@ -34,14 +34,19 @@ export default function FordTruckDetailingPage() {
         description="Ford F-150, Super Duty and Lightning PPF, ceramic coating and window tint. Custom-fit protection for all Ford truck models."
         url="/ford-truck-detailing"
       />
-      <FAQSchema faqs={fordTruckDetailingData.faqs!} />
+      <FAQSchema
+        faqs={fordTruckDetailingData.faqs.map((f) => ({
+          q: f.question,
+          a: f.answer,
+        }))}
+      />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },
           { name: "Ford Truck Detailing", url: "/ford-truck-detailing" },
         ]}
       />
-      <ServicePage data={fordTruckDetailingData} />
+      <VehiclePage data={fordTruckDetailingData} />
     </>
   );
 }

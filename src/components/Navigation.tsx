@@ -4,17 +4,43 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const navLinks = [
-  { label: "Services", href: "/services" },
-  { label: "Vehicles", href: "/bmw-detailing" },
-  { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/#contact" },
+interface NavItem {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+}
+
+const navLinks: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "Auto Detailing", href: "/auto-detailing" },
+  {
+    label: "Protect",
+    href: "/services",
+    children: [
+      { label: "PPF (Clear Bra)", href: "/paint-protection-film-ppf" },
+      { label: "Ceramic Coating", href: "/ceramic-coating" },
+      { label: "Window Tinting", href: "/window-tint" },
+    ],
+  },
+  { label: "System X", href: "/system-x-automotive-ceramic-coatings" },
+  { label: "Wraps", href: "/vinyl-wraps" },
+  {
+    label: "RV & Boat",
+    href: "/rv-detailing",
+    children: [
+      { label: "RV Detailing", href: "/rv-detailing" },
+      { label: "RV Ceramic Coating", href: "/rv-ceramic-coating" },
+      { label: "Boat Detailing", href: "/boat-detailing" },
+      { label: "Boat Ceramic Coating", href: "/boat-ceramic-coating" },
+    ],
+  },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -64,26 +90,86 @@ export function Navigation() {
       <div style={{ display: "flex", alignItems: "center", gap: "clamp(18px, 2.6vw, 40px)" }}>
         <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "clamp(16px, 2vw, 34px)" }}>
           {navLinks.map((link) => (
-            <Link
+            <div
               key={link.label}
-              href={link.href}
-              className="nav-link"
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: 14,
-                fontWeight: 500,
-                letterSpacing: "0.04em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.9)",
-                textDecoration: "none",
-                transition: "color .2s ease",
-                whiteSpace: "nowrap",
-              }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#00BCD4"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.9)"; }}
+              style={{ position: "relative" }}
+              onMouseEnter={() => link.children && setOpenDropdown(link.label)}
+              onMouseLeave={() => setOpenDropdown(null)}
             >
-              {link.label}
-            </Link>
+              <Link
+                href={link.href}
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: 14,
+                  fontWeight: 500,
+                  letterSpacing: "0.04em",
+                  textTransform: "uppercase",
+                  color: openDropdown === link.label ? "#00BCD4" : "rgba(255,255,255,0.9)",
+                  textDecoration: "none",
+                  transition: "color .2s ease",
+                  whiteSpace: "nowrap",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 4,
+                }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#00BCD4"; }}
+                onMouseLeave={(e) => {
+                  if (openDropdown !== link.label) (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.9)";
+                }}
+              >
+                {link.label}
+                {link.children && <span style={{ fontSize: 8, opacity: 0.6 }}>▾</span>}
+              </Link>
+              {link.children && openDropdown === link.label && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    left: -8,
+                    paddingTop: 8,
+                    minWidth: 200,
+                  }}
+                >
+                  <div
+                    style={{
+                      background: "rgba(10,10,10,0.95)",
+                      backdropFilter: "blur(14px)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      borderRadius: 6,
+                      padding: "8px 0",
+                      boxShadow: "0 16px 48px rgba(0,0,0,0.5)",
+                    }}
+                  >
+                    {link.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        style={{
+                          display: "block",
+                          padding: "10px 18px",
+                          fontFamily: "var(--font-display)",
+                          fontSize: 13,
+                          fontWeight: 500,
+                          color: "rgba(255,255,255,0.75)",
+                          textDecoration: "none",
+                          transition: "color .15s ease, background .15s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                          (e.currentTarget as HTMLElement).style.color = "#00BCD4";
+                          (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)";
+                        }}
+                        onMouseLeave={(e) => {
+                          (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.75)";
+                          (e.currentTarget as HTMLElement).style.background = "transparent";
+                        }}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
         </div>
 
@@ -225,24 +311,43 @@ export function Navigation() {
         </div>
 
         {navLinks.map((link) => (
-          <Link
-            key={link.label}
-            href={link.href}
-            onClick={closeMenu}
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontWeight: 700,
-              textTransform: "uppercase",
-              letterSpacing: "0.02em",
-              fontSize: 22,
-              color: "#fff",
-              textDecoration: "none",
-              padding: "16px 0",
-              borderBottom: "1px solid rgba(255,255,255,0.07)",
-            }}
-          >
-            {link.label}
-          </Link>
+          <div key={link.label}>
+            <Link
+              href={link.href}
+              onClick={closeMenu}
+              style={{
+                display: "block",
+                fontFamily: "var(--font-heading)",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.02em",
+                fontSize: 22,
+                color: "#fff",
+                textDecoration: "none",
+                padding: "16px 0",
+                borderBottom: "1px solid rgba(255,255,255,0.07)",
+              }}
+            >
+              {link.label}
+            </Link>
+            {link.children?.map((child) => (
+              <Link
+                key={child.href}
+                href={child.href}
+                onClick={closeMenu}
+                style={{
+                  display: "block",
+                  fontFamily: "var(--font-display)",
+                  fontSize: 15,
+                  color: "rgba(255,255,255,0.5)",
+                  textDecoration: "none",
+                  padding: "10px 0 10px 16px",
+                }}
+              >
+                {child.label}
+              </Link>
+            ))}
+          </div>
         ))}
 
         <Link

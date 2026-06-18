@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ServicePage } from "@/components/ServicePage";
+import { VehiclePage } from "@/components/VehiclePage";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd";
 import { bmwDetailingData } from "@/data/services/bmw-detailing";
 
@@ -34,14 +34,19 @@ export default function BMWDetailingPage() {
         description="BMW PPF, ceramic coating and window tint specialists. Custom-fit protection for all BMW models including M cars and i-series EVs."
         url="/bmw-detailing"
       />
-      <FAQSchema faqs={bmwDetailingData.faqs!} />
+      <FAQSchema
+        faqs={bmwDetailingData.faqs.map((f) => ({
+          q: f.question,
+          a: f.answer,
+        }))}
+      />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },
           { name: "BMW Detailing", url: "/bmw-detailing" },
         ]}
       />
-      <ServicePage data={bmwDetailingData} />
+      <VehiclePage data={bmwDetailingData} />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ServicePage } from "@/components/ServicePage";
+import { VehiclePage } from "@/components/VehiclePage";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd";
 import { teslaDetailingData } from "@/data/services/tesla-detailing";
 
@@ -34,14 +34,19 @@ export default function TeslaDetailingPage() {
         description="Tesla PPF, ceramic coating and window tint specialists. Custom-fit protection for Model 3, Model Y, Model S, Model X and Cybertruck."
         url="/tesla-detailing"
       />
-      <FAQSchema faqs={teslaDetailingData.faqs!} />
+      <FAQSchema
+        faqs={teslaDetailingData.faqs.map((f) => ({
+          q: f.question,
+          a: f.answer,
+        }))}
+      />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },
           { name: "Tesla Detailing", url: "/tesla-detailing" },
         ]}
       />
-      <ServicePage data={teslaDetailingData} />
+      <VehiclePage data={teslaDetailingData} />
     </>
   );
 }

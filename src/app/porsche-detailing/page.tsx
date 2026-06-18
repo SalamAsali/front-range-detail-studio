@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ServicePage } from "@/components/ServicePage";
+import { VehiclePage } from "@/components/VehiclePage";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd";
 import { porscheDetailingData } from "@/data/services/porsche-detailing";
 
@@ -34,14 +34,19 @@ export default function PorscheDetailingPage() {
         description="Porsche PPF, ceramic coating and window tint specialists. Custom-fit protection for 911, Cayenne, Macan, Panamera and Taycan."
         url="/porsche-detailing"
       />
-      <FAQSchema faqs={porscheDetailingData.faqs!} />
+      <FAQSchema
+        faqs={porscheDetailingData.faqs.map((f) => ({
+          q: f.question,
+          a: f.answer,
+        }))}
+      />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },
           { name: "Porsche Detailing", url: "/porsche-detailing" },
         ]}
       />
-      <ServicePage data={porscheDetailingData} />
+      <VehiclePage data={porscheDetailingData} />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ServicePage } from "@/components/ServicePage";
+import { VehiclePage } from "@/components/VehiclePage";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd";
 import { rivianDetailingData } from "@/data/services/rivian-detailing";
 
@@ -34,14 +34,19 @@ export default function RivianDetailingPage() {
         description="Rivian R1T and R1S PPF, ceramic coating and window tint specialists. Custom-fit protection for your adventure vehicle."
         url="/rivian-detailing"
       />
-      <FAQSchema faqs={rivianDetailingData.faqs!} />
+      <FAQSchema
+        faqs={rivianDetailingData.faqs.map((f) => ({
+          q: f.question,
+          a: f.answer,
+        }))}
+      />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },
           { name: "Rivian Detailing", url: "/rivian-detailing" },
         ]}
       />
-      <ServicePage data={rivianDetailingData} />
+      <VehiclePage data={rivianDetailingData} />
     </>
   );
 }
