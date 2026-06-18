@@ -1,42 +1,42 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const vinylWrapsData: ServicePageData = {
-  heroImg: "/images/hero/vinyl-wraps-hero.jpg",
+  heroImg: "/images/services/vinylwraps-1920w.webp",
   eyebrow: "Vinyl Wraps & Decals",
   h1: "Denver Metro\u2019s Premier Choice In Vinyl Wrap Application",
   introH2: "Transform Your Ride With Custom Vinyl Wraps",
   introBody:
-    "Looking to give your car a fresh new look? Whether you\u2019re after a full color change, custom graphics, or subtle accents, our premium vinyl wrap services provide the ultimate makeover \u2014 without the cost of a new paint job. Choose from over 200 colors and finishes, from matte and satin to gloss, chrome and color-shift.",
+    "Looking to give your car a fresh new look? Whether you\u2019re after a full color change, custom graphics, or subtle accents, our premium vinyl wrap services provide the ultimate makeover \u2014 without the cost of a new paint job.",
   featuresEyebrow: "Key Benefits",
-  featuresH2: "Why Wrap Your Vehicle",
+  featuresH2: "Why Choose Vinyl Wraps?",
   features: [
     {
       title: "Quick Turnaround",
-      body: "Most full wraps are completed in just 3\u20135 days in our studio.",
+      body: "Most full wraps are completed in 3\u20135 days.",
     },
     {
       title: "Full Customization",
-      body: "Over 200 colors and finishes \u2014 matte, satin, gloss, chrome and color-shift.",
+      body: "Choose from a wide range of colors, textures, and finishes.",
     },
     {
       title: "Non-Permanent",
-      body: "Change your look anytime; wraps can be safely removed down the road.",
+      body: "Easily removable without damaging paint.",
     },
     {
       title: "Paint Protection",
-      body: "Vinyl shields your factory paint from UV, light scratches and debris.",
+      body: "Acts as a barrier against minor scratches, sun damage, and road debris.",
     },
     {
-      title: "Cost-Effective",
+      title: "Cost-Effective Alternative to Paint",
       body: "A premium custom look for a fraction of the cost of a full repaint.",
     },
   ],
-  includedH2: "Service Options",
+  includedH2: "Vinyl Wrap Options",
   included: [
-    "Full vehicle color change",
-    "Partial wraps & custom graphics",
-    "Commercial & fleet wraps",
-    "Accent wraps & detail packages",
+    "Full Vehicle Color Change \u2014 Matte, gloss, satin, metallic, or chrome finishes. Over 200+ color options.",
+    "Partial Wraps & Graphics \u2014 Racing stripes, hood/roof/trunk wraps, custom graphics.",
+    "Commercial & Fleet Wraps",
+    "Accent Wraps & Details",
     "Chrome delete & trim blackout",
     "Roof, mirror & hood accents",
   ],
@@ -60,8 +60,8 @@ export const vinylWrapsData: ServicePageData = {
     },
   ],
   gallery: [
-    "/images/gallery/wrap-1.jpg",
-    "/images/gallery/wrap-2.jpg",
+    "/images/gallery/BMW-i4-vertical-pic.webp",
+    "/images/gallery/GMC-truck-vertical-pic.webp",
   ],
   faqs: [
     {

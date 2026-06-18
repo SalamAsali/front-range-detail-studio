@@ -1,7 +1,7 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const rvCeramicCoatingData: ServicePageData = {
-  heroImg: "/images/hero/rv-ceramic-coating-hero.jpg",
+  heroImg: "/images/services/RV-ceramic-coating.jpeg",
   eyebrow: "RV Ceramic Coating \u00B7 System X",
   h1: "RV Ceramic Coating in Denver, CO \u2014 Protect Your Home on Wheels",
   introH2: "Premium RV Ceramic Coating for Lasting Protection",
@@ -45,6 +45,18 @@ export const rvCeramicCoatingData: ServicePageData = {
       title: "Ceramic Coating Application",
       body: "System X MAX G Plus is applied panel by panel for complete, even coverage.",
     },
+    {
+      title: "Curing",
+      body: "The coating cures fully to create a durable, long-lasting bond to every surface.",
+    },
+  ],
+  includedH2: "Ultimate Protection Max G+ Package",
+  included: [
+    "Max G+ over all paintwork",
+    "Max G+ on badges, emblems, trim",
+    "Max G+ on wheels",
+    "Glass on the windshield/windscreen",
+    "Interior protection of leather, vinyl, fabric, and carpet",
   ],
   pricingH2: "Service Packages & Pricing",
   pricing: [
@@ -64,6 +76,13 @@ export const rvCeramicCoatingData: ServicePageData = {
       body: "Multi-stage paint correction followed by System X MAX G Plus application with warranty.",
     },
   ],
+  /* Deluxe and Custom packages from original */
+  additionalSections: [
+    {
+      h2: "Deluxe RV Protection",
+      body: "Our deluxe packages combine full exterior ceramic coating with windows and interior protection for comprehensive coverage. Custom packages available for any size rig \u2014 from Sprinter vans to large Class A diesel pushers.",
+    },
+  ],
   faqs: [
     {
       q: "Do you detail all types of RVs and motorhomes?",
@@ -80,6 +99,10 @@ export const rvCeramicCoatingData: ServicePageData = {
     {
       q: "How long does the process take?",
       a: "Most exterior packages take 1\u20133 days depending on the size and condition of your RV.",
+    },
+    {
+      q: "Do you offer mobile or on-site service?",
+      a: "All ceramic coating work is performed in our climate-controlled facility for the best results. We do not offer mobile coating services.",
     },
   ],
   crossTitle: "Protect The Front End With PPF",

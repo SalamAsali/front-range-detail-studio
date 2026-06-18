@@ -1,67 +1,66 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const autoDetailingData: ServicePageData = {
-  heroImg: "/images/hero/auto-detailing-hero.jpg",
+  heroImg: "/images/services/paint-correction-new.jpg",
   eyebrow: "Auto Detailing & Paint Correction",
-  h1: "Auto Detailing And Paint Correction",
-  introH2: "From Basic Maintenance To Deep Restoration",
+  h1: "Auto Detailing and Paint Correction",
+  introH2: "Comprehensive Detailing Packages to Fit Every Need",
   introBody:
-    "Whether your vehicle needs a routine refresh or a full multi-stage restoration, our certified technicians treat every car as if it were their own. Choose the package that fits your vehicle and schedule \u2014 each is performed by hand in our appointment-only Centennial studio.",
-  pricingH2: "Detailing Packages",
+    "Colorado\u2019s Vehicle Paint Correction and Detailing Experts. Whether your vehicle needs a routine refresh or a full multi-stage restoration, our certified technicians treat every car as if it were their own. Choose the package that fits your vehicle and schedule \u2014 each is performed by hand in our appointment-only Centennial studio.",
+  pricingH2: "From Basic Maintenance to Deep Restoration",
   pricing: [
     {
       title: "Maintenance Wash & Wax",
       price: "~2 hours",
-      body: "Every 1\u20132 months. Hand wash, bug & tar removal, clay bar, wax, tire dressing and glass.",
+      body: "Every 1\u20132 months. Hand wash with pH-balanced soap, bug and tar removal, clay bar treatment to remove surface contaminants, application of premium wax for added gloss and protection, tire cleaning and dressing, windows cleaned inside and out.",
     },
     {
       title: "Full Exterior Detailing",
       price: "~4\u20135 hours",
-      body: "Every 3\u20136 months. Decontamination, paint correction, polish, sealant, wheel detailing and glass.",
+      body: "Every 3\u20136 months. Hand wash and decontamination (clay bar treatment), paint correction (light swirl mark and scratch removal), high-quality polish to restore shine, application of sealant or ceramic spray for protection, wheel and tire detailing (including brake dust removal), glass cleaning and water repellent application.",
     },
     {
       title: "Full Interior Detailing",
       price: "~3\u20134 hours",
-      body: "Every 4\u20136 months. Vacuum, steam cleaning, leather conditioning, dashboard, windows and odor elimination.",
+      body: "Every 4\u20136 months. Vacuum of seats, carpets, and trunk, steam cleaning and shampooing of carpets and upholstery, leather cleaning and conditioning (if applicable), deep cleaning of dashboards, vents, and cupholders, streak-free window cleaning, odor elimination and air purification.",
     },
     {
       title: "Complete Interior & Exterior",
       price: "~6\u20138 hours",
-      body: "Twice a year. Everything above plus engine bay cleaning and glass repellent.",
+      body: "Twice a year. All services from Full Exterior and Full Interior Detailing, clay bar treatment and paint correction, interior steam cleaning and odor elimination, engine bay cleaning and dressing, glass water repellent application.",
     },
   ],
-  includedH2: "Specialized Services",
+  /* Specialized Services section from original */
+  includedH2: "Specialized Auto Detailing Services",
   included: [
-    "Multi-stage paint correction",
-    "Engine bay cleaning",
-    "Headlight restoration",
-    "Odor removal & sanitization",
-    "Clay bar decontamination",
-    "Glass repellent treatment",
+    "Paint Correction: Remove swirl marks, light scratches, and oxidation to restore a flawless finish.",
+    "Engine Bay Cleaning: Degrease and detail your engine bay for a clean, showroom look.",
+    "Headlight Restoration: Clear cloudy or yellowed headlights for improved visibility and aesthetics.",
+    "Odor Removal: Eliminate smoke, pet, or mildew odors using professional-grade ozone treatments.",
   ],
   featuresEyebrow: "Why Choose Us",
-  featuresH2: "Detailing Done Right",
+  featuresH2: "Why Choose Front Range Detail Studio?",
   features: [
     {
       title: "Experienced Technicians",
-      body: "Trained, certified detailers who treat every vehicle with obsessive care.",
+      body: "Our team uses only the best tools, products, and techniques to deliver top-quality results.",
     },
     {
       title: "High-Quality Products",
-      body: "We use only top-tier, paint-safe products and professional tools.",
+      body: "We use premium detailing products that are safe for your car and environmentally friendly.",
     },
     {
-      title: "Attention To Detail",
-      body: "Every panel, seam and crevice is addressed \u2014 nothing is rushed.",
+      title: "Attention to Detail",
+      body: "Every crevice, crack, and panel is meticulously cleaned and protected.",
     },
     {
       title: "Appointment-Only Service",
-      body: "Dedicated time slots mean your vehicle gets our full, undivided attention.",
+      body: "We focus on one vehicle at a time, ensuring every car receives the care it deserves.",
     },
   ],
   gallery: [
-    "/images/gallery/detailing-1.jpg",
-    "/images/gallery/detailing-2.jpg",
+    "/images/gallery/BMW-vertical-pic-2.webp",
+    "/images/gallery/GMC-truck-vertical-pic.webp",
   ],
   faqs: [
     {

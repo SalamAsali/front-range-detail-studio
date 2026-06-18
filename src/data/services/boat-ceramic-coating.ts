@@ -1,18 +1,18 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const boatCeramicCoatingData: ServicePageData = {
-  heroImg: "/images/hero/boat-ceramic-coating-hero.jpg",
+  heroImg: "/images/gallery/boat.webp",
   eyebrow: "Marine Ceramic Coating \u00B7 PPF",
   h1: "Boat Ceramic Coating & PPF in Denver, CO \u2014 Ultimate Marine Protection",
   introH2: "Shield Your Boat From Colorado\u2019s Harsh Elements",
   introBody:
     "At Front Range Detail Studio, we specialize in applying System X Marine Ceramic Coatings and SunTek Reaction PPF \u2014 offering unparalleled defense against UV rays, oxidation, scratches, and water damage.",
   featuresEyebrow: "Why Choose Us",
-  featuresH2: "Marine Protection Expertise",
+  featuresH2: "Why Choose Front Range Detail Studio?",
   features: [
     {
       title: "Certified System X & SunTek Installers",
-      body: "Factory-trained to apply System X Marine Ceramic Coatings and SunTek Reaction PPF for unmatched results.",
+      body: "Our team is factory-trained to apply System X Marine Ceramic Coatings and SunTek Reaction PPF for unmatched results.",
     },
     {
       title: "Comprehensive Services",
@@ -24,7 +24,7 @@ export const boatCeramicCoatingData: ServicePageData = {
     },
     {
       title: "3-Year Manufacturer Warranty",
-      body: "System X Marine coatings on new boats carry a 3-year warranty with annual top coat required.",
+      body: "System X Marine coatings on new boats carry a 3-year warranty (annual top coat required for warranty).",
     },
   ],
   stepsH2: "The Boat Ceramic Coating Process",
@@ -46,7 +46,18 @@ export const boatCeramicCoatingData: ServicePageData = {
       body: "The coating cures and we inspect every surface for complete, even coverage.",
     },
   ],
-  includedH2: "Marine Coating Packages",
+  /* System X Marine + SunTek PPF details */
+  additionalSections: [
+    {
+      h2: "System X Marine Ceramic Coating",
+      body: "Hull-Only Coating: Defends against oxidation, algae stains, and waterline buildup. Full Exterior Coating: Maximum hydrophobic protection for hull, deck, topside, and stainless steel. Ultimate Marine Protection Package: Add interior surface coating for vinyl, plastic, and more. 3-Year Manufacturer Warranty on new boats (annual top coat required for warranty).",
+    },
+    {
+      h2: "SunTek Reaction Paint Protection Film (PPF) for Boats",
+      body: "Hull leading edges (defend against trailer & dock rash). High-wear swim platforms. Boarding steps and grab rails. Painted or gelcoat areas prone to abrasion. Stainless and aluminum surfaces (optional). SunTek Reaction PPF offers a 12-year warranty against yellowing, cracking, and peeling \u2014 even in harsh marine environments.",
+    },
+  ],
+  includedH2: "Marine Coating & PPF Packages",
   included: [
     "Hull-only coating \u2014 defends against oxidation, algae stains and waterline buildup",
     "Full exterior coating \u2014 hull, deck, topside and stainless steel",
@@ -54,6 +65,31 @@ export const boatCeramicCoatingData: ServicePageData = {
     "SunTek Reaction PPF for hull leading edges and high-wear areas",
     "PPF for swim platforms, boarding steps and grab rails",
     "12-year PPF warranty against yellowing, cracking and peeling",
+  ],
+  whyChoose: {
+    h2: "Why Choose Front Range Detail Studio?",
+    items: [
+      {
+        title: "Marine Detailing Specialists",
+        body: "Our experienced team understands the unique challenges boats face and uses only marine-grade products for superior protection.",
+      },
+      {
+        title: "Certified System X Installers",
+        body: "We are certified applicators of System X Marine Ceramic Coating, ensuring professional-grade results.",
+      },
+      {
+        title: "Attention to Detail",
+        body: "From hull to topside, we meticulously coat every surface for comprehensive protection.",
+      },
+      {
+        title: "Seasonal, Appointment-Only Service",
+        body: "We offer boat ceramic coating services by appointment during the boating season to ensure the highest quality care.",
+      },
+    ],
+  },
+  gallery: [
+    "/images/gallery/boat.webp",
+    "/images/gallery/boat-2.webp",
   ],
   faqs: [
     {

@@ -1,7 +1,7 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const boatDetailingData: ServicePageData = {
-  heroImg: "/images/hero/boat-detailing-hero.jpg",
+  heroImg: "/images/services/boat-detailing.jpg",
   eyebrow: "Marine Detailing \u00B7 System X",
   h1: "Boat Detailing & Ceramic Coating in Denver, CO \u2014 Protect Your Watercraft",
   introH2: "Keep Your Boat Looking Pristine and Protected",
@@ -12,12 +12,12 @@ export const boatDetailingData: ServicePageData = {
     {
       title: "Exterior Boat Detailing & Buffing",
       price: "~3\u20135 hours",
-      body: "Full exterior hand wash including hull and deck, oxidation and water spot removal, gelcoat buffing and polishing, premium marine wax or sealant, stainless steel and chrome polishing.",
+      body: "Full exterior hand wash (including hull and deck), oxidation and water spot removal, gelcoat buffing and polishing for deep glossy finish, premium marine wax or sealant application, stainless steel and chrome polishing.",
     },
     {
       title: "Interior Boat Detailing",
       price: "~2\u20134 hours",
-      body: "Vacuum and deep clean seating, carpets and upholstery. Vinyl and leather cleaning, mold and mildew treatment, glass and dashboard detailing.",
+      body: "Vacuum and deep clean seating, carpets, upholstery. Vinyl and leather cleaning and conditioning. Mold and mildew treatment. Glass and mirror cleaning. Dashboard and control panel detailing.",
     },
     {
       title: "Annual Boat Waxing",
@@ -25,9 +25,16 @@ export const boatDetailingData: ServicePageData = {
       body: "Gelcoat-safe, high-quality wax that shields from Colorado\u2019s intense sun and water spots. Recommended every 12 months.",
     },
     {
-      title: "Gelcoat Restoration",
+      title: "Gelcoat Restoration & Oxidation Removal",
       price: "Custom quote",
       body: "Multi-stage machine buffing and polishing to revive color, depth and reflectivity. Protect with marine wax or ceramic coating.",
+    },
+  ],
+  /* Marine Ceramic Coating packages */
+  additionalSections: [
+    {
+      h2: "Marine Ceramic Coating Packages",
+      body: "Long-lasting hydrophobic and UV-resistant barrier for easier cleaning, less staining, and dramatic shine. Coverage for hull, topside, stainless steel with optional interior protection. Manufacturer-backed warranty. Standard Marine Coating Package covers hull and topside. Full Marine Protection Package adds stainless steel and interior surface coating.",
     },
   ],
   featuresEyebrow: "Marine Expertise",
@@ -49,6 +56,10 @@ export const boatDetailingData: ServicePageData = {
       title: "Seasonal, Appointment-Only Service",
       body: "Boat services available by appointment during boating season for the highest quality care.",
     },
+  ],
+  gallery: [
+    "/images/gallery/boat.webp",
+    "/images/gallery/boat-2.webp",
   ],
   faqs: [
     {

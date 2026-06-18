@@ -1,12 +1,12 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const windowTintData: ServicePageData = {
-  heroImg: "/images/hero/window-tint-hero.jpg",
+  heroImg: "/images/services/new-tint.jpg",
   eyebrow: "Ceramic Window Tint \u00B7 Lifetime Warranty",
   h1: "Ceramic Window Tint in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
-  introH2: "Unmatched Heat Rejection, UV Protection & Style",
+  introH2: "Unmatched Heat Rejection, UV Protection, and Style",
   introBody:
-    "Colorado\u2019s high-altitude sun, winter glare, and fluctuating weather make quality window tint more than just an upgrade \u2014 it\u2019s a must-have for both comfort and protection. Ceramic tint blocks 99% of UV rays and up to 94% of infrared heat, keeping your cabin cooler and your interior protected. Please note: Colorado law requires most vehicle windows to allow at least 27% visible light through.",
+    "Colorado\u2019s high-altitude sun, winter glare, and fluctuating weather make quality window tint more than just an upgrade \u2014 it\u2019s a must-have for both comfort and protection. Ceramic tint blocks 99% of UV rays and up to 94% of infrared heat, keeping your car dramatically cooler without making it too dark. Colorado law requires most vehicle windows to allow at least 27% visible light through.",
   featuresEyebrow: "Ceramic Film",
   featuresH2: "Why Ceramic Tint Outperforms",
   features: [
@@ -31,7 +31,14 @@ export const windowTintData: ServicePageData = {
       body: "Premium film backed for life \u2014 no bubbling, no purpling, no peeling.",
     },
   ],
-  stepsH2: "Our Tint Process",
+  /* "Want maximum privacy or a custom look?" section from original */
+  additionalSections: [
+    {
+      h2: "Want Maximum Privacy or a Custom Look?",
+      body: "Whether you want a darker shade for privacy or a sleek custom appearance, our team can recommend the right ceramic film and shade to match your style while staying within Colorado\u2019s legal requirements.",
+    },
+  ],
+  stepsH2: "Our Proven Process: From Consultation to Perfection",
   steps: [
     {
       title: "Initial Consultation",
@@ -51,25 +58,24 @@ export const windowTintData: ServicePageData = {
     },
   ],
   gallery: [
-    "/images/gallery/tint-1.jpg",
-    "/images/gallery/tint-2.jpg",
+    "/images/services/window-tint-vertical.webp",
   ],
   faqs: [
     {
-      q: "What is the legal tint limit in Colorado?",
-      a: "Colorado law requires most vehicle windows to allow at least 27% visible light through. We help you stay compliant while maximizing comfort.",
+      q: "Can you make my windows darker than the legal limit?",
+      a: "Colorado law requires most vehicle windows to allow at least 27% visible light through (27% VLT). We help you stay compliant while maximizing heat rejection and comfort.",
     },
     {
-      q: "Why choose ceramic film over standard tint?",
+      q: "What\u2019s special about ceramic window film?",
       a: "Ceramic film rejects far more infrared heat, blocks 99% of UV, reduces glare and never interferes with electronic signals \u2014 unlike cheaper dyed or metallic films.",
     },
     {
-      q: "Can you tint my windshield?",
-      a: "We can apply a clear or near-clear ceramic film to the windshield for heat and UV rejection while keeping it street-legal.",
+      q: "Can you tint my windshield or sunroof?",
+      a: "We can apply a clear or near-clear ceramic film to the windshield for heat and UV rejection while keeping it street-legal. Sunroofs can also be tinted.",
     },
     {
-      q: "Does tint also protect the glass?",
-      a: "Yes \u2014 the film adds a layer that helps hold shattered glass together and protects occupants from UV exposure.",
+      q: "Do you offer windshield protection film?",
+      a: "Yes \u2014 we offer windshield protection film that adds a layer to help hold shattered glass together and protects occupants from UV exposure.",
     },
   ],
   crossTitle: "Pair Tint With Ceramic Coating",
@@ -77,4 +83,10 @@ export const windowTintData: ServicePageData = {
     "Block the heat on the inside and protect the paint on the outside. Ask about bundling window tint with a System X ceramic coating.",
   crossHref: "/ceramic-coating",
   crossLabel: "Explore Ceramic",
+  crossSell2: {
+    title: "Denver\u2019s 1st Choice in Paint Protection Film and Clear Bra",
+    body: "Preserve the pristine condition of your vehicle with our high-quality Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an invisible shield, guarding your car\u2019s paint against scratches, stone chips, and road debris.",
+    href: "/paint-protection-film-ppf",
+    label: "Explore PPF",
+  },
 };

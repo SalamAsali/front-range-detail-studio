@@ -1,49 +1,55 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const servicesHubData: ServicePageData = {
-  heroImg: "/images/hero/services-hero.jpg",
+  heroImg: "/images/services/IMG_2236-ceramic.jpg",
   eyebrow: "Our Services",
-  h1: "Premium Vehicle Care, Start To Finish",
-  introH2: "One Studio For Every Protection Need",
+  h1: "Colorado\u2019s Trusted Source for Lifetime Ceramic Coatings and Premium Detailing",
+  introH2: "Denver\u2019s Most Trusted Vehicle Aesthetic Experts",
   introBody:
-    "Paint protection film, ceramic coating, window tint, vinyl wrap, paint correction and full RV & boat services \u2014 all performed by certified technicians in our climate-controlled Centennial studio. Explore each service below.",
+    "The highest caliber treatment for protecting your prized vehicle. Paint protection film, ceramic coating, window tint, vinyl wrap, paint correction and full RV & boat services \u2014 all performed by certified technicians in our climate-controlled Centennial studio. Maintain your ceramic coating and retain your warranty through periodic maintenance washes. Ceramic top coat applied to boost existing coating and extend longevity.",
   cardsH2: "Explore Our Services",
   cards: [
     {
       tag: "12 Year Warranty",
-      title: "Paint Protection Film",
-      img: "/images/services/ppf-card.jpg",
+      title: "Paint Protection Film & Clear Bra",
+      img: "/images/services/new-ppf-scaled.jpg",
       href: "/paint-protection-film-ppf",
     },
     {
       tag: "Lifetime Warranty",
       title: "Window Tinting",
-      img: "/images/services/tint-card.jpg",
+      img: "/images/services/new-tint.jpg",
       href: "/window-tint",
     },
     {
       tag: "Lifetime Warranty",
       title: "Ceramic Coating",
-      img: "/images/services/ceramic-card.jpg",
+      img: "/images/services/car-ceramic-1.jpg",
       href: "/ceramic-coating",
     },
     {
       tag: "Multi-Stage Polish",
-      title: "Auto Detailing & Correction",
-      img: "/images/services/detailing-card.jpg",
+      title: "Paint Correction",
+      img: "/images/services/paint-correction-new.jpg",
       href: "/auto-detailing",
     },
     {
       tag: "200+ Finishes",
       title: "Vinyl Wrap & Decals",
-      img: "/images/services/wrap-card.jpg",
+      img: "/images/services/vinylwraps-1920w.webp",
       href: "/vinyl-wraps",
     },
     {
       tag: "RV \u00B7 Boat \u00B7 Marine",
       title: "RV & Boat Services",
-      img: "/images/services/rv-card.jpg",
+      img: "/images/services/rv-detailing.jpg",
       href: "/rv-detailing",
+    },
+  ],
+  additionalSections: [
+    {
+      h2: "Protection For All Brands and Models",
+      body: "Including Tesla, Rivian, Porsche, BMW, Mercedes Benz and More. No matter what you drive, our certified technicians provide manufacturer-backed protection tailored to your specific vehicle.",
     },
   ],
   featuresEyebrow: "The Front Range Difference",

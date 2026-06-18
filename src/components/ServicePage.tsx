@@ -29,6 +29,11 @@ export interface ServicePageData {
   crossBody?: string;
   crossHref?: string;
   crossLabel?: string;
+  /* --- additional section types --- */
+  benefits?: { eyebrow?: string; h2: string; body?: string; items: { title: string; body: string }[] };
+  whyChoose?: { h2: string; items: { title: string; body: string }[] };
+  crossSell2?: { title: string; body: string; href: string; label: string };
+  additionalSections?: { h2: string; body: string }[];
 }
 
 export function ServicePage({ data }: { data: ServicePageData }) {
@@ -865,6 +870,267 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         </section>
       )}
 
+      {/* BENEFITS */}
+      {d.benefits && (
+        <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
+          <div
+            style={{
+              maxWidth: 1280,
+              margin: "0 auto",
+              padding: "0 clamp(20px, 5vw, 56px)",
+            }}
+          >
+            <ScrollReveal>
+              <div style={{ marginBottom: 42, maxWidth: 680 }}>
+                {d.benefits.eyebrow && (
+                  <span
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: 12,
+                      letterSpacing: "0.16em",
+                      textTransform: "uppercase",
+                      color: "#00BCD4",
+                    }}
+                  >
+                    {d.benefits.eyebrow}
+                  </span>
+                )}
+                <h2
+                  style={{
+                    margin: d.benefits.eyebrow ? "12px 0 0" : 0,
+                    fontFamily: "'Archivo', sans-serif",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "-0.3px",
+                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                  }}
+                >
+                  {d.benefits.h2}
+                </h2>
+                <hr
+                  style={{
+                    width: 96,
+                    height: 2,
+                    background: "#00BCD4",
+                    border: "none",
+                    margin: "20px 0 0",
+                  }}
+                />
+                {d.benefits.body && (
+                  <p
+                    style={{
+                      margin: "20px 0 0",
+                      fontFamily: "'Manrope', sans-serif",
+                      fontWeight: 300,
+                      fontSize: "clamp(1rem, 1.2vw, 1.1rem)",
+                      lineHeight: 1.7,
+                      color: "rgba(255,255,255,0.82)",
+                    }}
+                  >
+                    {d.benefits.body}
+                  </p>
+                )}
+              </div>
+            </ScrollReveal>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                gap: 18,
+              }}
+            >
+              {d.benefits.items.map((b, i) => (
+                <ScrollReveal key={i}>
+                  <div
+                    style={{
+                      background: "#1a1a1a",
+                      border: "1px solid rgba(255,255,255,0.06)",
+                      borderRadius: 6,
+                      padding: "28px 26px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 12,
+                    }}
+                  >
+                    <h3
+                      style={{
+                        margin: 0,
+                        fontFamily: "'Archivo', sans-serif",
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.01em",
+                        fontSize: "1.02rem",
+                        lineHeight: 1.2,
+                        color: "#00BCD4",
+                      }}
+                    >
+                      {b.title}
+                    </h3>
+                    <p
+                      style={{
+                        margin: 0,
+                        fontFamily: "'Manrope', sans-serif",
+                        fontWeight: 300,
+                        fontSize: "14.5px",
+                        lineHeight: 1.6,
+                        color: "rgba(255,255,255,0.7)",
+                      }}
+                    >
+                      {b.body}
+                    </p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* WHY CHOOSE */}
+      {d.whyChoose && (
+        <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>
+          <div
+            style={{
+              maxWidth: 1000,
+              margin: "0 auto",
+              padding: "0 clamp(20px, 5vw, 56px)",
+            }}
+          >
+            <ScrollReveal>
+              <div style={{ marginBottom: 36 }}>
+                <h2
+                  style={{
+                    margin: 0,
+                    fontFamily: "'Archivo', sans-serif",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "-0.3px",
+                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                  }}
+                >
+                  {d.whyChoose.h2}
+                </h2>
+                <hr
+                  style={{
+                    width: 96,
+                    height: 2,
+                    background: "#00BCD4",
+                    border: "none",
+                    margin: "20px 0 0",
+                  }}
+                />
+              </div>
+            </ScrollReveal>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                gap: 18,
+              }}
+            >
+              {d.whyChoose.items.map((w, i) => (
+                <ScrollReveal key={i}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 10,
+                      background: "#141414",
+                      border: "1px solid rgba(255,255,255,0.06)",
+                      borderRadius: 6,
+                      padding: "22px 24px",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        margin: 0,
+                        fontFamily: "'Archivo', sans-serif",
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        fontSize: "0.95rem",
+                        lineHeight: 1.2,
+                        color: "#00BCD4",
+                      }}
+                    >
+                      {w.title}
+                    </h3>
+                    <p
+                      style={{
+                        margin: 0,
+                        fontFamily: "'Manrope', sans-serif",
+                        fontWeight: 300,
+                        fontSize: 14,
+                        lineHeight: 1.6,
+                        color: "rgba(255,255,255,0.7)",
+                      }}
+                    >
+                      {w.body}
+                    </p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ADDITIONAL SECTIONS */}
+      {d.additionalSections && d.additionalSections.length > 0 &&
+        d.additionalSections.map((sec, i) => (
+          <section
+            key={i}
+            style={{
+              background: i % 2 === 0 ? "#0d0d0d" : "#000",
+              padding: "clamp(56px, 7vw, 96px) 0",
+            }}
+          >
+            <ScrollReveal>
+              <div
+                style={{
+                  maxWidth: 900,
+                  margin: "0 auto",
+                  padding: "0 clamp(20px, 5vw, 56px)",
+                }}
+              >
+                <h2
+                  style={{
+                    margin: 0,
+                    fontFamily: "'Archivo', sans-serif",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "-0.3px",
+                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    lineHeight: 1.12,
+                  }}
+                >
+                  {sec.h2}
+                </h2>
+                <hr
+                  style={{
+                    width: 96,
+                    height: 2,
+                    background: "#00BCD4",
+                    border: "none",
+                    margin: "22px 0 26px",
+                  }}
+                />
+                <p
+                  style={{
+                    margin: 0,
+                    fontFamily: "'Manrope', sans-serif",
+                    fontWeight: 300,
+                    fontSize: "clamp(1.05rem, 1.3vw, 1.2rem)",
+                    lineHeight: 1.7,
+                    color: "rgba(255,255,255,0.82)",
+                  }}
+                >
+                  {sec.body}
+                </p>
+              </div>
+            </ScrollReveal>
+          </section>
+        ))}
+
       {/* FAQ */}
       {d.faqs && d.faqs.length > 0 && (
         <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
@@ -990,6 +1256,80 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   }}
                 >
                   {d.crossLabel || "Learn More"}
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
+      {/* CROSS SELL 2 */}
+      {d.crossSell2 && (
+        <section style={{ background: "#0d0d0d", padding: "clamp(40px, 5vw, 72px) 0" }}>
+          <div
+            style={{
+              maxWidth: 1280,
+              margin: "0 auto",
+              padding: "0 clamp(20px, 5vw, 56px)",
+            }}
+          >
+            <ScrollReveal>
+              <div
+                style={{
+                  background: "linear-gradient(110deg, #0e2a30, #0d0d0d)",
+                  border: "1px solid rgba(0,188,212,0.25)",
+                  borderRadius: 10,
+                  padding: "clamp(32px, 4vw, 48px)",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: 24,
+                }}
+              >
+                <div style={{ maxWidth: 560 }}>
+                  <h3
+                    style={{
+                      margin: "0 0 10px",
+                      fontFamily: "'Archivo', sans-serif",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      fontSize: "clamp(1.3rem, 2vw, 1.7rem)",
+                      color: "#fff",
+                    }}
+                  >
+                    {d.crossSell2.title}
+                  </h3>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontFamily: "'Manrope', sans-serif",
+                      fontWeight: 300,
+                      fontSize: 15,
+                      lineHeight: 1.6,
+                      color: "rgba(255,255,255,0.78)",
+                    }}
+                  >
+                    {d.crossSell2.body}
+                  </p>
+                </div>
+                <Link
+                  href={d.crossSell2.href}
+                  style={{
+                    fontFamily: "'Michroma', sans-serif",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
+                    fontSize: 13,
+                    color: "#fff",
+                    background: "#00BCD4",
+                    borderRadius: "3.125rem",
+                    padding: "16px 30px",
+                    textDecoration: "none",
+                    whiteSpace: "nowrap",
+                    transition: "background .2s ease, transform .2s ease",
+                  }}
+                >
+                  {d.crossSell2.label}
                 </Link>
               </div>
             </ScrollReveal>

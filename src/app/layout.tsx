@@ -3,6 +3,7 @@ import { Manrope, Inter, Archivo, Michroma } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { LocalBusinessSchema } from "@/components/JsonLd";
 
 const manrope = Manrope({
   variable: "--font-body",
@@ -39,6 +40,20 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Front Range Detail Studio",
+    images: [
+      {
+        url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EVpSF8J7BYGcfrDJ4Z3bxfTn0C/hf_20260617_234445_6c35146a-5d69-4372-80d6-a91c3c0cd694.png",
+        width: 1200,
+        height: 630,
+        alt: "Front Range Detail Studio - Premium Auto Detailing in Denver",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  alternates: {
+    canonical: "https://frontrangedetailstudio.com",
   },
 };
 
@@ -53,6 +68,7 @@ export default function RootLayout({
       className={`${manrope.variable} ${inter.variable} ${archivo.variable} ${michroma.variable}`}
     >
       <body className="min-h-screen flex flex-col">
+        <LocalBusinessSchema />
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />

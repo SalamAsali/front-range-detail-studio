@@ -1,7 +1,7 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const detailingPackagesData: ServicePageData = {
-  heroImg: "/images/hero/detailing-packages-hero.jpg",
+  heroImg: "/images/services/paint-correction-new.jpg",
   eyebrow: "Complete Professional Care",
   h1: "Denver, CO Leader in Complete Professional Car Care",
   introH2: "Unmatched Protection and Style For Your Vehicle",
@@ -12,22 +12,22 @@ export const detailingPackagesData: ServicePageData = {
     {
       title: "Maintenance Wash & Wax",
       price: "~2 hours",
-      body: "Every 1\u20132 months. Hand wash, bug & tar removal, clay bar, wax, tire dressing and glass.",
+      body: "Every 1\u20132 months. Hand wash with pH-balanced soap, bug and tar removal, clay bar treatment, premium wax, tire cleaning and dressing, windows inside and out.",
     },
     {
       title: "Full Exterior Detailing",
       price: "~4\u20135 hours",
-      body: "Every 3\u20136 months. Decontamination, paint correction, polish, sealant, wheel detailing and glass.",
+      body: "Every 3\u20136 months. Hand wash and decontamination, paint correction (swirl and scratch removal), polish, sealant or ceramic spray, wheel and tire detailing, glass cleaning and water repellent.",
     },
     {
       title: "Full Interior Detailing",
       price: "~3\u20134 hours",
-      body: "Every 4\u20136 months. Vacuum, steam cleaning, leather conditioning, dashboard, windows and odor elimination.",
+      body: "Every 4\u20136 months. Vacuum seats, carpets, trunk. Steam cleaning and shampooing. Leather cleaning and conditioning. Dashboard, vents, cupholders. Windows. Odor elimination.",
     },
     {
       title: "Complete Interior & Exterior",
       price: "~6\u20138 hours",
-      body: "Twice a year. Everything above plus engine bay cleaning and glass repellent.",
+      body: "Twice a year. All services from Full Exterior and Full Interior, clay bar and paint correction, steam cleaning and odor elimination, engine bay cleaning, glass water repellent.",
     },
   ],
   featuresEyebrow: "Ceramic Coating Tiers",

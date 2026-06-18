@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Section, SectionHeading } from "@/components/Section";
-import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
-import { QuoteForm } from "@/components/QuoteForm";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
+import { QuoteForm } from "@/components/QuoteForm";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 interface BlogPost {
   slug: string;
@@ -49,7 +49,7 @@ const blogPosts: Record<string, BlogPost> = {
             one, so we recommended our{" "}
             <Link
               href="/services"
-              className="text-primary hover:text-primary-light transition-colors"
+              style={{ color: "#00BCD4", textDecoration: "none" }}
             >
               Front Range Package
             </Link>{" "}
@@ -72,20 +72,20 @@ const blogPosts: Record<string, BlogPost> = {
             </li>
           </ul>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16, margin: "32px 0" }}>
             <Image
               src="/images/blog/image-3-1024x576.jpeg"
               alt="Our installer carefully positions a precision-cut piece of SunTek Ultra PPF across the RAM's front bumper"
               width={1024}
               height={576}
-              className="rounded w-full"
+              style={{ borderRadius: 6, width: "100%", height: "auto" }}
             />
             <Image
               src="/images/blog/image-4-1024x576.jpeg"
               alt="Installer applying SunTek Evolve window film to door glass of a silver Ram 1500"
               width={1024}
               height={576}
-              className="rounded w-full"
+              style={{ borderRadius: 6, width: "100%", height: "auto" }}
             />
           </div>
 
@@ -94,7 +94,7 @@ const blogPosts: Record<string, BlogPost> = {
             alt="Two technicians performing simultaneous windshield tint shrinking and ceramic coating leveling"
             width={1024}
             height={576}
-            className="rounded w-full my-8"
+            style={{ borderRadius: 6, width: "100%", height: "auto", margin: "32px 0" }}
           />
 
           <h2>Results</h2>
@@ -105,20 +105,20 @@ const blogPosts: Record<string, BlogPost> = {
             water, dirt, and UV rays.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16, margin: "32px 0" }}>
             <Image
               src="/images/blog/image-6-1024x576.jpeg"
               alt="Finished 2025 Dodge Ram 1500 Limited with deep gloss, flawless reflections, and full-front protection"
               width={1024}
               height={576}
-              className="rounded w-full"
+              style={{ borderRadius: 6, width: "100%", height: "auto" }}
             />
             <Image
               src="/images/blog/image-7-1024x576.jpeg"
               alt="The completed 2025 Ram 1500 Limited in our Englewood studio, protected, refined, and ready for Colorado roads"
               width={1024}
               height={576}
-              className="rounded w-full"
+              style={{ borderRadius: 6, width: "100%", height: "auto" }}
             />
           </div>
 
@@ -167,7 +167,7 @@ const blogPosts: Record<string, BlogPost> = {
             alt="Corvette Stingray annual System X ceramic coating maintenance"
             width={1024}
             height={576}
-            className="rounded w-full my-8"
+            style={{ borderRadius: 6, width: "100%", height: "auto", margin: "32px 0" }}
           />
 
           <h2>Service Details</h2>
@@ -176,15 +176,13 @@ const blogPosts: Record<string, BlogPost> = {
               <strong>Comprehensive Surface Inspection:</strong> We examined the
               entire vehicle &mdash; paint, PPF, glass, and wheels &mdash; for
               any signs of damage or coating wear. Everything held up
-              exceptionally well, a testament to the quality of the original
-              installation.
+              exceptionally well.
             </li>
             <li>
               <strong>Annual System X Top Coat Application:</strong> We
               refreshed the ceramic coating with a professional top coat layer.
               This step recharges the coating&apos;s slickness, boosts gloss,
-              and resets the hydrophobic properties that keep the car cleaner
-              for longer.
+              and resets the hydrophobic properties.
             </li>
             <li>
               <strong>Advised Additional Protection:</strong> After a year of
@@ -194,20 +192,20 @@ const blogPosts: Record<string, BlogPost> = {
             </li>
           </ul>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16, margin: "32px 0" }}>
             <Image
               src="/images/blog/image-1-1024x576.jpeg"
               alt="Corvette Stingray annual System X ceramic coating maintenance"
               width={1024}
               height={576}
-              className="rounded w-full"
+              style={{ borderRadius: 6, width: "100%", height: "auto" }}
             />
             <Image
               src="/images/blog/image-2-1024x576.jpeg"
               alt="Corvette Stingray annual System X ceramic coating maintenance"
               width={1024}
               height={576}
-              className="rounded w-full"
+              style={{ borderRadius: 6, width: "100%", height: "auto" }}
             />
           </div>
 
@@ -216,9 +214,7 @@ const blogPosts: Record<string, BlogPost> = {
             Ceramic coatings are incredibly durable, but they&apos;re not
             &ldquo;set it and forget it.&rdquo; For high-performance vehicles
             driven regularly, annual inspections and top coat applications are
-            essential. This process ensures that the coating&apos;s warranty
-            remains valid and its performance &mdash; in gloss, protection, and
-            hydrophobicity &mdash; stays at factory levels.
+            essential.
           </p>
           <p>
             Colorado&apos;s climate adds another layer of challenge. With
@@ -232,27 +228,15 @@ const blogPosts: Record<string, BlogPost> = {
             focuses on longevity and preservation. We exclusively use System X
             coatings for their warranty-backed protection and proven performance
             under Colorado conditions. Each annual service includes a thorough
-            inspection under proper lighting, water behavior testing, and
-            surface preparation before the new top coat is applied.
-          </p>
-          <p>
-            Our team&apos;s attention to detail ensures that every inch of the
-            vehicle &mdash; from PPF seams to coated wheels &mdash; continues
-            to perform exactly as designed.
+            inspection, water behavior testing, and surface preparation before
+            the new top coat is applied.
           </p>
 
           <h2>Results &amp; Takeaway</h2>
           <p>
             After reapplying the System X Top Coat, the Corvette&apos;s surface
             once again exhibited extreme slickness, deep gloss, and perfect
-            water behavior. The owner was thrilled to see that the coating still
-            looked and felt like new even after a full year of driving.
-          </p>
-          <p>
-            The inspection confirmed that the original SunTek Reaction PPF and
-            System X coating were performing flawlessly &mdash; a clear sign
-            that proper prep, installation, and maintenance make all the
-            difference.
+            water behavior. The owner was thrilled.
           </p>
 
           <h2>Conclusion</h2>
@@ -261,35 +245,18 @@ const blogPosts: Record<string, BlogPost> = {
             your annual inspection. Whether it&apos;s a Corvette,{" "}
             <Link
               href="/porsche-detailing"
-              className="text-primary hover:text-primary-light transition-colors"
+              style={{ color: "#00BCD4", textDecoration: "none" }}
             >
               Porsche
             </Link>
             , or{" "}
             <Link
               href="/tesla-detailing"
-              className="text-primary hover:text-primary-light transition-colors"
+              style={{ color: "#00BCD4", textDecoration: "none" }}
             >
               Tesla
             </Link>
-            , maintaining your coating ensures it performs like day one. For
-            luxury car detailing in Denver and ceramic coating maintenance near
-            Englewood, trust Front Range Detail Studio &mdash; Colorado&apos;s
-            ceramic coating specialists and Front Range paint protection experts.
-          </p>
-
-          <h2>About Front Range Detail Studio</h2>
-          <p>
-            Front Range Detail Studio is Colorado&apos;s trusted destination for
-            premium automotive protection and enhancement. Located in Englewood,
-            we specialize in high-end detailing, paint protection film
-            installation using SunTek Ultra, advanced ceramic coatings, and
-            precision window tinting with SunTek Evolve. Our mission is to
-            preserve the beauty and value of every vehicle that enters our
-            studio &mdash; from new luxury cars to exotic and performance
-            models. Serving clients across the Front Range and Denver area, we
-            combine expertise, passion, and meticulous craftsmanship in every
-            project.
+            , maintaining your coating ensures it performs like day one.
           </p>
         </>
       ),
@@ -327,104 +294,281 @@ export default async function BlogPostPage({
   }
 
   return (
-    <>
+    <div style={{ background: "#000", fontFamily: "'Manrope', sans-serif" }}>
       {/* Hero Image */}
-      <section className="relative pt-20">
-        <div className="relative aspect-[2/1] max-h-[500px] w-full overflow-hidden">
+      <section style={{ paddingTop: 82 }}>
+        <div style={{ position: "relative", aspectRatio: "2/1", maxHeight: 500, width: "100%", overflow: "hidden" }}>
           <Image
             src={post.heroImage}
             alt={post.heroImageAlt}
             fill
             priority
-            className="object-cover"
             sizes="100vw"
+            style={{ objectFit: "cover" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(to top, #000 0%, rgba(0,0,0,0.3) 50%, transparent 100%)",
+            }}
+          />
         </div>
       </section>
 
       {/* Article */}
-      <Section bg="black">
-        <article>
-          {/* Meta */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            {post.categories.map((cat) => (
-              <span
-                key={cat}
-                className="text-xs text-primary bg-primary/10 px-2 py-1 rounded"
-              >
-                {cat}
-              </span>
-            ))}
-          </div>
-
-          <h1 className="mb-4">{post.title}</h1>
-
-          <div className="flex flex-wrap items-center gap-4 mb-8 text-sm text-white/40">
-            <time>{post.date}</time>
-            <span className="text-white/20">|</span>
-            <span>Front Range Detail Studio</span>
-          </div>
-
-          {/* Content */}
-          <div className="prose prose-invert prose-primary max-w-none [&>p]:text-white/70 [&>p]:leading-relaxed [&>p]:mb-6 [&>h2]:text-white [&>h2]:mt-10 [&>h2]:mb-4 [&>ul]:text-white/70 [&>ul]:mb-6 [&>ul]:space-y-2 [&>ul]:list-disc [&>ul]:pl-6 [&>ul>li]:leading-relaxed">
-            {post.content}
-          </div>
-
-          {/* Tags */}
-          <div className="mt-12 pt-6 border-t border-white/10">
-            <p className="text-sm text-white/40 mb-2">Tags:</p>
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
+      <section style={{ background: "#000", padding: "clamp(40px, 5vw, 64px) 0" }}>
+        <div style={{ maxWidth: 840, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
+          <article>
+            {/* Categories */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
+              {post.categories.map((cat) => (
                 <span
-                  key={tag}
-                  className="text-xs text-white/50 bg-dark-elevated px-3 py-1 rounded"
+                  key={cat}
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: 11,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: "#00BCD4",
+                    background: "rgba(0,188,212,0.1)",
+                    padding: "4px 10px",
+                    borderRadius: 4,
+                  }}
                 >
-                  {tag}
+                  {cat}
                 </span>
               ))}
             </div>
-          </div>
-        </article>
-      </Section>
+
+            <h1
+              style={{
+                margin: "0 0 16px",
+                fontFamily: "'Archivo', sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
+                lineHeight: 1.08,
+              }}
+            >
+              {post.title}
+            </h1>
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+                gap: 16,
+                marginBottom: 40,
+                fontFamily: "'Inter', sans-serif",
+                fontSize: 13,
+                color: "rgba(255,255,255,0.4)",
+              }}
+            >
+              <time>{post.date}</time>
+              <span style={{ color: "rgba(255,255,255,0.15)" }}>|</span>
+              <span>Front Range Detail Studio</span>
+            </div>
+
+            {/* Content */}
+            <div
+              style={{
+                fontFamily: "'Manrope', sans-serif",
+                fontWeight: 300,
+                fontSize: 16,
+                lineHeight: 1.7,
+                color: "rgba(255,255,255,0.7)",
+              }}
+              /* Article content styles are inherited via the prose wrapper div */
+            >
+              <style>{`
+                .blog-content h2 {
+                  font-family: 'Archivo', sans-serif;
+                  font-weight: 700;
+                  text-transform: uppercase;
+                  font-size: clamp(1.3rem, 2vw, 1.6rem);
+                  color: #fff;
+                  margin: 40px 0 16px;
+                }
+                .blog-content p {
+                  margin: 0 0 24px;
+                }
+                .blog-content ul {
+                  margin: 0 0 24px;
+                  padding-left: 24px;
+                  list-style-type: disc;
+                }
+                .blog-content li {
+                  margin-bottom: 8px;
+                  line-height: 1.7;
+                }
+                .blog-content a {
+                  color: #00BCD4;
+                  text-decoration: none;
+                }
+              `}</style>
+              <div className="blog-content">
+                {post.content}
+              </div>
+            </div>
+
+            {/* Tags */}
+            <div
+              style={{
+                marginTop: 48,
+                paddingTop: 24,
+                borderTop: "1px solid rgba(255,255,255,0.08)",
+              }}
+            >
+              <p
+                style={{
+                  margin: "0 0 8px",
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: 12,
+                  color: "rgba(255,255,255,0.4)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                Tags:
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: 12,
+                      color: "rgba(255,255,255,0.5)",
+                      background: "#1a1a1a",
+                      padding: "6px 12px",
+                      borderRadius: 4,
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
 
       {/* Reviews */}
-      <Section bg="dark" wide>
-        <SectionHeading>
-          Front Range Detail Studio Client Reviews
-        </SectionHeading>
-        <ReviewBadges />
-        <ReviewCarousel />
-      </Section>
+      <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
+          <ScrollReveal>
+            <div style={{ marginBottom: 36 }}>
+              <span
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: 12,
+                  letterSpacing: "0.16em",
+                  textTransform: "uppercase",
+                  color: "#00BCD4",
+                }}
+              >
+                Testimonials
+              </span>
+              <h2
+                style={{
+                  margin: "12px 0 0",
+                  fontFamily: "'Archivo', sans-serif",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "-0.3px",
+                  fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                }}
+              >
+                Client Reviews
+              </h2>
+              <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "20px 0 0" }} />
+            </div>
+          </ScrollReveal>
+          <ReviewBadges />
+          <ReviewCarousel />
+        </div>
+      </section>
 
       {/* CTA */}
-      <Section bg="black" wide id="contact">
-        <SectionHeading>Get A Free Quote</SectionHeading>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div className="space-y-6">
-            <p className="text-white/70 leading-relaxed">
-              Ready to protect your vehicle like this one? Contact us today for
-              a free, no-obligation quote.
-            </p>
-            <div className="space-y-3 text-white/70">
-              <a
-                href="tel:3035208023"
-                className="block text-lg text-primary hover:text-primary-light transition-colors"
-              >
-                (303) 520-8023
-              </a>
-              <a
-                href="mailto:info@frontrangedetailstudio.com"
-                className="block hover:text-primary transition-colors"
-              >
-                info@frontrangedetailstudio.com
-              </a>
-              <p>12559 E Broncos Pkwy, Centennial, CO 80112</p>
-            </div>
+      <section
+        id="quote"
+        style={{
+          background: "#000",
+          padding: "clamp(64px, 8vw, 110px) 0",
+          borderTop: "1px solid rgba(255,255,255,0.05)",
+        }}
+      >
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "clamp(28px, 4vw, 56px)",
+              alignItems: "start",
+            }}
+          >
+            <ScrollReveal>
+              <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+                <span
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: 12,
+                    letterSpacing: "0.16em",
+                    textTransform: "uppercase",
+                    color: "#00BCD4",
+                  }}
+                >
+                  Free Quote
+                </span>
+                <h2
+                  style={{
+                    margin: 0,
+                    fontFamily: "'Archivo', sans-serif",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "-0.3px",
+                    fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)",
+                    lineHeight: 1.08,
+                  }}
+                >
+                  Get A Free Quote
+                </h2>
+                <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: 0 }} />
+                <p
+                  style={{
+                    margin: 0,
+                    fontWeight: 300,
+                    fontSize: "1.05rem",
+                    lineHeight: 1.65,
+                    color: "rgba(255,255,255,0.78)",
+                    maxWidth: 420,
+                  }}
+                >
+                  Ready to protect your vehicle like this one? Contact us today for a free, no-obligation
+                  quote.
+                </p>
+                <a
+                  href="tel:+13035208023"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 600,
+                    fontSize: "1.4rem",
+                    color: "#00BCD4",
+                    textDecoration: "none",
+                    marginTop: 4,
+                  }}
+                >
+                  (303) 520-8023
+                </a>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal>
+              <QuoteForm />
+            </ScrollReveal>
           </div>
-          <QuoteForm />
         </div>
-      </Section>
-    </>
+      </section>
+    </div>
   );
 }
