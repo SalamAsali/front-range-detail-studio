@@ -6,7 +6,7 @@ export const detailingPackagesData: ServicePageData = {
   h1: "Denver, CO Leader in Complete Professional Car Care",
   introH2: "Unmatched Protection and Style For Your Vehicle",
   introBody:
-    "Front Range Detail Studio, conveniently located in South Denver, has been Colorado\u2019s leading provider of immaculate auto, watercraft, motorcoach, and RV detailing services. Choose from our auto detailing packages or ceramic coating tiers below.",
+    "Front Range Detail Studio, conveniently located in South Denver, has been Colorado\u2019s leading provider of immaculate auto, watercraft, Motorcoach, and RV detailing services. Combining expert craftsmanship with unrivaled customer service, we excel in vehicle wraps, clear bra, PPF, ceramic coating, window tinting, polishing, paint correction and gel coat restoration. Whether you desire increased durability, superior aesthetics, or ultimate protection for your cherished possessions, trust our skilled team to transform them beyond expectations and create a lasting statement of beauty. Rest assured that your prized asset will receive the pampering it deserves, ensuring a show-stopping shine that commands attention for the long road ahead.",
   pricingH2: "Colorado\u2019s Vehicle Auto Detailing Packages",
   pricing: [
     {
@@ -35,19 +35,19 @@ export const detailingPackagesData: ServicePageData = {
   features: [
     {
       title: "Bronze Package",
-      body: "1-year warranty ceramic coating. Ideal for vehicles needing basic protection and enhanced gloss.",
+      body: "1-Year Protection. Single layer of System X Ceramic Coating. Hydrophobic protection & enhanced gloss. Ideal for leased or short-term ownership.",
     },
     {
       title: "Silver Package",
-      body: "3-year warranty ceramic coating. Greater durability and hydrophobic performance for daily drivers.",
+      body: "3-Year Protection. Two layers of System X Ceramic Coating. Enhanced durability & deeper gloss. Great for daily drivers.",
     },
     {
       title: "Gold Package",
-      body: "6-year warranty ceramic coating. Premium protection with deep gloss and excellent chemical resistance.",
+      body: "6-Year Protection. Multi-layer ceramic application. Superior gloss, depth, and long-term protection. Perfect for luxury & collector vehicles.",
     },
     {
       title: "Platinum Package",
-      body: "9-year warranty ceramic coating. Our most durable package for maximum gloss, protection and longevity.",
+      body: "9-Year & Lifetime Protection. Professional-grade System X Pro Coating. Maximum durability, gloss, and protection. Backed by a 9-Year Warranty.",
     },
   ],
   faqs: [

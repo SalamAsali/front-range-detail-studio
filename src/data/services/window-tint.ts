@@ -6,7 +6,7 @@ export const windowTintData: ServicePageData = {
   h1: "Ceramic Window Tint in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
   introH2: "Unmatched Heat Rejection, UV Protection, and Style",
   introBody:
-    "Colorado\u2019s high-altitude sun, winter glare, and fluctuating weather make quality window tint more than just an upgrade \u2014 it\u2019s a must-have for both comfort and protection. Ceramic tint blocks 99% of UV rays and up to 94% of infrared heat, keeping your car dramatically cooler without making it too dark. Colorado law requires most vehicle windows to allow at least 27% visible light through.",
+    "Colorado\u2019s high-altitude sun, winter glare, and fluctuating weather make quality window tint more than just an upgrade \u2014 it\u2019s a must-have for both comfort and protection. Whether you\u2019re driving in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, or Castle Pines, ceramic window tint from Front Range Detail Studio keeps your interior cooler, shields your skin, and protects your investment.",
   featuresEyebrow: "Ceramic Film",
   featuresH2: "Why Ceramic Tint Outperforms",
   features: [
@@ -33,36 +33,37 @@ export const windowTintData: ServicePageData = {
   ],
   includedH2: "What\u2019s Included With Every Window Tint Install",
   included: [
-    "Premium ceramic window film with lifetime warranty",
-    "99% UV ray rejection and up to 94% infrared heat rejection",
-    "Professional installation in our climate-controlled studio",
-    "Colorado-legal shade consultation and compliance",
-    "Personalized aftercare instructions",
+    "Suntek Evolve Ceramic Window Film: Industry-leading, next-gen ceramic technology.",
+    "Lifetime Warranty: Guaranteed against fading, bubbling, peeling, or discoloration.",
+    "Custom Shade Selection: Choose your preferred darkness \u2014 we can go as light or as dark as you want, with guidance on Colorado\u2019s 27% legal limit and advice on darker options.",
+    "Professional Studio Installation: Flawless, dust-free results every time \u2014 never mobile.",
+    "Precision Computer-Cut Patterns: Perfect fit, every time, for all cars, trucks, SUVs, and more.",
+    "Aftercare Instructions: Easy cleaning tips for long-lasting tint performance.",
   ],
   /* "Want maximum privacy or a custom look?" section from original */
   additionalSections: [
     {
       h2: "Want Maximum Privacy or a Custom Look?",
-      body: "Whether you want a darker shade for privacy or a sleek custom appearance, our team can recommend the right ceramic film and shade to match your style while staying within Colorado\u2019s legal requirements.",
+      body: "We can tint your windows as dark as you want, so long as you understand the legal ramifications and local regulations. Our team is happy to explain Colorado\u2019s window tint laws (legal limit is 27% VLT for most windows), but the final choice is always yours.",
     },
   ],
   stepsH2: "Our Proven Process: From Consultation to Perfection",
   steps: [
     {
       title: "Initial Consultation",
-      body: "We help you choose a legal shade and the right ceramic film for your goals.",
+      body: "We review your needs, explain all shade options (including legal limits in Colorado), and help you select the perfect film for your goals.",
     },
     {
       title: "Careful Preparation",
-      body: "Glass is meticulously cleaned and prepped in our dust-controlled studio.",
+      body: "Every window is meticulously cleaned and prepped for optimal adhesion.",
     },
     {
       title: "Expert Installation",
-      body: "Film is precision-cut and heat-shrunk to fit each window perfectly.",
+      body: "Our certified installers apply your chosen Suntek Evolve Ceramic tint with care, using computer-cut patterns for precision and a dust-free studio environment.",
     },
     {
       title: "Final Inspection & Aftercare",
-      body: "We inspect every edge and walk you through simple aftercare.",
+      body: "We inspect every window for perfection, walk you through care instructions, and ensure you love the result.",
     },
   ],
   gallery: [
@@ -71,19 +72,19 @@ export const windowTintData: ServicePageData = {
   faqs: [
     {
       q: "Can you make my windows darker than the legal limit?",
-      a: "Colorado law requires most vehicle windows to allow at least 27% visible light through (27% VLT). We help you stay compliant while maximizing heat rejection and comfort.",
+      a: "Yes, we can tint your windows as dark as you like, but it\u2019s important to understand that Colorado law requires most vehicle windows to allow at least 27% visible light through. Choosing a darker shade may result in a ticket if stopped by law enforcement. We\u2019re happy to explain your options and help you make an informed decision.",
     },
     {
       q: "What\u2019s special about ceramic window film?",
-      a: "Ceramic film rejects far more infrared heat, blocks 99% of UV, reduces glare and never interferes with electronic signals \u2014 unlike cheaper dyed or metallic films.",
+      a: "Ceramic tint blocks 99% of UV rays and up to 94% of infrared heat, keeping your car dramatically cooler without making it too dark.",
     },
     {
       q: "Can you tint my windshield or sunroof?",
-      a: "We can apply a clear or near-clear ceramic film to the windshield for heat and UV rejection while keeping it street-legal. Sunroofs can also be tinted.",
+      a: "Absolutely! We offer legal and safe windshield and sunroof tinting \u2014 great for reducing glare, protecting your dash, and making your drive more comfortable.",
     },
     {
       q: "Do you offer windshield protection film?",
-      a: "Yes \u2014 we offer windshield protection film that adds a layer to help hold shattered glass together and protects occupants from UV exposure.",
+      a: "Yes! Our windshield protection film helps prevent costly cracks, chips, and pitting \u2014 keeping your original, soundproofed windshield intact and saving you from expensive, disruptive replacements.",
     },
   ],
   crossTitle: "Pair Tint With Ceramic Coating",

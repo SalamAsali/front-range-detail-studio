@@ -17,7 +17,7 @@ export const reviews = [
   },
   {
     name: "Steve E.",
-    text: "I have nothing but good things to say about Front Range Detail Studio. Impeccable work, driven by attention to detail and obvious care for their customers. Experts at ceramic coating and maintenance. And we just added clear bra to the mix, and they did an excellent job with the applications. Very trusting of these guys with my CT5-V.",
+    text: "I have nothing but good things to say about Front Range Detail Studio. Impeccable work, driven by attention to detail and obvious care for their customers. Experts at ceramic coating and maintenance. And we just added clear bra to the mix, and they did an excellent job with the applications. Very trusting of these guys with my CT5-V. Trust them as well, you won't be disappointed.",
   },
   {
     name: "Alex",

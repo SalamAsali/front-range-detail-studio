@@ -12,11 +12,11 @@ export const systemXData: ServicePageData = {
   features: [
     {
       title: "Guaranteed",
-      body: "Supported by our unbeatable industry guarantee, the System X paint protection program ensures your vehicle maintains its flawless appearance for as long as you possess it.",
+      body: "Supported by our unbeatable industry guarantee, the System X paint protection program, expertly installed, ensures that your vehicle will maintain its flawless appearance for as long as you possess it.",
     },
     {
       title: "Made in The USA",
-      body: "With great pride, our products are meticulously crafted in Thomaston, CT USA. They embody a commitment to excellence and trustworthiness.",
+      body: "With great pride, our products are meticulously crafted in Thomaston, CT USA. They embody a commitment to excellence and trustworthiness. Rest assured, the premium coating applied to your vehicle not only enhances its appearance but also provides unparalleled protection.",
     },
     {
       title: "Top Tier Performance",

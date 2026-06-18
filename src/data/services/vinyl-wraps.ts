@@ -6,21 +6,21 @@ export const vinylWrapsData: ServicePageData = {
   h1: "Denver Metro\u2019s Premier Choice In Vinyl Wrap Application",
   introH2: "Transform Your Ride With Custom Vinyl Wraps",
   introBody:
-    "Looking to give your car a fresh new look? Whether you\u2019re after a full color change, custom graphics, or subtle accents, our premium vinyl wrap services provide the ultimate makeover \u2014 without the cost of a new paint job.",
+    "Full color changes, custom graphics, and stylish accents \u2014 professionally installed for a flawless finish. Looking to give your car a fresh new look? Whether you\u2019re after a full color change, custom graphics, or subtle accents, our premium vinyl wrap services provide the ultimate makeover \u2014 without the cost of a new paint job. At Front Range Detail Studio, we use top-of-the-line materials and expert installation techniques to transform your vehicle\u2019s appearance while also offering an extra layer of paint protection.",
   featuresEyebrow: "Key Benefits",
   featuresH2: "Why Choose Vinyl Wraps?",
   features: [
     {
       title: "Quick Turnaround",
-      body: "Most full wraps are completed in 3\u20135 days.",
+      body: "Most full wraps are completed in 3\u20135 days, depending on complexity.",
     },
     {
       title: "Full Customization",
-      body: "Choose from a wide range of colors, textures, and finishes.",
+      body: "Choose from a wide range of colors, textures, and finishes \u2014 from matte and gloss to metallic and satin.",
     },
     {
       title: "Non-Permanent",
-      body: "Easily removable without damaging paint.",
+      body: "Easily removable without damaging your original paint, perfect for leased vehicles or style changes.",
     },
     {
       title: "Paint Protection",
@@ -28,17 +28,15 @@ export const vinylWrapsData: ServicePageData = {
     },
     {
       title: "Cost-Effective Alternative to Paint",
-      body: "A premium custom look for a fraction of the cost of a full repaint.",
+      body: "Get a fresh look at a fraction of the cost of a custom paint job.",
     },
   ],
   includedH2: "Vinyl Wrap Options",
   included: [
-    "Full Vehicle Color Change \u2014 Matte, gloss, satin, metallic, or chrome finishes. Over 200+ color options.",
-    "Partial Wraps & Graphics \u2014 Racing stripes, hood/roof/trunk wraps, custom graphics.",
-    "Commercial & Fleet Wraps",
-    "Accent Wraps & Details",
-    "Chrome delete & trim blackout",
-    "Roof, mirror & hood accents",
+    "Full Vehicle Color Change: Transform the entire look of your car. Matte, gloss, satin, metallic, or chrome finishes. Over 200+ color options. Completely reversible without damaging paint.",
+    "Partial Wraps & Graphics: Add a custom touch without wrapping the entire vehicle. Racing stripes, hood/roof/trunk wraps, two-tone color designs, custom graphics & branding.",
+    "Commercial & Fleet Wraps: Turn your vehicle into a moving billboard. Custom branding for company vehicles, eye-catching graphics and logos, high-quality materials built for daily driving.",
+    "Accent Wraps & Details: Subtle touches for a more unique style. Carbon fiber accents (mirrors, spoilers, hoods), chrome deletes, roof wraps.",
   ],
   stepsH2: "How A Wrap Comes Together",
   steps: [

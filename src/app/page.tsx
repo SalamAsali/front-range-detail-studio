@@ -230,7 +230,7 @@ export default function HomePage() {
                   lineHeight: 1.12,
                 }}
               >
-                Protection For All Brands Including Tesla, Rivian, Porsche, BMW, Mercedes-Benz &amp; More
+                Protection For All Brands and Models Including Tesla, Rivian, Porsche, BMW, Mercedes Benz and More
               </h2>
               <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "22px 0 0" }} />
             </div>

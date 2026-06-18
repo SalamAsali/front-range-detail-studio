@@ -6,7 +6,7 @@ export const rvDetailingData: ServicePageData = {
   h1: "RV Detailing & Ceramic Coating in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
   introH2: "Protect Your Home on Wheels",
   introBody:
-    "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts. At Front Range Detail Studio, we use only the industry\u2019s best: System X MAX G Plus ceramic coatings and SunTek Reaction paint protection film. These are the same premium products trusted on high-end cars \u2014 now protecting your RV or motorhome against Colorado\u2019s toughest conditions.",
+    "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts. At Front Range Detail Studio, we use only the industry\u2019s best: System X MAX G Plus ceramic coatings and SunTek Reaction paint protection film. These are the same premium products trusted on high-end cars \u2014 now protecting your RV or motorhome against Colorado\u2019s toughest conditions. Our team has worked on everything from luxury Class A motorhomes to Sprinter conversions and classic fifth-wheels. We restore shine, remove oxidation, and preserve your investment using proven, warrantied products from brands you can trust.",
   pricingH2: "RV Detailing & Protection Packages",
   pricing: [
     {
@@ -17,22 +17,22 @@ export const rvDetailingData: ServicePageData = {
     {
       title: "Oxidation Removal & Paint Correction",
       price: "$20\u2013$35/ft",
-      body: "Machine compounding and polishing to restore faded/chalky fiberglass and gelcoat, followed by a System X ceramic top coat.",
+      body: "Machine compounding and polishing using premium compounds. Restores faded or chalky fiberglass/gelcoat. System X ceramic top coat for UV and weather defense.",
     },
     {
       title: "Ceramic Coating for RVs & Motorhomes",
       price: "From $100/ft",
-      body: "Multi-stage paint correction, System X MAX G Plus application. 3-year warranty for new RVs; 1\u20132 years for older units. Protection against sun, bird droppings, tree sap. Optional wheel, trim, and glass coating.",
+      body: "Multi-stage paint correction. Application of System X MAX G Plus. New RVs: 3-year warranty \u2013 Older RVs: 1\u20132 years based on surface. Lasting protection against sun, bird droppings, tree sap, and harsh chemicals. Optional wheel, trim, and glass ceramic coating.",
     },
     {
       title: "Paint Protection Film (SunTek Reaction)",
       price: "12-yr warranty",
-      body: "High-impact zone coverage with SunTek Reaction PPF. Self-healing, hydrophobic, and virtually invisible.",
+      body: "SunTek Reaction PPF for high-impact zones: front cap, lower panels, mirrors, headlights. 12-year warranty, self-healing, hydrophobic, and virtually invisible. Custom quote based on coverage.",
     },
     {
       title: "Roof, Decal & Specialty Services",
       price: "Custom quote",
-      body: "Rubber/TPO/fiberglass roof cleaning & UV treatment, decal removal & replacement, metal polishing, window cleaning.",
+      body: "Rubber, TPO, or fiberglass roof cleaning & UV treatment. Decal removal & replacement. Metal polishing, window cleaning, and more. Contact us for a personalized quote.",
     },
   ],
   featuresEyebrow: "Every Rig",
@@ -63,16 +63,16 @@ export const rvDetailingData: ServicePageData = {
         body: "Class A, Class B, Class C, fifth-wheels, travel trailers, toy haulers, and custom vans.",
       },
       {
-        title: "Premium Products",
-        body: "System X MAX G Plus ceramic coatings and SunTek Reaction PPF \u2014 the same products trusted on high-end cars.",
+        title: "Premium Brands",
+        body: "System X MAX G Plus Ceramic Coating: 3-year warranty for new RVs/motorhomes \u2014 industry-leading gloss and hydrophobic protection. SunTek Reaction Paint Protection Film: 12-year warranty, advanced self-healing, and virtually invisible.",
       },
       {
-        title: "Per-Foot Pricing",
-        body: "Transparent pricing based on your rig\u2019s size \u2014 you only pay for what you need.",
+        title: "Professional Studio Service",
+        body: "Detailing, correction, and coatings applied in our climate-controlled Centennial facility \u2014 never mobile for full-service jobs.",
       },
       {
-        title: "Appointment-Only Service",
-        body: "Dedicated time slots mean your RV gets our full, undivided attention.",
+        title: "Trusted by Colorado RV Owners",
+        body: "See our reviews and actual photos below!",
       },
     ],
   },
@@ -86,20 +86,20 @@ export const rvDetailingData: ServicePageData = {
       a: "Yes, from Sprinter vans and pop-ups to large Class A diesel pushers \u2014 no rig is too big or too small!",
     },
     {
-      q: "What\u2019s the difference between wax and ceramic coating for an RV?",
-      a: "Wax offers a few months of shine and protection. Our System X ceramic coating provides up to 3 years of real-world defense.",
+      q: "What\u2019s the difference between wax and ceramic coating?",
+      a: "Wax offers a few months of shine and protection. Our System X ceramic coating provides up to 3 years of real-world defense and makes cleaning much easier.",
     },
     {
-      q: "How long does RV detailing take?",
-      a: "Most exterior packages take 1\u20133 days depending on the size and condition of your RV.",
+      q: "How long does the process take?",
+      a: "Most exterior packages take 1\u20133 days depending on the size and condition of your RV. We\u2019ll provide a firm timeline with your quote.",
     },
     {
-      q: "How is RV pricing calculated?",
-      a: "Most RV services are priced per foot so you only pay for the size of your rig. We provide a clear quote after a quick walk-around.",
+      q: "Can you remove heavy oxidation and faded gelcoat?",
+      a: "Absolutely \u2014 our multi-step correction process restores shine to even badly faded surfaces.",
     },
     {
-      q: "Do you detail boats too?",
-      a: "Absolutely \u2014 we offer boat washing, oxidation removal, buffing and marine ceramic coating.",
+      q: "Do you offer mobile or on-site service?",
+      a: "For best results and warranty, we recommend our controlled shop environment. Mobile service may be available for select maintenance jobs \u2014 ask for details.",
     },
   ],
   crossTitle: "Coat It For Years Of Protection",
