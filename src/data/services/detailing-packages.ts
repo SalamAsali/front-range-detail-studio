@@ -13,21 +13,25 @@ export const detailingPackagesData: ServicePageData = {
       title: "Maintenance Wash & Wax",
       price: "~2 hours",
       body: "Every 1\u20132 months. Hand wash with pH-balanced soap, bug and tar removal, clay bar treatment, premium wax, tire cleaning and dressing, windows inside and out.",
+      image: "/images/gallery/BMW-i4-vertical-pic.webp",
     },
     {
       title: "Full Exterior Detailing",
       price: "~4\u20135 hours",
       body: "Every 3\u20136 months. Hand wash and decontamination, paint correction (swirl and scratch removal), polish, sealant or ceramic spray, wheel and tire detailing, glass cleaning and water repellent.",
+      image: "/images/gallery/Rivian-ceramic-coatin-vertical-pic.webp",
     },
     {
       title: "Full Interior Detailing",
       price: "~3\u20134 hours",
       body: "Every 4\u20136 months. Vacuum seats, carpets, trunk. Steam cleaning and shampooing. Leather cleaning and conditioning. Dashboard, vents, cupholders. Windows. Odor elimination.",
+      image: "/images/gallery/BMW-vertical-pic-2.webp",
     },
     {
       title: "Complete Interior & Exterior",
       price: "~6\u20138 hours",
       body: "Twice a year. All services from Full Exterior and Full Interior, clay bar and paint correction, steam cleaning and odor elimination, engine bay cleaning, glass water repellent.",
+      image: "/images/gallery/GMC-truck-vertical-pic.webp",
     },
   ],
   featuresEyebrow: "Ceramic Coating Tiers",
@@ -36,18 +40,22 @@ export const detailingPackagesData: ServicePageData = {
     {
       title: "Bronze Package",
       body: "1-Year Protection. Single layer of System X Ceramic Coating. Hydrophobic protection & enhanced gloss. Ideal for leased or short-term ownership.",
+      image: "/images/vehicles/toyota-suv-1024x768.jpg",
     },
     {
       title: "Silver Package",
       body: "3-Year Protection. Two layers of System X Ceramic Coating. Enhanced durability & deeper gloss. Great for daily drivers.",
+      image: "/images/vehicles/ford-truck-1-1024x576.jpg",
     },
     {
       title: "Gold Package",
       body: "6-Year Protection. Multi-layer ceramic application. Superior gloss, depth, and long-term protection. Perfect for luxury & collector vehicles.",
+      image: "/images/vehicles/BMW-M50i-1024x768.jpg",
     },
     {
       title: "Platinum Package",
       body: "9-Year & Lifetime Protection. Professional-grade System X Pro Coating. Maximum durability, gloss, and protection. Backed by a 9-Year Warranty.",
+      image: "/images/vehicles/911-Targa-4S-1024x768.jpg",
     },
   ],
   faqs: [

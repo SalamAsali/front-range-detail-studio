@@ -28,22 +28,27 @@ export const rvCeramicCoatingData: ServicePageData = {
     {
       title: "Comprehensive Inspection",
       body: "We begin with a thorough assessment of your RV\u2019s exterior to identify any areas needing special attention.",
+      image: "/images/gallery/New-Aire-RV-vertical-pic.webp",
     },
     {
       title: "Surface Preparation",
       body: "Our team performs a meticulous wash and decontamination process to remove all impurities.",
+      image: "/images/services/rv-detailing.jpg",
     },
     {
       title: "Paint Correction",
       body: "We address any imperfections, such as swirl marks or oxidation, to ensure a flawless surface.",
+      image: "/images/services/RV-ceramic-coating.jpeg",
     },
     {
       title: "Ceramic Coating Application",
       body: "System X Ceramic Coating is carefully applied to all exterior surfaces, including paint, fiberglass, gel coat, windows, and wheels.",
+      image: "/images/gallery/System-X-Max-G-819x1024.png",
     },
     {
       title: "Curing",
       body: "The coating is allowed to cure properly, forming a strong bond that offers long-lasting protection.",
+      image: "/images/hero/coach-scaled.jpg",
     },
   ],
   includedH2: "Ultimate Protection Max G+ Package",
@@ -60,16 +65,19 @@ export const rvCeramicCoatingData: ServicePageData = {
       title: "Exterior Wash & Wax",
       price: "From $10/ft",
       body: "Hand wash, bug and tar removal, high-quality sealant application, wheel and tire cleaning.",
+      image: "/images/gallery/New-Aire-RV-vertical-pic.webp",
     },
     {
       title: "Oxidation Removal & Paint Correction",
       price: "$20\u2013$35/ft",
       body: "Machine compounding and polishing to restore faded fiberglass and gelcoat.",
+      image: "/images/services/RV-ceramic-coating.jpeg",
     },
     {
       title: "System X Ceramic Coating Application",
       price: "From $100/ft",
       body: "Multi-stage paint correction followed by System X Ceramic Coating application with warranty.",
+      image: "/images/services/rv-detailing.jpg",
     },
   ],
   /* Deluxe and Custom packages from original */

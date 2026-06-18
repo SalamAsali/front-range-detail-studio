@@ -13,21 +13,25 @@ export const boatDetailingData: ServicePageData = {
       title: "Exterior Boat Detailing & Buffing",
       price: "~3\u20135 hours",
       body: "Full exterior hand wash (including hull and deck), oxidation and water spot removal, gelcoat buffing and polishing for deep glossy finish, premium marine wax or sealant application, stainless steel and chrome polishing.",
+      image: "/images/gallery/boat.webp",
     },
     {
       title: "Interior Boat Detailing",
       price: "~2\u20134 hours",
       body: "Vacuum and deep clean seating, carpets, upholstery. Vinyl and leather cleaning and conditioning. Mold and mildew treatment. Glass and mirror cleaning. Dashboard and control panel detailing.",
+      image: "/images/gallery/boat-2.webp",
     },
     {
       title: "Annual Boat Waxing",
       price: "Custom quote",
       body: "Gelcoat-safe, high-quality wax that shields from Colorado\u2019s intense sun and water spots. Recommended every 12 months.",
+      image: "/images/services/boat-detailing.jpg",
     },
     {
       title: "Gelcoat Restoration & Oxidation Removal",
       price: "Custom quote",
       body: "Multi-stage machine buffing and polishing to revive color, depth and reflectivity. Protect with marine wax or ceramic coating.",
+      image: "/images/gallery/boat.webp",
     },
   ],
   /* Marine Ceramic Coating packages */

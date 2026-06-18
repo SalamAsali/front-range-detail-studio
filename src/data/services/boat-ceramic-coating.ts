@@ -32,29 +32,50 @@ export const boatCeramicCoatingData: ServicePageData = {
     {
       title: "Thorough Hand Wash & Decontamination",
       body: "All surfaces are cleaned to remove salt, algae, waterline buildup and road grime.",
+      image: "/images/gallery/boat.webp",
     },
     {
       title: "Oxidation Removal & Gelcoat Correction",
       body: "Multi-stage compounding and polishing restores faded surfaces to a deep, even shine.",
+      image: "/images/gallery/boat-2.webp",
     },
     {
       title: "Ceramic Coating Application",
       body: "System X Marine coating is applied to hull, deck, topside and stainless steel surfaces.",
+      image: "/images/services/boat-detailing.jpg",
     },
     {
       title: "Curing & Inspection",
       body: "The coating cures and we inspect every surface for complete, even coverage.",
+      image: "/images/gallery/boat.webp",
     },
   ],
-  /* System X Marine + SunTek PPF details */
-  additionalSections: [
+  /* System X Marine + SunTek PPF details with product images */
+  contentBlocks: [
     {
       h2: "System X Marine Ceramic Coating",
-      body: "Hull-Only Coating: Defends against oxidation, algae stains, and waterline buildup. Full Exterior Coating: Maximum hydrophobic protection for hull, deck, topside, and stainless steel. Ultimate Marine Protection Package: Add interior surface coating for vinyl, plastic, and more. 3-Year Manufacturer Warranty on new boats (annual top coat required for warranty).",
+      body: "Professional-grade marine ceramic coating providing maximum hydrophobic protection for your entire vessel.",
+      image: "/images/gallery/System-X-Max-G-819x1024.png",
+      imageAlt: "System X Max G+ ceramic coating product for marine applications",
+      bullets: [
+        "Hull-Only Coating: Defends against oxidation, algae stains, and waterline buildup",
+        "Full Exterior Coating: Maximum hydrophobic protection for hull, deck, topside, and stainless steel",
+        "Ultimate Marine Protection Package: Add interior surface coating for vinyl, plastic, and more",
+        "3-Year Manufacturer Warranty on new boats (annual top coat required for warranty)",
+      ],
     },
     {
       h2: "SunTek Reaction Paint Protection Film (PPF) for Boats",
-      body: "Hull leading edges (defend against trailer & dock rash). High-wear swim platforms. Boarding steps and grab rails. Painted or gelcoat areas prone to abrasion. Stainless and aluminum surfaces (optional). SunTek Reaction PPF offers a 12-year warranty against yellowing, cracking, and peeling \u2014 even in harsh marine environments.",
+      body: "SunTek Reaction PPF offers a 12-year warranty against yellowing, cracking, and peeling \u2014 even in harsh marine environments.",
+      image: "/images/gallery/boat-2.webp",
+      imageAlt: "Boat protected with SunTek Reaction paint protection film",
+      bullets: [
+        "Hull leading edges (defend against trailer & dock rash)",
+        "High-wear swim platforms",
+        "Boarding steps and grab rails",
+        "Painted or gelcoat areas prone to abrasion",
+        "Stainless and aluminum surfaces (optional)",
+      ],
     },
   ],
   includedH2: "Marine Coating & PPF Packages",

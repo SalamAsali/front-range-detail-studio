@@ -13,14 +13,17 @@ export const systemXData: ServicePageData = {
     {
       title: "Guaranteed",
       body: "Supported by our unbeatable industry guarantee, the System X paint protection program, expertly installed, ensures that your vehicle will maintain its flawless appearance for as long as you possess it.",
+      image: "/images/gallery/System-X-Max-G-819x1024.png",
     },
     {
       title: "Made in The USA",
       body: "With great pride, our products are meticulously crafted in Thomaston, CT USA. They embody a commitment to excellence and trustworthiness. Rest assured, the premium coating applied to your vehicle not only enhances its appearance but also provides unparalleled protection.",
+      image: "/images/gallery/System-X-Top-Coat-vertical-pic-819x1024.webp",
     },
     {
       title: "Top Tier Performance",
       body: "System X Max & Diamond are the slickest coatings on the market. Its unique chemistry provides an unparalleled bond for the best long term protection. Super slick properties help contaminants slide right off.",
+      image: "/images/gallery/sports-car-1-819x1024.webp",
     },
   ],
   includedH2: "Ultimate Protection Max G+ Package",
@@ -31,23 +34,31 @@ export const systemXData: ServicePageData = {
     "Glass on the windshield/windscreen",
     "Interior protection of leather, vinyl, fabric, and carpet",
   ],
-  /* System X product line sections */
-  additionalSections: [
+  /* System X product line sections with product images */
+  contentBlocks: [
     {
       h2: "Clarity and Protection \u2014 System X Glass",
       body: "Dramatically increases visibility in the rain and makes de-icing in the winter and cleaning summer insect matter far easier. System X Glass creates a hydrophobic barrier on your windshield and windows for safer driving in all conditions.",
+      image: "/images/gallery/System-X-Glass-product-819x1024.webp",
+      imageAlt: "System X Glass ceramic coating product",
     },
     {
       h2: "System X Renew",
       body: "Can be used as a standalone HYPER gloss coat or as a topper for your professional ceramic coating. Ideal as a stand-alone or a renewal to your existing coating.",
+      image: "/images/gallery/System-X-Renew-product-819x1024.webp",
+      imageAlt: "System X Renew ceramic coating product",
     },
     {
       h2: "Plastic and Trim \u2014 System X Revive",
       body: "Protects from future micro-scratches and UV fading while multiplying the surface\u2019s hydrophobic properties. Restores faded plastic and trim to like-new condition.",
+      image: "/images/gallery/System-X-Revive-product-819x1024.webp",
+      imageAlt: "System X Revive trim restoration product",
     },
     {
       h2: "Leather, Vinyl, and Fabric \u2014 System X Interior",
       body: "Protects all your interior surfaces; such as fabric seats, carpet, leather, and vinyl with a single professional coating. Spills and stains clean up easily and quickly.",
+      image: "/images/gallery/System-X-Interior-product-819x1024.webp",
+      imageAlt: "System X Interior protection coating product",
     },
   ],
   gallery: [

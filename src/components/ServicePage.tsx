@@ -14,15 +14,15 @@ export interface ServicePageData {
   videos?: { label: string; src: string; poster?: string }[];
   featuresEyebrow?: string;
   featuresH2?: string;
-  features?: { title: string; body: string }[];
+  features?: { title: string; body: string; image?: string }[];
   includedH2?: string;
   included?: string[];
   stepsH2?: string;
-  steps?: { title: string; body: string }[];
+  steps?: { title: string; body: string; image?: string }[];
   cardsH2?: string;
   cards?: { img: string; tag: string; title: string; href: string }[];
   pricingH2?: string;
-  pricing?: { title: string; price: string; body: string }[];
+  pricing?: { title: string; price: string; body: string; image?: string }[];
   gallery?: string[];
   faqs?: { q: string; a: string }[];
   crossTitle?: string;
@@ -34,10 +34,35 @@ export interface ServicePageData {
   whyChoose?: { h2: string; items: { title: string; body: string }[] };
   crossSell2?: { title: string; body: string; href: string; label: string };
   additionalSections?: { h2: string; body: string }[];
+  contentBlocks?: { h2: string; body: string; image: string; imageAlt: string; bullets?: string[] }[];
 }
+
+const CYAN = "#00BCD4";
+const GUTTER = "clamp(20px, 5vw, 56px)";
+const sectionPad = "clamp(56px, 7vw, 96px)";
+
+const archivoBold: React.CSSProperties = {
+  fontFamily: "'Archivo', sans-serif",
+  fontWeight: 700,
+  textTransform: "uppercase",
+  letterSpacing: "-0.3px",
+};
+
+const manropeBody: React.CSSProperties = {
+  margin: 0,
+  fontFamily: "'Manrope', sans-serif",
+  fontWeight: 300,
+  fontSize: "clamp(1.05rem, 1.3vw, 1.2rem)",
+  lineHeight: 1.7,
+  color: "rgba(255,255,255,0.82)",
+};
 
 export function ServicePage({ data }: { data: ServicePageData }) {
   const d = data;
+
+  /* Check if any features/pricing/steps have images */
+  const featuresHaveImages = d.features?.some((f) => f.image) ?? false;
+  const pricingHasImages = d.pricing?.some((p) => p.image) ?? false;
 
   return (
     <div style={{ background: "#000", fontFamily: "'Manrope', sans-serif" }}>
@@ -301,74 +326,150 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 />
               </div>
             </ScrollReveal>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                gap: 18,
-              }}
-            >
-              {d.features.map((f, i) => (
-                <ScrollReveal key={i}>
-                  <div
-                    style={{
-                      background: "#1a1a1a",
-                      border: "1px solid rgba(255,255,255,0.06)",
-                      borderRadius: 6,
-                      padding: "28px 26px",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 12,
-                    }}
-                  >
-                    <span
+            {featuresHaveImages ? (
+              /* Features with images: 2-column layout per item */
+              <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
+                {d.features!.map((f, i) => (
+                  <ScrollReveal key={i}>
+                    <div
                       style={{
-                        width: 40,
-                        height: 40,
-                        borderRadius: "50%",
-                        background: "rgba(0,188,212,0.12)",
-                        border: "1px solid rgba(0,188,212,0.4)",
-                        display: "flex",
+                        display: "grid",
+                        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                        gap: "clamp(20px, 3vw, 40px)",
                         alignItems: "center",
-                        justifyContent: "center",
-                        color: "#00BCD4",
-                        fontFamily: "'Archivo', sans-serif",
-                        fontWeight: 700,
-                        fontSize: 15,
+                        background: "#1a1a1a",
+                        border: "1px solid rgba(255,255,255,0.06)",
+                        borderRadius: 8,
+                        overflow: "hidden",
                       }}
                     >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3
+                      {f.image && (
+                        <div style={{ position: "relative", aspectRatio: "4/3", minHeight: 220 }}>
+                          <Image src={f.image} alt={f.title} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
+                        </div>
+                      )}
+                      <div style={{ padding: f.image ? "24px 28px 24px 8px" : "28px 26px" }}>
+                        <span
+                          style={{
+                            width: 40,
+                            height: 40,
+                            borderRadius: "50%",
+                            background: "rgba(0,188,212,0.12)",
+                            border: "1px solid rgba(0,188,212,0.4)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            color: "#00BCD4",
+                            fontFamily: "'Archivo', sans-serif",
+                            fontWeight: 700,
+                            fontSize: 15,
+                            marginBottom: 12,
+                          }}
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <h3
+                          style={{
+                            margin: "0 0 10px",
+                            fontFamily: "'Archivo', sans-serif",
+                            fontWeight: 700,
+                            textTransform: "uppercase",
+                            letterSpacing: "0.01em",
+                            fontSize: "1.05rem",
+                            lineHeight: 1.2,
+                            color: "#fff",
+                          }}
+                        >
+                          {f.title}
+                        </h3>
+                        <p
+                          style={{
+                            margin: 0,
+                            fontFamily: "'Manrope', sans-serif",
+                            fontWeight: 300,
+                            fontSize: "14.5px",
+                            lineHeight: 1.6,
+                            color: "rgba(255,255,255,0.7)",
+                          }}
+                        >
+                          {f.body}
+                        </p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            ) : (
+              /* Features without images: original grid cards */
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                  gap: 18,
+                }}
+              >
+                {d.features!.map((f, i) => (
+                  <ScrollReveal key={i}>
+                    <div
                       style={{
-                        margin: 0,
-                        fontFamily: "'Archivo', sans-serif",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.01em",
-                        fontSize: "1.05rem",
-                        lineHeight: 1.2,
-                        color: "#fff",
+                        background: "#1a1a1a",
+                        border: "1px solid rgba(255,255,255,0.06)",
+                        borderRadius: 6,
+                        padding: "28px 26px",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 12,
                       }}
                     >
-                      {f.title}
-                    </h3>
-                    <p
-                      style={{
-                        margin: 0,
-                        fontFamily: "'Manrope', sans-serif",
-                        fontWeight: 300,
-                        fontSize: "14.5px",
-                        lineHeight: 1.6,
-                        color: "rgba(255,255,255,0.7)",
-                      }}
-                    >
-                      {f.body}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+                      <span
+                        style={{
+                          width: 40,
+                          height: 40,
+                          borderRadius: "50%",
+                          background: "rgba(0,188,212,0.12)",
+                          border: "1px solid rgba(0,188,212,0.4)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#00BCD4",
+                          fontFamily: "'Archivo', sans-serif",
+                          fontWeight: 700,
+                          fontSize: 15,
+                        }}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3
+                        style={{
+                          margin: 0,
+                          fontFamily: "'Archivo', sans-serif",
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.01em",
+                          fontSize: "1.05rem",
+                          lineHeight: 1.2,
+                          color: "#fff",
+                        }}
+                      >
+                        {f.title}
+                      </h3>
+                      <p
+                        style={{
+                          margin: 0,
+                          fontFamily: "'Manrope', sans-serif",
+                          fontWeight: 300,
+                          fontSize: "14.5px",
+                          lineHeight: 1.6,
+                          color: "rgba(255,255,255,0.7)",
+                        }}
+                      >
+                        {f.body}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -725,65 +826,136 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 />
               </div>
             </ScrollReveal>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-                gap: 18,
-              }}
-            >
-              {d.pricing.map((p, i) => (
-                <ScrollReveal key={i}>
-                  <div
-                    style={{
-                      background: "#1a1a1a",
-                      border: "1px solid rgba(255,255,255,0.06)",
-                      borderRadius: 6,
-                      padding: "28px 26px",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 12,
-                    }}
-                  >
-                    <h3
+            {pricingHasImages ? (
+              /* Pricing with images: image on top, text below */
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                  gap: 22,
+                }}
+              >
+                {d.pricing!.map((p, i) => (
+                  <ScrollReveal key={i}>
+                    <div
                       style={{
-                        margin: 0,
-                        fontFamily: "'Archivo', sans-serif",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        fontSize: "1.02rem",
-                        lineHeight: 1.2,
-                        color: "#fff",
+                        background: "#1a1a1a",
+                        border: "1px solid rgba(255,255,255,0.06)",
+                        borderRadius: 8,
+                        overflow: "hidden",
+                        display: "flex",
+                        flexDirection: "column",
+                        height: "100%",
                       }}
                     >
-                      {p.title}
-                    </h3>
-                    <span
+                      {p.image && (
+                        <div style={{ position: "relative", aspectRatio: "4/3", flexShrink: 0 }}>
+                          <Image src={p.image} alt={p.title} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 33vw" />
+                        </div>
+                      )}
+                      <div style={{ padding: "24px 26px", display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
+                        <h3
+                          style={{
+                            margin: 0,
+                            fontFamily: "'Archivo', sans-serif",
+                            fontWeight: 700,
+                            textTransform: "uppercase",
+                            fontSize: "1.02rem",
+                            lineHeight: 1.2,
+                            color: "#fff",
+                          }}
+                        >
+                          {p.title}
+                        </h3>
+                        <span
+                          style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 600,
+                            fontSize: "1.5rem",
+                            color: "#00BCD4",
+                          }}
+                        >
+                          {p.price}
+                        </span>
+                        <p
+                          style={{
+                            margin: 0,
+                            fontFamily: "'Manrope', sans-serif",
+                            fontWeight: 300,
+                            fontSize: 14,
+                            lineHeight: 1.6,
+                            color: "rgba(255,255,255,0.7)",
+                          }}
+                        >
+                          {p.body}
+                        </p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            ) : (
+              /* Pricing without images: original text-only cards */
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+                  gap: 18,
+                }}
+              >
+                {d.pricing!.map((p, i) => (
+                  <ScrollReveal key={i}>
+                    <div
                       style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontWeight: 600,
-                        fontSize: "1.5rem",
-                        color: "#00BCD4",
+                        background: "#1a1a1a",
+                        border: "1px solid rgba(255,255,255,0.06)",
+                        borderRadius: 6,
+                        padding: "28px 26px",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 12,
                       }}
                     >
-                      {p.price}
-                    </span>
-                    <p
-                      style={{
-                        margin: 0,
-                        fontFamily: "'Manrope', sans-serif",
-                        fontWeight: 300,
-                        fontSize: 14,
-                        lineHeight: 1.6,
-                        color: "rgba(255,255,255,0.7)",
-                      }}
-                    >
-                      {p.body}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+                      <h3
+                        style={{
+                          margin: 0,
+                          fontFamily: "'Archivo', sans-serif",
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          fontSize: "1.02rem",
+                          lineHeight: 1.2,
+                          color: "#fff",
+                        }}
+                      >
+                        {p.title}
+                      </h3>
+                      <span
+                        style={{
+                          fontFamily: "'Inter', sans-serif",
+                          fontWeight: 600,
+                          fontSize: "1.5rem",
+                          color: "#00BCD4",
+                        }}
+                      >
+                        {p.price}
+                      </span>
+                      <p
+                        style={{
+                          margin: 0,
+                          fontFamily: "'Manrope', sans-serif",
+                          fontWeight: 300,
+                          fontSize: 14,
+                          lineHeight: 1.6,
+                          color: "rgba(255,255,255,0.7)",
+                        }}
+                      >
+                        {p.body}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -1072,6 +1244,44 @@ export function ServicePage({ data }: { data: ServicePageData }) {
             </div>
           </div>
         </section>
+      )}
+
+      {/* CONTENT BLOCKS - alternating image+text */}
+      {d.contentBlocks && d.contentBlocks.length > 0 && (
+        d.contentBlocks.map((block, i) => (
+          <section key={i} style={{ background: i % 2 === 0 ? "#0d0d0d" : "#000", padding: `${sectionPad} 0` }}>
+            <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+              <ScrollReveal>
+                <div style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                  gap: "clamp(28px, 4vw, 56px)",
+                  alignItems: "center",
+                }}>
+                  {/* Image - left on odd, right on even */}
+                  <div style={{ order: i % 2 === 0 ? 0 : 1 }}>
+                    <div style={{ position: "relative", aspectRatio: "4/3", borderRadius: 8, overflow: "hidden" }}>
+                      <Image src={block.image} alt={block.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
+                    </div>
+                  </div>
+                  {/* Text */}
+                  <div>
+                    <h2 style={{ ...archivoBold, fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)", margin: "0 0 12px" }}>{block.h2}</h2>
+                    <hr style={{ width: 96, height: 2, background: CYAN, border: "none", margin: "0 0 20px" }} />
+                    <p style={{ ...manropeBody }}>{block.body}</p>
+                    {block.bullets && (
+                      <ul style={{ margin: "16px 0 0", padding: "0 0 0 20px", listStyle: "disc" }}>
+                        {block.bullets.map((b, j) => (
+                          <li key={j} style={{ ...manropeBody, marginBottom: 8 }}>{b}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          </section>
+        ))
       )}
 
       {/* ADDITIONAL SECTIONS */}
