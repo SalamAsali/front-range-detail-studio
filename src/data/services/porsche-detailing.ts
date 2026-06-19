@@ -3,7 +3,8 @@ import type { VehiclePageData } from "@/components/VehiclePage";
 export const porscheDetailingData: VehiclePageData = {
   brand: "Porsche",
   heroImg: "/images/vehicles/Porsche-Cayenne-Turbo-S-PPF-1024x768.jpg",
-  heroH1: "Colorado\u2019s Porsche PPF & Ceramic Coating Experts",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
+  heroH1: "Porsche Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio",
   heroSubtitle:
     "Porsche Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio.",
 
@@ -133,4 +134,17 @@ export const porscheDetailingData: VehiclePageData = {
     "/images/vehicles/Porsche-Cayenne-Turbo-S-PPF-1024x768.jpg",
     "/images/vehicles/911-Targa-4S-1024x768.jpg",
   ],
+
+  caseStudy: {
+    h2: "See Our Porsche Paint Protection in Action",
+    body: "We recently completed a full Front Range Package on a Porsche Cayenne Turbo S — featuring premium paint protection film using SunTek PPF, completely shielding the front end from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A stunning, chip-resistant Porsche built to thrive on Colorado roads.",
+    images: [
+      "/images/vehicles/Porsche-Cayenne-Turbo-S-PPF-1024x768.jpg",
+      "/images/vehicles/Porsche-Cayenne-Turbo-S-PPF-1-1024x768.jpg",
+      "/images/vehicles/porsche-ppf.png",
+      "/images/vehicles/porsche-ceramic-coating.png",
+      "/images/vehicles/porsche-window-tint.png",
+      "/images/vehicles/911-Targa-4S-1024x768.jpg",
+    ],
+  },
 };

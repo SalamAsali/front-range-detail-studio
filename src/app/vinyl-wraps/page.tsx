@@ -4,16 +4,16 @@ import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd"
 import { vinylWrapsData } from "@/data/services/vinyl-wraps";
 
 export const metadata: Metadata = {
-  title: "Vinyl Wraps & Decals",
+  title: "Vinyl Wraps",
   description:
-    "Premium vinyl wrap application in Denver, CO. Full color changes, custom graphics, chrome deletes. Over 200 colors and finishes. Front Range Detail Studio.",
+    "Full Color Changes & Custom Graphics",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/vinyl-wraps/",
   },
   openGraph: {
     title: "Vinyl Wraps & Decals | Front Range Detail Studio",
     description:
-      "Premium vinyl wrap application in Denver, CO. Full color changes, custom graphics, chrome deletes. Over 200 colors and finishes.",
+      "Full Color Changes & Custom Graphics",
     url: "https://frontrangedetailstudio.com/vinyl-wraps/",
     images: [
       {

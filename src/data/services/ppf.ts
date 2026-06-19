@@ -2,6 +2,7 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const ppfData: ServicePageData = {
   heroImg: "/images/services/new-ppf-scaled.jpg",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "Paint Protection Film \u00B7 12 Year Warranty",
   h1: "Paint Protection Film (PPF) & Clear Bra in Denver",
   introH2: "Keep Your Car Looking New \u2014 No Matter What Colorado Throws At It",

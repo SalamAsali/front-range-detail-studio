@@ -4,16 +4,16 @@ import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd"
 import { fordTruckDetailingData } from "@/data/services/ford-truck-detailing";
 
 export const metadata: Metadata = {
-  title: "Ford Truck PPF, Ceramic Coating & Window Tint",
+  title: "Ford Truck Detailing",
   description:
-    "Ford F-150, Super Duty and Lightning PPF, ceramic coating and window tint in Englewood, CO. Protect your truck. Front Range Detail Studio.",
+    "Colorado's Ford Truck PPF & Ceramic Coating Experts",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/ford-truck-detailing/",
   },
   openGraph: {
     title: "Ford Truck PPF, Ceramic Coating & Window Tint | Front Range Detail Studio",
     description:
-      "Ford F-150, Super Duty and Lightning PPF, ceramic coating and window tint in Englewood, CO. Protect your truck.",
+      "Colorado's Ford Truck PPF & Ceramic Coating Experts",
     url: "https://frontrangedetailstudio.com/ford-truck-detailing/",
     images: [
       {

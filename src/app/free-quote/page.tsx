@@ -6,14 +6,14 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "Free Quote",
   description:
-    "Request a free, no-obligation car detailing quote from Front Range Detail Studio. PPF, ceramic coating, window tinting, vinyl wraps & more in Englewood, CO.",
+    "Phone: (303) 520-8023",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/free-quote/",
   },
   openGraph: {
     title: "Free Quote | Front Range Detail Studio",
     description:
-      "Request a free, no-obligation car detailing quote. PPF, ceramic coating, window tinting, vinyl wraps & more in Englewood, CO.",
+      "Phone: (303) 520-8023",
     url: "https://frontrangedetailstudio.com/free-quote/",
     images: [
       {

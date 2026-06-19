@@ -2,6 +2,7 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const windowTintData: ServicePageData = {
   heroImg: "/images/services/new-tint.jpg",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "Ceramic Window Tint \u00B7 Lifetime Warranty",
   h1: "Ceramic Window Tint in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
   introH2: "Unmatched Heat Rejection, UV Protection, and Style",

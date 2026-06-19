@@ -54,9 +54,9 @@ const serviceCards = [
 
 const partnerLogos = [
   { src: "/images/logos/Rupes-Logo.webp", alt: "Rupes logo" },
-  { src: "/images/logos/glidecoat-pro-logo.svg", alt: "Glidecoat authorized dealer" },
-  { src: "/images/logos/eastman-logo-inverse.png", alt: "Eastman logo" },
-  { src: "/images/logos/suntek-logo.svg", alt: "SunTek Llumar logo" },
+  { src: "/images/logos/glidecoat-pro-logo.svg", alt: "Glidecoat logo, authorized Glidecoat dealer in Denver" },
+  { src: "/images/logos/eastman-logo-inverse.png", alt: "Eastman logo inverse" },
+  { src: "/images/logos/suntek-logo.svg", alt: "SunTek Llumar" },
   { src: "/images/logos/system-x2.png", alt: "System X logo" },
 ];
 

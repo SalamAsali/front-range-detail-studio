@@ -2,8 +2,9 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const boatDetailingData: ServicePageData = {
   heroImg: "/images/services/boat-detailing.jpg",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "Marine Detailing \u00B7 System X",
-  h1: "Boat Detailing & Ceramic Coating in Denver, CO \u2014 Protect Your Watercraft",
+  h1: "Boat Detailing & Ceramic Coating in Denver, CO \u2013 Protect Your Watercraft",
   introH2: "Keep Your Boat Looking Pristine and Protected",
   introBody:
     "At Front Range Detail Studio, we specialize in high-quality boat detailing and System X Marine Ceramic Coating to keep your watercraft looking like new. Our services are tailored for boats on Colorado lakes and reservoirs, helping you maintain beauty, value, and protection season after season.",

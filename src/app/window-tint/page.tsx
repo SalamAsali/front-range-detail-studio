@@ -4,16 +4,16 @@ import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd"
 import { windowTintData } from "@/data/services/window-tint";
 
 export const metadata: Metadata = {
-  title: "Ceramic Window Tint",
+  title: "Window Tint",
   description:
-    "Ceramic window tint in Denver & Centennial, CO. 99% UV rejection, up to 94% heat rejection, lifetime warranty. Colorado-legal installation. Front Range Detail Studio.",
+    "Keep Your Car Cool, Private, and Protected\u2014Year Round",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/window-tint/",
   },
   openGraph: {
     title: "Ceramic Window Tint | Front Range Detail Studio",
     description:
-      "Ceramic window tint in Denver & Centennial, CO. 99% UV rejection, up to 94% heat rejection, lifetime warranty. Colorado-legal installation.",
+      "Keep Your Car Cool, Private, and Protected\u2014Year Round",
     url: "https://frontrangedetailstudio.com/window-tint/",
     images: [
       {

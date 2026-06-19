@@ -3,7 +3,8 @@ import type { VehiclePageData } from "@/components/VehiclePage";
 export const teslaDetailingData: VehiclePageData = {
   brand: "Tesla",
   heroImg: "/images/vehicles/tesla-ceramic-coating.png",
-  heroH1: "Colorado\u2019s Tesla PPF & Ceramic Coating Experts",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
+  heroH1: "Tesla Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio",
   heroSubtitle:
     "Tesla Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio.",
 
@@ -134,4 +135,17 @@ export const teslaDetailingData: VehiclePageData = {
     "/images/vehicles/tesla-window-tint.png",
     "/images/vehicles/tesla-ceramic-coating.png",
   ],
+
+  caseStudy: {
+    h2: "See Our Tesla Paint Protection in Action",
+    body: "We recently completed a full Front Range Package on a Tesla Model 3 — featuring premium paint protection film using SunTek PPF, shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A sleek, chip-resistant Tesla built to thrive on Colorado roads and look flawless doing it.",
+    images: [
+      "/images/vehicles/tesla-ppf.png",
+      "/images/vehicles/tesla-ceramic-coating.png",
+      "/images/vehicles/tesla-window-tint.png",
+      "/images/gallery/sports-car-1-819x1024.webp",
+      "/images/vehicles/Rivian-1024x768.webp",
+      "/images/vehicles/GMC-truck.jpg",
+    ],
+  },
 };

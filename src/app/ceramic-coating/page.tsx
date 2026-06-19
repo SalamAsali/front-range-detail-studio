@@ -6,14 +6,14 @@ import { ceramicCoatingData } from "@/data/services/ceramic-coating";
 export const metadata: Metadata = {
   title: "Ceramic Coating",
   description:
-    "System X MAX G Plus ceramic coating in Denver & Centennial, CO. Lifetime warranty, professional studio-only application, hydrophobic protection. Front Range Detail Studio.",
+    "Ultimate Protection and Lasting Gloss for Colorado Drivers",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/ceramic-coating/",
   },
   openGraph: {
     title: "Ceramic Coating | Front Range Detail Studio",
     description:
-      "System X MAX G Plus ceramic coating in Denver & Centennial, CO. Lifetime warranty, professional studio-only application, hydrophobic protection.",
+      "Ultimate Protection and Lasting Gloss for Colorado Drivers",
     url: "https://frontrangedetailstudio.com/ceramic-coating/",
     images: [
       {

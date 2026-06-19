@@ -2,8 +2,9 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const autoDetailingData: ServicePageData = {
   heroImg: "/images/services/paint-correction-new.jpg",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "Auto Detailing & Paint Correction",
-  h1: "Auto Detailing and Paint Correction",
+  h1: "Auto Detailing and Paint Correction. comprehensive detailing packages to fit every need",
   introH2: "Comprehensive Detailing Packages to Fit Every Need",
   introBody:
     "Colorado\u2019s Vehicle Paint Correction and Detailing Experts. Whether your vehicle needs a routine refresh or a full multi-stage restoration, our certified technicians treat every car as if it were their own. Choose the package that fits your vehicle and schedule \u2014 each is performed by hand in our appointment-only Centennial studio.",

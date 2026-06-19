@@ -7,6 +7,8 @@ import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { PartnerLogo } from "@/components/PartnerLogo";
+import { PartnersStrip } from "@/components/PartnersStrip";
+import { DenverCTA } from "@/components/DenverCTA";
 
 /* ------------------------------------------------------------------ */
 /*  Data interface                                                     */
@@ -15,6 +17,7 @@ import { PartnerLogo } from "@/components/PartnerLogo";
 export interface VehiclePageData {
   brand: string;
   heroImg: string;
+  heroImgAlt?: string;
   heroH1: string;
   heroSubtitle: string;
 
@@ -155,7 +158,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
       >
         <Image
           src={d.heroImg}
-          alt={`${d.brand} detailing at Front Range Detail Studio`}
+          alt={d.heroImgAlt || `${d.brand} detailing at Front Range Detail Studio`}
           fill
           priority
           sizes="100vw"
@@ -1146,59 +1149,9 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
       </section>
 
       {/* ============================================================ */}
-      {/* 14. PPF CROSS-SELL BANNER                                    */}
+      {/* 14. DENVER CTA WITH GALLERY                                  */}
       {/* ============================================================ */}
-      <section style={{ background: "#000", padding: "clamp(40px, 5vw, 72px) 0" }}>
-        <div style={wrap()}>
-          <ScrollReveal>
-            <div
-              style={{
-                background: "linear-gradient(110deg, #0e2a30, #0d0d0d)",
-                border: "1px solid rgba(0,188,212,0.25)",
-                borderRadius: 10,
-                padding: "clamp(32px, 4vw, 48px)",
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: 24,
-              }}
-            >
-              <div style={{ maxWidth: 560 }}>
-                <h3
-                  style={{
-                    margin: "0 0 10px",
-                    ...archivoBold,
-                    fontSize: "clamp(1.3rem, 2vw, 1.7rem)",
-                    color: "#fff",
-                  }}
-                >
-                  Denver&rsquo;s 1st Choice in Paint Protection Film
-                </h3>
-                <p
-                  style={{
-                    margin: 0,
-                    fontFamily: "'Manrope', sans-serif",
-                    fontWeight: 300,
-                    fontSize: 15,
-                    lineHeight: 1.6,
-                    color: "rgba(255,255,255,0.78)",
-                  }}
-                >
-                  Preserve the pristine condition of your vehicle with our
-                  high-quality Paint Protection Film, or Clear Bra. Our
-                  warranty-backed PPF acts as an invisible shield, guarding your
-                  car&rsquo;s paint against scratches, stone chips, and road
-                  debris.
-                </p>
-              </div>
-              <Link href="/paint-protection-film-ppf" style={ctaBtn}>
-                Explore PPF
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <DenverCTA />
 
       {/* ============================================================ */}
       {/* 15. DETAILING CROSS-SELL BANNER                              */}

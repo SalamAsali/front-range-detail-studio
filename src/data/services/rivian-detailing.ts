@@ -3,7 +3,8 @@ import type { VehiclePageData } from "@/components/VehiclePage";
 export const rivianDetailingData: VehiclePageData = {
   brand: "Rivian",
   heroImg: "/images/vehicles/Rivian-1024x768.jpg",
-  heroH1: "Colorado\u2019s Rivian PPF & Ceramic Coating Experts",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
+  heroH1: "Rivian Paint Protection & Restyling in Englewood, CO | Front Range Detail Studio",
   heroSubtitle:
     "Rivian Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio.",
 
@@ -128,4 +129,17 @@ export const rivianDetailingData: VehiclePageData = {
     "/images/vehicles/Rivian-1024x768.jpg",
     "/images/gallery/Rivian-ceramic-coatin-vertical-pic.webp",
   ],
+
+  caseStudy: {
+    h2: "See Our Rivian Paint Protection in Action",
+    body: "We recently completed a full Front Range Package on a Rivian R1T — featuring premium paint protection film using SunTek PPF, shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A bold, chip-resistant Rivian built to thrive on Colorado roads and look flawless doing it.",
+    images: [
+      "/images/vehicles/Rivian-1024x768.jpg",
+      "/images/vehicles/Rivian-ppf.png",
+      "/images/vehicles/Rivian-ceramic-coating.png",
+      "/images/vehicles/Rivian-window-tint.png",
+      "/images/vehicles/Rivian-1024x768.webp",
+      "/images/vehicles/Rivian-6.webp",
+    ],
+  },
 };

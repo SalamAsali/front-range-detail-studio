@@ -6,14 +6,14 @@ import { bmwDetailingData } from "@/data/services/bmw-detailing";
 export const metadata: Metadata = {
   title: "BMW Paint Protection & PPF in Englewood, CO",
   description:
-    "BMW PPF, ceramic coating and window tint specialists in Englewood, CO. 3 Series, 5 Series, X models, M cars, i-series EVs. Front Range Detail Studio.",
+    "Protect your BMW in Englewood, CO with paint protection film, ceramic coatings, color-changing PPF, and window tint. Front Range Detail Studio\u2014Colorado\u2019s BMW protection experts",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/bmw-detailing/",
   },
   openGraph: {
     title: "BMW Paint Protection & PPF | Front Range Detail Studio",
     description:
-      "BMW PPF, ceramic coating and window tint specialists in Englewood, CO. 3 Series, 5 Series, X models, M cars, i-series EVs.",
+      "Protect your BMW in Englewood, CO with paint protection film, ceramic coatings, color-changing PPF, and window tint. Front Range Detail Studio\u2014Colorado\u2019s BMW protection experts",
     url: "https://frontrangedetailstudio.com/bmw-detailing/",
     images: [
       {

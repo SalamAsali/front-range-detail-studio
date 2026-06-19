@@ -2,8 +2,9 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const systemXData: ServicePageData = {
   heroImg: "/images/gallery/SystemX-car.png",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "System X \u00B7 Authorized Dealer",
-  h1: "System X Automotive Ceramic Coatings",
+  h1: "System X",
   introH2: "Hyper Gloss 9H Lifetime Coating",
   introBody:
     "Owners and collectors of the finest vintage and exotic automobiles worldwide trust System X to consistently provide unmatched slickness, protection, hardness, and brilliance. The Max G+ package is our strongest and most durable protection package \u2014 up to four times thicker, 2x stronger, and 2x more durable than previous System X coatings.",

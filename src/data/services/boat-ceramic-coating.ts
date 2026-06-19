@@ -2,8 +2,9 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const boatCeramicCoatingData: ServicePageData = {
   heroImg: "/images/gallery/boat.webp",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "Marine Ceramic Coating \u00B7 PPF",
-  h1: "Boat Ceramic Coating & PPF in Denver, CO \u2014 Ultimate Marine Protection",
+  h1: "Boat Ceramic Coating & PPF in Denver, CO \u2013 Ultimate Marine Protection",
   introH2: "Shield Your Boat From Colorado\u2019s Harsh Elements",
   introBody:
     "At Front Range Detail Studio, we specialize in applying System X Marine Ceramic Coatings and SunTek Reaction PPF \u2014 offering unparalleled defense against UV rays, oxidation, scratches, and water damage.",

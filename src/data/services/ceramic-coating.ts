@@ -2,6 +2,7 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const ceramicCoatingData: ServicePageData = {
   heroImg: "/images/services/car-ceramic-1.jpg",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "Ceramic Coating \u00B7 Lifetime Warranty",
   h1: "Ceramic Coating in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
   introH2: "Ultimate Protection and Lasting Gloss for Colorado Drivers",

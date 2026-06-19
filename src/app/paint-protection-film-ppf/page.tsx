@@ -4,16 +4,16 @@ import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd"
 import { ppfData } from "@/data/services/ppf";
 
 export const metadata: Metadata = {
-  title: "Paint Protection Film (PPF) & Clear Bra",
+  title: "#1 PPF Clear Bra Paint Protection Film - Denver's Best Rated Shop",
   description:
-    "SunTek Reaction PPF with 12-year warranty in Denver, CO. Self-healing, invisible paint protection film installed in our climate-controlled studio. Front Range Detail Studio.",
+    "Paint Protection Film (PPF) & Clear Bra — Serving Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, & Castle Pines",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/paint-protection-film-ppf/",
   },
   openGraph: {
     title: "Paint Protection Film (PPF) & Clear Bra | Front Range Detail Studio",
     description:
-      "SunTek Reaction PPF with 12-year warranty in Denver, CO. Self-healing, invisible paint protection film installed in our climate-controlled studio.",
+      "Paint Protection Film (PPF) & Clear Bra — Serving Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, & Castle Pines",
     url: "https://frontrangedetailstudio.com/paint-protection-film-ppf/",
     images: [
       {

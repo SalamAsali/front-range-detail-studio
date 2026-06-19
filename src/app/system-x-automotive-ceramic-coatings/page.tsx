@@ -6,14 +6,14 @@ import { systemXData } from "@/data/services/system-x";
 export const metadata: Metadata = {
   title: "System X Automotive Ceramic Coatings",
   description:
-    "Authorized System X dealer in Denver, CO. MAX G Plus lifetime ceramic coating, glass, interior, renew and revive products. Front Range Detail Studio.",
+    "Owners and collectors of the finest vintage and exotic automobiles worldwide trust System X to consistently provide unmatched slickness, protection,",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/system-x-automotive-ceramic-coatings/",
   },
   openGraph: {
     title: "System X Automotive Ceramic Coatings | Front Range Detail Studio",
     description:
-      "Authorized System X dealer in Denver, CO. MAX G Plus lifetime ceramic coating, glass, interior, renew and revive products.",
+      "Owners and collectors of the finest vintage and exotic automobiles worldwide trust System X to consistently provide unmatched slickness, protection,",
     url: "https://frontrangedetailstudio.com/system-x-automotive-ceramic-coatings/",
     images: [
       {

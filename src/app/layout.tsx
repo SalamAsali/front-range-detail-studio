@@ -30,11 +30,11 @@ const michroma = Michroma({
 
 export const metadata: Metadata = {
   title: {
-    default: "Front Range Detail Studio - PPF, Ceramic Coating, Window Tinting in Denver",
+    default: "Front Range Detail Studio - PPF Clear Bra Ceramic Coating Window Tinting",
     template: "%s | Front Range Detail Studio",
   },
   description:
-    "Premium auto detailing studio in Englewood, CO. Ceramic coating, PPF, window tinting, vinyl wraps, paint correction for cars, RVs & boats. System X Certified. 5.0★ Google Reviews.",
+    "Expert Colorado Window Tinting, Paint Protection Film (PPF), Clear Bra, Ceramic Coating, Detailing for vehicles, motorhomes, RVs, boats, aircraft.",
   metadataBase: new URL("https://frontrangedetailstudio.com"),
   openGraph: {
     type: "website",

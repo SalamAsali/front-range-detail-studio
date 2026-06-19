@@ -4,16 +4,16 @@ import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd"
 import { porscheDetailingData } from "@/data/services/porsche-detailing";
 
 export const metadata: Metadata = {
-  title: "Porsche PPF, Ceramic Coating & Window Tint",
+  title: "Porsche Detailing",
   description:
-    "Porsche PPF, ceramic coating and window tint specialists in Englewood, CO. 911, Cayenne, Macan, Panamera, Taycan. Front Range Detail Studio.",
+    "Colorado's Porsche PPF & Ceramic Coating Experts",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/porsche-detailing/",
   },
   openGraph: {
     title: "Porsche PPF, Ceramic Coating & Window Tint | Front Range Detail Studio",
     description:
-      "Porsche PPF, ceramic coating and window tint specialists in Englewood, CO. 911, Cayenne, Macan, Panamera, Taycan.",
+      "Colorado's Porsche PPF & Ceramic Coating Experts",
     url: "https://frontrangedetailstudio.com/porsche-detailing/",
     images: [
       {

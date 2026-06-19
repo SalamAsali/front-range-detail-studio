@@ -3,7 +3,8 @@ import type { VehiclePageData } from "@/components/VehiclePage";
 export const fordTruckDetailingData: VehiclePageData = {
   brand: "Ford Truck",
   heroImg: "/images/vehicles/ford-truck-1-1024x576.jpg",
-  heroH1: "Colorado\u2019s Ford Truck PPF & Ceramic Coating Experts",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
+  heroH1: "Ford Truck Paint Protection & Restyling in Englewood, CO | Front Range Detail Studio",
   heroSubtitle:
     "Ford Truck Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio.",
 
@@ -128,4 +129,17 @@ export const fordTruckDetailingData: VehiclePageData = {
     "/images/vehicles/ford-truck-1-1024x576.jpg",
     "/images/vehicles/Ford-truck-ppf.png",
   ],
+
+  caseStudy: {
+    h2: "See Our Ford Truck Paint Protection in Action",
+    body: "We recently completed a full Front Range Package on a Ford F-150 — featuring premium paint protection film using SunTek PPF, shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A bold, chip-resistant, and maintenance-friendly Ford Truck built to thrive on Colorado roads.",
+    images: [
+      "/images/vehicles/ford-truck-1-1024x576.jpg",
+      "/images/vehicles/Ford-truck-ppf.png",
+      "/images/vehicles/Ford-truck-ceramic-coating.png",
+      "/images/vehicles/Ford-truck-window-tint.png",
+      "/images/vehicles/GMC-truck.jpg",
+      "/images/vehicles/Grenadier.jpg",
+    ],
+  },
 };

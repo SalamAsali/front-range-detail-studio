@@ -2,6 +2,7 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const detailingPackagesData: ServicePageData = {
   heroImg: "/images/services/paint-correction-new.jpg",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "Complete Professional Care",
   h1: "Denver, CO Leader in Complete Professional Car Care",
   introH2: "Unmatched Protection and Style For Your Vehicle",

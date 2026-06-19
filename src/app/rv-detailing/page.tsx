@@ -4,16 +4,16 @@ import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd"
 import { rvDetailingData } from "@/data/services/rv-detailing";
 
 export const metadata: Metadata = {
-  title: "RV Detailing & Ceramic Coating",
+  title: "RV Detailing",
   description:
-    "RV detailing, oxidation removal and ceramic coating in Denver, CO. Class A, B, C, fifth-wheels, travel trailers. Per-foot pricing. Front Range Detail Studio.",
+    "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/rv-detailing/",
   },
   openGraph: {
     title: "RV Detailing & Ceramic Coating | Front Range Detail Studio",
     description:
-      "RV detailing, oxidation removal and ceramic coating in Denver, CO. Class A, B, C, fifth-wheels, travel trailers. Per-foot pricing.",
+      "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts",
     url: "https://frontrangedetailstudio.com/rv-detailing/",
     images: [
       {

@@ -6,14 +6,14 @@ import { boatDetailingData } from "@/data/services/boat-detailing";
 export const metadata: Metadata = {
   title: "Boat Detailing",
   description:
-    "Professional boat detailing in Denver, CO. Exterior buffing, gelcoat restoration, interior cleaning, annual waxing. Marine-grade products. Front Range Detail Studio.",
+    "Professional detailing and System X Marine Ceramic Coating",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/boat-detailing/",
   },
   openGraph: {
     title: "Boat Detailing | Front Range Detail Studio",
     description:
-      "Professional boat detailing in Denver, CO. Exterior buffing, gelcoat restoration, interior cleaning, annual waxing. Marine-grade products.",
+      "Professional detailing and System X Marine Ceramic Coating",
     url: "https://frontrangedetailstudio.com/boat-detailing/",
     images: [
       {

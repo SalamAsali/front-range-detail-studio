@@ -2,6 +2,7 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const rvDetailingData: ServicePageData = {
   heroImg: "/images/services/rv-detailing.jpg",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "RV \u00B7 Boat \u00B7 Marine",
   h1: "RV Detailing & Ceramic Coating in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
   introH2: "Protect Your Home on Wheels",

@@ -2,6 +2,7 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const servicesHubData: ServicePageData = {
   heroImg: "/images/services/IMG_2236-ceramic.jpg",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "Our Services",
   h1: "Colorado\u2019s Trusted Source for Lifetime Ceramic Coatings and Premium Detailing",
   introH2: "Denver\u2019s Most Trusted Vehicle Aesthetic Experts",

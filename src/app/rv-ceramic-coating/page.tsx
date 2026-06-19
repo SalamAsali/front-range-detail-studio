@@ -6,14 +6,14 @@ import { rvCeramicCoatingData } from "@/data/services/rv-ceramic-coating";
 export const metadata: Metadata = {
   title: "RV Ceramic Coating",
   description:
-    "System X ceramic coating for RVs and motorhomes in Denver, CO. 3-year warranty on new units. Oxidation removal and paint correction. Front Range Detail Studio.",
+    "Safeguard your RV from UV rays, oxidation, and road grime",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/rv-ceramic-coating/",
   },
   openGraph: {
     title: "RV Ceramic Coating | Front Range Detail Studio",
     description:
-      "System X ceramic coating for RVs and motorhomes in Denver, CO. 3-year warranty on new units. Oxidation removal and paint correction.",
+      "Safeguard your RV from UV rays, oxidation, and road grime",
     url: "https://frontrangedetailstudio.com/rv-ceramic-coating/",
     images: [
       {

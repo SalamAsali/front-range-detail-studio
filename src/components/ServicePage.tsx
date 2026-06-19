@@ -4,9 +4,12 @@ import { FAQ } from "@/components/FAQ";
 import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { PartnersStrip } from "@/components/PartnersStrip";
+import { DenverCTA } from "@/components/DenverCTA";
 
 export interface ServicePageData {
   heroImg: string;
+  heroImgAlt?: string;
   eyebrow: string;
   h1: string;
   introH2?: string;
@@ -79,7 +82,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       >
         <Image
           src={d.heroImg}
-          alt=""
+          alt={d.heroImgAlt || "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction"}
           fill
           priority
           sizes="100vw"
@@ -147,6 +150,30 @@ export function ServicePage({ data }: { data: ServicePageData }) {
               {d.h1}
             </h1>
           </div>
+        </div>
+      </section>
+
+      {/* RATINGS BAR */}
+      <section style={{ background: "#0a0a0a", padding: "32px 0" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
+          <ScrollReveal>
+            <div style={{ textAlign: "center", marginBottom: 24 }}>
+              <h2
+                style={{
+                  margin: 0,
+                  fontFamily: "'Archivo', sans-serif",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "-0.3px",
+                  fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)",
+                  lineHeight: 1.2,
+                }}
+              >
+                Serving The Denver Metro And Surrounding Areas
+              </h2>
+            </div>
+          </ScrollReveal>
+          <ReviewBadges />
         </div>
       </section>
 
@@ -1546,6 +1573,12 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           </div>
         </section>
       )}
+
+      {/* PARTNERS */}
+      <PartnersStrip />
+
+      {/* DENVER CTA */}
+      <DenverCTA />
 
       {/* REVIEWS */}
       <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>

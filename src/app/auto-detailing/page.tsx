@@ -4,16 +4,16 @@ import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd"
 import { autoDetailingData } from "@/data/services/auto-detailing";
 
 export const metadata: Metadata = {
-  title: "Auto Detailing & Paint Correction",
+  title: "Auto Detailing",
   description:
-    "Professional auto detailing and multi-stage paint correction in Denver, CO. Interior, exterior and complete packages. Appointment-only studio. Front Range Detail Studio.",
+    "From basic maintenance to deep restoration",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/auto-detailing/",
   },
   openGraph: {
     title: "Auto Detailing & Paint Correction | Front Range Detail Studio",
     description:
-      "Professional auto detailing and multi-stage paint correction in Denver, CO. Interior, exterior and complete packages. Appointment-only studio.",
+      "From basic maintenance to deep restoration",
     url: "https://frontrangedetailstudio.com/auto-detailing/",
     images: [
       {

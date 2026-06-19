@@ -4,16 +4,16 @@ import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd"
 import { teslaDetailingData } from "@/data/services/tesla-detailing";
 
 export const metadata: Metadata = {
-  title: "Tesla PPF, Ceramic Coating & Window Tint",
+  title: "Tesla Detailing",
   description:
-    "Tesla PPF, ceramic coating and window tint specialists in Englewood, CO. Model 3, Model Y, Model S, Model X, Cybertruck. Front Range Detail Studio.",
+    "Colorado's Tesla PPF & Ceramic Coating Experts",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/tesla-detailing/",
   },
   openGraph: {
     title: "Tesla PPF, Ceramic Coating & Window Tint | Front Range Detail Studio",
     description:
-      "Tesla PPF, ceramic coating and window tint specialists in Englewood, CO. Model 3, Model Y, Model S, Model X, Cybertruck.",
+      "Colorado's Tesla PPF & Ceramic Coating Experts",
     url: "https://frontrangedetailstudio.com/tesla-detailing/",
     images: [
       {

@@ -7,14 +7,14 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Front Range Detail Studio in Englewood, CO. Call (303) 520-8023 or request a free quote for PPF, ceramic coating, window tinting & more.",
+    "Denver's Most Trusted Vehicle Aesthetic Experts",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/contact/",
   },
   openGraph: {
     title: "Contact | Front Range Detail Studio",
     description:
-      "Contact Front Range Detail Studio in Englewood, CO. Call (303) 520-8023 or request a free quote for PPF, ceramic coating, window tinting.",
+      "Denver's Most Trusted Vehicle Aesthetic Experts",
     url: "https://frontrangedetailstudio.com/contact/",
     images: [
       {
@@ -43,7 +43,7 @@ export default function ContactPage() {
       >
         <Image
           src="/images/hero/colorado-package-scaled.jpg"
-          alt="Front Range Detail Studio"
+          alt="PPF Clear Bra Denver Tint Ceramic Coating Paint Correction"
           fill
           priority
           sizes="100vw"

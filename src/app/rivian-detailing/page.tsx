@@ -4,16 +4,16 @@ import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd"
 import { rivianDetailingData } from "@/data/services/rivian-detailing";
 
 export const metadata: Metadata = {
-  title: "Rivian R1T & R1S PPF, Ceramic Coating & Tint",
+  title: "Rivian Detailing",
   description:
-    "Rivian R1T and R1S PPF, ceramic coating and window tint specialists in Englewood, CO. Protect your adventure vehicle. Front Range Detail Studio.",
+    "Colorado's Rivian PPF & Ceramic Coating Experts",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/rivian-detailing/",
   },
   openGraph: {
     title: "Rivian R1T & R1S Protection | Front Range Detail Studio",
     description:
-      "Rivian R1T and R1S PPF, ceramic coating and window tint specialists in Englewood, CO. Protect your adventure vehicle.",
+      "Colorado's Rivian PPF & Ceramic Coating Experts",
     url: "https://frontrangedetailstudio.com/rivian-detailing/",
     images: [
       {

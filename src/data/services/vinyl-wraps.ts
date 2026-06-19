@@ -2,8 +2,9 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const vinylWrapsData: ServicePageData = {
   heroImg: "/images/services/vinylwraps-1920w.webp",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "Vinyl Wraps & Decals",
-  h1: "Denver Metro\u2019s Premier Choice In Vinyl Wrap Application",
+  h1: "Denver Metro Premier Choice in Vinyl Wraps Application",
   introH2: "Transform Your Ride With Custom Vinyl Wraps",
   introBody:
     "Full color changes, custom graphics, and stylish accents \u2014 professionally installed for a flawless finish. Looking to give your car a fresh new look? Whether you\u2019re after a full color change, custom graphics, or subtle accents, our premium vinyl wrap services provide the ultimate makeover \u2014 without the cost of a new paint job. At Front Range Detail Studio, we use top-of-the-line materials and expert installation techniques to transform your vehicle\u2019s appearance while also offering an extra layer of paint protection.",

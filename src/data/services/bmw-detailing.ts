@@ -3,7 +3,8 @@ import type { VehiclePageData } from "@/components/VehiclePage";
 export const bmwDetailingData: VehiclePageData = {
   brand: "BMW",
   heroImg: "/images/vehicles/BMW-green-1024x768.jpg",
-  heroH1: "Colorado\u2019s BMW PPF & Ceramic Coating Experts",
+  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
+  heroH1: "BMW Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio",
   heroSubtitle:
     "BMW Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio.",
 
@@ -135,14 +136,16 @@ export const bmwDetailingData: VehiclePageData = {
     "/images/vehicles/BMW-X5-front-1024x768.jpg",
   ],
 
-  /* Case study */
   caseStudy: {
     h2: "See Our BMW Paint Protection in Action",
-    body: "We recently completed a full Front Range Package on a G80 M3 \u2014 featuring a Matte paint protection film using SunTek PPF, completely transforming the car\u2019s appearance while shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection.",
+    body: "We recently completed a full Front Range Package on a BMW M3 \u2014 featuring a matte paint protection film using SunTek PPF, completely transforming the car\u2019s appearance while shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A bold, head-turning, chip-resistant BMW built to thrive on Colorado roads and look flawless doing it.",
     images: [
-      "/images/vehicles/BMW-green-1024x768.jpg",
+      "/images/vehicles/bmw-i4-768x1024.jpg",
       "/images/vehicles/BMW-X5-front-1024x768.jpg",
       "/images/vehicles/BMW-M50i-1024x768.jpg",
+      "/images/vehicles/BMW-green-1024x768.jpg",
+      "/images/vehicles/BMW-2-1024x768.jpg",
+      "/images/vehicles/BMW-6-1024x576.jpg",
     ],
   },
 };

@@ -30,7 +30,7 @@ export function HomeHero() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/hero/colorado-package-scaled.jpg"
-        alt=""
+        alt="PPF Clear Bra Denver Tint Ceramic Coating Paint Correction"
         style={{
           position: "absolute",
           inset: 0,

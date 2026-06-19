@@ -6,14 +6,14 @@ import { servicesHubData } from "@/data/services/services-hub";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "PPF, ceramic coating, window tint, vinyl wraps, paint correction, RV & boat services. All performed by certified technicians in our Centennial studio. Front Range Detail Studio.",
+    "Detailing & Ceramic Coating Services",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/services/",
   },
   openGraph: {
     title: "Services | Front Range Detail Studio",
     description:
-      "PPF, ceramic coating, window tint, vinyl wraps, paint correction, RV & boat services. All performed by certified technicians in our Centennial studio.",
+      "Detailing & Ceramic Coating Services",
     url: "https://frontrangedetailstudio.com/services/",
     images: [
       {
