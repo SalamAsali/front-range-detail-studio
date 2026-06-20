@@ -3,7 +3,7 @@ import type { ServicePageData } from "@/components/ServicePage";
 export const boatCeramicCoatingData: ServicePageData = {
   heroImg: "/images/gallery/boat.webp",
   heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
-  eyebrow: "Marine Ceramic Coating \u00B7 PPF",
+  eyebrow: "Professional detailing and System X Marine Ceramic Coating",
   h1: "Boat Ceramic Coating & PPF in Denver, CO \u2013 Ultimate Marine Protection",
   introH2: "Shield your boat from Colorado\u2019s harsh elements with professional ceramic coating and paint protection film (PPF) services",
   introBody:
@@ -22,10 +22,6 @@ export const boatCeramicCoatingData: ServicePageData = {
     {
       title: "Tailored Solutions",
       body: "We customize every package to your vessel and boating lifestyle, ensuring the best protection and gloss.",
-    },
-    {
-      title: "3-Year Manufacturer Warranty",
-      body: "System X Marine coatings on new boats carry a 3-year warranty (annual top coat required for warranty).",
     },
   ],
   stepsH2: "The Boat Ceramic Coating Process",
