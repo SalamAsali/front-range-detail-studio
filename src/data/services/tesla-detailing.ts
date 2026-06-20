@@ -6,13 +6,13 @@ export const teslaDetailingData: VehiclePageData = {
   heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   heroH1: "Tesla Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio",
   heroSubtitle:
-    "Tesla Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio.",
+    "Colorado\u2019s Tesla PPF & Ceramic Coating Experts",
 
   /* Brand intro */
   logoImg: "/images/logos/Tesla-Motors-logo.svg",
   introH2: "Premier Tesla Paint Protection in Englewood, CO",
   introBody:
-    "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your Tesla. Whether you own a Model 3, a Model Y, or a cutting-edge Model S, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services \u2014 all designed for Colorado\u2019s demanding driving conditions. We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
+    "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your Tesla. Whether you own a sharp M3, a bold X7, or a cutting-edge i4, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services\u2014all designed for Colorado\u2019s demanding driving conditions.",
   introQuote:
     "We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
 
@@ -26,7 +26,7 @@ export const teslaDetailingData: VehiclePageData = {
     },
     {
       title: "Digital Precision Cutting",
-      body: "Each install uses precision-cut patterns tailored to your Tesla\u2019s exact body lines, from aerodynamic bumpers to flush door handles.",
+      body: "Each install uses precision-cut patterns tailored to your Tesla\u2019s exact body lines, from aggressive M bumpers to aerodynamic side skirts.",
     },
     {
       title: "Ideal for Colorado Roads",
@@ -57,7 +57,7 @@ export const teslaDetailingData: VehiclePageData = {
 
   /* Ceramic section */
   ceramicImg: "/images/vehicles/tesla-ceramic-coating.png",
-  ceramicH2: "Tesla Ceramic Coating in Englewood",
+  ceramicH2: "Tesla Ceramic Coating In Englewood",
   ceramicBenefits: [
     {
       title: "High-Gloss, Hydrophobic Finish",
@@ -72,8 +72,8 @@ export const teslaDetailingData: VehiclePageData = {
       body: "Boosts the durability and appearance of your paint protection film.",
     },
     {
-      title: "Perfect for Daily Drivers and Performance Models",
-      body: "Whether you drive a Model 3 Performance or a Model Y Long Range, ceramic coating preserves your Tesla\u2019s finish and value.",
+      title: "Perfect for Daily Drivers and Track Cars",
+      body: "Whether you drive an M4 Competition or a 530e commuter, ceramic coating preserves your Tesla\u2019s finish and value.",
     },
   ],
 
@@ -83,29 +83,24 @@ export const teslaDetailingData: VehiclePageData = {
   tintBenefits: [
     {
       title: "Ceramic Window Tint",
-      body: "Blocks up to 99% of UV rays and dramatically reduces interior heat, keeping your cabin cooler and protecting sensitive materials like leather and the touchscreen display.",
+      body: "Blocks up to 99% of UV rays and dramatically reduces interior heat, keeping your cabin cooler and protecting sensitive materials like leather and carbon trim.",
     },
     {
       title: "Privacy & Aesthetic Boost",
-      body: "Clean, precision-installed tint enhances your Tesla\u2019s sleek styling.",
+      body: "Clean, precision-installed tint enhances your Tesla\u2019s aggressive styling.",
     },
     {
       title: "Safe for Driver-Assist Systems",
-      body: "Our ceramic films are 100% safe for Tesla\u2019s Autopilot cameras, driver-assist systems, and connectivity.",
+      body: "Our ceramic films are 100% compatible with Tesla\u2019s blind-spot monitors, heads-up displays, and cameras.",
     },
   ],
 
   /* FAQ */
   faqs: [
     {
-      question: "Which Tesla models do you work on?",
+      question: "Is Tesla paint soft or hard?",
       answer:
-        "All of them \u2014 Model 3, Model Y, Model S, Model X, and Cybertruck. Every package is tailored to your specific model.",
-    },
-    {
-      question: "Is Tesla paint soft? Should I protect it right away?",
-      answer:
-        "Yes. Most modern Teslas have a softer clear coat. PPF and ceramic coating are highly recommended to protect the paint from day one.",
+        "Most modern Tesla\u2019s have a softer clear coat, especially M models. PPF and ceramic are highly recommended.",
     },
     {
       question: "Does PPF hide rock chips or swirls?",
@@ -113,19 +108,9 @@ export const teslaDetailingData: VehiclePageData = {
         "PPF can mask minor flaws, but we always perform paint correction for a flawless finish first.",
     },
     {
-      question: "Can you do custom coverage for Tesla trim and aftermarket parts?",
+      question: "Can you do custom coverage for splitters, carbon roofs, etc.?",
       answer:
         "Yes, we do custom installs for all special Tesla trim and aftermarket parts.",
-    },
-    {
-      question: "Can you coat Tesla matte or satin wraps?",
-      answer:
-        "Absolutely. We offer coatings formulated for matte and satin finishes that preserve the look while adding protection.",
-    },
-    {
-      question: "Do you tint Tesla EVs?",
-      answer:
-        "Yes \u2014 our non-metallic ceramic tint rejects heat and UV without interfering with the sensors and connectivity in Tesla vehicles.",
     },
   ],
 
@@ -138,7 +123,7 @@ export const teslaDetailingData: VehiclePageData = {
 
   caseStudy: {
     h2: "See Our Tesla Paint Protection in Action",
-    body: "We recently completed a full Front Range Package on a Tesla Model 3 — featuring premium paint protection film using SunTek PPF, shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A sleek, chip-resistant Tesla built to thrive on Colorado roads and look flawless doing it.",
+    body: "We recently completed a full Front Range Package on a G80 M3 \u2014 featuring a Matte paint protection film using SunTek PPF, completely transforming the car\u2019s appearance while shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A bold, head-turning, chip-resistant, and maintenance-friendly Tesla built to thrive on Colorado roads and look flawless doing it.",
     images: [
       "/images/vehicles/tesla-ppf.png",
       "/images/vehicles/tesla-ceramic-coating.png",

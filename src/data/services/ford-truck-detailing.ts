@@ -6,13 +6,13 @@ export const fordTruckDetailingData: VehiclePageData = {
   heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   heroH1: "Ford Truck Paint Protection & Restyling in Englewood, CO | Front Range Detail Studio",
   heroSubtitle:
-    "Ford Truck Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio.",
+    "Colorado\u2019s Ford Truck PPF & Ceramic Coating Experts",
 
   /* Brand intro */
   logoImg: "/images/logos/Ford-logo.svg",
   introH2: "Premier Ford Truck Paint Protection in Englewood, CO",
   introBody:
-    "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your Ford Truck. Whether you own a rugged F-150, a heavy-duty Super Duty, or the all-electric Lightning, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services \u2014 all designed for Colorado\u2019s demanding driving conditions. We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
+    "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your Ford Truck. Whether you own a rugged F-150, a heavy-duty Super Duty, or the all-electric Lightning, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services\u2014all designed for Colorado\u2019s demanding driving conditions.",
   introQuote:
     "We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
 
@@ -26,7 +26,7 @@ export const fordTruckDetailingData: VehiclePageData = {
     },
     {
       title: "Digital Precision Cutting",
-      body: "Each install uses precision-cut patterns tailored to your Ford Truck\u2019s exact body lines, from heavy-duty front bumpers to fender flares.",
+      body: "Each install uses precision-cut patterns tailored to your Ford Truck\u2019s exact body lines, from aggressive M bumpers to aerodynamic side skirts.",
     },
     {
       title: "Ideal for Colorado Roads",
@@ -57,7 +57,7 @@ export const fordTruckDetailingData: VehiclePageData = {
 
   /* Ceramic section */
   ceramicImg: "/images/vehicles/Ford-truck-ceramic-coating.png",
-  ceramicH2: "Ford Truck Ceramic Coating in Englewood",
+  ceramicH2: "Ford Truck Ceramic Coating In Englewood",
   ceramicBenefits: [
     {
       title: "High-Gloss, Hydrophobic Finish",
@@ -72,7 +72,7 @@ export const fordTruckDetailingData: VehiclePageData = {
       body: "Boosts the durability and appearance of your paint protection film.",
     },
     {
-      title: "Perfect for Daily Drivers and Work Trucks",
+      title: "Perfect for Daily Drivers and Track Cars",
       body: "Whether you drive a rugged F-150, a heavy-duty Super Duty, or the all-electric Lightning, ceramic coating preserves your Ford Truck\u2019s finish and value.",
     },
   ],
@@ -83,29 +83,24 @@ export const fordTruckDetailingData: VehiclePageData = {
   tintBenefits: [
     {
       title: "Ceramic Window Tint",
-      body: "Blocks up to 99% of UV rays and dramatically reduces interior heat, keeping your cabin cooler and protecting sensitive interior materials.",
+      body: "Blocks up to 99% of UV rays and dramatically reduces interior heat, keeping your cabin cooler and protecting sensitive materials like leather and carbon trim.",
     },
     {
       title: "Privacy & Aesthetic Boost",
-      body: "Clean, precision-installed tint enhances your Ford Truck\u2019s bold styling.",
+      body: "Clean, precision-installed tint enhances your Ford Truck\u2019s aggressive styling.",
     },
     {
       title: "Safe for Driver-Assist Systems",
-      body: "Our ceramic films are safe for Ford\u2019s driver-assist systems, cameras, and connectivity.",
+      body: "Our ceramic films are 100% compatible with Ford Truck\u2019s blind-spot monitors, heads-up displays, and cameras.",
     },
   ],
 
   /* FAQ */
   faqs: [
     {
-      question: "Which Ford truck models do you work on?",
+      question: "Is Ford Truck paint soft or hard?",
       answer:
-        "All of them \u2014 F-150, Ranger, Super Duty (F-250, F-350), Bronco and the all-electric Lightning. Every package is tailored to your specific model.",
-    },
-    {
-      question: "Should I protect a new Ford truck right away?",
-      answer:
-        "Yes. A new Ford truck is the ideal time for PPF and ceramic \u2014 the paint is pristine, so protection locks in that factory finish from day one.",
+        "Most modern Ford Trucks have a softer clear coat, especially M models. PPF and ceramic are highly recommended.",
     },
     {
       question: "Does PPF hide rock chips or swirls?",
@@ -113,14 +108,9 @@ export const fordTruckDetailingData: VehiclePageData = {
         "PPF can mask minor flaws, but we always perform paint correction for a flawless finish first.",
     },
     {
-      question: "Can you protect high-wear areas on trucks?",
+      question: "Can you do custom coverage for splitters, carbon roofs, etc.?",
       answer:
-        "Absolutely. We commonly apply PPF to rocker panels, bed rails, fender flares and bumper areas that take the most abuse on Colorado roads.",
-    },
-    {
-      question: "Can you do custom installs for Ford truck aftermarket parts?",
-      answer:
-        "Yes, we do custom installs for all Ford truck trim and aftermarket parts including lift kits, flares and bumpers.",
+        "Yes, we do custom installs for all special Ford Truck trim and aftermarket parts.",
     },
   ],
 
@@ -132,7 +122,7 @@ export const fordTruckDetailingData: VehiclePageData = {
 
   caseStudy: {
     h2: "See Our Ford Truck Paint Protection in Action",
-    body: "We recently completed a full Front Range Package on a Ford F-150 — featuring premium paint protection film using SunTek PPF, shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A bold, chip-resistant, and maintenance-friendly Ford Truck built to thrive on Colorado roads.",
+    body: "We recently completed a full Front Range Package on a G80 M3 \u2014 featuring a Matte paint protection film using SunTek PPF, completely transforming the car\u2019s appearance while shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A bold, head-turning, chip-resistant, and maintenance-friendly Ford Truck built to thrive on Colorado roads and look flawless doing it.",
     images: [
       "/images/vehicles/ford-truck-1-1024x576.jpg",
       "/images/vehicles/Ford-truck-ppf.png",

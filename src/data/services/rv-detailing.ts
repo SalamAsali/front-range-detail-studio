@@ -7,13 +7,13 @@ export const rvDetailingData: ServicePageData = {
   h1: "RV Detailing & Ceramic Coating in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
   introH2: "Protect Your Home on Wheels",
   introBody:
-    "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts. At Front Range Detail Studio, we use only the industry\u2019s best: System X MAX G Plus ceramic coatings and SunTek Reaction paint protection film. These are the same premium products trusted on high-end cars \u2014 now protecting your RV or motorhome against Colorado\u2019s toughest conditions. Our team has worked on everything from luxury Class A motorhomes to Sprinter conversions and classic fifth-wheels. We restore shine, remove oxidation, and preserve your investment using proven, warrantied products from brands you can trust.",
+    "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts. At Front Range Detail Studio, we use only the industry\u2019s best: System X MAX G Plus ceramic coatings and SunTek Reaction paint protection film. These are the same premium products trusted on high-end cars\u2014now protecting your RV or motorhome against Colorado\u2019s toughest conditions. Our team has worked on everything from luxury Class A motorhomes to Sprinter conversions and classic fifth-wheels. We restore shine, remove oxidation, and preserve your investment using proven, warrantied products from brands you can trust.",
   pricingH2: "RV Detailing & Protection Packages",
   pricing: [
     {
       title: "RV Exterior Wash & Wheels",
       price: "From $10/ft",
-      body: "Hand wash (roof to wheels), bug/tar removal, high-quality sealant application, wheel & tire cleaning.",
+      body: "Hand wash (roof to wheels), bug/tar removal, application of high-quality sealant for lasting shine, wheel & tire cleaning.",
       image: "/images/gallery/New-Aire-RV-vertical-pic.webp",
     },
     {
@@ -29,13 +29,13 @@ export const rvDetailingData: ServicePageData = {
       image: "/images/services/rv-detailing.jpg",
     },
     {
-      title: "Paint Protection Film (SunTek Reaction)",
+      title: "Paint Protection Film (PPF) \u2013 SunTek Reaction",
       price: "12-yr warranty",
       body: "SunTek Reaction PPF for high-impact zones: front cap, lower panels, mirrors, headlights. 12-year warranty, self-healing, hydrophobic, and virtually invisible. Custom quote based on coverage.",
       image: "/images/hero/coach-scaled.jpg",
     },
     {
-      title: "Roof, Decal & Specialty Services",
+      title: "Roof, Decal, and Specialty Services",
       price: "Custom quote",
       body: "Rubber, TPO, or fiberglass roof cleaning & UV treatment. Decal removal & replacement. Metal polishing, window cleaning, and more. Contact us for a personalized quote.",
       image: "/images/services/RV-ceramic-coating.jpeg",
@@ -70,11 +70,11 @@ export const rvDetailingData: ServicePageData = {
       },
       {
         title: "Premium Brands",
-        body: "System X MAX G Plus Ceramic Coating: 3-year warranty for new RVs/motorhomes \u2014 industry-leading gloss and hydrophobic protection. SunTek Reaction Paint Protection Film: 12-year warranty, advanced self-healing, and virtually invisible.",
+        body: "System X MAX G Plus Ceramic Coating: 3-year warranty for new RVs/motorhomes\u2014industry-leading gloss and hydrophobic protection. SunTek Reaction Paint Protection Film: 12-year warranty, advanced self-healing, and virtually invisible.",
       },
       {
         title: "Professional Studio Service",
-        body: "Detailing, correction, and coatings applied in our climate-controlled Centennial facility \u2014 never mobile for full-service jobs.",
+        body: "Detailing, correction, and coatings applied in our climate-controlled Centennial facility\u2014never mobile for full-service jobs.",
       },
       {
         title: "Trusted by Colorado RV Owners",
@@ -101,11 +101,11 @@ export const rvDetailingData: ServicePageData = {
     },
     {
       q: "Can you remove heavy oxidation and faded gelcoat?",
-      a: "Absolutely \u2014 our multi-step correction process restores shine to even badly faded surfaces.",
+      a: "Absolutely\u2014our multi-step correction process restores shine to even badly faded surfaces.",
     },
     {
       q: "Do you offer mobile or on-site service?",
-      a: "For best results and warranty, we recommend our controlled shop environment. Mobile service may be available for select maintenance jobs \u2014 ask for details.",
+      a: "For best results and warranty, we recommend our controlled shop environment. Mobile service may be available for select maintenance jobs\u2014ask for details.",
     },
   ],
   crossTitle: "Coat It For Years Of Protection",

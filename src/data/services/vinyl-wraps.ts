@@ -5,7 +5,7 @@ export const vinylWrapsData: ServicePageData = {
   heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "Vinyl Wraps & Decals",
   h1: "Denver Metro Premier Choice in Vinyl Wraps Application",
-  introH2: "Transform Your Ride With Custom Vinyl Wraps",
+  introH2: "Transform Your Ride with Custom Vinyl Wraps",
   introBody:
     "Full color changes, custom graphics, and stylish accents \u2014 professionally installed for a flawless finish. Looking to give your car a fresh new look? Whether you\u2019re after a full color change, custom graphics, or subtle accents, our premium vinyl wrap services provide the ultimate makeover \u2014 without the cost of a new paint job. At Front Range Detail Studio, we use top-of-the-line materials and expert installation techniques to transform your vehicle\u2019s appearance while also offering an extra layer of paint protection.",
   featuresEyebrow: "Key Benefits",
@@ -34,10 +34,10 @@ export const vinylWrapsData: ServicePageData = {
   ],
   includedH2: "Vinyl Wrap Options",
   included: [
-    "Full Vehicle Color Change: Transform the entire look of your car. Matte, gloss, satin, metallic, or chrome finishes. Over 200+ color options. Completely reversible without damaging paint.",
-    "Partial Wraps & Graphics: Add a custom touch without wrapping the entire vehicle. Racing stripes, hood/roof/trunk wraps, two-tone color designs, custom graphics & branding.",
-    "Commercial & Fleet Wraps: Turn your vehicle into a moving billboard. Custom branding for company vehicles, eye-catching graphics and logos, high-quality materials built for daily driving.",
-    "Accent Wraps & Details: Subtle touches for a more unique style. Carbon fiber accents (mirrors, spoilers, hoods), chrome deletes, roof wraps.",
+    "Full Vehicle Color Change: Transform the entire look of your car with a full-color wrap. Matte, gloss, satin, metallic, or chrome finishes. Over 200+ color options. Completely reversible without damaging paint.",
+    "Partial Wraps & Graphics: Add a custom touch without wrapping the entire vehicle. Racing stripes. Hood, roof, or trunk wraps. Two-tone color designs. Custom graphics & branding.",
+    "Commercial & Fleet Wraps: Turn your vehicle into a moving billboard. Custom branding for company vehicles. Eye-catching graphics and logos. High-quality materials built for daily driving.",
+    "Accent Wraps & Details: Subtle touches for a more unique style. Carbon fiber accents (mirrors, spoilers, hoods). Chrome deletes. Roof wraps.",
   ],
   stepsH2: "How A Wrap Comes Together",
   steps: [

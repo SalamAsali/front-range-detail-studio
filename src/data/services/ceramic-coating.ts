@@ -2,12 +2,12 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const ceramicCoatingData: ServicePageData = {
   heroImg: "/images/services/car-ceramic-1.jpg",
-  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
-  eyebrow: "Ceramic Coating \u00B7 Lifetime Warranty",
+  heroImgAlt: "Rivian car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
+  eyebrow: "Ultimate Protection and Lasting Gloss for Colorado Drivers",
   h1: "Ceramic Coating in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
   introH2: "Ultimate Protection and Lasting Gloss for Colorado Drivers",
   introBody:
-    "Owning a vehicle in the Denver metro area means dealing with harsh sun, heavy snow, mag-chloride, road salt, and unpredictable weather \u2014 all of which can quickly dull and damage your paint. System X MAX G Plus ceramic coating from Front Range Detail Studio is the best way to keep your car looking new, reduce maintenance, and protect your investment with confidence.",
+    "Owning a vehicle in the Denver metro area means dealing with harsh sun, heavy snow, mag-chloride, road salt, and unpredictable weather\u2014all of which can quickly dull and damage your paint. System X MAX G Plus ceramic coating from Front Range Detail Studio is the best way to keep your car looking new, reduce maintenance, and protect your investment with confidence.",
   videos: [
     {
       label: "Ceramic In Motion",
@@ -20,7 +20,7 @@ export const ceramicCoatingData: ServicePageData = {
       poster: "/images/services/IMG_2236-ceramic.jpg",
     },
   ],
-  featuresEyebrow: "Why System X",
+  featuresEyebrow: "Industry-leading ceramic technology",
   featuresH2: "Why Choose System X MAX G Plus Ceramic Coating From Front Range Detail Studio?",
   features: [
     {
@@ -28,20 +28,20 @@ export const ceramicCoatingData: ServicePageData = {
       body: "Industry-leading ceramic technology for the deepest gloss, extreme hydrophobicity, and maximum chemical resistance.",
     },
     {
-      title: "Lifetime Warranty For Cars",
+      title: "Lifetime Warranty for Cars",
       body: "Registered on your CarFax and fully transferable, with annual maintenance and top coat reapplication required to keep the warranty valid.",
     },
     {
       title: "Professional, Studio-Only Application",
-      body: "All coating is performed in our climate-controlled Centennial facility for flawless, dust-free results \u2014 never mobile.",
+      body: "All coating is performed in our climate-controlled Centennial facility for flawless, dust-free results\u2014never mobile.",
     },
     {
-      title: "Custom Packages For Boats & RVs",
+      title: "Custom Packages for Boats & RVs",
       body: "Get up to 5 years of warranty on brand new boats and 3 years on new RVs and motorhomes.",
     },
     {
       title: "Honest, Local Experts",
-      body: "No hype, no hard sell \u2014 just honest advice, clear communication, and the best products for Colorado conditions.",
+      body: "No hype, no hard sell\u2014just honest advice, clear communication, and the best products for Colorado conditions.",
     },
   ],
   includedH2: "What\u2019s Included With Every Ceramic Coating Install",
@@ -49,9 +49,10 @@ export const ceramicCoatingData: ServicePageData = {
     "System X MAX G Plus Professional Coating: The most advanced, high-solids ceramic coating for lasting shine and protection.",
     "Lifetime Warranty on Cars: Registered to your VIN and CarFax, fully transferable, with annual maintenance and top coat reapplication required for warranty coverage.",
     "Meticulous Paint Preparation: Full decontamination, multi-stage machine polishing, and defect removal to create a flawless surface before coating.",
-    "Optional Add-Ons: Wheels, Trim, and Glass Coating; Interior Ceramic Coating (leather, fabric, vinyl, plastics).",
-    "Personalized Aftercare Guide",
-    "Annual Maintenance Program: Return once a year for a professional inspection, maintenance wash, and fresh application of a ceramic top coat.",
+    "Wheels, Trim, and Glass Coating: Complete exterior protection.",
+    "Interior Ceramic Coating: Upgrade your experience! Protects leather, fabric, vinyl, and plastics from stains, spills, and UV fading, making interiors easier to clean and keeping them looking like new.",
+    "Personalized Aftercare Guide: We make caring for your new coating easy with simple, straightforward maintenance tips.",
+    "Annual Maintenance Program: Return once a year for a professional inspection, maintenance wash, and fresh application of a ceramic top coat\u2014keeping your warranty intact and your car at its best.",
   ],
   stepsH2: "Our Proven Process: From Consultation to Perfection",
   steps: [
@@ -74,29 +75,29 @@ export const ceramicCoatingData: ServicePageData = {
   ],
   /* "What is Ceramic Coating?" section from original */
   benefits: {
-    eyebrow: "What Is Ceramic Coating",
+    eyebrow: "Long-term protection and making maintenance a breeze",
     h2: "What is Ceramic Coating?",
     body: "Ceramic coating is a liquid polymer applied to the exterior surfaces of your vehicle. Once cured, it forms a durable, hydrophobic layer that bonds to the paint, offering long-term protection and making maintenance a breeze.",
     items: [
       {
         title: "Ease of Cleaning",
-        body: "The hydrophobic surface repels dirt, grime and water, making regular washes faster and easier.",
+        body: "Dirt and grime are less likely to stick, making washing faster and easier.",
       },
       {
         title: "Hydrophobic Properties",
-        body: "Water beads and rolls off your paint, dramatically reducing water spots and mineral deposits.",
+        body: "Water, dirt, and grime slide off the surface.",
       },
       {
         title: "UV Protection",
-        body: "Shields your clear coat from Colorado\u2019s intense high-altitude sun, preventing oxidation and fading.",
+        body: "Shields your paint from harmful UV rays, preventing fading and oxidation.",
       },
       {
         title: "Enhanced Gloss & Depth",
-        body: "Adds a deep, glass-like shine that amplifies the color and clarity of your paint.",
+        body: "Achieve a deep, mirror-like finish.",
       },
       {
         title: "Chemical Resistance",
-        body: "Resists damage from bird droppings, tree sap, mag-chloride, road salt and other environmental contaminants.",
+        body: "Protects against acidic contaminants, bird droppings, and bug splatter.",
       },
     ],
   },
@@ -106,23 +107,23 @@ export const ceramicCoatingData: ServicePageData = {
     items: [
       {
         title: "Certified System X Installers",
-        body: "Our technicians are factory-trained and certified by System X, ensuring every application meets manufacturer standards.",
+        body: "Professional application ensures the best results.",
       },
       {
         title: "Experienced Technicians",
-        body: "Years of hands-on experience with ceramic coatings on everything from daily drivers to exotic cars, boats and RVs.",
+        body: "We treat your vehicle with the care it deserves.",
       },
       {
         title: "High-Quality Products",
-        body: "We use only System X MAX G Plus \u2014 the most advanced, high-solids professional ceramic coating available.",
+        body: "We only use premium ceramic coatings with proven durability.",
       },
       {
         title: "Warranty-Backed Coatings",
-        body: "Every coating comes with a manufacturer-backed warranty registered to your VIN and CarFax.",
+        body: "Peace of mind with manufacturer-backed warranties.",
       },
       {
         title: "Appointment-Only Studio",
-        body: "We focus on one vehicle at a time in our climate-controlled facility, ensuring every car receives our full attention.",
+        body: "Dedicated time and care for every vehicle.",
       },
     ],
   },
@@ -134,7 +135,7 @@ export const ceramicCoatingData: ServicePageData = {
     },
     {
       h2: "The Ceramic Coating Process",
-      body: "Our six-step ceramic coating process ensures a flawless result: 1) Thorough Hand Wash to remove all surface contamination. 2) Paint Decontamination using a clay bar to extract embedded particles. 3) Paint Correction (If Needed) to remove swirl marks, scratches and oxidation. 4) Ceramic Coating Application of System X MAX G Plus, applied panel by panel. 5) Curing in our climate-controlled studio for a full, even bond. 6) Final Inspection of every surface before delivery.",
+      body: "Thorough Hand Wash: We start with a full exterior wash to remove dirt and grime. Paint Decontamination: A clay bar treatment removes embedded contaminants, ensuring a clean surface. Paint Correction (If Needed): We correct any swirl marks, light scratches, or oxidation to ensure a flawless base. Ceramic Coating Application: System X Ceramic Coating is carefully applied and leveled for an even finish. Curing: The coating is left to cure, bonding directly to your vehicle\u2019s paintwork. Final Inspection: A detailed inspection ensures a flawless, high-gloss finish.",
     },
   ],
   gallery: [
@@ -147,7 +148,7 @@ export const ceramicCoatingData: ServicePageData = {
   faqs: [
     {
       q: "What makes System X MAX G Plus different from wax or sealant?",
-      a: "System X MAX G Plus creates a permanent, glass-like layer that\u2019s far more durable than wax or traditional sealants. It protects against UV, chemicals, road salts, and environmental fallout \u2014 delivering a deeper shine and easier maintenance.",
+      a: "System X MAX G Plus creates a permanent, glass-like layer that\u2019s far more durable than wax or traditional sealants. It protects against UV, chemicals, road salts, and environmental fallout\u2014delivering a deeper shine and easier maintenance.",
     },
     {
       q: "Is the lifetime warranty real? What are the requirements?",
@@ -159,15 +160,15 @@ export const ceramicCoatingData: ServicePageData = {
     },
     {
       q: "Can I coat over PPF?",
-      a: "Absolutely! In fact, we recommend it \u2014 ceramic coating on top of PPF makes your protected car even easier to clean and enhances the gloss.",
+      a: "Absolutely! In fact, we recommend it\u2014ceramic coating on top of PPF makes your protected car even easier to clean and enhances the gloss.",
     },
     {
-      q: "Can I ceramic coat every surface on my vehicle \u2014 including the interior?",
+      q: "Can I ceramic coat every surface on my vehicle\u2014including the interior?",
       a: "Yes! We offer professional ceramic coatings for virtually every part of your vehicle. This includes wheels, brake calipers, plastic trim, glass, and all interior surfaces (leather, fabric, vinyl, and plastics). Ceramic coating your interior helps repel stains, makes cleaning easier, and protects against UV fading.",
     },
     {
       q: "Can you ceramic coat matte paint or satin finishes?",
-      a: "Definitely. We use a dedicated matte/satin ceramic coating that preserves the non-glossy look of matte finishes while offering the same high level of protection and the same warranty. Matte vehicles, wraps, and PPF benefit just as much from ceramic protection \u2014 without changing the appearance.",
+      a: "Definitely. We use a dedicated matte/satin ceramic coating that preserves the non-glossy look of matte finishes while offering the same high level of protection and the same warranty. Matte vehicles, wraps, and PPF benefit just as much from ceramic protection\u2014without changing the appearance.",
     },
     {
       q: "How do I maintain my ceramic coating?",
@@ -180,7 +181,7 @@ export const ceramicCoatingData: ServicePageData = {
   ],
   crossTitle: "Denver\u2019s 1st Choice in Paint Protection Film and Clear Bra",
   crossBody:
-    "Preserve the pristine condition of your vehicle with our high-quality Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an invisible shield, guarding your car\u2019s paint against scratches, stone chips, and road debris. With self-healing technology and a ceramic coating layer applied over the film, our PPF service is the clear choice to protect your investment in South Denver, Colorado.",
+    "Preserve the pristine condition of your vehicle with our high-quality Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an invisible shield, guarding your car\u2019s paint against scratches, stone chips, and road debris. With self-healing technology and a ceramic coating layer applied over the film, our PPF service is the clear choice to protect your investment in South Denver, Colorado",
   crossHref: "/paint-protection-film-ppf",
   crossLabel: "Explore PPF",
   crossSell2: {

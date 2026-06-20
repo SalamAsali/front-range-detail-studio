@@ -6,13 +6,13 @@ export const rivianDetailingData: VehiclePageData = {
   heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   heroH1: "Rivian Paint Protection & Restyling in Englewood, CO | Front Range Detail Studio",
   heroSubtitle:
-    "Rivian Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio.",
+    "Colorado\u2019s Rivian PPF & Ceramic Coating Experts",
 
   /* Brand intro */
   logoImg: "/images/logos/rivian-logo.svg",
   introH2: "Premier Rivian Paint Protection in Englewood, CO",
   introBody:
-    "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your Rivian. Whether you own the adventure-ready R1T or the innovative R1S SUV, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services \u2014 all designed for Colorado\u2019s demanding driving conditions. We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
+    "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your Rivian. Whether you own a the adventure-ready R1T or the innovative R1S SUV., our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services\u2014all designed for Colorado\u2019s demanding driving conditions.",
   introQuote:
     "We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
 
@@ -26,7 +26,7 @@ export const rivianDetailingData: VehiclePageData = {
     },
     {
       title: "Digital Precision Cutting",
-      body: "Each install uses precision-cut patterns tailored to your Rivian\u2019s exact body lines, from the distinctive front light bar to adventure-ready wheel arches.",
+      body: "Each install uses precision-cut patterns tailored to your Rivian\u2019s exact body lines, from aggressive M bumpers to aerodynamic side skirts.",
     },
     {
       title: "Ideal for Colorado Roads",
@@ -57,7 +57,7 @@ export const rivianDetailingData: VehiclePageData = {
 
   /* Ceramic section */
   ceramicImg: "/images/vehicles/Rivian-ceramic-coating.png",
-  ceramicH2: "Rivian Ceramic Coating in Englewood",
+  ceramicH2: "Rivian Ceramic Coating In Englewood",
   ceramicBenefits: [
     {
       title: "High-Gloss, Hydrophobic Finish",
@@ -72,8 +72,8 @@ export const rivianDetailingData: VehiclePageData = {
       body: "Boosts the durability and appearance of your paint protection film.",
     },
     {
-      title: "Built for Adventure Vehicles",
-      body: "Whether you drive the adventure-ready R1T or the innovative R1S SUV, ceramic coating preserves your Rivian\u2019s finish and value.",
+      title: "Perfect for Daily Drivers and Track Cars",
+      body: "Whether you drive a the adventure-ready R1T or the innovative R1S SUV., ceramic coating preserves your Rivian\u2019s finish and value.",
     },
   ],
 
@@ -83,29 +83,24 @@ export const rivianDetailingData: VehiclePageData = {
   tintBenefits: [
     {
       title: "Ceramic Window Tint",
-      body: "Blocks up to 99% of UV rays and dramatically reduces interior heat, keeping your cabin cooler and protecting sensitive interior materials.",
+      body: "Blocks up to 99% of UV rays and dramatically reduces interior heat, keeping your cabin cooler and protecting sensitive materials like leather and carbon trim.",
     },
     {
       title: "Privacy & Aesthetic Boost",
-      body: "Clean, precision-installed tint enhances your Rivian\u2019s bold styling.",
+      body: "Clean, precision-installed tint enhances your Rivian\u2019s aggressive styling.",
     },
     {
       title: "Safe for Driver-Assist Systems",
-      body: "Our ceramic films are safe for Rivian\u2019s driver-assist systems and connectivity.",
+      body: "Our ceramic films are 100% compatible with Rivian\u2019s blind-spot monitors, heads-up displays, and cameras.",
     },
   ],
 
   /* FAQ */
   faqs: [
     {
-      question: "Which Rivian models do you work on?",
+      question: "Is Rivian paint soft or hard?",
       answer:
-        "Both \u2014 the R1T pickup and R1S SUV. Every package is tailored to your specific Rivian model and trim.",
-    },
-    {
-      question: "Is Rivian paint soft? Should I protect it right away?",
-      answer:
-        "Yes. Rivian vehicles have a softer clear coat. PPF and ceramic coating are highly recommended to protect the paint from day one.",
+        "Most modern Rivians have a softer clear coat, especially M models. PPF and ceramic are highly recommended.",
     },
     {
       question: "Does PPF hide rock chips or swirls?",
@@ -113,14 +108,9 @@ export const rivianDetailingData: VehiclePageData = {
         "PPF can mask minor flaws, but we always perform paint correction for a flawless finish first.",
     },
     {
-      question: "Can you do custom installs for Rivian trim and aftermarket parts?",
+      question: "Can you do custom coverage for splitters, carbon roofs, etc.?",
       answer:
-        "Yes, we do custom installs for all special Rivian trim and aftermarket parts.",
-    },
-    {
-      question: "Can you coat Rivian matte or special finishes?",
-      answer:
-        "Absolutely. We offer coatings formulated for matte and special finishes that preserve the look while adding protection.",
+        "Yes, we do custom installs for all special BMW trim and aftermarket parts.",
     },
   ],
 
@@ -132,7 +122,7 @@ export const rivianDetailingData: VehiclePageData = {
 
   caseStudy: {
     h2: "See Our Rivian Paint Protection in Action",
-    body: "We recently completed a full Front Range Package on a Rivian R1T — featuring premium paint protection film using SunTek PPF, shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A bold, chip-resistant Rivian built to thrive on Colorado roads and look flawless doing it.",
+    body: "We recently completed a full Front Range Package on a G80 M3 \u2014 featuring a Matte paint protection film using SunTek PPF, completely transforming the car\u2019s appearance while shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A bold, head-turning, chip-resistant, and maintenance-friendly Rivian built to thrive on Colorado roads and look flawless doing it.",
     images: [
       "/images/vehicles/Rivian-1024x768.jpg",
       "/images/vehicles/Rivian-ppf.png",

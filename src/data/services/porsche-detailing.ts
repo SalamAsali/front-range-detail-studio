@@ -6,13 +6,13 @@ export const porscheDetailingData: VehiclePageData = {
   heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   heroH1: "Porsche Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio",
   heroSubtitle:
-    "Porsche Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio.",
+    "Colorado\u2019s Porsche PPF & Ceramic Coating Experts",
 
   /* Brand intro */
   logoImg: "/images/logos/Porsche-Logo.svg",
   introH2: "Premier Porsche Paint Protection in Englewood, CO",
   introBody:
-    "At Front Range Detail Studio in Englewood, CO, we specialize in protecting the beauty, performance, and long-term value of your Porsche, whether it\u2019s a classic 911, a powerful Cayenne, or a sleek Taycan, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services \u2014 all designed for Colorado\u2019s demanding driving conditions. We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
+    "At Front Range Detail Studio in Englewood, CO, we specialize in protecting the beauty, performance, and long-term value of your Porsche, whether it\u2019s a classic 911, a powerful Cayenne, or a sleek Taycan, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services\u2014all designed for Colorado\u2019s demanding driving conditions.",
   introQuote:
     "We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
 
@@ -26,7 +26,7 @@ export const porscheDetailingData: VehiclePageData = {
     },
     {
       title: "Digital Precision Cutting",
-      body: "Each install uses precision-cut patterns tailored to your Porsche\u2019s exact body lines, from sculpted fenders to low-profile front splitters.",
+      body: "Each install uses precision-cut patterns tailored to your Porsche\u2019s exact body lines, from aggressive M bumpers to aerodynamic side skirts.",
     },
     {
       title: "Ideal for Colorado Roads",
@@ -98,14 +98,9 @@ export const porscheDetailingData: VehiclePageData = {
   /* FAQ */
   faqs: [
     {
-      question: "Which Porsche models do you work on?",
+      question: "Is Porsche paint soft or hard?",
       answer:
-        "All of them \u2014 from the 718 and 911 to Cayenne, Macan, Panamera and Taycan. Every package is tailored to your specific model.",
-    },
-    {
-      question: "Should I protect a new Porsche right away?",
-      answer:
-        "Yes. A new Porsche is the ideal time for PPF and ceramic \u2014 the paint is pristine, so protection locks in that factory finish from day one.",
+        "Most modern Porsches have a softer clear coat, especially M models. PPF and ceramic are highly recommended.",
     },
     {
       question: "Does PPF hide rock chips or swirls?",
@@ -113,17 +108,7 @@ export const porscheDetailingData: VehiclePageData = {
         "PPF can mask minor flaws, but we always perform paint correction for a flawless finish first.",
     },
     {
-      question: "Can you coat Porsche matte or satin finishes?",
-      answer:
-        "Absolutely. We offer coatings formulated for matte finishes that preserve the look while adding protection.",
-    },
-    {
-      question: "Do you tint Porsche EVs like the Taycan?",
-      answer:
-        "Yes \u2014 our non-metallic ceramic tint rejects heat and UV without interfering with sensors and connectivity in modern Porsche EVs.",
-    },
-    {
-      question: "Can you do custom coverage for splitters, carbon elements, etc.?",
+      question: "Can you do custom coverage for splitters, carbon roofs, etc.?",
       answer:
         "Yes, we do custom installs for all special Porsche trim and aftermarket parts.",
     },
@@ -137,7 +122,7 @@ export const porscheDetailingData: VehiclePageData = {
 
   caseStudy: {
     h2: "See Our Porsche Paint Protection in Action",
-    body: "We recently completed a full Front Range Package on a Porsche Cayenne Turbo S — featuring premium paint protection film using SunTek PPF, completely shielding the front end from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A stunning, chip-resistant Porsche built to thrive on Colorado roads.",
+    body: "We recently completed a full Front Range Package on a G80 M3 \u2014 featuring a Matte paint protection film using SunTek PPF, completely transforming the car\u2019s appearance while shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A bold, head-turning, chip-resistant, and maintenance-friendly Porsche built to thrive on Colorado roads and look flawless doing it.",
     images: [
       "/images/vehicles/Porsche-Cayenne-Turbo-S-PPF-1024x768.jpg",
       "/images/vehicles/Porsche-Cayenne-Turbo-S-PPF-1-1024x768.jpg",

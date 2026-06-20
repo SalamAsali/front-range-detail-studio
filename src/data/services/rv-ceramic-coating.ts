@@ -64,19 +64,19 @@ export const rvCeramicCoatingData: ServicePageData = {
   pricing: [
     {
       title: "Exterior Wash & Wax",
-      price: "From $10/ft",
+      price: "Starting at $10/foot",
       body: "Hand wash, bug and tar removal, high-quality sealant application, wheel and tire cleaning.",
       image: "/images/gallery/New-Aire-RV-vertical-pic.webp",
     },
     {
       title: "Oxidation Removal & Paint Correction",
-      price: "$20\u2013$35/ft",
+      price: "$20\u2013$35/foot",
       body: "Machine compounding and polishing to restore faded fiberglass and gelcoat.",
       image: "/images/services/RV-ceramic-coating.jpeg",
     },
     {
       title: "System X Ceramic Coating Application",
-      price: "From $100/ft",
+      price: "Starting at $100/foot",
       body: "Multi-stage paint correction followed by System X Ceramic Coating application with warranty.",
       image: "/images/services/rv-detailing.jpg",
     },
@@ -85,7 +85,7 @@ export const rvCeramicCoatingData: ServicePageData = {
   additionalSections: [
     {
       h2: "Deluxe RV Protection",
-      body: "Our deluxe packages combine full exterior ceramic coating with windows and interior protection for comprehensive coverage. Custom packages available for any size rig \u2014 from Sprinter vans to large Class A diesel pushers.",
+      body: "All features of the Full Exterior + Windows Package. Optional ceramic coating for wheels and trim. Add-on: Ceramic coating for RV roof for maximum protection against weather elements.",
     },
   ],
   faqs: [

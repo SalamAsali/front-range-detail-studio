@@ -3,11 +3,11 @@ import type { ServicePageData } from "@/components/ServicePage";
 export const ppfData: ServicePageData = {
   heroImg: "/images/services/new-ppf-scaled.jpg",
   heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
-  eyebrow: "Paint Protection Film \u00B7 12 Year Warranty",
+  eyebrow: "Denver\u2019s Most Trusted Vehicle Aesthetic Experts",
   h1: "Paint Protection Film (PPF) & Clear Bra in Denver",
-  introH2: "Keep Your Car Looking New \u2014 No Matter What Colorado Throws At It",
+  introH2: "Keep Your Car Looking New\u2014No Matter What Colorado Throws At It",
   introBody:
-    "Living and driving in the Denver metro area means your vehicle faces some of the harshest conditions in the country: snow, ice, and road salt in winter; loose gravel, construction debris, and unpredictable weather year-round; harsh sun and sudden hail every summer. Even daily drives in Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, and Castle Pines can result in expensive paint chips, scratches, or permanent stains \u2014 unless you protect your car before damage happens. That\u2019s why so many Colorado car owners trust Paint Protection Film (PPF) and Clear Bra from Front Range Detail Studio. Our expert PPF installation provides a virtually invisible barrier, stopping rock chips, road rash, and chemical stains before they start. It\u2019s a smarter investment \u2014 because prevention always costs less than fixing paint later.",
+    "Paint Protection Film (PPF) & Clear Bra \u2014 Serving Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, & Castle Pines\n\nLiving and driving in the Denver metro area means your vehicle faces some of the harshest conditions in the country:\n\n\u2022 Snow, ice, and road salt in winter\n\u2022 Loose gravel, construction debris, and unpredictable weather year-round\n\u2022 Harsh sun and sudden hail every summer\n\nEven daily drives in Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, and Castle Pines can result in expensive paint chips, scratches, or permanent stains\u2014unless you protect your car before damage happens.\n\nThat\u2019s why so many Colorado car owners trust Paint Protection Film (PPF) and Clear Bra from Front Range Detail Studio.\n\nOur expert PPF installation provides a virtually invisible barrier, stopping rock chips, road rash, and chemical stains before they start. It\u2019s a smarter investment\u2014because prevention always costs less than fixing paint later.",
   featuresEyebrow: "Why Choose Us",
   featuresH2: "Why Choose Us?",
   features: [
@@ -16,12 +16,16 @@ export const ppfData: ServicePageData = {
       body: "Industry-leading protection with a 12-year warranty and advanced self-healing technology.",
     },
     {
-      title: "Climate-Controlled Centennial Studio",
+      title: "Climate-controlled Centennial studio",
       body: "No dust, no mess, no mobile installs. Just flawless, professional results every time.",
     },
     {
-      title: "Trusted By Drivers Across Denver and Surrounding Cities",
+      title: "Trusted by drivers across Denver and surrounding cities",
       body: "Check out our 5-star reviews from local clients who value quality, honesty, and results.",
+    },
+    {
+      title: "Don\u2019t let Colorado roads ruin your investment.",
+      body: "Protect your paint today and enjoy every mile\u2014worry-free.",
     },
   ],
   includedH2: "What\u2019s Included With Every PPF Install",
@@ -45,7 +49,7 @@ export const ppfData: ServicePageData = {
     },
     {
       title: "Precision Installation",
-      body: "Certified installers apply the PPF using computer-cut patterns in our controlled studio.",
+      body: "Certified installers apply the PPF using computer-cut patterns in our controlled studio",
     },
     {
       title: "Final Check & Delivery",
@@ -64,7 +68,7 @@ export const ppfData: ServicePageData = {
     },
     {
       h2: "Why Choose Paint Protection Film?",
-      body: "Colorado\u2019s warm summers and cold, snowy winters can be quite taxing on your vehicle. Not only are we closer to the sun with all its harmful UV, but our Colorado vehicles must endure constant rock chips on dry roads, followed by corrosive winter road chemicals when it snows. It\u2019s the perfect recipe to destroy your vehicle\u2019s pristine appearance. Luckily, our PPF provides the ultimate defense for your paintwork. It not only protects against physical damages and rock chips, but also offers UV resistance, which helps prevent the paint from fading over time. Our industry-leading clear bra is infused with self-healing technology. Scratches and scuffs heal under the light of the sun to a flawless finish in a matter of seconds. And with a ceramic coating application on every PPF installation, your vehicle will enjoy a lasting shine and debris resistance that will keep it looking freshly waxed. Installing Paint Protection Film is an investment in maintaining the aesthetic appeal and resale value of your vehicle. Our professional application ensures precision and durability, with warranty options that give you peace of mind.",
+      body: "Colorado\u2019s warm summers and cold, snowy winters can be quite taxing on your vehicle. Not only are we closer to the sun with all it\u2019s harmful UV, but our Colorado vehicles must endure constant rock chips on dry roads, followed by corrosive winter road chemicals when it snows. It\u2019s the perfect recipe to destroy your vehicle\u2019s pristine appearance. Luckily, our PPF provides the ultimate defense for your paintwork. It not only protects against physical damages and rock chips, but also offers UV resistance, which helps prevent the paint from fading over time. Our industry-leading clear bra is infused with self-healing technology. Scratches and scuffs heal under the light of the sun to a flawless finish in a matter of seconds. And with a ceramic coating application on every PPF installation, your vehicle will enjoy a lasting shine and debris resistance that will keep it looking freshly waxed. Installing Paint Protection Film is an investment in maintaining the aesthetic appeal and resale value of your vehicle. Our professional application ensures precision and durability, with warranty options that give you peace of mind.",
     },
   ],
   gallery: [
@@ -74,16 +78,16 @@ export const ppfData: ServicePageData = {
   ],
   faqs: [
     {
-      q: "How does SunTek Reaction PPF 'self-heal'?",
-      a: "The film\u2019s top layer uses advanced polymers that cause light scratches and swirl marks to disappear with heat \u2014 either from the sun or warm water.",
+      q: 'How does SunTek Reaction PPF "self-heal"?',
+      a: "The film\u2019s top layer uses advanced polymers that cause light scratches and swirl marks to disappear with heat\u2014either from the sun or warm water.",
     },
     {
       q: "How long does the film last?",
       a: "SunTek Reaction PPF is backed by a 12-year warranty, but many owners see effective protection for even longer with proper care.",
     },
     {
-      q: "Can I wash my car as usual?",
-      a: "Hand washing or touchless washes are best. Avoid automatic washes with brushes, and wait 7 days after installation before your first wash.",
+      q: "How does SunTekCan I wash my car as usual?",
+      a: "Yes! Hand washing or touchless washes are best. Avoid automatic washes with brushes, and wait 7 days after installation before your first wash.",
     },
     {
       q: "Does PPF prevent rock chips?",
@@ -91,7 +95,7 @@ export const ppfData: ServicePageData = {
     },
     {
       q: "Will it turn yellow or peel over time?",
-      a: "No \u2014 SunTek Reaction is warrantied for 12 years against yellowing, cracking, or peeling. Our climate-controlled installation and ceramic boost top coat help it look better, longer.",
+      a: "No\u2014SunTek Reaction is warrantied for 12 years against yellowing, cracking, or peeling. Our climate-controlled installation and ceramic boost top coat help it look better, longer.",
     },
     {
       q: "Can I combine PPF with ceramic coating?",
@@ -102,9 +106,9 @@ export const ppfData: ServicePageData = {
       a: "Yes. If needed, PPF can be safely removed by our team without damaging your paint.",
     },
   ],
-  crossTitle: "Top It With Ceramic Coating",
+  crossTitle: "Denver\u2019s 1st Choice in Paint Protection Film and Clear Bra",
   crossBody:
-    "PPF stops the chips; ceramic adds slickness, gloss and chemical resistance on top. Together they deliver the most complete protection available.",
+    "Preserve the pristine condition of your vehicle with our high-quality Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an invisible shield, guarding your car\u2019s paint against scratches, stone chips, and road debris. With self-healing technology and a ceramic coating layer applied over the film, our PPF service is the clear choice to protect your investment in South Denver, Colorado",
   crossHref: "/ceramic-coating",
   crossLabel: "Explore Ceramic",
   crossSell2: {

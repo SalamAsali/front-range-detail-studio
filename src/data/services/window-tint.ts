@@ -2,12 +2,12 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const windowTintData: ServicePageData = {
   heroImg: "/images/services/new-tint.jpg",
-  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
-  eyebrow: "Ceramic Window Tint \u00B7 Lifetime Warranty",
+  heroImgAlt: "BMW car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
+  eyebrow: "Keep Your Car Cool, Private, and Protected\u2014Year Round",
   h1: "Ceramic Window Tint in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
-  introH2: "Unmatched Heat Rejection, UV Protection, and Style",
+  introH2: "Unmatched heat rejection, UV protection, and style",
   introBody:
-    "Colorado\u2019s high-altitude sun, winter glare, and fluctuating weather make quality window tint more than just an upgrade \u2014 it\u2019s a must-have for both comfort and protection. Whether you\u2019re driving in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, or Castle Pines, ceramic window tint from Front Range Detail Studio keeps your interior cooler, shields your skin, and protects your investment.",
+    "Colorado\u2019s high-altitude sun, winter glare, and fluctuating weather make quality window tint more than just an upgrade\u2014it\u2019s a must-have for both comfort and protection. Whether you\u2019re driving in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, or Castle Pines, ceramic window tint from Front Range Detail Studio keeps your interior cooler, shields your skin, and protects your investment.",
   featuresEyebrow: "Ceramic Film",
   featuresH2: "Why Ceramic Tint Outperforms",
   features: [
@@ -36,15 +36,15 @@ export const windowTintData: ServicePageData = {
   included: [
     "Suntek Evolve Ceramic Window Film: Industry-leading, next-gen ceramic technology.",
     "Lifetime Warranty: Guaranteed against fading, bubbling, peeling, or discoloration.",
-    "Custom Shade Selection: Choose your preferred darkness \u2014 we can go as light or as dark as you want, with guidance on Colorado\u2019s 27% legal limit and advice on darker options.",
-    "Professional Studio Installation: Flawless, dust-free results every time \u2014 never mobile.",
+    "Custom Shade Selection: Choose your preferred darkness\u2014we can go as light or as dark as you want, with guidance on Colorado\u2019s 27% legal limit and advice on darker options.",
+    "Professional Studio Installation: Flawless, dust-free results every time\u2014never mobile.",
     "Precision Computer-Cut Patterns: Perfect fit, every time, for all cars, trucks, SUVs, and more.",
     "Aftercare Instructions: Easy cleaning tips for long-lasting tint performance.",
   ],
   /* "Want maximum privacy or a custom look?" section from original */
   additionalSections: [
     {
-      h2: "Want Maximum Privacy or a Custom Look?",
+      h2: "Want maximum privacy or a custom look?",
       body: "We can tint your windows as dark as you want, so long as you understand the legal ramifications and local regulations. Our team is happy to explain Colorado\u2019s window tint laws (legal limit is 27% VLT for most windows), but the final choice is always yours.",
     },
   ],
@@ -72,31 +72,31 @@ export const windowTintData: ServicePageData = {
   ],
   faqs: [
     {
-      q: "Can you make my windows darker than the legal limit?",
+      q: 'How does SunTek Reaction PPFCan you make my windows darker than the legal limit? "self-heal"?',
       a: "Yes, we can tint your windows as dark as you like, but it\u2019s important to understand that Colorado law requires most vehicle windows to allow at least 27% visible light through. Choosing a darker shade may result in a ticket if stopped by law enforcement. We\u2019re happy to explain your options and help you make an informed decision.",
     },
     {
-      q: "What\u2019s special about ceramic window film?",
+      q: "How long does the What\u2019s special about ceramic window film?last?",
       a: "Ceramic tint blocks 99% of UV rays and up to 94% of infrared heat, keeping your car dramatically cooler without making it too dark.",
     },
     {
       q: "Can you tint my windshield or sunroof?",
-      a: "Absolutely! We offer legal and safe windshield and sunroof tinting \u2014 great for reducing glare, protecting your dash, and making your drive more comfortable.",
+      a: "Absolutely! We offer legal and safe windshield and sunroof tinting\u2014great for reducing glare, protecting your dash, and making your drive more comfortable.",
     },
     {
       q: "Do you offer windshield protection film?",
-      a: "Yes! Our windshield protection film helps prevent costly cracks, chips, and pitting \u2014 keeping your original, soundproofed windshield intact and saving you from expensive, disruptive replacements.",
+      a: "Yes! Our windshield protection film helps prevent costly cracks, chips, and pitting\u2014keeping your original, soundproofed windshield intact and saving you from expensive, disruptive replacements.",
     },
   ],
-  crossTitle: "Pair Tint With Ceramic Coating",
+  crossTitle: "Denver\u2019s 1st Choice in Paint Protection Film and Clear Bra",
   crossBody:
-    "Block the heat on the inside and protect the paint on the outside. Ask about bundling window tint with a System X ceramic coating.",
-  crossHref: "/ceramic-coating",
-  crossLabel: "Explore Ceramic",
+    "Preserve the pristine condition of your vehicle with our high-quality Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an invisible shield, guarding your car\u2019s paint against scratches, stone chips, and road debris. With self-healing technology and a ceramic coating layer applied over the film, our PPF service is the clear choice to protect your investment in South Denver, Colorado",
+  crossHref: "/paint-protection-film-ppf",
+  crossLabel: "Explore PPF",
   crossSell2: {
-    title: "Denver\u2019s 1st Choice in Paint Protection Film and Clear Bra",
-    body: "Preserve the pristine condition of your vehicle with our high-quality Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an invisible shield, guarding your car\u2019s paint against scratches, stone chips, and road debris.",
-    href: "/paint-protection-film-ppf",
-    label: "Explore PPF",
+    title: "Detailing Services in Denver, Colorado and All Surrounding Cities",
+    body: "Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, our team of detail specialists are equipped and experienced to handle all detailing needs anywhere in Metro Denver.",
+    href: "/auto-detailing",
+    label: "Explore Detailing",
   },
 };

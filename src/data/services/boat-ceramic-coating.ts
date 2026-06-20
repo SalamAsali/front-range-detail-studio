@@ -5,9 +5,9 @@ export const boatCeramicCoatingData: ServicePageData = {
   heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   eyebrow: "Marine Ceramic Coating \u00B7 PPF",
   h1: "Boat Ceramic Coating & PPF in Denver, CO \u2013 Ultimate Marine Protection",
-  introH2: "Shield Your Boat From Colorado\u2019s Harsh Elements",
+  introH2: "Shield your boat from Colorado\u2019s harsh elements with professional ceramic coating and paint protection film (PPF) services",
   introBody:
-    "At Front Range Detail Studio, we specialize in applying System X Marine Ceramic Coatings and SunTek Reaction PPF \u2014 offering unparalleled defense against UV rays, oxidation, scratches, and water damage.",
+    "At Front Range Detail Studio, we specialize in applying System X Marine Ceramic Coatings and SunTek Reaction PPF\u2014offering unparalleled defense against UV rays, oxidation, scratches, and water damage.",
   featuresEyebrow: "Why Choose Us",
   featuresH2: "Why Choose Front Range Detail Studio?",
   features: [
@@ -32,22 +32,22 @@ export const boatCeramicCoatingData: ServicePageData = {
   steps: [
     {
       title: "Thorough Hand Wash & Decontamination",
-      body: "All surfaces are cleaned to remove salt, algae, waterline buildup and road grime.",
+      body: "We begin with a deep cleaning to remove algae, grime, and contaminants from the boat\u2019s surface.",
       image: "/images/gallery/boat.webp",
     },
     {
       title: "Oxidation Removal & Gelcoat Correction",
-      body: "Multi-stage compounding and polishing restores faded surfaces to a deep, even shine.",
+      body: "Any oxidation, scratches, or imperfections are corrected to ensure a flawless base before coating.",
       image: "/images/gallery/boat-2.webp",
     },
     {
       title: "Ceramic Coating Application",
-      body: "System X Marine coating is applied to hull, deck, topside and stainless steel surfaces.",
+      body: "System X Marine Ceramic Coating is carefully applied to all designated surfaces, creating a hydrophobic, UV-resistant barrier.",
       image: "/images/services/boat-detailing.jpg",
     },
     {
       title: "Curing & Inspection",
-      body: "The coating cures and we inspect every surface for complete, even coverage.",
+      body: "The coating is allowed to cure, followed by a detailed inspection to ensure complete coverage and a perfect finish.",
       image: "/images/gallery/boat.webp",
     },
   ],
@@ -55,7 +55,7 @@ export const boatCeramicCoatingData: ServicePageData = {
   contentBlocks: [
     {
       h2: "System X Marine Ceramic Coating",
-      body: "Professional-grade marine ceramic coating providing maximum hydrophobic protection for your entire vessel.",
+      body: "Protect your boat with the industry\u2019s leading marine ceramic.",
       image: "/images/gallery/System-X-Max-G-819x1024.png",
       imageAlt: "System X Max G+ ceramic coating product for marine applications",
       bullets: [
@@ -63,11 +63,12 @@ export const boatCeramicCoatingData: ServicePageData = {
         "Full Exterior Coating: Maximum hydrophobic protection for hull, deck, topside, and stainless steel",
         "Ultimate Marine Protection Package: Add interior surface coating for vinyl, plastic, and more",
         "3-Year Manufacturer Warranty on new boats (annual top coat required for warranty)",
+        "Call us for more details",
       ],
     },
     {
       h2: "SunTek Reaction Paint Protection Film (PPF) for Boats",
-      body: "SunTek Reaction PPF offers a 12-year warranty against yellowing, cracking, and peeling \u2014 even in harsh marine environments.",
+      body: "SunTek Reaction PPF offers a 12-year warranty against yellowing, cracking, and peeling\u2014even in harsh marine environments.",
       image: "/images/gallery/boat-2.webp",
       imageAlt: "Boat protected with SunTek Reaction paint protection film",
       bullets: [

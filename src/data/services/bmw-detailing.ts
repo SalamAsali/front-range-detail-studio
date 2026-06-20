@@ -6,13 +6,13 @@ export const bmwDetailingData: VehiclePageData = {
   heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
   heroH1: "BMW Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio",
   heroSubtitle:
-    "BMW Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio.",
+    "Colorado\u2019s BMW PPF & Ceramic Coating Experts",
 
   /* Brand intro */
   logoImg: "/images/logos/BMW-logo.svg",
   introH2: "Premier BMW Paint Protection in Englewood, CO",
   introBody:
-    "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your BMW. Whether you own a sharp M3, a bold X7, or a cutting-edge i4, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services \u2014 all designed for Colorado\u2019s demanding driving conditions. We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
+    "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your BMW. Whether you own a sharp M3, a bold X7, or a cutting-edge i4, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services\u2014all designed for Colorado\u2019s demanding driving conditions.",
   introQuote:
     "We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
 
@@ -57,7 +57,7 @@ export const bmwDetailingData: VehiclePageData = {
 
   /* Ceramic section */
   ceramicImg: "/images/vehicles/bmw-ceramic-coating.png",
-  ceramicH2: "BMW Ceramic Coating in Englewood",
+  ceramicH2: "BMW Ceramic Coating In Englewood",
   ceramicBenefits: [
     {
       title: "High-Gloss, Hydrophobic Finish",
@@ -98,11 +98,6 @@ export const bmwDetailingData: VehiclePageData = {
   /* FAQ */
   faqs: [
     {
-      question: "Which BMW models do you work on?",
-      answer:
-        "All of them \u2014 from the 2 Series and 3 Series to X-models, i-series EVs and full M cars. Every package is tailored to your specific model.",
-    },
-    {
       question: "Is BMW paint soft or hard?",
       answer:
         "Most modern BMWs have a softer clear coat, especially M models. PPF and ceramic are highly recommended.",
@@ -117,16 +112,6 @@ export const bmwDetailingData: VehiclePageData = {
       answer:
         "Yes, we do custom installs for all special BMW trim and aftermarket parts.",
     },
-    {
-      question: "Can you coat BMW Individual or matte paint?",
-      answer:
-        "Absolutely. We offer coatings formulated for matte and frozen finishes that preserve the look while adding protection.",
-    },
-    {
-      question: "Do you tint BMW EVs like the i4 and iX?",
-      answer:
-        "Yes \u2014 our non-metallic ceramic tint rejects heat and UV without interfering with the sensors and connectivity in modern BMW EVs.",
-    },
   ],
 
   /* Gallery */
@@ -138,7 +123,7 @@ export const bmwDetailingData: VehiclePageData = {
 
   caseStudy: {
     h2: "See Our BMW Paint Protection in Action",
-    body: "We recently completed a full Front Range Package on a BMW M3 \u2014 featuring a matte paint protection film using SunTek PPF, completely transforming the car\u2019s appearance while shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A bold, head-turning, chip-resistant BMW built to thrive on Colorado roads and look flawless doing it.",
+    body: "We recently completed a full Front Range Package on a G80 M3 \u2014 featuring a Matte paint protection film using SunTek PPF, completely transforming the car\u2019s appearance while shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A bold, head-turning, chip-resistant, and maintenance-friendly BMW built to thrive on Colorado roads and look flawless doing it.",
     images: [
       "/images/vehicles/bmw-i4-768x1024.jpg",
       "/images/vehicles/BMW-X5-front-1024x768.jpg",
