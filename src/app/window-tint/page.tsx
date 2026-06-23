@@ -34,7 +34,7 @@ export default function WindowTintPage() {
         description="Premium ceramic window tint with 99% UV rejection and up to 94% heat rejection. Lifetime warranty. Colorado-legal shades available."
         url="/window-tint"
       />
-      <FAQSchema faqs={windowTintData.faqs!} />
+      {windowTintData.faqs && <FAQSchema faqs={windowTintData.faqs} />}
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },

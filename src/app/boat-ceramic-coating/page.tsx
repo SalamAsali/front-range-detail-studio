@@ -34,7 +34,7 @@ export default function BoatCeramicCoatingPage() {
         description="System X Marine ceramic coating and SunTek Reaction PPF for boats. 3-year warranty on new boats. Hull, deck and topside protection."
         url="/boat-ceramic-coating"
       />
-      <FAQSchema faqs={boatCeramicCoatingData.faqs!} />
+      {boatCeramicCoatingData.faqs && <FAQSchema faqs={boatCeramicCoatingData.faqs} />}
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },

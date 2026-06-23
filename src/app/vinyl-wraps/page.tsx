@@ -34,7 +34,7 @@ export default function VinylWrapsPage() {
         description="Full color changes, custom graphics, chrome deletes and accent wraps. Over 200 color options with professional installation."
         url="/vinyl-wraps"
       />
-      <FAQSchema faqs={vinylWrapsData.faqs!} />
+      {vinylWrapsData.faqs && <FAQSchema faqs={vinylWrapsData.faqs} />}
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },

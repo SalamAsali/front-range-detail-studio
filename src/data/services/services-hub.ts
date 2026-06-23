@@ -1,13 +1,19 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const servicesHubData: ServicePageData = {
-  heroImg: "/images/services/IMG_2236-ceramic.jpg",
-  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
+  heroImg: "/images/services/IMG_2236-scaled.jpg",
+  heroImgAlt: "paint protection film",
   eyebrow: "Detailing & Ceramic Coating Services",
-  h1: "Colorado\u2019s Trusted Source for Lifetime Ceramic Coatings and Premium Detailing.",
-  introH2: "Professional Ceramic Coating & Paint Correction.",
+  h1: "Detailing & Ceramic Coating Services",
+  introH2: "Colorado\u2019s Trusted Source for Lifetime Ceramic Coatings and Premium Detailing.",
   introBody:
     "The highest caliber treatment for protecting your prized vehicle. Maintain your ceramic coating and retain your warranty through periodic maintenance washes. Ceramic top coat applied to boost existing coating and extend longevity.",
+  additionalSections: [
+    {
+      h2: "Professional Ceramic Coating & Paint Correction.",
+      body: "The highest caliber treatment for protecting your prized vehicle. Maintain your ceramic coating and retain your warranty through periodic maintenance washes. Ceramic top coat applied to boost existing coating and extend longevity.",
+    },
+  ],
   cardsH2: "Explore Our Services",
   cards: [
     {
@@ -47,10 +53,9 @@ export const servicesHubData: ServicePageData = {
       href: "/rv-detailing",
     },
   ],
-  additionalSections: [
-    {
-      h2: "Protection For All Brands and Models Including Tesla, Rivian, Porsche, BMW, Mercedes Benz and More",
-      body: "At Front Range Detail Studio, we protect all brands and models including Tesla, Rivian, Porsche, BMW, Mercedes Benz and more. Protect your vehicle  with ceramic coatings, paint protection film, window tinting, paint correction and more.",
-    },
-  ],
+  crossTitle: "Protection For All Brands and Models Including Tesla, Rivian, Porsche, BMW, Mercedes Benz and More",
+  crossBody:
+    "At Front Range Detail Studio, we protect all brands and models including Tesla, Rivian, Porsche, BMW, Mercedes Benz and more. Protect your vehicle with ceramic coatings, paint protection film, window tinting, paint correction and more.",
+  crossHref: "/ceramic-coating",
+  crossLabel: "Get A Free Quote",
 };

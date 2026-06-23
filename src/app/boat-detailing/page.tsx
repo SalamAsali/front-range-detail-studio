@@ -34,7 +34,7 @@ export default function BoatDetailingPage() {
         description="Professional boat detailing including exterior buffing, gelcoat restoration, interior cleaning and annual waxing with marine-grade products."
         url="/boat-detailing"
       />
-      <FAQSchema faqs={boatDetailingData.faqs!} />
+      {boatDetailingData.faqs && <FAQSchema faqs={boatDetailingData.faqs} />}
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },

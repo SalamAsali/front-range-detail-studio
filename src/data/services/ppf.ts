@@ -23,10 +23,6 @@ export const ppfData: ServicePageData = {
       title: "Trusted by drivers across Denver and surrounding cities",
       body: "Check out our 5-star reviews from local clients who value quality, honesty, and results.",
     },
-    {
-      title: "Don\u2019t let Colorado roads ruin your investment.",
-      body: "Protect your paint today and enjoy every mile\u2014worry-free.",
-    },
   ],
   includedH2: "What\u2019s Included With Every PPF Install",
   included: [
@@ -72,9 +68,10 @@ export const ppfData: ServicePageData = {
     },
   ],
   gallery: [
-    "/images/services/clear-bra-vertical.webp",
-    "/images/services/ppf-application-vertical.webp",
-    "/images/gallery/BMW-vertical-pic-2.webp",
+    { src: "/images/services/clear-bra-vertical-pic.webp", alt: "Paint protection film (PPF) or clear bra services in the Denver Metro area" },
+    { src: "/images/services/ppf-application-vertical-pic.webp", alt: "tech applying PPF (paint protection film) / Clear Bra" },
+    { src: "/images/gallery/IMG_2244-1-scaled.jpg", alt: "PPF clear bra installation at Front Range Detail Studio" },
+    { src: "/images/gallery/IMG_2243-scaled.jpg", alt: "clear bra ppf paint protection film denver centennial englewood" },
   ],
   faqs: [
     {
@@ -86,7 +83,7 @@ export const ppfData: ServicePageData = {
       a: "SunTek Reaction PPF is backed by a 12-year warranty, but many owners see effective protection for even longer with proper care.",
     },
     {
-      q: "How does SunTekCan I wash my car as usual?",
+      q: "Can I wash my car as usual?",
       a: "Yes! Hand washing or touchless washes are best. Avoid automatic washes with brushes, and wait 7 days after installation before your first wash.",
     },
     {

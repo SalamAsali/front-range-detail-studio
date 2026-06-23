@@ -34,7 +34,7 @@ export default function SystemXPage() {
         description="Authorized System X dealer. MAX G Plus lifetime ceramic coating, glass coatings, interior protection, renew and revive products."
         url="/system-x-automotive-ceramic-coatings"
       />
-      <FAQSchema faqs={systemXData.faqs!} />
+      {systemXData.faqs && <FAQSchema faqs={systemXData.faqs} />}
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },

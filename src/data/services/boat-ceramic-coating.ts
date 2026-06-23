@@ -1,8 +1,8 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const boatCeramicCoatingData: ServicePageData = {
-  heroImg: "/images/gallery/boat.webp",
-  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
+  heroImg: "/images/services/boat-2-1024x768.jpg",
+  heroImgAlt: "Boat detailing, boat ceramic coating",
   eyebrow: "Professional detailing and System X Marine Ceramic Coating",
   h1: "Boat Ceramic Coating & PPF in Denver, CO \u2013 Ultimate Marine Protection",
   introH2: "Shield your boat from Colorado\u2019s harsh elements with professional ceramic coating and paint protection film (PPF) services",
@@ -12,7 +12,7 @@ export const boatCeramicCoatingData: ServicePageData = {
   featuresH2: "Why Choose Front Range Detail Studio?",
   features: [
     {
-      title: "Certified System X & SunTek Installers",
+      title: "Certified Installers",
       body: "Our team is factory-trained to apply System X Marine Ceramic Coatings and SunTek Reaction PPF for unmatched results.",
     },
     {
@@ -22,6 +22,50 @@ export const boatCeramicCoatingData: ServicePageData = {
     {
       title: "Tailored Solutions",
       body: "We customize every package to your vessel and boating lifestyle, ensuring the best protection and gloss.",
+    },
+  ],
+  /* Marine / Boat Ceramic Coating Services section + Annual Boat Waxing + Interior Boat Detailing */
+  additionalSections: [
+    {
+      h2: "Marine / Boat Ceramic Coating Services",
+      body: "Our full suite of marine ceramic coating services covers everything from hull-only applications to complete interior and exterior protection packages. We use System X Marine Ceramic Coatings exclusively, ensuring professional-grade results backed by manufacturer warranties.",
+    },
+    {
+      h2: "Annual Boat Waxing",
+      body: "Gelcoat-safe, high-quality wax applied after buffing. Shields your boat from Colorado\u2019s intense sun and water spots. Recommended every 12 months for best results. Call for more details.",
+    },
+    {
+      h2: "Interior Boat Detailing",
+      body: "Vacuum and deep clean all seating, carpets, and upholstery. Vinyl and leather cleaning and conditioning. Mold and mildew treatment. Glass and mirror cleaning. Dashboard and control panel detailing.",
+    },
+  ],
+  /* System X Marine + SunTek PPF details with product images */
+  contentBlocks: [
+    {
+      h2: "System X Marine Ceramic Coating",
+      body: "Protect your boat with the industry\u2019s leading marine ceramic.",
+      image: "/images/gallery/System-X-Max-G-819x1024.webp",
+      imageAlt: "System X MAX G+ product",
+      bullets: [
+        "Hull-Only Coating: Defends against oxidation, algae stains, and waterline buildup",
+        "Full Exterior Coating: Maximum hydrophobic protection for hull, deck, topside, and stainless steel",
+        "Ultimate Marine Protection Package: Add interior surface coating for vinyl, plastic, and more",
+        "3-Year Manufacturer Warranty on new boats (annual top coat required for warranty)",
+        "Call us for more details",
+      ],
+    },
+    {
+      h2: "SunTek Reaction Paint Protection Film (PPF) for Boats",
+      body: "SunTek Reaction PPF offers a 12-year warranty against yellowing, cracking, and peeling\u2014even in harsh marine environments.",
+      image: "/images/gallery/boat-2.webp",
+      imageAlt: "Boat protected with SunTek Reaction paint protection film",
+      bullets: [
+        "Hull leading edges (defend against trailer & dock rash)",
+        "High-wear swim platforms",
+        "Boarding steps and grab rails",
+        "Painted or gelcoat areas prone to abrasion",
+        "Stainless and aluminum surfaces (optional)",
+      ],
     },
   ],
   stepsH2: "The Boat Ceramic Coating Process",
@@ -47,68 +91,13 @@ export const boatCeramicCoatingData: ServicePageData = {
       image: "/images/gallery/boat.webp",
     },
   ],
-  /* System X Marine + SunTek PPF details with product images */
-  contentBlocks: [
-    {
-      h2: "System X Marine Ceramic Coating",
-      body: "Protect your boat with the industry\u2019s leading marine ceramic.",
-      image: "/images/gallery/System-X-Max-G-819x1024.png",
-      imageAlt: "System X Max G+ ceramic coating product for marine applications",
-      bullets: [
-        "Hull-Only Coating: Defends against oxidation, algae stains, and waterline buildup",
-        "Full Exterior Coating: Maximum hydrophobic protection for hull, deck, topside, and stainless steel",
-        "Ultimate Marine Protection Package: Add interior surface coating for vinyl, plastic, and more",
-        "3-Year Manufacturer Warranty on new boats (annual top coat required for warranty)",
-        "Call us for more details",
-      ],
-    },
-    {
-      h2: "SunTek Reaction Paint Protection Film (PPF) for Boats",
-      body: "SunTek Reaction PPF offers a 12-year warranty against yellowing, cracking, and peeling\u2014even in harsh marine environments.",
-      image: "/images/gallery/boat-2.webp",
-      imageAlt: "Boat protected with SunTek Reaction paint protection film",
-      bullets: [
-        "Hull leading edges (defend against trailer & dock rash)",
-        "High-wear swim platforms",
-        "Boarding steps and grab rails",
-        "Painted or gelcoat areas prone to abrasion",
-        "Stainless and aluminum surfaces (optional)",
-      ],
-    },
-  ],
-  includedH2: "Marine Coating & PPF Packages",
-  included: [
-    "Hull-only coating \u2014 defends against oxidation, algae stains and waterline buildup",
-    "Full exterior coating \u2014 hull, deck, topside and stainless steel",
-    "Ultimate marine protection package with interior surface coating",
-    "SunTek Reaction PPF for hull leading edges and high-wear areas",
-    "PPF for swim platforms, boarding steps and grab rails",
-    "12-year PPF warranty against yellowing, cracking and peeling",
-  ],
-  whyChoose: {
-    h2: "Why Choose Front Range Detail Studio?",
-    items: [
-      {
-        title: "Marine Detailing Specialists",
-        body: "Our experienced team understands the unique challenges boats face and uses only marine-grade products for superior protection.",
-      },
-      {
-        title: "Certified System X Installers",
-        body: "We are certified applicators of System X Marine Ceramic Coating, ensuring professional-grade results.",
-      },
-      {
-        title: "Attention to Detail",
-        body: "From hull to topside, we meticulously coat every surface for comprehensive protection.",
-      },
-      {
-        title: "Seasonal, Appointment-Only Service",
-        body: "We offer boat ceramic coating services by appointment during the boating season to ensure the highest quality care.",
-      },
-    ],
-  },
   gallery: [
-    "/images/gallery/boat.webp",
-    "/images/gallery/boat-2.webp",
+    { src: "/images/services/boat-2-1024x768.jpg", alt: "Boat detailing, boat ceramic coating" },
+    { src: "/images/gallery/System-X-Max-G-819x1024.webp", alt: "System X MAX G+ product" },
+    { src: "/images/gallery/boat-2.webp", alt: "Boat ceramic coating Denver" },
+    { src: "/images/gallery/boat.webp", alt: "Boat detailing Denver" },
+    { src: "/images/services/boat-1.jpg", alt: "Boat detailing and ceramic coating" },
+    { src: "/images/services/boat-detailing.jpg", alt: "Boat detailing Denver" },
   ],
   faqs: [
     {

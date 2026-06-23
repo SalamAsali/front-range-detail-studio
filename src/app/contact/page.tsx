@@ -101,7 +101,7 @@ export default function ContactPage() {
                 textShadow: "0 3px 30px rgba(0,0,0,0.5)",
               }}
             >
-              Contact Front Range Detail Studio
+              Denver&rsquo;s Most Trusted Vehicle Aesthetic Experts
             </h1>
           </div>
         </div>

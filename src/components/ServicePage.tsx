@@ -26,7 +26,7 @@ export interface ServicePageData {
   cards?: { img: string; tag: string; title: string; href: string }[];
   pricingH2?: string;
   pricing?: { title: string; price: string; body: string; image?: string }[];
-  gallery?: string[];
+  gallery?: (string | { src: string; alt: string })[];
   faqs?: { q: string; a: string }[];
   crossTitle?: string;
   crossBody?: string;
@@ -36,7 +36,7 @@ export interface ServicePageData {
   benefits?: { eyebrow?: string; h2: string; body?: string; items: { title: string; body: string }[] };
   whyChoose?: { h2: string; items: { title: string; body: string }[] };
   crossSell2?: { title: string; body: string; href: string; label: string };
-  additionalSections?: { h2: string; body: string }[];
+  additionalSections?: { h2: string; body: string; items?: { title: string; body: string }[] }[];
   contentBlocks?: { h2: string; body: string; image: string; imageAlt: string; bullets?: string[] }[];
 }
 
@@ -655,50 +655,55 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       background: "#1a1a1a",
                       border: "1px solid rgba(255,255,255,0.06)",
                       borderRadius: 6,
-                      padding: "30px 24px",
+                      overflow: "hidden",
                       display: "flex",
                       flexDirection: "column",
-                      gap: 12,
-                      overflow: "hidden",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: "'Archivo', sans-serif",
-                        fontWeight: 900,
-                        fontSize: "3.2rem",
-                        lineHeight: 0.8,
-                        color: "rgba(0,188,212,0.18)",
-                      }}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3
-                      style={{
-                        margin: 0,
-                        fontFamily: "'Archivo', sans-serif",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.01em",
-                        fontSize: "1.02rem",
-                        lineHeight: 1.2,
-                        color: "#fff",
-                      }}
-                    >
-                      {s.title}
-                    </h3>
-                    <p
-                      style={{
-                        margin: 0,
-                        fontFamily: "'Manrope', sans-serif",
-                        fontWeight: 300,
-                        fontSize: 14,
-                        lineHeight: 1.6,
-                        color: "rgba(255,255,255,0.7)",
-                      }}
-                    >
-                      {s.body}
-                    </p>
+                    {s.image && (
+                      <div style={{ position: "relative", aspectRatio: "16/9", flexShrink: 0 }}>
+                        <Image src={s.image} alt={s.title} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 25vw" />
+                      </div>
+                    )}
+                    <div style={{ padding: "30px 24px", display: "flex", flexDirection: "column", gap: 12 }}>
+                      <span
+                        style={{
+                          fontFamily: "'Archivo', sans-serif",
+                          fontWeight: 900,
+                          fontSize: "3.2rem",
+                          lineHeight: 0.8,
+                          color: "rgba(0,188,212,0.18)",
+                        }}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3
+                        style={{
+                          margin: 0,
+                          fontFamily: "'Archivo', sans-serif",
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.01em",
+                          fontSize: "1.02rem",
+                          lineHeight: 1.2,
+                          color: "#fff",
+                        }}
+                      >
+                        {s.title}
+                      </h3>
+                      <p
+                        style={{
+                          margin: 0,
+                          fontFamily: "'Manrope', sans-serif",
+                          fontWeight: 300,
+                          fontSize: 14,
+                          lineHeight: 1.6,
+                          color: "rgba(255,255,255,0.7)",
+                        }}
+                      >
+                        {s.body}
+                      </p>
+                    </div>
                   </div>
                 </ScrollReveal>
               ))}
@@ -1041,28 +1046,32 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   gap: 14,
                 }}
               >
-                {d.gallery.map((g, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      position: "relative",
-                      overflow: "hidden",
-                      borderRadius: 6,
-                      aspectRatio: "3/4",
-                      background: "#141414",
-                      border: "1px solid rgba(255,255,255,0.05)",
-                    }}
-                  >
-                    <Image
-                      src={g}
-                      alt="Gallery image from Front Range Detail Studio"
-                      fill
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      loading="lazy"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-                ))}
+                {d.gallery.map((g, i) => {
+                  const src = typeof g === "string" ? g : g.src;
+                  const alt = typeof g === "string" ? "Gallery image from Front Range Detail Studio" : g.alt;
+                  return (
+                    <div
+                      key={i}
+                      style={{
+                        position: "relative",
+                        overflow: "hidden",
+                        borderRadius: 6,
+                        aspectRatio: "3/4",
+                        background: "#141414",
+                        border: "1px solid rgba(255,255,255,0.05)",
+                      }}
+                    >
+                      <Image
+                        src={src}
+                        alt={alt}
+                        fill
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        loading="lazy"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </ScrollReveal>
           </div>
@@ -1324,7 +1333,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
             <ScrollReveal>
               <div
                 style={{
-                  maxWidth: 900,
+                  maxWidth: sec.items ? 1280 : 900,
                   margin: "0 auto",
                   padding: "0 clamp(20px, 5vw, 56px)",
                 }}
@@ -1351,18 +1360,72 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     margin: "22px 0 26px",
                   }}
                 />
-                <p
-                  style={{
-                    margin: 0,
-                    fontFamily: "'Manrope', sans-serif",
-                    fontWeight: 300,
-                    fontSize: "clamp(1.05rem, 1.3vw, 1.2rem)",
-                    lineHeight: 1.7,
-                    color: "rgba(255,255,255,0.82)",
-                  }}
-                >
-                  {sec.body}
-                </p>
+                {sec.body && (
+                  <p
+                    style={{
+                      margin: 0,
+                      fontFamily: "'Manrope', sans-serif",
+                      fontWeight: 300,
+                      fontSize: "clamp(1.05rem, 1.3vw, 1.2rem)",
+                      lineHeight: 1.7,
+                      color: "rgba(255,255,255,0.82)",
+                    }}
+                  >
+                    {sec.body}
+                  </p>
+                )}
+                {sec.items && sec.items.length > 0 && (
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                      gap: 18,
+                      marginTop: sec.body ? 28 : 0,
+                    }}
+                  >
+                    {sec.items.map((item, j) => (
+                      <div
+                        key={j}
+                        style={{
+                          background: "#1a1a1a",
+                          border: "1px solid rgba(255,255,255,0.06)",
+                          borderRadius: 6,
+                          padding: "28px 26px",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 12,
+                        }}
+                      >
+                        <h3
+                          style={{
+                            margin: 0,
+                            fontFamily: "'Archivo', sans-serif",
+                            fontWeight: 700,
+                            textTransform: "uppercase",
+                            letterSpacing: "0.01em",
+                            fontSize: "1.05rem",
+                            lineHeight: 1.2,
+                            color: "#00BCD4",
+                          }}
+                        >
+                          {item.title}
+                        </h3>
+                        <p
+                          style={{
+                            margin: 0,
+                            fontFamily: "'Manrope', sans-serif",
+                            fontWeight: 300,
+                            fontSize: "14.5px",
+                            lineHeight: 1.6,
+                            color: "rgba(255,255,255,0.7)",
+                          }}
+                        >
+                          {item.body}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </ScrollReveal>
           </section>
@@ -1451,7 +1514,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 }}
               >
                 <div style={{ maxWidth: 560 }}>
-                  <h3
+                  <h2
                     style={{
                       margin: "0 0 10px",
                       fontFamily: "'Archivo', sans-serif",
@@ -1462,7 +1525,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     }}
                   >
                     {d.crossTitle}
-                  </h3>
+                  </h2>
                   <p
                     style={{
                       margin: 0,
@@ -1525,7 +1588,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 }}
               >
                 <div style={{ maxWidth: 560 }}>
-                  <h3
+                  <h2
                     style={{
                       margin: "0 0 10px",
                       fontFamily: "'Archivo', sans-serif",
@@ -1536,7 +1599,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     }}
                   >
                     {d.crossSell2.title}
-                  </h3>
+                  </h2>
                   <p
                     style={{
                       margin: 0,

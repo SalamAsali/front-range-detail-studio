@@ -149,7 +149,7 @@ export default function AboutPage() {
                 textShadow: "0 3px 30px rgba(0,0,0,0.5)",
               }}
             >
-              About Front Range Detail Studio
+              Front Range Detail Studio &mdash; RV, Boat, Auto. Paint Protection Film, Ceramic Coating, Tint, Vinyl Wrap
             </h1>
           </div>
         </div>
@@ -183,10 +183,8 @@ export default function AboutPage() {
                   color: "rgba(255,255,255,0.82)",
                 }}
               >
-                With over 15 years of experience in the automotive detailing industry, Front Range Detail
-                Studio has built a reputation as Colorado&rsquo;s premier destination for vehicle protection
-                and enhancement. From cars and trucks to semi trucks, SUVs, RVs, boats and watercraft &mdash;
-                we handle it all with the same level of care and precision.
+                Over 15 years experience in the automotive detailing industry. Car, Trucks, Semi Trucks,
+                SUVs, RVs, Boats &amp; Watercraft.
               </p>
               <p
                 style={{
@@ -197,10 +195,9 @@ export default function AboutPage() {
                   color: "rgba(255,255,255,0.82)",
                 }}
               >
-                Our clients have one thing in common: they love their vehicle. That shared passion drives
-                everything we do. Whether it&rsquo;s a brand-new Tesla getting its first coat of ceramic
-                protection or a cherished classic receiving a full paint correction, we treat every vehicle
-                as if it were our own.
+                Our clients have one thing in common: they love their vehicle. From the Class A motorhome
+                to the two-door convertible, our team of detail specialists are equipped and experienced
+                to handle all detailing needs anywhere in Metro Denver.
               </p>
             </div>
           </div>

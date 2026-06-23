@@ -34,7 +34,7 @@ export default function CeramicCoatingPage() {
         description="System X MAX G Plus ceramic coating with lifetime warranty. Professional studio-only application in our climate-controlled Centennial facility."
         url="/ceramic-coating"
       />
-      <FAQSchema faqs={ceramicCoatingData.faqs!} />
+      {ceramicCoatingData.faqs && <FAQSchema faqs={ceramicCoatingData.faqs} />}
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },

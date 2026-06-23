@@ -1,13 +1,13 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const rvDetailingData: ServicePageData = {
-  heroImg: "/images/services/rv-detailing.jpg",
-  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
+  heroImg: "/images/services/Newmar-London-Aire-1024x768.jpg",
+  heroImgAlt: "Newmar London Aire RV detailing Denver",
   eyebrow: "RV \u00B7 Boat \u00B7 Marine",
   h1: "RV Detailing & Ceramic Coating in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
-  introH2: "Protect Your Home on Wheels",
+  introH2: "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts.",
   introBody:
-    "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts. At Front Range Detail Studio, we use only the industry\u2019s best: System X MAX G Plus ceramic coatings and SunTek Reaction paint protection film. These are the same premium products trusted on high-end cars\u2014now protecting your RV or motorhome against Colorado\u2019s toughest conditions. Our team has worked on everything from luxury Class A motorhomes to Sprinter conversions and classic fifth-wheels. We restore shine, remove oxidation, and preserve your investment using proven, warrantied products from brands you can trust.",
+    "At Front Range Detail Studio, we use only the industry\u2019s best: System X MAX G Plus ceramic coatings and SunTek Reaction paint protection film. These are the same premium products trusted on high-end cars\u2014now protecting your RV or motorhome against Colorado\u2019s toughest conditions. Our team has worked on everything from luxury Class A motorhomes to Sprinter conversions and classic fifth-wheels. We restore shine, remove oxidation, and preserve your investment using proven, warrantied products from brands you can trust.",
   pricingH2: "RV Detailing & Protection Packages",
   pricing: [
     {
@@ -32,33 +32,13 @@ export const rvDetailingData: ServicePageData = {
       title: "Paint Protection Film (PPF) \u2013 SunTek Reaction",
       price: "12-yr warranty",
       body: "SunTek Reaction PPF for high-impact zones: front cap, lower panels, mirrors, headlights. 12-year warranty, self-healing, hydrophobic, and virtually invisible. Custom quote based on coverage.",
-      image: "/images/hero/coach-scaled.jpg",
+      image: "/images/services/coach-576x1024.jpg",
     },
     {
       title: "Roof, Decal, and Specialty Services",
       price: "Custom quote",
       body: "Rubber, TPO, or fiberglass roof cleaning & UV treatment. Decal removal & replacement. Metal polishing, window cleaning, and more. Contact us for a personalized quote.",
       image: "/images/services/RV-ceramic-coating.jpeg",
-    },
-  ],
-  featuresEyebrow: "Every Rig",
-  featuresH2: "Experience With All RV Types",
-  features: [
-    {
-      title: "Class A, B & C",
-      body: "From compact camper vans to full diesel pushers \u2014 we handle them all.",
-    },
-    {
-      title: "Fifth-Wheels & Trailers",
-      body: "Travel trailers, toy haulers and fifth-wheels detailed inside and out.",
-    },
-    {
-      title: "Custom Vans",
-      body: "Adventure and conversion vans get the same studio-grade treatment.",
-    },
-    {
-      title: "Marine Expertise",
-      body: "Boat oxidation removal, buffing and marine ceramic coating available.",
     },
   ],
   whyChoose: {
@@ -83,8 +63,14 @@ export const rvDetailingData: ServicePageData = {
     ],
   },
   gallery: [
-    "/images/gallery/New-Aire-RV-vertical-pic.webp",
-    "/images/services/RV-ceramic-coating.jpeg",
+    { src: "/images/services/Newmar-London-Aire-1024x768.jpg", alt: "Newmar London Aire RV detailing Denver" },
+    { src: "/images/services/rv-detailing-1024x768.jpg", alt: "RV detailing Denver" },
+    { src: "/images/services/RV-detailing-3-1024x768.jpg", alt: "RV detailing services" },
+    { src: "/images/services/RV-ceramic-coating.jpeg", alt: "RV ceramic coating" },
+    { src: "/images/services/rv-detailing.jpg", alt: "RV detailing" },
+    { src: "/images/services/coach-576x1024.jpg", alt: "RV coach detailing" },
+    { src: "/images/services/rv-newmar-mountainaire.webp", alt: "Newmar Mountain Aire RV" },
+    { src: "/images/gallery/System-X-Max-G-819x1024.png", alt: "System X MAX G+ product" },
   ],
   faqs: [
     {

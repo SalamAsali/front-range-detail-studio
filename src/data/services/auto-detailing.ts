@@ -2,36 +2,39 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const autoDetailingData: ServicePageData = {
   heroImg: "/images/services/paint-correction-new.jpg",
-  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
+  heroImgAlt: "Rivian car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
   eyebrow: "Auto Detailing & Paint Correction",
   h1: "Auto Detailing and Paind Correction. comprehensive detailing packages to fit every need",
-  introH2: "Comprehensive Detailing Packages to Fit Every Need",
+  introH2: "Colorado\u2019s Vehicle Paint Correction and Detailing Experts",
   introBody:
-    "Colorado\u2019s Vehicle Paint Correction and Detailing Experts.",
-  pricingH2: "From Basic Maintenance to Deep Restoration",
+    "Front Range Detail Studio offers comprehensive auto detailing and paint correction services for all makes and models. From basic maintenance washes to full interior and exterior detailing, our experienced technicians use only the best tools, products, and techniques to deliver top-quality results.",
+  pricingH2: "Auto Detailing Packages",
   pricing: [
     {
       title: "Maintenance Wash & Wax",
       price: "~2 hours",
-      body: "Every 1-2 months. Hand wash with pH-balanced soap, bug and tar removal, clay bar treatment to remove surface contaminants, application of premium wax for added gloss and protection, tire cleaning and dressing, windows cleaned inside and out.",
+      body: "Every 1\u20132 months. Hand wash with pH-balanced soap, bug and tar removal, clay bar treatment to remove surface contaminants, application of premium wax for added gloss and protection, tire cleaning and dressing, windows cleaned inside and out.",
+      image: "/images/vehicles/Rivian.webp",
     },
     {
       title: "Full Exterior Detailing",
-      price: "~4-5 hours",
-      body: "Every 3-6 months. Hand wash and decontamination (clay bar treatment), paint correction (light swirl mark and scratch removal), high-quality polish to restore shine, application of sealant or ceramic spray for protection, wheel and tire detailing (including brake dust removal), glass cleaning and water repellent application.",
+      price: "~4\u20135 hours",
+      body: "Every 3\u20136 months. Hand wash and decontamination (clay bar treatment), paint correction (light swirl mark and scratch removal), high-quality polish to restore shine, application of sealant or ceramic spray for protection, wheel and tire detailing (including brake dust removal), glass cleaning and water repellent application.",
+      image: "/images/vehicles/GMC-truck.jpg",
     },
     {
       title: "Full Interior Detailing",
-      price: "~3-4 hours",
-      body: "Every 4-6 months. Vacuum of seats, carpets, and trunk, steam cleaning and shampooing of carpets and upholstery, leather cleaning and conditioning (if applicable), deep cleaning of dashboards, vents, and cupholders, streak-free window cleaning, odor elimination and air purification.",
+      price: "~3\u20134 hours",
+      body: "Every 4\u20136 months. Vacuum of seats, carpets, and trunk, steam cleaning and shampooing of carpets and upholstery, leather cleaning and conditioning (if applicable), deep cleaning of dashboards, vents, and cupholders, streak-free window cleaning, odor elimination and air purification.",
+      image: "/images/gallery/audi-interior-detailing-1024x768.jpg",
     },
     {
       title: "Complete Interior & Exterior",
-      price: "~6-8 hours",
+      price: "~6\u20138 hours",
       body: "Twice a year. All services from Full Exterior and Full Interior Detailing, clay bar treatment and paint correction, interior steam cleaning and odor elimination, engine bay cleaning and dressing, glass water repellent application.",
+      image: "/images/vehicles/BMW-1.jpg",
     },
   ],
-  /* Specialized Services section from original */
   includedH2: "Specialized Auto Detailing Services",
   included: [
     "Paint Correction: Remove swirl marks, light scratches, and oxidation to restore a flawless finish.",
@@ -39,47 +42,70 @@ export const autoDetailingData: ServicePageData = {
     "Headlight Restoration: Clear cloudy or yellowed headlights for improved visibility and aesthetics.",
     "Odor Removal: Eliminate smoke, pet, or mildew odors using professional-grade ozone treatments.",
   ],
-  featuresEyebrow: "Why Choose Us",
-  featuresH2: "Why Choose Front Range Detail Studio?",
-  features: [
+  whyChoose: {
+    h2: "Why Choose Front Range Detail Studio?",
+    items: [
+      {
+        title: "Experienced Technicians",
+        body: "Our team uses only the best tools, products, and techniques to deliver top-quality results.",
+      },
+      {
+        title: "High-Quality Products",
+        body: "We use premium detailing products that are safe for your car and environmentally friendly.",
+      },
+      {
+        title: "Attention to Detail",
+        body: "Every crevice, crack, and panel is meticulously cleaned and protected.",
+      },
+      {
+        title: "Appointment-Only Service",
+        body: "We focus on one vehicle at a time, ensuring every car receives the care it deserves.",
+      },
+    ],
+  },
+  cardsH2: "Explore Our Services",
+  cards: [
     {
-      title: "Experienced Technicians",
-      body: "Our team uses only the best tools, products, and techniques to deliver top-quality results.",
+      tag: "10 Year Warranty",
+      title: "Paint Protection Film & Clear Bra",
+      img: "/images/services/new-ppf-scaled.jpg",
+      href: "/paint-protection-film-ppf",
     },
     {
-      title: "High-Quality Products",
-      body: "We use premium detailing products that are safe for your car and environmentally friendly.",
+      tag: "\u2013 Lifetime Warranty",
+      title: "Window Tinting",
+      img: "/images/services/new-tint.jpg",
+      href: "/window-tint",
     },
     {
-      title: "Attention to Detail",
-      body: "Every crevice, crack, and panel is meticulously cleaned and protected.",
+      tag: "\u2013 Lifetime Warranty",
+      title: "Ceramic Coating",
+      img: "/images/services/car-ceramic-1.jpg",
+      href: "/ceramic-coating",
     },
     {
-      title: "Appointment-Only Service",
-      body: "We focus on one vehicle at a time, ensuring every car receives the care it deserves.",
+      tag: "Multi-Stage Polish",
+      title: "Paint Correction",
+      img: "/images/services/paint-correction-new.jpg",
+      href: "/auto-detailing",
+    },
+    {
+      tag: "200+ Finishes",
+      title: "Vinyl Wrap & Decals",
+      img: "/images/services/vinylwraps-1920w.webp",
+      href: "/vinyl-wraps",
+    },
+    {
+      tag: "RV \u00B7 Boat \u00B7 Marine",
+      title: "RV & Boat Services",
+      img: "/images/services/rv-detailing.jpg",
+      href: "/rv-detailing",
     },
   ],
-  gallery: [
-    "/images/gallery/BMW-vertical-pic-2.webp",
-    "/images/gallery/GMC-truck-vertical-pic.webp",
-  ],
-  faqs: [
+  additionalSections: [
     {
-      q: "How often should I detail my vehicle?",
-      a: "A maintenance wash every 1-2 months and a full detail 2-4 times a year keeps most vehicles looking their best in Colorado conditions.",
-    },
-    {
-      q: "What is paint correction?",
-      a: "A multi-stage machine polishing process that removes swirl marks, oxidation and light scratches to restore a deep, glossy finish.",
-    },
-    {
-      q: "Do you offer interior-only detailing?",
-      a: "Yes \u2014 our Full Interior Detailing package covers vacuuming, steam cleaning, leather conditioning and odor elimination.",
+      h2: "Protection For All Brands and Models Including Tesla, Rivian, Porsche, BMW, Mercedes Benz and More",
+      body: "At Front Range Detail Studio, we protect all brands and models including Tesla, Rivian, Porsche, BMW, Mercedes Benz and more. Protect your vehicle with ceramic coatings, paint protection film, window tinting, paint correction and more.",
     },
   ],
-  crossTitle: "Lock In That Finish With Ceramic",
-  crossBody:
-    "After paint correction, a ceramic coating preserves the gloss for years and makes maintenance washes effortless.",
-  crossHref: "/ceramic-coating",
-  crossLabel: "Explore Ceramic",
 };

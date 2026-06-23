@@ -68,15 +68,16 @@ export const windowTintData: ServicePageData = {
     },
   ],
   gallery: [
-    "/images/services/window-tint-vertical.webp",
+    { src: "/images/services/window-tint-vertical-pic.webp", alt: "tech applying automotive window tint" },
+    { src: "/images/services/window-tint-vertical-pic-1.webp", alt: "automotive window tint services" },
   ],
   faqs: [
     {
-      q: 'How does SunTek Reaction PPFCan you make my windows darker than the legal limit? "self-heal"?',
+      q: "Can you make my windows darker than the legal limit?",
       a: "Yes, we can tint your windows as dark as you like, but it\u2019s important to understand that Colorado law requires most vehicle windows to allow at least 27% visible light through. Choosing a darker shade may result in a ticket if stopped by law enforcement. We\u2019re happy to explain your options and help you make an informed decision.",
     },
     {
-      q: "How long does the What\u2019s special about ceramic window film?last?",
+      q: "What\u2019s special about ceramic window film?",
       a: "Ceramic tint blocks 99% of UV rays and up to 94% of infrared heat, keeping your car dramatically cooler without making it too dark.",
     },
     {

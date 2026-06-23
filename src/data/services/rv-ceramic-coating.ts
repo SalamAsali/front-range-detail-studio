@@ -2,7 +2,7 @@ import type { ServicePageData } from "@/components/ServicePage";
 
 export const rvCeramicCoatingData: ServicePageData = {
   heroImg: "/images/services/RV-ceramic-coating.jpeg",
-  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
+  heroImgAlt: "RV ceramic coating Denver",
   eyebrow: "RV Ceramic Coating \u00B7 System X",
   h1: "RV Ceramic Coating in Denver, CO \u2013 Protect Your Home on Wheels",
   introH2: "Premium RV Ceramic Coating for Lasting Protection",
@@ -81,11 +81,26 @@ export const rvCeramicCoatingData: ServicePageData = {
       image: "/images/services/rv-detailing.jpg",
     },
   ],
-  /* Deluxe and Custom packages from original */
   additionalSections: [
     {
       h2: "Deluxe RV Protection",
       body: "All features of the Full Exterior + Windows Package. Optional ceramic coating for wheels and trim. Add-on: Ceramic coating for RV roof for maximum protection against weather elements.",
+    },
+    {
+      h2: "Custom Packages",
+      body: "Every RV is different. We offer fully customizable ceramic coating packages to match your specific needs and budget. Whether you want basic exterior protection or the full treatment including roof, wheels, interior, and glass \u2014 we\u2019ll build the right package for your rig. Contact us for a personalized quote.",
+    },
+    {
+      h2: "Exterior Ceramic Coating",
+      body: "Our exterior ceramic coating package covers all painted and fiberglass surfaces on your RV. System X ceramic coating is applied to the full exterior, providing hydrophobic protection, UV resistance, and enhanced gloss. Ideal for RV owners looking for essential protection without the extras.",
+    },
+    {
+      h2: "Full Exterior + Windows",
+      body: "Everything in the Exterior Ceramic Coating package, plus System X Glass coating applied to all windows and windshield for improved visibility and water repellency. Rain beads and rolls right off, reducing the need for wipers and improving safety in wet conditions.",
+    },
+    {
+      h2: "Hyper Gloss 9H Lifetime Coating",
+      body: "Upgrade to our Hyper Gloss 9H Lifetime Coating for the ultimate in long-term RV protection. This advanced ceramic coating delivers an exceptionally deep, mirror-like gloss with 9H hardness for maximum scratch and chemical resistance. Backed by a lifetime warranty, it\u2019s the last coating your RV will ever need.",
     },
   ],
   faqs: [

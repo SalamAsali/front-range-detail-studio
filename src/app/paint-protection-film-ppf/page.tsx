@@ -34,7 +34,7 @@ export default function PPFPage() {
         description="SunTek Reaction PPF with 12-year warranty and self-healing technology. Professional installation in our climate-controlled Centennial studio."
         url="/paint-protection-film-ppf"
       />
-      <FAQSchema faqs={ppfData.faqs!} />
+      {ppfData.faqs && <FAQSchema faqs={ppfData.faqs} />}
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },

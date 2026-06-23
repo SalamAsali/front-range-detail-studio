@@ -34,7 +34,7 @@ export default function DetailingPackagesPage() {
         description="Auto detailing and ceramic coating packages. Maintenance wash, full exterior, full interior, complete packages plus Bronze through Platinum ceramic coating tiers."
         url="/detailing-packages"
       />
-      <FAQSchema faqs={detailingPackagesData.faqs!} />
+      {detailingPackagesData.faqs && <FAQSchema faqs={detailingPackagesData.faqs} />}
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },

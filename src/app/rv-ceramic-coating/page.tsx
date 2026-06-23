@@ -34,7 +34,7 @@ export default function RVCeramicCoatingPage() {
         description="System X MAX G Plus ceramic coating for RVs and motorhomes. 3-year warranty on new units with annual top coat maintenance."
         url="/rv-ceramic-coating"
       />
-      <FAQSchema faqs={rvCeramicCoatingData.faqs!} />
+      {rvCeramicCoatingData.faqs && <FAQSchema faqs={rvCeramicCoatingData.faqs} />}
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },

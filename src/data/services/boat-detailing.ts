@@ -1,8 +1,8 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const boatDetailingData: ServicePageData = {
-  heroImg: "/images/services/boat-detailing.jpg",
-  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
+  heroImg: "/images/services/boat-2-1024x768.jpg",
+  heroImgAlt: "Boat detailing, boat ceramic coating",
   eyebrow: "Professional detailing and System X Marine Ceramic Coating",
   h1: "Boat Detailing & Ceramic Coating in Denver, CO \u2013 Protect Your Watercraft",
   introH2: "Keep your boat looking pristine and protected from harsh water elements with professional detailing and System X Marine Ceramic Coating",
@@ -39,7 +39,21 @@ export const boatDetailingData: ServicePageData = {
   additionalSections: [
     {
       h2: "Marine Ceramic Coating Packages",
-      body: "Long-lasting hydrophobic and UV-resistant barrier. Easier cleaning, less staining, and dramatic shine. Coverage for hull, topside, stainless steel, and optional interior protection. Manufacturer-backed warranty. Standard Marine Coating Package: Application of System X Marine Ceramic Coating to hull and topside. Hydrophobic protection and enhanced gloss. Warranty-backed protection. Full Marine Protection Package: Application of ceramic coating to all exterior surfaces (hull, topside, and glass). Stainless steel and chrome coated for corrosion resistance. Optional: Interior surfaces treated for added protection.",
+      body: "Long-lasting hydrophobic and UV-resistant barrier. Easier cleaning, less staining, and dramatic shine. Coverage for hull, topside, stainless steel, and optional interior protection. Manufacturer-backed warranty.",
+      items: [
+        {
+          title: "1. Standard Marine Coating Package",
+          body: "Application of System X Marine Ceramic Coating to hull and topside. Hydrophobic protection and enhanced gloss. Warranty-backed protection.",
+        },
+        {
+          title: "2. Full Marine Protection Package",
+          body: "Application of ceramic coating to all exterior surfaces (hull, topside, and glass). Stainless steel and chrome coated for corrosion resistance. Optional: Interior surfaces treated for added protection.",
+        },
+      ],
+    },
+    {
+      h2: "Hyper Gloss 9H Lifetime Coating",
+      body: "Upgrade to our Hyper Gloss 9H Lifetime Coating for the ultimate in long-term marine protection. This advanced ceramic coating delivers an exceptionally deep, mirror-like gloss with 9H hardness for maximum scratch and chemical resistance. Backed by a lifetime warranty, it\u2019s the last coating your boat will ever need.",
     },
   ],
   featuresEyebrow: "Marine Expertise",
@@ -63,8 +77,10 @@ export const boatDetailingData: ServicePageData = {
     },
   ],
   gallery: [
-    "/images/gallery/boat.webp",
-    "/images/gallery/boat-2.webp",
+    { src: "/images/gallery/boat-2.webp", alt: "Boat detailing Denver" },
+    { src: "/images/gallery/System-X-Max-G-819x1024.webp", alt: "System X MAX G+ product" },
+    { src: "/images/gallery/boat.webp", alt: "Boat detailing, boat ceramic coating" },
+    { src: "/images/services/boat-detailing.jpg", alt: "Boat detailing Denver" },
   ],
   faqs: [
     {

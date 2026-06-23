@@ -34,7 +34,7 @@ export default function AutoDetailingPage() {
         description="Professional auto detailing and multi-stage paint correction. Maintenance wash, full exterior, full interior and complete packages available."
         url="/auto-detailing"
       />
-      <FAQSchema faqs={autoDetailingData.faqs!} />
+      {autoDetailingData.faqs && <FAQSchema faqs={autoDetailingData.faqs} />}
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },

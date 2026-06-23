@@ -34,7 +34,7 @@ export default function RVDetailingPage() {
         description="RV exterior wash, oxidation removal, ceramic coating and PPF. Per-foot pricing for Class A, B, C motorhomes, fifth-wheels and travel trailers."
         url="/rv-detailing"
       />
-      <FAQSchema faqs={rvDetailingData.faqs!} />
+      {rvDetailingData.faqs && <FAQSchema faqs={rvDetailingData.faqs} />}
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },
