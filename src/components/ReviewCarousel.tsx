@@ -1,12 +1,35 @@
 "use client";
 
 import { reviews, reviewPlatforms } from "@/data/reviews";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export function ReviewBadges() {
+  const [googleCount, setGoogleCount] = useState(
+    reviewPlatforms.find((p) => p.platform === "Google")!.count
+  );
+  const [googleRating, setGoogleRating] = useState(
+    reviewPlatforms.find((p) => p.platform === "Google")!.rating
+  );
+
+  useEffect(() => {
+    fetch("/api/reviews")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.source === "live") {
+          setGoogleCount(String(data.totalReviews));
+          setGoogleRating(String(data.rating));
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const platforms = reviewPlatforms.map((p) =>
+    p.platform === "Google" ? { ...p, count: googleCount, rating: googleRating } : p
+  );
+
   return (
     <div className="flex flex-wrap justify-center gap-4 mb-10">
-      {reviewPlatforms.map((p) => (
+      {platforms.map((p) => (
         <div
           key={p.platform}
           className="bg-dark-surface rounded px-6 py-4 text-center shadow-md"
