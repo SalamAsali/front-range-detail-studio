@@ -3,7 +3,7 @@ import { Manrope, Inter, Archivo, Michroma } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { LocalBusinessSchema } from "@/components/JsonLd";
+import { LocalBusinessSchema, SiteGraphSchema } from "@/components/JsonLd";
 
 const manrope = Manrope({
   variable: "--font-body",
@@ -31,7 +31,7 @@ const michroma = Michroma({
 export const metadata: Metadata = {
   title: {
     default: "Front Range Detail Studio - PPF Clear Bra Ceramic Coating Window Tinting",
-    template: "%s | Front Range Detail Studio",
+    template: "%s - Front Range Detail Studio",
   },
   description:
     "Expert Colorado Window Tinting, Paint Protection Film (PPF), Clear Bra, Ceramic Coating, Detailing for vehicles, motorhomes, RVs, boats, aircraft.",
@@ -68,6 +68,7 @@ export default function RootLayout({
       className={`${manrope.variable} ${inter.variable} ${archivo.variable} ${michroma.variable}`}
     >
       <body className="min-h-screen flex flex-col">
+        <SiteGraphSchema />
         <LocalBusinessSchema />
         <Navigation />
         <main className="flex-1">{children}</main>

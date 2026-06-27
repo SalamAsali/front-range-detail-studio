@@ -1,3 +1,74 @@
+/**
+ * Replicates the Rank Math @graph schema from the WordPress site.
+ * Outputs: Person+Organization, WebSite (with SearchAction), WebPage.
+ * This ensures Google sees the same entity structure during migration.
+ */
+export function SiteGraphSchema({ pageUrl, pageTitle, pageDatePublished, pageDateModified }: {
+  pageUrl?: string;
+  pageTitle?: string;
+  pageDatePublished?: string;
+  pageDateModified?: string;
+}) {
+  const BASE = "https://frontrangedetailstudio.com";
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Person", "Organization"],
+        "@id": `${BASE}/#person`,
+        name: "Front Range Detail Studio",
+        logo: {
+          "@type": "ImageObject",
+          "@id": `${BASE}/#logo`,
+          url: `${BASE}/logo-inverse.svg`,
+          contentUrl: `${BASE}/logo-inverse.svg`,
+          caption: "Front Range Detail Studio",
+          inLanguage: "en-US",
+        },
+        image: {
+          "@type": "ImageObject",
+          "@id": `${BASE}/#logo`,
+          url: `${BASE}/logo-inverse.svg`,
+          contentUrl: `${BASE}/logo-inverse.svg`,
+          caption: "Front Range Detail Studio",
+          inLanguage: "en-US",
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${BASE}/#website`,
+        url: BASE,
+        name: "Front Range Detail Studio",
+        publisher: { "@id": `${BASE}/#person` },
+        inLanguage: "en-US",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: `${BASE}/?s={search_term_string}`,
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl || BASE}/#webpage`,
+        url: pageUrl || `${BASE}/`,
+        name: pageTitle || "Front Range Detail Studio - PPF Clear Bra Ceramic Coating Window Tinting",
+        ...(pageDatePublished && { datePublished: pageDatePublished }),
+        ...(pageDateModified && { dateModified: pageDateModified }),
+        about: { "@id": `${BASE}/#person` },
+        isPartOf: { "@id": `${BASE}/#website` },
+        inLanguage: "en-US",
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",

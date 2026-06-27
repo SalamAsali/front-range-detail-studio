@@ -169,7 +169,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   lineHeight: 1.2,
                 }}
               >
-                Serving The Denver Metro And Surrounding Areas
+                Serving THE Denver Metro And surrounding areas
               </h2>
             </div>
           </ScrollReveal>
@@ -1588,7 +1588,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 }}
               >
                 <div style={{ maxWidth: 560 }}>
-                  <h2
+                  <h3
                     style={{
                       margin: "0 0 10px",
                       fontFamily: "'Archivo', sans-serif",
@@ -1599,7 +1599,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     }}
                   >
                     {d.crossSell2.title}
-                  </h2>
+                  </h3>
                   <p
                     style={{
                       margin: 0,
@@ -1675,7 +1675,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
                 }}
               >
-                Client Reviews
+                Front Range Detail Studio client Reviews
               </h2>
               <hr
                 style={{
