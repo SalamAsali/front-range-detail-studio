@@ -249,7 +249,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                 fontSize: 13,
               }}
             >
-              Serving the Denver Metro and Surrounding Areas
+              Serving THE Denver Metro And surrounding areas
             </p>
           </ScrollReveal>
           <ReviewBadges />
@@ -1103,15 +1103,14 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
         <div style={wrap()}>
           <ScrollReveal>
             <div style={{ textAlign: "center", marginBottom: 28 }}>
-              <span style={interEyebrow}>Our Partners</span>
               <h2
                 style={{
                   ...archivoBold,
-                  margin: "12px 0 0",
+                  margin: 0,
                   fontSize: "clamp(1.3rem, 2vw, 1.6rem)",
                 }}
               >
-                Trusted Brands
+                Our Partners &ndash; Trusted Brands
               </h2>
             </div>
             <div
@@ -1154,7 +1153,61 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
       <DenverCTA />
 
       {/* ============================================================ */}
-      {/* 15. DETAILING CROSS-SELL BANNER                              */}
+      {/* 15a. PPF CROSS-SELL BANNER                                   */}
+      {/* ============================================================ */}
+      <section style={{ background: "#000", padding: "clamp(40px, 5vw, 72px) 0" }}>
+        <div style={wrap()}>
+          <ScrollReveal>
+            <div
+              style={{
+                background: "linear-gradient(110deg, #0e2a30, #0d0d0d)",
+                border: "1px solid rgba(0,188,212,0.25)",
+                borderRadius: 10,
+                padding: "clamp(32px, 4vw, 48px)",
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 24,
+              }}
+            >
+              <div style={{ maxWidth: 560 }}>
+                <h2
+                  style={{
+                    margin: "0 0 10px",
+                    ...archivoBold,
+                    fontSize: "clamp(1.3rem, 2vw, 1.7rem)",
+                    color: "#fff",
+                  }}
+                >
+                  Denver&rsquo;s 1st Choice in Paint Protection Film and Clear Bra
+                </h2>
+                <p
+                  style={{
+                    margin: 0,
+                    fontFamily: "'Manrope', sans-serif",
+                    fontWeight: 300,
+                    fontSize: 15,
+                    lineHeight: 1.6,
+                    color: "rgba(255,255,255,0.78)",
+                  }}
+                >
+                  Preserve the pristine condition of your vehicle with our high-quality
+                  Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an
+                  invisible shield, guarding your car&rsquo;s paint against scratches,
+                  stone chips, and road debris.
+                </p>
+              </div>
+              <Link href="/paint-protection-film-ppf" style={ctaBtn}>
+                Explore PPF
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 15b. DETAILING CROSS-SELL BANNER                             */}
       {/* ============================================================ */}
       <section
         style={{ background: "#0d0d0d", padding: "clamp(40px, 5vw, 72px) 0" }}
@@ -1183,7 +1236,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                     color: "#fff",
                   }}
                 >
-                  Detailing Services in Denver, Colorado
+                  Detailing Services in Denver, Colorado and All Surrounding Cities
                 </h3>
                 <p
                   style={{
@@ -1231,58 +1284,45 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
             }}
           >
             <ScrollReveal>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 20,
-                }}
-              >
-                <span style={interEyebrow}>Free Quote</span>
-                <h2
-                  style={{
-                    margin: 0,
-                    ...archivoBold,
-                    fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)",
-                    lineHeight: 1.08,
-                  }}
-                >
-                  Ready To Protect Your Investment?
-                </h2>
-                <hr
-                  style={{ ...cyanDivider, margin: 0 }}
-                />
-                <p
-                  style={{
-                    margin: 0,
-                    ...manropeBody,
-                    fontSize: "1.05rem",
-                    lineHeight: 1.65,
-                    color: "rgba(255,255,255,0.78)",
-                    maxWidth: 420,
-                  }}
-                >
-                  Tell us about your vehicle and we&rsquo;ll recommend the right
-                  protection &mdash; no upsells, no hard sell. Appointment-only
-                  studio in Centennial, CO.
-                </p>
-                <a
-                  href="tel:+13035208023"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 600,
-                    fontSize: "1.4rem",
-                    color: CYAN,
-                    textDecoration: "none",
-                    marginTop: 4,
-                  }}
-                >
-                  (303) 520-8023
-                </a>
+              <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+                <div>
+                  <h3 style={{ margin: "0 0 14px", ...archivoBold, fontSize: "1.05rem", color: "#fff" }}>
+                    Connect with Us
+                  </h3>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                    <a href="tel:+13035208023" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: "1.3rem", color: CYAN, textDecoration: "none" }}>
+                      (303) 520-8023
+                    </a>
+                    <a href="mailto:info@frontrangedetailstudio.com" style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 400, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
+                      info@frontrangedetailstudio.com
+                    </a>
+                  </div>
+                </div>
+                <div>
+                  <h3 style={{ margin: "0 0 8px", ...archivoBold, fontSize: "1.05rem", color: "#fff" }}>
+                    Business Hours
+                  </h3>
+                  <p style={{ margin: 0, fontFamily: "'Manrope', sans-serif", fontWeight: 300, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
+                    Monday &ndash; Sunday: By Appointment Only
+                  </p>
+                </div>
+                <div>
+                  <h3 style={{ margin: "0 0 8px", ...archivoBold, fontSize: "1.05rem", color: "#fff" }}>
+                    Denver Location
+                  </h3>
+                  <p style={{ margin: 0, fontFamily: "'Manrope', sans-serif", fontWeight: 300, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
+                    12559 E Broncos Pkwy, Centennial, CO 80112
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
             <ScrollReveal>
-              <QuoteForm />
+              <div>
+                <h2 style={{ margin: "0 0 20px", ...archivoBold, fontSize: "clamp(1.4rem, 2vw, 1.8rem)", lineHeight: 1.08 }}>
+                  Send A Quick Quote Form
+                </h2>
+                <QuoteForm />
+              </div>
             </ScrollReveal>
           </div>
         </div>

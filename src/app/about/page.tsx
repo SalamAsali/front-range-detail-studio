@@ -558,7 +558,7 @@ export default function AboutPage() {
                   fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
                 }}
               >
-                Client Reviews
+                Front Range Detail Studio client Reviews
               </h2>
               <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "20px 0 0" }} />
             </div>
@@ -588,62 +588,45 @@ export default function AboutPage() {
             }}
           >
             <ScrollReveal>
-              <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-                <span
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 12,
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                    color: "#00BCD4",
-                  }}
-                >
-                  Free Quote
-                </span>
-                <h2
-                  style={{
-                    margin: 0,
-                    fontFamily: "'Archivo', sans-serif",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)",
-                    lineHeight: 1.08,
-                  }}
-                >
-                  Ready To Protect Your Investment?
-                </h2>
-                <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: 0 }} />
-                <p
-                  style={{
-                    margin: 0,
-                    fontWeight: 300,
-                    fontSize: "1.05rem",
-                    lineHeight: 1.65,
-                    color: "rgba(255,255,255,0.78)",
-                    maxWidth: 420,
-                  }}
-                >
-                  Tell us about your vehicle and we&rsquo;ll recommend the right protection &mdash; no
-                  upsells, no hard sell. Appointment-only studio in Centennial, CO.
-                </p>
-                <a
-                  href="tel:+13035208023"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 600,
-                    fontSize: "1.4rem",
-                    color: "#00BCD4",
-                    textDecoration: "none",
-                    marginTop: 4,
-                  }}
-                >
-                  (303) 520-8023
-                </a>
+              <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+                <div>
+                  <h3 style={{ margin: "0 0 14px", fontFamily: "'Archivo', sans-serif", fontWeight: 700, textTransform: "uppercase", fontSize: "1.05rem", color: "#fff" }}>
+                    Connect with Us
+                  </h3>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                    <a href="tel:+13035208023" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: "1.3rem", color: "#00BCD4", textDecoration: "none" }}>
+                      (303) 520-8023
+                    </a>
+                    <a href="mailto:info@frontrangedetailstudio.com" style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 400, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
+                      info@frontrangedetailstudio.com
+                    </a>
+                  </div>
+                </div>
+                <div>
+                  <h3 style={{ margin: "0 0 8px", fontFamily: "'Archivo', sans-serif", fontWeight: 700, textTransform: "uppercase", fontSize: "1.05rem", color: "#fff" }}>
+                    Business Hours
+                  </h3>
+                  <p style={{ margin: 0, fontFamily: "'Manrope', sans-serif", fontWeight: 300, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
+                    Monday &ndash; Sunday: By Appointment Only
+                  </p>
+                </div>
+                <div>
+                  <h3 style={{ margin: "0 0 8px", fontFamily: "'Archivo', sans-serif", fontWeight: 700, textTransform: "uppercase", fontSize: "1.05rem", color: "#fff" }}>
+                    Denver Location
+                  </h3>
+                  <p style={{ margin: 0, fontFamily: "'Manrope', sans-serif", fontWeight: 300, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
+                    12559 E Broncos Pkwy, Centennial, CO 80112
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
             <ScrollReveal>
-              <QuoteForm />
+              <div>
+                <h2 style={{ margin: "0 0 20px", fontFamily: "'Archivo', sans-serif", fontWeight: 700, textTransform: "uppercase", letterSpacing: "-0.3px", fontSize: "clamp(1.4rem, 2vw, 1.8rem)", lineHeight: 1.08 }}>
+                  Send A Quick Quote Form
+                </h2>
+                <QuoteForm />
+              </div>
             </ScrollReveal>
           </div>
         </div>

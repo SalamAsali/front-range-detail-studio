@@ -37,8 +37,9 @@ export function FAQ({ items }: { items: FAQItem[] }) {
               textAlign: "left",
             }}
           >
-            <span
+            <h3
               style={{
+                margin: 0,
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 600,
                 fontSize: 16,
@@ -46,7 +47,7 @@ export function FAQ({ items }: { items: FAQItem[] }) {
               }}
             >
               {item.question}
-            </span>
+            </h3>
             <span
               style={{
                 color: "#00BCD4",

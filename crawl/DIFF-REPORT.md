@@ -1,0 +1,2040 @@
+# WordPress → Next.js Diff Report
+
+**Total issues: 872** (428 HIGH, 444 MEDIUM/LOW)
+
+## /
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H1: "Front Range Detail Studio – RV, Boat, Auto. Paint Protection Film, Ceramic Coating, Tint, Vinyl wrap"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Denver’s Most Trusted Vehicle Aesthetic Experts"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Serving THE Denver Metro And surrounding areas"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Connect with Us"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Business Hours"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Denver Location"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Send A Quick Quote Form"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Our Partners – Trusted Brands"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Denver’s Most Trusted Vehicle Aesthetic Experts`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Paint Protection Film & Clear Bra 10 Year Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Window Tinting – Lifetime Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ceramic Coating – Lifetime Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Phone: (303) 520-8023`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Email: info@frontrandetailgestudio.com`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `12559 E Broncos Pkwy, Centennial, CO 80112`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `"*" indicates required fields`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `At Front Range Detail Studio, we protect all brands and models including Tesla, Rivian, Porsche, BMW, Mercedes Benz and ...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `12559 E Broncos Pkwy, Centennial, CO 80112`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H1: "Front RangeDetail Studio"`
+- **HEADING_ADDED**: `H2: "Denver's Most Trusted Vehicle Aesthetic Experts"`
+- **HEADING_ADDED**: `H2: "Our Partners"`
+- **HEADING_ADDED**: `H2: "Serving The Denver Metro & Surrounding Areas"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+
+## /services/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Denver’s Most Trusted Vehicle Aesthetic Experts"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Detailing & Ceramic Coating Services`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Paint Protection Film & Clear Bra 10 Year Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Window Tinting – Lifetime Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ceramic Coating – Lifetime Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H1: "Detailing & Ceramic Coating Services"`
+- **HEADING_ADDED**: `H2: "Serving THE Denver Metro And surrounding areas"`
+- **HEADING_ADDED**: `H2: "Explore Our Services"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /ceramic-coating/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Optional Add-Ons:"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ultimate Protection and Lasting Gloss for Colorado Drivers`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Phone: (303) 520-8023`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Email: info@frontrandetailgestudio.com`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `"*" indicates required fields`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Lifetime Warranty on Cars`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `System X MAX G Plus Professional Coating: The most advanced, high-solids ceramic coating for lasting shine and protectio...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Lifetime Warranty on Cars: Registered to your VIN and CarFax, fully transferable, with annual maintenance and top coat r...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Meticulous Paint Preparation: Full decontamination, multi-stage machine polishing, and defect removal to create a flawle...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Wheels, Trim, and Glass Coating: Complete exterior protection.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Interior Ceramic Coating: Upgrade your experience! Protects leather, fabric, vinyl, and plastics from stains, spills, an...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Personalized Aftercare Guide: We make caring for your new coating easy with simple, straightforward maintenance tips.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Annual Maintenance Program: Return once a year for a professional inspection, maintenance wash, and fresh application of...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Long-Lasting Protection:Our System X coatings are designed to last up to 9 years, depending on the package selected.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Unmatched Hydrophobic Effect:Watch water bead and roll off your paint, reducing water spots and dirt buildup.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `UV & Oxidation Resistance:Protects your car’s paint from sun damage, oxidation, and fading.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Scratch & Chemical Resistance:The hardened ceramic layer adds protection against micro-scratches and environmental conta...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Warranty-Backed:All of our System X coatings come with manufacturer-backed warranties for peace of mind.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Flawless, high-gloss finish.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Thorough Hand Wash:We start with a full exterior wash to remove dirt and grime.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Paint Decontamination:A clay bar treatment removes embedded contaminants, ensuring a clean surface.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Paint Correction (If Needed):We correct any swirl marks, light scratches, or oxidation to ensure a flawless base.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ceramic Coating Application:System X Ceramic Coating is carefully applied and leveled for an even finish.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Curing:The coating is left to cure, bonding directly to your vehicle’s paintwork.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Final Inspection:A detailed inspection ensures a flawless, high-gloss finish.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H3: "System X MAX G Plus"`
+- **HEADING_ADDED**: `H3: "Lifetime Warranty for Cars"`
+- **HEADING_ADDED**: `H3: "Professional, Studio-Only Application"`
+- **HEADING_ADDED**: `H3: "Custom Packages for Boats & RVs"`
+- **HEADING_ADDED**: `H3: "Honest, Local Experts"`
+- **HEADING_ADDED**: `H2: "From The Studio"`
+- **HEADING_ADDED**: `H3: "Ease of Cleaning"`
+- **HEADING_ADDED**: `H3: "Hydrophobic Properties"`
+- **HEADING_ADDED**: `H3: "UV Protection"`
+- **HEADING_ADDED**: `H3: "Enhanced Gloss & Depth"`
+- **HEADING_ADDED**: `H3: "Chemical Resistance"`
+- **HEADING_ADDED**: `H3: "Certified System X Installers"`
+- **HEADING_ADDED**: `H3: "Experienced Technicians"`
+- **HEADING_ADDED**: `H3: "High-Quality Products"`
+- **HEADING_ADDED**: `H3: "Warranty-Backed Coatings"`
+- **HEADING_ADDED**: `H3: "Appointment-Only Studio"`
+- **HEADING_ADDED**: `H3: "Long-Lasting Protection"`
+- **HEADING_ADDED**: `H3: "Unmatched Hydrophobic Effect"`
+- **HEADING_ADDED**: `H3: "UV & Oxidation Resistance"`
+- **HEADING_ADDED**: `H3: "Scratch & Chemical Resistance"`
+- **HEADING_ADDED**: `H3: "Warranty-Backed"`
+- **HEADING_ADDED**: `H3: "Thorough Hand Wash"`
+- **HEADING_ADDED**: `H3: "Paint Decontamination"`
+- **HEADING_ADDED**: `H3: "Paint Correction (If Needed)"`
+- **HEADING_ADDED**: `H3: "Ceramic Coating Application"`
+- **HEADING_ADDED**: `H3: "Curing"`
+- **HEADING_ADDED**: `H3: "Final Inspection"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `FAQPage`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /ppf/
+
+### HIGH
+- **TITLE**
+  - WP: `#1 PPF Clear Bra Paint Protection Film - Denver's Best Rated Shop`
+  - NJ: `#1 PPF Clear Bra Paint Protection Film - Denver's Best Rated Shop - Front Range Detail Studio`
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Paint Protection Film (PPF) & Clear Bra"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "How does SunTek Reaction PPF “self-heal”?"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "How does SunTekCan I wash my car as usual?"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Denver’s Most Trusted Vehicle Aesthetic Experts`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Keep Your Car Looking New—No Matter What Colorado Throws At It`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Don’t let Colorado roads ruin your investment. Protect your paint today and enjoy every mile—worry-free.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Every PPF installation at Front Range Detail Studio includes`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Premium SunTek Reaction Paint Protection Film:`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Advanced self-healing, hydrophobic film designed for long-lasting protection.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `12-Year Manufacturer Warranty:`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Coverage against yellowing, cracking, peeling, and bubbling.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Professional Installation in a Climate-Controlled Studio:`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ensures a dust-free environment for flawless results.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Complimentary Ceramic Boost Top Coat:`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Enhances gloss, slickness, and ease of cleaning.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Wrapped Panel Edges Where Possible:`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Provides maximum coverage and a seamless finish.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Personalized Aftercare Instructions:`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Guidance on maintaining your vehicle’s new protection.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H2: "Keep Your Car Looking New—No Matter What Colorado Throws At It"`
+- **HEADING_ADDED**: `H3: "SunTek Reaction PPF"`
+- **HEADING_ADDED**: `H3: "Climate-controlled Centennial studio"`
+- **HEADING_ADDED**: `H3: "Trusted by drivers across Denver and surrounding cities"`
+- **HEADING_ADDED**: `H2: "From The Studio"`
+- **HEADING_ADDED**: `H3: "How does SunTek Reaction PPF "self-heal"?"`
+- **HEADING_ADDED**: `H3: "Can I wash my car as usual?"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `FAQPage`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /window-tint/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "How does SunTek Reaction PPFCan you make my windows darker than the legal limit? “self-heal”?"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "How long does the What’s special about ceramic window film?last?"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Keep Your Car Cool, Private, and Protected—Year Round`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Next-gen ceramic technology`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Suntek Evolve Ceramic Window Film: Industry-leading, next-gen ceramic technology.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Lifetime Warranty: Guaranteed against fading, bubbling, peeling, or discoloration.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Custom Shade Selection: Choose your preferred darkness—we can go as light or as dark as you want, with guidance on Color...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Professional Studio Installation: Flawless, dust-free results every time—never mobile.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Precision Computer-Cut Patterns: Perfect fit, every time, for all cars, trucks, SUVs, and more.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Aftercare Instructions: Easy cleaning tips for long-lasting tint performance.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H2: "Serving THE Denver Metro And surrounding areas"`
+- **HEADING_ADDED**: `H2: "Why Ceramic Tint Outperforms"`
+- **HEADING_ADDED**: `H3: "99% UV Rejection"`
+- **HEADING_ADDED**: `H3: "Up To 94% Heat Rejection"`
+- **HEADING_ADDED**: `H3: "Glare Reduction"`
+- **HEADING_ADDED**: `H3: "Signal-Friendly"`
+- **HEADING_ADDED**: `H3: "Lifetime Warranty"`
+- **HEADING_ADDED**: `H2: "From The Studio"`
+- **HEADING_ADDED**: `H3: "Can you make my windows darker than the legal limit?"`
+- **HEADING_ADDED**: `H3: "What’s special about ceramic window film?"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H2: "Front Range Detail Studio client Reviews"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `FAQPage`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /vinyl-wraps/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Key Benefits:"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Denver’s 1st Choice in Paint Protection Film and Clear Bra"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Detailing Services in Denver, Colorado and All Surrounding Cities"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Full Color Changes & Custom Graphics`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Vinyl wraps offer endless possibilities for customization while protecting your original paint.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `3. Commercial & Fleet WrapsTurn your vehicle into a moving billboard.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `4. Accent Wraps & DetailsSubtle touches for a more unique style.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H2: "From The Studio"`
+- **HEADING_ADDED**: `H3: "Quick Turnaround"`
+- **HEADING_ADDED**: `H3: "Full Customization"`
+- **HEADING_ADDED**: `H3: "Non-Permanent"`
+- **HEADING_ADDED**: `H3: "Paint Protection"`
+- **HEADING_ADDED**: `H3: "Cost-Effective Alternative to Paint"`
+- **HEADING_ADDED**: `H3: "Full Vehicle Color Change"`
+- **HEADING_ADDED**: `H3: "Partial Wraps & Graphics"`
+- **HEADING_ADDED**: `H3: "Commercial & Fleet Wraps"`
+- **HEADING_ADDED**: `H3: "Accent Wraps & Details"`
+- **HEADING_ADDED**: `H2: "Protect Your Wrap With PPF"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H2: "Front Range Detail Studio client Reviews"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /auto-detailing/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Denver’s Most Trusted Vehicle Aesthetic Experts"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `From basic maintenance to deep restoration`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Perfect for regular upkeep and protection.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Duration: ~2 hours Recommended Frequency: Every 1-2 months`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Restore and protect your car’s paint for a flawless finish.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Duration: ~4-5 hours Recommended Frequency: Every 3-6 months`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Deep clean your car’s interior for a fresh, like-new feel.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Duration: ~3-4 hours Recommended Frequency: Every 4-6 months`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our most comprehensive package — for vehicles that need full restoration.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Duration: ~6-8 hours Recommended Frequency: Twice a year`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Paint Correction:Remove swirl marks, light scratches, and oxidation to restore a flawless finish.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Engine Bay Cleaning:Degrease and detail your engine bay for a clean, showroom look.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Headlight Restoration:Clear cloudy or yellowed headlights for improved visibility and aesthetics.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Odor Removal:Eliminate smoke, pet, or mildew odors using professional-grade ozone treatments.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Long-term protection and making maintenance a breeze`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Paint Protection Film & Clear Bra 10 Year Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Window Tinting – Lifetime Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ceramic Coating – Lifetime Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H2: "Serving THE Denver Metro And surrounding areas"`
+- **HEADING_ADDED**: `H2: "Explore Our Services"`
+- **HEADING_ADDED**: `H2: "Auto Detailing Packages"`
+- **HEADING_ADDED**: `H3: "Experienced Technicians"`
+- **HEADING_ADDED**: `H3: "High-Quality Products"`
+- **HEADING_ADDED**: `H3: "Attention to Detail"`
+- **HEADING_ADDED**: `H3: "Appointment-Only Service"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H2: "Front Range Detail Studio client Reviews"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /rv-detailing/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "How does SunTek Do you detail all types of RVs and motorhomes?PPF “self-heal”?"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Protect your home on wheels with Colorado’s most trusted RV detailing experts`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `All services include a full hand wash, premium decontamination, and thorough inspection using only System X, SunTek, and...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Starting at $10/foot`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Restores faded fiberglass`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Typical investment: $20–$35/foot`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Starting at $100/foot`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H2: "From The Studio"`
+- **HEADING_ADDED**: `H3: "Experience with All RV Types"`
+- **HEADING_ADDED**: `H3: "Premium Brands"`
+- **HEADING_ADDED**: `H3: "Professional Studio Service"`
+- **HEADING_ADDED**: `H3: "Trusted by Colorado RV Owners"`
+- **HEADING_ADDED**: `H3: "Do you detail all types of RVs and motorhomes?"`
+- **HEADING_ADDED**: `H2: "Coat It For Years Of Protection"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `FAQPage`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /rv-ceramic-coating/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Key Benefits:"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Safeguard your RV from UV rays, oxidation, and road grime`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Protect your RV from the elements`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Industry-leading ceramic technology`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Your RV faces constant exposure to harsh environments — from the sun’s intense UV rays to road salt, dirt, and grime. Sy...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Exterior Wash & Wax: Starting at $10/foot`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Oxidation Removal & Paint Correction: $20–$35/foot`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `System X Ceramic Coating Application: Starting at $100/foot`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Note: Prices may vary based on the size and condition of the RV.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Exterior, Windows, Wheels, Trim`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Protect Your RV with System X Ceramic CoatingKeep your RV looking like new while making cleaning and maintenance easier ...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Exterior and Windows`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `The Max G+™ package is our strongest and most durable protection package. Max G+™ features a stronger, tougher shell up ...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ultimate Protection Max G+ Package`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H3: "Warranty Protection"`
+- **HEADING_ADDED**: `H3: "Prevents Oxidation & Fading"`
+- **HEADING_ADDED**: `H3: "Hydrophobic Properties"`
+- **HEADING_ADDED**: `H2: "Ultimate Protection Max G+ Package"`
+- **HEADING_ADDED**: `H3: "Comprehensive Inspection"`
+- **HEADING_ADDED**: `H3: "Surface Preparation"`
+- **HEADING_ADDED**: `H3: "Paint Correction"`
+- **HEADING_ADDED**: `H3: "Ceramic Coating Application"`
+- **HEADING_ADDED**: `H3: "Curing"`
+- **HEADING_ADDED**: `H3: "Exterior Wash & Wax"`
+- **HEADING_ADDED**: `H3: "Oxidation Removal & Paint Correction"`
+- **HEADING_ADDED**: `H3: "System X Ceramic Coating Application"`
+- **HEADING_ADDED**: `H2: "Protect The Front End With PPF"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `FAQPage`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /boat-detailing/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Denver’s Most Trusted Vehicle Aesthetic Experts"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Professional detailing and System X Marine Ceramic Coating`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `we use only the industry’s best`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Restore your boat’s shine and defend it from water damage and oxidation`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Duration: ~3-5 hours (depending on boat size)`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Get a fresh, clean interior for your next adventure`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Duration: ~2-4 hours`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Maximize UV protection and maintain a high-gloss look all summer long`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Restore faded, chalky, or oxidized gelcoat to a like-new gloss`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Upgrade to the ultimate in protection with System X Marine Ceramic Coating`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Learn more and get full details on our Boat Ceramic Coating page`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `The Max G+™ package is our strongest and most durable protection package. Max G+™ features a stronger, tougher shell up ...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ultimate Protection Max G+ Package`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Over time, your boat’s gelcoat can oxidize and lose its shine. Our oxidation removal and gelcoat restoration services br...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Followed by a sealant or System X Marine Ceramic Coating for long-lasting protection`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Multi-stage polishing to remove oxidation and chalking`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Restore depth, color, and gloss to faded surfaces`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `1. Standard Marine Coating Package`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `2. Full Marine Protection Package`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Paint Protection Film & Clear Bra 10 Year Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Window Tinting – Lifetime Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ceramic Coating – Lifetime Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H2: "Why Choose Front Range for Your Boat"`
+- **HEADING_ADDED**: `H3: "Marine Detailing Specialists"`
+- **HEADING_ADDED**: `H3: "Certified System X Installers"`
+- **HEADING_ADDED**: `H3: "Attention to Detail"`
+- **HEADING_ADDED**: `H3: "Seasonal, Appointment-Only Service"`
+- **HEADING_ADDED**: `H2: "From The Studio"`
+- **HEADING_ADDED**: `H3: "1. Standard Marine Coating Package"`
+- **HEADING_ADDED**: `H3: "2. Full Marine Protection Package"`
+- **HEADING_ADDED**: `H2: "Frequently Asked Questions"`
+- **HEADING_ADDED**: `H3: "What types of boats do you work on?"`
+- **HEADING_ADDED**: `H3: "How often should I detail my boat?"`
+- **HEADING_ADDED**: `H3: "Can you remove heavy oxidation from gelcoat?"`
+- **HEADING_ADDED**: `H2: "Add Marine Ceramic Coating"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H2: "Front Range Detail Studio client Reviews"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `FAQPage`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /boat-ceramic-coating/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Denver’s Most Trusted Vehicle Aesthetic Experts"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Denver’s 1st Choice in Paint Protection Film and Clear Bra"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Detailing Services in Denver, Colorado and All Surrounding Cities"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Professional detailing and System X Marine Ceramic Coating`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Hyper Gloss 9H Lifetime Coating`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Hull-Only Coating: Defends against oxidation, algae stains, and waterline buildup`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Full Exterior Coating: Maximum hydrophobic protection for hull, deck, topside, and stainless steel`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ultimate Marine Protection Package: Add interior surface coating for vinyl, plastic, and more`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `3-Year Manufacturer Warranty on new boats (annual top coat required for warranty)`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Call us for more details`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Add a virtually invisible, self-healing layer for scratch and impact protection`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Hull leading edges (defend against trailer & dock rash)`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `High-wear swim platforms`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Boarding steps and grab rails`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Painted or gelcoat areas prone to abrasion`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Stainless and aluminum surfaces (optional)`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Get the same world-class protection trusted by car enthusiasts, now for your boat`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Maintain your boat’s luster and protect against sun and water with premium marine wax`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Applied after buffing or as annual refresh`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Shields gelcoat from UV and water spots`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Painted or gelcoat areas prone to abrasion`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Call us for more details`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Keep your boat’s interior clean, fresh, and ready for adventure`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Vinyl and leather conditioning`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Glass, dash, and panel detailing`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Call us for more details`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Marine Detailing Specialists:Our experienced team understands the unique challenges boats face and uses only marine-grad...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Certified System X Installers:We are certified applicators of System X Marine Ceramic Coating, ensuring professional-gra...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Attention to Detail:From hull to topside, we meticulously coat every surface for comprehensive protection.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Seasonal, Appointment-Only Service:We offer boat ceramic coating services by appointment during the boating season to en...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Paint Protection Film & Clear Bra 10 Year Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Window Tinting – Lifetime Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ceramic Coating – Lifetime Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H3: "Certified Installers"`
+- **HEADING_ADDED**: `H3: "Comprehensive Services"`
+- **HEADING_ADDED**: `H3: "Tailored Solutions"`
+- **HEADING_ADDED**: `H3: "Thorough Hand Wash & Decontamination"`
+- **HEADING_ADDED**: `H3: "Oxidation Removal & Gelcoat Correction"`
+- **HEADING_ADDED**: `H3: "Ceramic Coating Application"`
+- **HEADING_ADDED**: `H3: "Curing & Inspection"`
+- **HEADING_ADDED**: `H2: "From The Studio"`
+- **HEADING_ADDED**: `H2: "Frequently Asked Questions"`
+- **HEADING_ADDED**: `H3: "How long does marine ceramic coating last?"`
+- **HEADING_ADDED**: `H3: "Can you apply PPF to a boat?"`
+- **HEADING_ADDED**: `H3: "Do you offer seasonal boat services?"`
+- **HEADING_ADDED**: `H2: "Need Boat Detailing Too?"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H2: "Front Range Detail Studio client Reviews"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `FAQPage`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /system-x/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Clarity and Protection"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Clarity and Protection"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Plastic and Trim"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Leather, Vinyl, and Fabric"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H3: "Detailing Services in Denver, Colorado and All Surrounding Cities"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Hyper Gloss 9H Lifetime Coating`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ultimate Protection Max G+ Package`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Why Have Us Install System X® On Your Vehicle?`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Top Tier Performance`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Phone: (303) 520-8023`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Email: info@frontrandetailgestudio.com`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `"*" indicates required fields`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **META_DESC**
+  - WP: `Owners and collectors of the finest vintage and exotic automobiles worldwide trust System X® to consistently provide unmatched slickness, protection,`
+  - NJ: `Owners and collectors of the finest vintage and exotic automobiles worldwide trust System X to consistently provide unmatched slickness, protection,`
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H2: "Serving THE Denver Metro And surrounding areas"`
+- **HEADING_ADDED**: `H2: "Why Have Us Install System X on Your Vehicle?"`
+- **HEADING_ADDED**: `H3: "Guarantee"`
+- **HEADING_ADDED**: `H3: "Made in The USA"`
+- **HEADING_ADDED**: `H3: "Top Tier Performance"`
+- **HEADING_ADDED**: `H3: "Max G+ Package"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H2: "Front Range Detail Studio client Reviews"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /detailing-packages/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Keep Your Car Looking New—No Matter What Colorado Throws At It`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Perfect for regular upkeep and protection.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Duration: ~2 hours Recommended Frequency: Every 1-2 months`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Restore and protect your car’s paint for a flawless finish.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Duration: ~4-5 hours Recommended Frequency: Every 3-6 months`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Deep clean your car’s interior for a fresh, like-new feel.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Duration: ~3-4 hours Recommended Frequency: Every 4-6 months`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our most comprehensive package — for vehicles that need full restoration.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Duration: ~6-8 hours Recommended Frequency: Twice a year`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **META_DESC**
+  - WP: `Keep Your Car Looking New—No Matter What Colorado Throws At It`
+  - NJ: `Auto detailing and ceramic coating packages in Denver, CO. Maintenance wash, full exterior, full interior, complete packages plus Bronze through Platinum coating tiers.`
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H1: "Keep Your Car Looking New--No Matter What Colorado Throws At It"`
+- **HEADING_ADDED**: `H2: "Serving THE Denver Metro And surrounding areas"`
+- **HEADING_ADDED**: `H2: "Add Paint Protection Film"`
+- **HEADING_ADDED**: `H2: "Our Partners – Trusted Brands"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H2: "Front Range Detail Studio client Reviews"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /tesla-detailing/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Serving THE Denver Metro And surrounding areas"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "The Front Range Package"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "custom quote"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Protect and Elevate Your Tesla in Colorado`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `We’re not just protecting paint — we’re protecting your investment.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Tesla’s Best Defense`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our exclusive Front Range Package is engineered for Colorado’s unique road hazards. It combines:`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Designed specifically for luxury performance vehicles like Teslas, this package is the best way to protect against chips...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Get a Custom Tesla Paint Protection Quote`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ready to safeguard and elevate your Tesla? Request a custom quote today and tell us what you need. Which services you’re...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our team will review your request and get back to you promptly with an expert recommendation and quote tailored for your...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `We’re not just protecting paint we’re protecting your investment.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **META_DESC**
+  - WP: `Colorado’s Tesla PPF & Ceramic Coating Experts`
+  - NJ: `Colorado's Tesla PPF & Ceramic Coating Experts`
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H4: "SunTek Reaction PPF"`
+- **HEADING_ADDED**: `H4: "PURE PPF Color Changing Film"`
+- **HEADING_ADDED**: `H2: "Tesla’s Best Defense — The Front Range Package"`
+- **HEADING_ADDED**: `H2: "Get a Custom Tesla Paint Protection Quote"`
+- **HEADING_ADDED**: `H2: "From The Studio"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `FAQPage`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /bmw-detailing/
+
+### HIGH
+- **TITLE**
+  - WP: `BMW Paint Protection & PPF in Englewood, CO | Front Range Detail Studio`
+  - NJ: `BMW Paint Protection & PPF in Englewood, CO - Front Range Detail Studio`
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Serving THE Denver Metro And surrounding areas"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "The Front Range Package"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "custom quote"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Protect and Elevate Your BMW in Colorado`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `We’re not just protecting paint — we’re protecting your investment.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our exclusive Front Range Package is engineered for Colorado’s unique road hazards. It combines:`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Designed specifically for luxury performance vehicles like BMWs, this package is the best way to protect against chips, ...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Get a Custom BMW Paint Protection Quote`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ready to safeguard and elevate your BMW? Request a custom quote today and tell us what you need. Which services you’re i...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our team will review your request and get back to you promptly with an expert recommendation and quote tailored for your...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `We’re not just protecting paint we’re protecting your investment.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H4: "SunTek Reaction PPF"`
+- **HEADING_ADDED**: `H4: "PURE PPF Color Changing Film"`
+- **HEADING_ADDED**: `H2: "BMW’s Best Defense — The Front Range Package"`
+- **HEADING_ADDED**: `H2: "Get a Custom BMW Paint Protection Quote"`
+- **HEADING_ADDED**: `H2: "From The Studio"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `FAQPage`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /porsche-detailing/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Serving THE Denver Metro And surrounding areas"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "The Front Range Package"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "custom quote"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Protection For All Brands and Models Including Tesla, Rivian, Porsche, BMW, Mercedes Benz and More"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Protect and Elevate Your Porsche in Colorado`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `We’re not just protecting paint — we’re protecting your investment.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Porsche’s Best Defense`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our exclusive Front Range Package is engineered for Colorado’s unique road hazards. It combines:`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Designed specifically for luxury performance vehicles like Porsches, this package is the best way to protect against chi...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Get a Custom Porsche Paint Protection Quote`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ready to safeguard and elevate your Porsche? Request a custom quote today and tell us what you need. Which services you’...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our team will review your request and get back to you promptly with an expert recommendation and quote tailored for your...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `We’re not just protecting paint we’re protecting your investment.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `At Front Range Detail Studio, we protect all brands and models including Tesla, Rivian, Porsche, BMW, Mercedes Benz and ...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **META_DESC**
+  - WP: `Colorado’s Porsche PPF & Ceramic Coating Experts`
+  - NJ: `Colorado's Porsche PPF & Ceramic Coating Experts`
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H4: "SunTek Reaction PPF"`
+- **HEADING_ADDED**: `H4: "PURE PPF Color Changing Film"`
+- **HEADING_ADDED**: `H2: "Porsche’s Best Defense — The Front Range Package"`
+- **HEADING_ADDED**: `H2: "Get a Custom Porsche Paint Protection Quote"`
+- **HEADING_ADDED**: `H2: "From The Studio"`
+- **HEADING_ADDED**: `H2: "Our Partners – Trusted Brands"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `FAQPage`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /rivian-detailing/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Serving THE Denver Metro And surrounding areas"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "The Front Range Package"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "custom quote"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Protect and Elevate Your Rivian in Colorado`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `We’re not just protecting paint — we’re protecting your investment.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Rivian’s Best Defense`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our exclusive Front Range Package is engineered for Colorado’s unique road hazards. It combines:`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Designed specifically for luxury performance vehicles like Rivians, this package is the best way to protect against chip...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Get a Custom Rivian Paint Protection Quote`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ready to safeguard and elevate your Rivian? Request a custom quote today and tell us what you need. Which services you’r...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our team will review your request and get back to you promptly with an expert recommendation and quote tailored for your...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `We’re not just protecting paint we’re protecting your investment.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **META_DESC**
+  - WP: `Colorado’s Rivian PPF & Ceramic Coating Experts`
+  - NJ: `Colorado's Rivian PPF & Ceramic Coating Experts`
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H4: "SunTek Reaction PPF"`
+- **HEADING_ADDED**: `H4: "PURE PPF Color Changing Film"`
+- **HEADING_ADDED**: `H2: "Rivian’s Best Defense — The Front Range Package"`
+- **HEADING_ADDED**: `H2: "Get a Custom Rivian Paint Protection Quote"`
+- **HEADING_ADDED**: `H2: "From The Studio"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `FAQPage`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /ford-truck-detailing/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Serving THE Denver Metro And surrounding areas"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "The Front Range Package"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "custom quote"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `CALL NOW to Protect and Elevate Your Ford Truck in Colorado`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `We’re not just protecting paint — we’re protecting your investment.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ford Truck’s Best Defense`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our exclusive Front Range Package is engineered for Colorado’s unique road hazards. It combines:`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Designed specifically for luxury performance vehicles like Ford Trucks, this package is the best way to protect against ...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Get a Custom Ford Truck Paint Protection Quote`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ready to safeguard and elevate your Ford Truck? Request a custom quote today and tell us what you need. Which services y...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our team will review your request and get back to you promptly with an expert recommendation and quote tailored for your...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `We’re not just protecting paint we’re protecting your investment.`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **META_DESC**
+  - WP: `Colorado’s Ford Truck PPF & Ceramic Coating Experts`
+  - NJ: `Colorado's Ford Truck PPF & Ceramic Coating Experts`
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H4: "SunTek Reaction PPF"`
+- **HEADING_ADDED**: `H4: "PURE PPF Color Changing Film"`
+- **HEADING_ADDED**: `H2: "Ford Truck’s Best Defense — The Front Range Package"`
+- **HEADING_ADDED**: `H2: "Get a Custom Ford Truck Paint Protection Quote"`
+- **HEADING_ADDED**: `H2: "From The Studio"`
+- **HEADING_ADDED**: `H2: "Denver's 1st Choice in Paint Protection Film and Clear Bra"`
+- **HEADING_ADDED**: `H3: "Connect with Us"`
+- **HEADING_ADDED**: `H3: "Business Hours"`
+- **HEADING_ADDED**: `H3: "Denver Location"`
+- **HEADING_ADDED**: `H2: "Send A Quick Quote Form"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+- **SCHEMA_ADDED**: `Service`
+- **SCHEMA_ADDED**: `FAQPage`
+- **SCHEMA_ADDED**: `BreadcrumbList`
+
+## /about/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Protection For All Brands and Models Including Tesla, Rivian, Porsche, BMW, Mercedes Benz and More"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Denver’s Most Trusted Vehicle Aesthetic Experts`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Paint Protection Film & Clear Bra 10 Year Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Window Tinting – Lifetime Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Ceramic Coating – Lifetime Warranty`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Phone: (303) 520-8023`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Email: info@frontrandetailgestudio.com`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `"*" indicates required fields`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `At Front Range Detail Studio, we protect all brands and models including Tesla, Rivian, Porsche, BMW, Mercedes Benz and ...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **META_DESC**
+  - WP: `Denver's Most Trusted Vehicle Aesthetic Experts`
+  - NJ: `Over 15 years of automotive detailing experience. System X & SunTek certified. Climate-controlled studio in Englewood, CO serving the Denver Metro area.`
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H2: "Certified & Trusted"`
+- **HEADING_ADDED**: `H3: "System X Certified"`
+- **HEADING_ADDED**: `H3: "SunTek Certified"`
+- **HEADING_ADDED**: `H2: "Climate-Controlled Studio"`
+- **HEADING_ADDED**: `H2: "Our Services"`
+- **HEADING_ADDED**: `H2: "Serving the Denver Metro Area"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+
+## /contact/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Denver’s Most Trusted Vehicle Aesthetic Experts`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Phone: (303) 520-8023`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Email: info@frontrandetailgestudio.com`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `12559 E Broncos Pkwy, Centennial, CO 80112`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `"*" indicates required fields`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `12559 E Broncos Pkwy, Centennial, CO 80112`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H1: "Denver’s Most Trusted Vehicle Aesthetic Experts"`
+- **HEADING_ADDED**: `H3: "Follow Us"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+
+## /free-quote/
+
+### HIGH
+- **HEADING_MISSING**
+  - WP: `H3: "Front Range Detail Studio"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H1: "Request a Free No Obligation Car Detailing Quote"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Send A Quick Quote Form"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H2: "Front Range Detail Studio client Reviews"`
+  - NJ: `(not found)`
+- **HEADING_MISSING**
+  - WP: `H6: "Front Range Studio location"`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `"*" indicates required fields`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Phone: (303) 520-8023`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Email: info@frontrandetailgestudio.com`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `12559 E Broncos Pkwy, Centennial, CO 80112`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 106 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Based on 170 Reviews`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `On Point!!!Communication, Quality, Customer Service…All 5 star. I needed to get my truck ready to sell asap. I was wanti...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, o...`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `12559 E Broncos Pkwy, Centennial, CO 80112`
+  - NJ: `(not found)`
+- **TEXT_MISSING**
+  - WP: `Crafting Radiance. Preserving Elegance. Colorado's One Stop Shop for All Your Vehicle Care Needs`
+  - NJ: `(not found)`
+
+### MEDIUM
+- **SCHEMA_MISSING**
+  - WP: `ImageObject`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Person`
+  - NJ: `(not present)`
+- **SCHEMA_MISSING**
+  - WP: `Article`
+  - NJ: `(not present)`
+
+### LOW (additions)
+- **HEADING_ADDED**: `H1: "Get A Free Quote"`
+- **HEADING_ADDED**: `H2: "Client Reviews"`
+- **HEADING_ADDED**: `H4: "Services"`
+- **HEADING_ADDED**: `H4: "Vehicle Brands"`
+- **HEADING_ADDED**: `H4: "Contact"`
+- **SCHEMA_ADDED**: `AutoBodyShop+LocalBusiness`
+

@@ -1723,74 +1723,121 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: 20,
+                  gap: 28,
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 12,
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                    color: "#00BCD4",
-                  }}
-                >
-                  Free Quote
-                </span>
+                {/* Connect with Us */}
+                <div>
+                  <h3
+                    style={{
+                      margin: "0 0 14px",
+                      fontFamily: "'Archivo', sans-serif",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      fontSize: "1.05rem",
+                      color: "#fff",
+                    }}
+                  >
+                    Connect with Us
+                  </h3>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                    <a
+                      href="tel:+13035208023"
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontWeight: 600,
+                        fontSize: "1.3rem",
+                        color: "#00BCD4",
+                        textDecoration: "none",
+                      }}
+                    >
+                      (303) 520-8023
+                    </a>
+                    <a
+                      href="mailto:info@frontrangedetailstudio.com"
+                      style={{
+                        fontFamily: "'Manrope', sans-serif",
+                        fontWeight: 400,
+                        fontSize: "0.95rem",
+                        color: "rgba(255,255,255,0.7)",
+                        textDecoration: "none",
+                      }}
+                    >
+                      info@frontrangedetailstudio.com
+                    </a>
+                  </div>
+                </div>
+                {/* Business Hours */}
+                <div>
+                  <h3
+                    style={{
+                      margin: "0 0 8px",
+                      fontFamily: "'Archivo', sans-serif",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      fontSize: "1.05rem",
+                      color: "#fff",
+                    }}
+                  >
+                    Business Hours
+                  </h3>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontFamily: "'Manrope', sans-serif",
+                      fontWeight: 300,
+                      fontSize: "0.95rem",
+                      color: "rgba(255,255,255,0.7)",
+                    }}
+                  >
+                    Monday &ndash; Sunday: By Appointment Only
+                  </p>
+                </div>
+                {/* Denver Location */}
+                <div>
+                  <h3
+                    style={{
+                      margin: "0 0 8px",
+                      fontFamily: "'Archivo', sans-serif",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      fontSize: "1.05rem",
+                      color: "#fff",
+                    }}
+                  >
+                    Denver Location
+                  </h3>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontFamily: "'Manrope', sans-serif",
+                      fontWeight: 300,
+                      fontSize: "0.95rem",
+                      color: "rgba(255,255,255,0.7)",
+                    }}
+                  >
+                    12559 E Broncos Pkwy, Centennial, CO 80112
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal>
+              <div>
                 <h2
                   style={{
-                    margin: 0,
+                    margin: "0 0 20px",
                     fontFamily: "'Archivo', sans-serif",
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)",
+                    fontSize: "clamp(1.4rem, 2vw, 1.8rem)",
                     lineHeight: 1.08,
                   }}
                 >
-                  Ready To Protect Your Investment?
+                  Send A Quick Quote Form
                 </h2>
-                <hr
-                  style={{
-                    width: 96,
-                    height: 2,
-                    background: "#00BCD4",
-                    border: "none",
-                    margin: 0,
-                  }}
-                />
-                <p
-                  style={{
-                    margin: 0,
-                    fontFamily: "'Manrope', sans-serif",
-                    fontWeight: 300,
-                    fontSize: "1.05rem",
-                    lineHeight: 1.65,
-                    color: "rgba(255,255,255,0.78)",
-                    maxWidth: 420,
-                  }}
-                >
-                  Tell us about your vehicle and we&rsquo;ll recommend the right
-                  protection &mdash; no upsells, no hard sell. Appointment-only
-                  studio in Centennial, CO.
-                </p>
-                <a
-                  href="tel:+13035208023"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 600,
-                    fontSize: "1.4rem",
-                    color: "#00BCD4",
-                    textDecoration: "none",
-                    marginTop: 4,
-                  }}
-                >
-                  (303) 520-8023
-                </a>
+                <QuoteForm />
               </div>
-            </ScrollReveal>
-            <ScrollReveal>
-              <QuoteForm />
             </ScrollReveal>
           </div>
         </div>

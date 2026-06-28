@@ -278,7 +278,12 @@ export default function ContactPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal>
-              <QuoteForm />
+              <div>
+                <h2 style={{ margin: "0 0 20px", fontFamily: "'Archivo', sans-serif", fontWeight: 700, textTransform: "uppercase", letterSpacing: "-0.3px", fontSize: "clamp(1.4rem, 2vw, 1.8rem)", lineHeight: 1.08 }}>
+                  Send A Quick Quote Form
+                </h2>
+                <QuoteForm />
+              </div>
             </ScrollReveal>
           </div>
         </div>
@@ -345,7 +350,7 @@ export default function ContactPage() {
                   fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
                 }}
               >
-                Client Reviews
+                Front Range Detail Studio client Reviews
               </h2>
               <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "20px 0 0" }} />
             </div>
