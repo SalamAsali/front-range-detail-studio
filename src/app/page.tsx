@@ -73,25 +73,14 @@ export default function HomePage() {
     <>
       <HomeHero />
 
-      {/* Services Grid */}
+      {/* 1. Services Grid — H2 "Denver's Most Trusted Vehicle Aesthetic Experts" */}
       <section id="services" style={{ background: "#0d0d0d", padding: "clamp(64px, 8vw, 110px) 0" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
           <ScrollReveal>
             <div style={{ maxWidth: 820, marginBottom: 48 }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: 12,
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  color: "#00BCD4",
-                }}
-              >
-                Our Services
-              </span>
               <h2
                 style={{
-                  margin: "12px 0 0",
+                  margin: 0,
                   fontFamily: "var(--font-heading)",
                   fontWeight: 700,
                   textTransform: "uppercase",
@@ -121,25 +110,113 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Reviews */}
-      <section style={{ background: "#0a0a0a", padding: "clamp(64px, 8vw, 110px) 0" }}>
+      {/* 2. Ratings Bar — H2 "Serving THE Denver Metro And surrounding areas" */}
+      <section style={{ background: "#0a0a0a", padding: "clamp(40px, 5vw, 64px) 0" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
+          <ScrollReveal>
+            <div style={{ textAlign: "center", marginBottom: 24 }}>
+              <h2
+                style={{
+                  margin: 0,
+                  fontFamily: "var(--font-heading)",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "-0.3px",
+                  fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)",
+                  lineHeight: 1.2,
+                }}
+              >
+                Serving THE Denver Metro And surrounding areas
+              </h2>
+              <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "20px auto 0" }} />
+            </div>
+          </ScrollReveal>
+          <ReviewBadges />
+        </div>
+      </section>
+
+      {/* 3. Contact / Quote — H3 Connect with Us, Business Hours, Denver Location + H2 Send A Quick Quote Form */}
+      <section
+        id="quote"
+        style={{
+          background: "#0d0d0d",
+          padding: "clamp(64px, 8vw, 110px) 0",
+          borderTop: "1px solid rgba(255,255,255,0.05)",
+          scrollMarginTop: 90,
+        }}
+      >
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "clamp(28px, 4vw, 56px)",
+              alignItems: "start",
+            }}
+          >
+            <ScrollReveal>
+              <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+                <div>
+                  <h3 style={{ margin: "0 0 14px", fontFamily: "var(--font-heading)", fontWeight: 700, textTransform: "uppercase", fontSize: "1.05rem", color: "#fff" }}>
+                    Connect with Us
+                  </h3>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                    <p style={{ margin: 0, fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
+                      Phone: <a href="tel:+13035208023" style={{ color: "#00BCD4", textDecoration: "none", fontWeight: 600 }}>(303) 520-8023</a>
+                    </p>
+                    <p style={{ margin: 0, fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
+                      Email: <a href="mailto:info@frontrangedetailstudio.com" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>info@frontrangedetailstudio.com</a>
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <h3 style={{ margin: "0 0 8px", fontFamily: "var(--font-heading)", fontWeight: 700, textTransform: "uppercase", fontSize: "1.05rem", color: "#fff" }}>
+                    Business Hours
+                  </h3>
+                  <p style={{ margin: 0, fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
+                    Monday &ndash; Sunday: By Appointment Only
+                  </p>
+                </div>
+                <div>
+                  <h3 style={{ margin: "0 0 8px", fontFamily: "var(--font-heading)", fontWeight: 700, textTransform: "uppercase", fontSize: "1.05rem", color: "#fff" }}>
+                    Denver Location
+                  </h3>
+                  <p style={{ margin: 0, fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
+                    <a href="https://maps.app.goo.gl/hz9CMdtQmeKYWKKy7" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
+                      12559 E Broncos Pkwy, Centennial, CO 80112
+                    </a>
+                  </p>
+                </div>
+                <div style={{ position: "relative", borderRadius: 8, overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", aspectRatio: "16/10", background: "#111" }}>
+                  <iframe
+                    title="Map"
+                    src="https://www.google.com/maps?q=12559+E+Broncos+Pkwy+Centennial+CO+80112&output=embed"
+                    style={{ width: "100%", height: "100%", border: 0, filter: "grayscale(1) invert(0.9) contrast(0.9)" }}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal>
+              <div>
+                <h2 style={{ margin: "0 0 20px", fontFamily: "var(--font-heading)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "-0.3px", fontSize: "clamp(1.4rem, 2vw, 1.8rem)", lineHeight: 1.08 }}>
+                  Send A Quick Quote Form
+                </h2>
+                <QuoteForm />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Reviews — H2 "Front Range Detail Studio client Reviews" */}
+      <section style={{ background: "#000", padding: "clamp(64px, 8vw, 110px) 0" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
           <ScrollReveal>
             <div style={{ maxWidth: 820, marginBottom: 48 }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: 12,
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  color: "#00BCD4",
-                }}
-              >
-                Testimonials
-              </span>
               <h2
                 style={{
-                  margin: "12px 0 0",
+                  margin: 0,
                   fontFamily: "var(--font-heading)",
                   fontWeight: 700,
                   textTransform: "uppercase",
@@ -148,39 +225,25 @@ export default function HomePage() {
                   lineHeight: 1.08,
                 }}
               >
-                Front Range Detail Studio Client Reviews
+                Front Range Detail Studio client Reviews
               </h2>
               <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "22px 0 0" }} />
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <ReviewBadges />
-          </ScrollReveal>
-          <ScrollReveal delay={0.3}>
             <ReviewCarousel />
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Partners */}
+      {/* 5. Partners — H2 "Our Partners – Trusted Brands" */}
       <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 90px) 0", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
           <ScrollReveal>
             <div style={{ textAlign: "center", marginBottom: 44, display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: 12,
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  color: "#00BCD4",
-                }}
-              >
-                Trusted Brands
-              </span>
               <h2
                 style={{
-                  margin: "12px 0 0",
+                  margin: 0,
                   fontFamily: "var(--font-heading)",
                   fontWeight: 700,
                   textTransform: "uppercase",
@@ -188,7 +251,7 @@ export default function HomePage() {
                   fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
                 }}
               >
-                Our Partners
+                Our Partners &ndash; Trusted Brands
               </h2>
               <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "20px 0 0" }} />
             </div>
@@ -203,25 +266,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Vehicle Brands */}
+      {/* 6. Vehicle Brands — H2 "Protection For All Brands and Models..." */}
       <section style={{ background: "#000", padding: "clamp(64px, 8vw, 110px) 0" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
           <ScrollReveal>
             <div style={{ maxWidth: 880, marginBottom: 48 }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: 12,
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  color: "#00BCD4",
-                }}
-              >
-                Every Make &amp; Model
-              </span>
               <h2
                 style={{
-                  margin: "12px 0 0",
+                  margin: 0,
                   fontFamily: "var(--font-heading)",
                   fontWeight: 700,
                   textTransform: "uppercase",
@@ -233,6 +285,9 @@ export default function HomePage() {
                 Protection For All Brands and Models Including Tesla, Rivian, Porsche, BMW, Mercedes Benz and More
               </h2>
               <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "22px 0 0" }} />
+              <p style={{ margin: "20px 0 0", fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "clamp(1rem, 1.2vw, 1.1rem)", lineHeight: 1.7, color: "rgba(255,255,255,0.82)" }}>
+                At Front Range Detail Studio, we protect all brands and models including Tesla, Rivian, Porsche, BMW, Mercedes Benz and more. Protect your vehicle with ceramic coatings, paint protection film, window tinting, paint correction and more.
+              </p>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.15}>
@@ -254,113 +309,6 @@ export default function HomePage() {
           </ScrollReveal>
         </div>
       </section>
-
-      {/* Contact / Quote */}
-      <section
-        id="contact"
-        style={{
-          position: "relative",
-          background: "linear-gradient(rgba(11,11,11,0.92), rgba(11,11,11,0.97)), url('/images/generated/contact-dusk.png') center/cover fixed",
-          padding: "clamp(64px, 8vw, 110px) 0",
-          borderTop: "1px solid rgba(255,255,255,0.05)",
-        }}
-      >
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
-          <ScrollReveal>
-            <div style={{ maxWidth: 760, marginBottom: 48 }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: 12,
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  color: "#00BCD4",
-                }}
-              >
-                Get In Touch
-              </span>
-              <h2
-                id="quote"
-                style={{
-                  margin: "12px 0 0",
-                  fontFamily: "var(--font-heading)",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "-0.3px",
-                  fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)",
-                  lineHeight: 1.1,
-                  scrollMarginTop: 100,
-                }}
-              >
-                Serving The Denver Metro &amp; Surrounding Areas
-              </h2>
-              <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "22px 0 0" }} />
-            </div>
-          </ScrollReveal>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "clamp(28px, 4vw, 56px)",
-              alignItems: "start",
-            }}
-          >
-            {/* Contact Info */}
-            <ScrollReveal>
-              <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
-                <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-                    <span style={{ fontFamily: "var(--font-display)", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)" }}>
-                      Call Us
-                    </span>
-                    <a href="tel:+13035208023" style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.5rem", color: "#00BCD4", textDecoration: "none" }}>
-                      (303) 520-8023
-                    </a>
-                  </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-                    <span style={{ fontFamily: "var(--font-display)", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)" }}>
-                      Email
-                    </span>
-                    <a href="mailto:info@frontrangedetailstudio.com" style={{ fontFamily: "var(--font-body)", fontWeight: 400, fontSize: "1.05rem", color: "#fff", textDecoration: "none", wordBreak: "break-word" }}>
-                      info@frontrangedetailstudio.com
-                    </a>
-                  </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-                    <span style={{ fontFamily: "var(--font-display)", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)" }}>
-                      Studio
-                    </span>
-                    <span style={{ fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "1.05rem", lineHeight: 1.55, color: "rgba(255,255,255,0.85)" }}>
-                      12559 E Broncos Pkwy<br />Centennial, CO 80112
-                    </span>
-                  </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-                    <span style={{ fontFamily: "var(--font-display)", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)" }}>
-                      Hours
-                    </span>
-                    <span style={{ fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "1.05rem", color: "rgba(255,255,255,0.85)" }}>
-                      By Appointment Only
-                    </span>
-                  </div>
-                </div>
-                {/* Map */}
-                <div style={{ position: "relative", borderRadius: 8, overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", aspectRatio: "16/10", background: "#111" }}>
-                  <iframe
-                    title="Map"
-                    src="https://www.google.com/maps?q=12559+E+Broncos+Pkwy+Centennial+CO+80112&output=embed"
-                    style={{ width: "100%", height: "100%", border: 0, filter: "grayscale(1) invert(0.9) contrast(0.9)" }}
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </ScrollReveal>
-            {/* Quote Form */}
-            <ScrollReveal>
-              <QuoteForm />
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
-

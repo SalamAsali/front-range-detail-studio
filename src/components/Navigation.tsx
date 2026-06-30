@@ -202,6 +202,20 @@ export function Navigation() {
         >
           Get A Free Quote
         </Link>
+        <a
+          href="tel:+13035208023"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontWeight: 600,
+            fontSize: 14,
+            color: "#00BCD4",
+            textDecoration: "none",
+            whiteSpace: "nowrap",
+          }}
+          className="phone-nav"
+        >
+          (303) 520-8023
+        </a>
 
         {/* Hamburger */}
         <button
