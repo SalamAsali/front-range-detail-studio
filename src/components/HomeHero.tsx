@@ -125,6 +125,21 @@ export function HomeHero() {
             Denver&rsquo;s Most Trusted Vehicle Aesthetic Experts
           </motion.p>
 
+          {/* Divider */}
+          <motion.hr
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            style={{
+              width: 64,
+              height: 2,
+              background: "#00BCD4",
+              border: "none",
+              margin: 0,
+              transformOrigin: "left",
+            }}
+          />
+
           {/* H1 */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -136,13 +151,18 @@ export function HomeHero() {
               fontWeight: 800,
               textTransform: "uppercase",
               letterSpacing: "-0.5px",
-              fontSize: "clamp(2.2rem, 4.5vw, 4.2rem)",
-              lineHeight: 1.02,
+              fontSize: "clamp(2.6rem, 6vw, 5.4rem)",
+              lineHeight: 0.98,
               textShadow: "0 4px 40px rgba(0,0,0,0.5)",
               color: "#fff",
             }}
           >
-            Front Range Detail Studio &ndash; RV, Boat, Auto. Paint Protection Film, Ceramic Coating, Tint, Vinyl Wrap
+            Front Range
+            <br />
+            Detail Studio
+            <span style={{ display: "block", fontSize: "clamp(1rem, 2vw, 1.6rem)", fontWeight: 500, letterSpacing: "0.02em", lineHeight: 1.5, marginTop: 14, textTransform: "none", color: "rgba(255,255,255,0.8)" }}>
+              RV, Boat, Auto. Paint Protection Film, Ceramic Coating, Tint, Vinyl Wrap
+            </span>
           </motion.h1>
 
           {/* Buttons */}
