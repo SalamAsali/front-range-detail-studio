@@ -12,6 +12,13 @@ export interface ServicePageData {
   heroImgAlt?: string;
   eyebrow: string;
   h1: string;
+  /**
+   * Optional trailing portion of the H1 (e.g. the list of cities) that stays
+   * inside the <h1> for SEO but is rendered on its own line as a smaller
+   * subheader for visual balance. Kept in the H1 so crawlers/Ahrefs still read
+   * the city names as part of the page's primary heading.
+   */
+  h1Cities?: string;
   introH2?: string;
   introBody?: string;
   videos?: { label: string; src: string; poster?: string }[];
@@ -148,6 +155,29 @@ export function ServicePage({ data }: { data: ServicePageData }) {
               }}
             >
               {d.h1}
+              {d.h1Cities && (
+                <>
+                  {/* Space preserved so the H1's text content stays a single
+                      natural sentence for crawlers, even though the cities
+                      render on their own line. */}
+                  {" "}
+                  <span
+                    style={{
+                      display: "block",
+                      marginTop: 14,
+                      fontFamily: "'Manrope', sans-serif",
+                      fontWeight: 500,
+                      textTransform: "none",
+                      letterSpacing: "0.01em",
+                      fontSize: "clamp(0.95rem, 1.7vw, 1.35rem)",
+                      lineHeight: 1.4,
+                      color: "rgba(255,255,255,0.8)",
+                    }}
+                  >
+                    {d.h1Cities}
+                  </span>
+                </>
+              )}
             </h1>
           </div>
         </div>
