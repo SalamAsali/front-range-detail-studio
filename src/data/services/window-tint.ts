@@ -4,7 +4,9 @@ export const windowTintData: ServicePageData = {
   heroImg: "/images/services/new-tint.jpg",
   heroImgAlt: "BMW car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
   eyebrow: "Keep Your Car Cool, Private, and Protected\u2014Year Round",
-  h1: "Ceramic Window Tint in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
+  h1: "Ceramic Window Tint",
+  h1Cities:
+    "in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
   introH2: "Unmatched heat rejection, UV protection, and style",
   introBody:
     "Colorado\u2019s high-altitude sun, winter glare, and fluctuating weather make quality window tint more than just an upgrade\u2014it\u2019s a must-have for both comfort and protection. Whether you\u2019re driving in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, or Castle Pines, ceramic window tint from Front Range Detail Studio keeps your interior cooler, shields your skin, and protects your investment.",

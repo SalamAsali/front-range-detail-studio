@@ -4,7 +4,9 @@ export const ceramicCoatingData: ServicePageData = {
   heroImg: "/images/services/car-ceramic-1.jpg",
   heroImgAlt: "Rivian car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
   eyebrow: "Ultimate Protection and Lasting Gloss for Colorado Drivers",
-  h1: "Ceramic Coating in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
+  h1: "Ceramic Coating",
+  h1Cities:
+    "in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
   introH2: "Ultimate Protection and Lasting Gloss for Colorado Drivers",
   introBody:
     "Owning a vehicle in the Denver metro area means dealing with harsh sun, heavy snow, mag-chloride, road salt, and unpredictable weather\u2014all of which can quickly dull and damage your paint. System X MAX G Plus ceramic coating from Front Range Detail Studio is the best way to keep your car looking new, reduce maintenance, and protect your investment with confidence.",

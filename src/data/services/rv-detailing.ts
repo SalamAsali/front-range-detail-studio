@@ -4,7 +4,9 @@ export const rvDetailingData: ServicePageData = {
   heroImg: "/images/services/Newmar-London-Aire-1024x768.jpg",
   heroImgAlt: "Newmar London Aire RV detailing Denver",
   eyebrow: "RV \u00B7 Boat \u00B7 Marine",
-  h1: "RV Detailing & Ceramic Coating in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
+  h1: "RV Detailing & Ceramic Coating",
+  h1Cities:
+    "in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
   introH2: "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts.",
   introBody:
     "At Front Range Detail Studio, we use only the industry\u2019s best: System X MAX G Plus ceramic coatings and SunTek Reaction paint protection film. These are the same premium products trusted on high-end cars\u2014now protecting your RV or motorhome against Colorado\u2019s toughest conditions. Our team has worked on everything from luxury Class A motorhomes to Sprinter conversions and classic fifth-wheels. We restore shine, remove oxidation, and preserve your investment using proven, warrantied products from brands you can trust.",
