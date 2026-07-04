@@ -11,6 +11,8 @@ export interface ServicePageData {
   heroImg: string;
   heroImgAlt?: string;
   eyebrow: string;
+  /** Opt-in bold weight for the hero eyebrow text (default stays regular). */
+  eyebrowBold?: boolean;
   h1: string;
   /**
    * Optional trailing portion of the H1 (e.g. the list of cities) that stays
@@ -19,12 +21,27 @@ export interface ServicePageData {
    * the city names as part of the page's primary heading.
    */
   h1Cities?: string;
+  /** Opt-in bold weight for the h1Cities subtitle text (default stays 500). */
+  h1CitiesBold?: boolean;
+  /**
+   * Optional second bold line of the H1 (same size/weight as the first line,
+   * separated by a literal line break) — e.g. a location line. Still inside
+   * the <h1> for SEO. Distinct from h1Cities, which renders smaller.
+   */
+  h1Line2?: string;
   introH2?: string;
   introBody?: string;
   videos?: { label: string; src: string; poster?: string }[];
   featuresEyebrow?: string;
   featuresH2?: string;
   features?: { title: string; body: string; image?: string }[];
+  /**
+   * Optional single shared image for the whole features block, rendered
+   * beside the eyebrow/heading/list instead of per-item cards. When set,
+   * this replaces the per-item card/image layouts below.
+   */
+  featuresImage?: string;
+  featuresImageAlt?: string;
   includedH2?: string;
   included?: string[];
   stepsH2?: string;
@@ -65,6 +82,29 @@ const manropeBody: React.CSSProperties = {
   fontSize: "clamp(1.05rem, 1.3vw, 1.2rem)",
   lineHeight: 1.7,
   color: "rgba(255,255,255,0.82)",
+};
+
+const heroCtaBtn: React.CSSProperties = {
+  fontFamily: "'Michroma', sans-serif",
+  textTransform: "uppercase",
+  letterSpacing: "0.05em",
+  fontSize: 13,
+  color: "#fff",
+  background: CYAN,
+  borderRadius: "3.125rem",
+  padding: "16px 30px",
+  textDecoration: "none",
+  whiteSpace: "nowrap",
+  display: "inline-block",
+  boxShadow: "0 4px 24px rgba(0,188,212,0.25)",
+};
+
+const heroCtaBtnOutline: React.CSSProperties = {
+  ...heroCtaBtn,
+  background: "transparent",
+  border: `1px solid ${CYAN}`,
+  color: CYAN,
+  boxShadow: "none",
 };
 
 export function ServicePage({ data }: { data: ServicePageData }) {
@@ -125,7 +165,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         >
           <div
             style={{
-              maxWidth: 880,
+              maxWidth: 1000,
               display: "flex",
               flexDirection: "column",
               gap: 18,
@@ -135,6 +175,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 12,
+                fontWeight: d.eyebrowBold ? 700 : 400,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 color: "#32EEFF",
@@ -142,6 +183,15 @@ export function ServicePage({ data }: { data: ServicePageData }) {
             >
               {d.eyebrow}
             </span>
+            <hr
+              style={{
+                width: 64,
+                height: 2,
+                background: CYAN,
+                border: "none",
+                margin: 0,
+              }}
+            />
             <h1
               style={{
                 margin: 0,
@@ -155,6 +205,16 @@ export function ServicePage({ data }: { data: ServicePageData }) {
               }}
             >
               {d.h1}
+              {d.h1Line2 && (
+                <>
+                  {/* Leading space is a real text node (not just visual) so
+                      .textContent still has a word-boundary space here — a
+                      bare <br> contributes nothing to .textContent. */}
+                  {" "}
+                  <br />
+                  {d.h1Line2}
+                </>
+              )}
               {d.h1Cities && (
                 <>
                   {/* Space preserved so the H1's text content stays a single
@@ -166,7 +226,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       display: "block",
                       marginTop: 14,
                       fontFamily: "'Manrope', sans-serif",
-                      fontWeight: 500,
+                      fontWeight: d.h1CitiesBold ? 700 : 500,
                       textTransform: "none",
                       letterSpacing: "0.01em",
                       fontSize: "clamp(0.95rem, 1.7vw, 1.35rem)",
@@ -179,6 +239,14 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 </>
               )}
             </h1>
+            <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8 }}>
+              <Link href="/free-quote" style={heroCtaBtn}>
+                Get A Free Quote
+              </Link>
+              <a href="tel:+13035208023" style={heroCtaBtnOutline}>
+                Call (303) 520-8023
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -347,43 +415,108 @@ export function ServicePage({ data }: { data: ServicePageData }) {
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
           >
-            <ScrollReveal>
-              <div style={{ marginBottom: 42, maxWidth: 680 }}>
-                <span
+            {!d.featuresImage && (
+              <ScrollReveal>
+                <div style={{ marginBottom: 42, maxWidth: 680 }}>
+                  <span
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: 12,
+                      letterSpacing: "0.16em",
+                      textTransform: "uppercase",
+                      color: "#00BCD4",
+                    }}
+                  >
+                    {d.featuresEyebrow || "Why It Matters"}
+                  </span>
+                  <h2
+                    style={{
+                      margin: "12px 0 0",
+                      fontFamily: "'Archivo', sans-serif",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      letterSpacing: "-0.3px",
+                      fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    }}
+                  >
+                    {d.featuresH2 || "Key Features"}
+                  </h2>
+                  <hr
+                    style={{
+                      width: 96,
+                      height: 2,
+                      background: "#00BCD4",
+                      border: "none",
+                      margin: "20px 0 0",
+                    }}
+                  />
+                </div>
+              </ScrollReveal>
+            )}
+            {d.featuresImage ? (
+              /* Single shared image on the left; eyebrow/heading/divider/list on the right */
+              <ScrollReveal>
+                <div
                   style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 12,
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                    color: "#00BCD4",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                    gap: "clamp(28px, 4vw, 56px)",
+                    alignItems: "center",
                   }}
                 >
-                  {d.featuresEyebrow || "Why It Matters"}
-                </span>
-                <h2
-                  style={{
-                    margin: "12px 0 0",
-                    fontFamily: "'Archivo', sans-serif",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
-                  }}
-                >
-                  {d.featuresH2 || "Key Features"}
-                </h2>
-                <hr
-                  style={{
-                    width: 96,
-                    height: 2,
-                    background: "#00BCD4",
-                    border: "none",
-                    margin: "20px 0 0",
-                  }}
-                />
-              </div>
-            </ScrollReveal>
-            {featuresHaveImages ? (
+                  <div style={{ position: "relative", aspectRatio: "4/3", borderRadius: 8, overflow: "hidden" }}>
+                    <Image
+                      src={d.featuresImage}
+                      alt={d.featuresImageAlt || d.featuresH2 || "Front Range Detail Studio"}
+                      fill
+                      style={{ objectFit: "contain" }}
+                      sizes="(max-width:768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div>
+                    <span
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: 12,
+                        letterSpacing: "0.16em",
+                        textTransform: "uppercase",
+                        color: "#00BCD4",
+                      }}
+                    >
+                      {d.featuresEyebrow || "Why It Matters"}
+                    </span>
+                    <h2
+                      style={{
+                        margin: "12px 0 0",
+                        fontFamily: "'Archivo', sans-serif",
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        letterSpacing: "-0.3px",
+                        fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                      }}
+                    >
+                      {d.featuresH2 || "Key Features"}
+                    </h2>
+                    <hr
+                      style={{
+                        width: 96,
+                        height: 2,
+                        background: "#00BCD4",
+                        border: "none",
+                        margin: "20px 0 24px",
+                      }}
+                    />
+                    <ul style={{ margin: 0, padding: "0 0 0 20px", listStyle: "disc" }}>
+                      {d.features!.map((f, i) => (
+                        <li key={i} style={{ ...manropeBody, marginBottom: 10 }}>
+                          <strong style={{ color: "#fff" }}>{f.title}:</strong> {f.body}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ) : featuresHaveImages ? (
               /* Features with images: 2-column layout per item */
               <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
                 {d.features!.map((f, i) => (
