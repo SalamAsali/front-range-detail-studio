@@ -4,12 +4,18 @@ export const boatCeramicCoatingData: ServicePageData = {
   heroImg: "/images/services/boat-2-1024x768.jpg",
   heroImgAlt: "Boat detailing, boat ceramic coating",
   eyebrow: "Professional detailing and System X Marine Ceramic Coating",
-  h1: "Boat Ceramic Coating & PPF in Denver, CO \u2013 Ultimate Marine Protection",
+  eyebrowBold: true,
+  h1: "Boat Ceramic Coating & PPF",
+  h1Line2: "in Denver, CO",
+  h1Cities: "Ultimate Marine Protection",
+  h1CitiesBold: true,
   introH2: "Shield your boat from Colorado\u2019s harsh elements with professional ceramic coating and paint protection film (PPF) services",
   introBody:
     "At Front Range Detail Studio, we specialize in applying System X Marine Ceramic Coatings and SunTek Reaction PPF\u2014offering unparalleled defense against UV rays, oxidation, scratches, and water damage.",
-  featuresEyebrow: "Why Choose Us",
+  featuresEyebrow: "Hyper Gloss 9H Lifetime Coating",
   featuresH2: "Why Choose Front Range Detail Studio?",
+  featuresImage: "/images/gallery/System-X-Max-G-819x1024.webp",
+  featuresImageAlt: "System X MAX G+ product",
   features: [
     {
       title: "Certified Installers",
@@ -32,11 +38,11 @@ export const boatCeramicCoatingData: ServicePageData = {
     },
     {
       h2: "Annual Boat Waxing",
-      body: "Gelcoat-safe, high-quality wax applied after buffing. Shields your boat from Colorado\u2019s intense sun and water spots. Recommended every 12 months for best results. Call for more details.",
+      body: "Maintain your boat\u2019s luster and protect against sun and water with premium marine wax. Applied after buffing or as an annual refresh, our gelcoat-safe wax shields against UV and water spots on painted or gelcoat areas prone to abrasion. Call us for more details.",
     },
     {
       h2: "Interior Boat Detailing",
-      body: "Vacuum and deep clean all seating, carpets, and upholstery. Vinyl and leather cleaning and conditioning. Mold and mildew treatment. Glass and mirror cleaning. Dashboard and control panel detailing.",
+      body: "Keep your boat\u2019s interior clean, fresh, and ready for adventure. We deep clean all seating, carpets, and upholstery, provide vinyl and leather conditioning, mold and mildew treatment, and glass, dash, and panel detailing. Call us for more details.",
     },
   ],
   /* System X Marine + SunTek PPF details with product images */
@@ -56,7 +62,7 @@ export const boatCeramicCoatingData: ServicePageData = {
     },
     {
       h2: "SunTek Reaction Paint Protection Film (PPF) for Boats",
-      body: "SunTek Reaction PPF offers a 12-year warranty against yellowing, cracking, and peeling\u2014even in harsh marine environments.",
+      body: "Add a virtually invisible, self-healing layer for scratch and impact protection. SunTek Reaction PPF offers a 12-year warranty against yellowing, cracking, and peeling\u2014even in harsh marine environments. Get the same world-class protection trusted by car enthusiasts, now for your boat.",
       image: "/images/gallery/boat-2.webp",
       imageAlt: "Boat protected with SunTek Reaction paint protection film",
       bullets: [
@@ -68,6 +74,28 @@ export const boatCeramicCoatingData: ServicePageData = {
       ],
     },
   ],
+  /* Second "Why Choose" block — WP repeats the same H2 text here, right before the Process section */
+  whyChoose: {
+    h2: "Why Choose Front Range Detail Studio?",
+    items: [
+      {
+        title: "Marine Detailing Specialists",
+        body: "Our experienced team understands the unique challenges boats face and uses only marine-grade products for superior protection.",
+      },
+      {
+        title: "Certified System X Installers",
+        body: "We are certified applicators of System X Marine Ceramic Coating, ensuring professional-grade results.",
+      },
+      {
+        title: "Attention to Detail",
+        body: "From hull to topside, we meticulously coat every surface for comprehensive protection.",
+      },
+      {
+        title: "Seasonal, Appointment-Only Service",
+        body: "We offer boat ceramic coating services by appointment during the boating season to ensure the highest quality care.",
+      },
+    ],
+  },
   stepsH2: "The Boat Ceramic Coating Process",
   steps: [
     {
