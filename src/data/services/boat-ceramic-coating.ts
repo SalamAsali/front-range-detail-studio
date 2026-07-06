@@ -4,11 +4,12 @@ export const boatCeramicCoatingData: ServicePageData = {
   heroImg: "/images/services/boat-2-1024x768.jpg",
   heroImgAlt: "Boat detailing, boat ceramic coating",
   eyebrow: "Professional detailing and System X Marine Ceramic Coating",
-  eyebrowBold: true,
+  heroVariant: "homepage",
   h1: "Boat Ceramic Coating & PPF",
   h1Line2: "in Denver, CO",
   h1Cities: "Ultimate Marine Protection",
   h1CitiesBold: true,
+  h1CitiesHiddenPrefix: "– ",
   introH2: "Shield your boat from Colorado\u2019s harsh elements with professional ceramic coating and paint protection film (PPF) services",
   introBody:
     "At Front Range Detail Studio, we specialize in applying System X Marine Ceramic Coatings and SunTek Reaction PPF\u2014offering unparalleled defense against UV rays, oxidation, scratches, and water damage.",
@@ -38,7 +39,7 @@ export const boatCeramicCoatingData: ServicePageData = {
     },
     {
       h2: "Annual Boat Waxing",
-      body: "Maintain your boat\u2019s luster and protect against sun and water with premium marine wax. Applied after buffing or as an annual refresh, our gelcoat-safe wax shields against UV and water spots on painted or gelcoat areas prone to abrasion. Call us for more details.",
+      body: "Maintain your boat\u2019s luster and protect against sun and water with premium marine wax. Applied after buffing or as annual refresh. Shields gelcoat from UV and water spots on painted or gelcoat areas prone to abrasion. Call us for more details.",
     },
     {
       h2: "Interior Boat Detailing",

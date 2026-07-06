@@ -15,6 +15,30 @@ export interface ServicePageData {
   eyebrowBold?: boolean;
   h1: string;
   /**
+   * Opt-in: when "homepage", the hero's fonts/spacing match HomeHero.tsx
+   * (larger H1, homepage eyebrow sizing, Archivo-based subtitle, larger
+   * buttons) instead of the default ServicePage hero look. Only affects
+   * pages that set this — every other page's hero is unchanged.
+   */
+  heroVariant?: "homepage";
+  /**
+   * Only used when heroVariant is "homepage". Overrides the H1's font-size
+   * clamp() string for this page — needed because homepage's own size
+   * (up to 5.4rem) was tuned for "Front Range Detail Studio" and will wrap
+   * longer headlines. Default (when unset) is a size proven to fit
+   * "Boat Ceramic Coating & PPF" without wrapping: shorter headlines on
+   * future pages can override toward homepage's full clamp(2.6rem, 6vw,
+   * 5.4rem); longer ones may need to go smaller still.
+   */
+  heroH1FontSize?: string;
+  /**
+   * Only used when heroVariant is "homepage". Overrides the hero content
+   * column's max-width in px — same reasoning as heroH1FontSize above.
+   * Default (when unset) is 1080, wider than homepage's own 780 for the
+   * same wrapping reason.
+   */
+  heroContentMaxWidth?: number;
+  /**
    * Optional trailing portion of the H1 (e.g. the list of cities) that stays
    * inside the <h1> for SEO but is rendered on its own line as a smaller
    * subheader for visual balance. Kept in the H1 so crawlers/Ahrefs still read
@@ -23,6 +47,13 @@ export interface ServicePageData {
   h1Cities?: string;
   /** Opt-in bold weight for the h1Cities subtitle text (default stays 500). */
   h1CitiesBold?: boolean;
+  /**
+   * Optional text inserted into the H1's DOM/text content right before the
+   * visible h1Cities text, but visually hidden (e.g. the original "– " that
+   * separated the location from the tagline). Keeps the exact original H1
+   * text reconstructable for SEO/crawlers without showing on screen.
+   */
+  h1CitiesHiddenPrefix?: string;
   /**
    * Optional second bold line of the H1 (same size/weight as the first line,
    * separated by a literal line break) — e.g. a location line. Still inside
@@ -113,6 +144,13 @@ export function ServicePage({ data }: { data: ServicePageData }) {
   /* Check if any features/pricing/steps have images */
   const featuresHaveImages = d.features?.some((f) => f.image) ?? false;
   const pricingHasImages = d.pricing?.some((p) => p.image) ?? false;
+  const matchHomepage = d.heroVariant === "homepage";
+  const ctaBtnStyle: React.CSSProperties = matchHomepage
+    ? { ...heroCtaBtn, fontSize: 14, padding: "18px 36px", boxShadow: "0 10px 34px rgba(0,188,212,0.36)" }
+    : heroCtaBtn;
+  const ctaBtnOutlineStyle: React.CSSProperties = matchHomepage
+    ? { ...heroCtaBtnOutline, fontSize: 14, padding: "18px 36px" }
+    : heroCtaBtnOutline;
 
   return (
     <div style={{ background: "#000", fontFamily: "'Manrope', sans-serif" }}>
@@ -120,11 +158,14 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       <section
         style={{
           position: "relative",
-          minHeight: "clamp(420px, 72vh, 680px)",
+          minHeight: matchHomepage
+            ? "100vh"
+            : "clamp(420px, 72vh, 680px)",
           display: "flex",
-          alignItems: "flex-end",
+          alignItems: matchHomepage ? "center" : "flex-end",
           overflow: "hidden",
           marginTop: -82,
+          paddingTop: matchHomepage ? 82 : undefined,
         }}
       >
         <Image
@@ -139,8 +180,9 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           style={{
             position: "absolute",
             inset: 0,
-            background:
-              "linear-gradient(100deg, rgba(0,188,212,0.4) 0%, rgba(0,0,0,0.6) 58%, rgba(0,0,0,0.8) 100%)",
+            background: matchHomepage
+              ? "linear-gradient(100deg, rgba(0,188,212,0.42) 0%, rgba(0,0,0,0.62) 60%, rgba(0,0,0,0.78) 100%)"
+              : "linear-gradient(100deg, rgba(0,188,212,0.4) 0%, rgba(0,0,0,0.6) 58%, rgba(0,0,0,0.8) 100%)",
             zIndex: 1,
           }}
         />
@@ -148,8 +190,9 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           style={{
             position: "absolute",
             inset: 0,
-            background:
-              "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.15) 55%)",
+            background: matchHomepage
+              ? "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.1) 42%)"
+              : "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.15) 55%)",
             zIndex: 1,
           }}
         />
@@ -165,20 +208,22 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         >
           <div
             style={{
-              maxWidth: 1000,
+              maxWidth: matchHomepage ? (d.heroContentMaxWidth ?? 1080) : 1000,
               display: "flex",
               flexDirection: "column",
-              gap: 18,
+              gap: matchHomepage ? 26 : 18,
             }}
           >
             <span
               style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: 12,
-                fontWeight: d.eyebrowBold ? 700 : 400,
+                fontSize: matchHomepage ? "clamp(12px, 1.1vw, 14px)" : 12,
+                fontWeight: d.eyebrowBold ? 700 : matchHomepage ? 500 : 400,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 color: "#32EEFF",
+                lineHeight: matchHomepage ? 1.7 : undefined,
+                maxWidth: undefined,
               }}
             >
               {d.eyebrow}
@@ -198,10 +243,14 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 fontFamily: "'Archivo', sans-serif",
                 fontWeight: 800,
                 textTransform: "uppercase",
-                letterSpacing: "-0.4px",
-                fontSize: "clamp(2rem, 4.2vw, 3.6rem)",
-                lineHeight: 1.02,
-                textShadow: "0 3px 30px rgba(0,0,0,0.5)",
+                letterSpacing: matchHomepage ? "-0.5px" : "-0.4px",
+                fontSize: matchHomepage
+                  ? d.heroH1FontSize ?? "clamp(2.2rem, 4.6vw, 4rem)"
+                  : "clamp(2rem, 4.2vw, 3.6rem)",
+                lineHeight: matchHomepage ? 0.98 : 1.02,
+                textShadow: matchHomepage
+                  ? "0 4px 40px rgba(0,0,0,0.5)"
+                  : "0 3px 30px rgba(0,0,0,0.5)",
               }}
             >
               {d.h1}
@@ -221,16 +270,35 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       natural sentence for crawlers, even though the cities
                       render on their own line. */}
                   {" "}
+                  {d.h1CitiesHiddenPrefix && (
+                    <span
+                      style={{
+                        position: "absolute",
+                        width: 1,
+                        height: 1,
+                        padding: 0,
+                        margin: -1,
+                        overflow: "hidden",
+                        clip: "rect(0,0,0,0)",
+                        whiteSpace: "nowrap",
+                        border: 0,
+                      }}
+                    >
+                      {d.h1CitiesHiddenPrefix}
+                    </span>
+                  )}
                   <span
                     style={{
                       display: "block",
                       marginTop: 14,
-                      fontFamily: "'Manrope', sans-serif",
+                      fontFamily: matchHomepage ? "'Archivo', sans-serif" : "'Manrope', sans-serif",
                       fontWeight: d.h1CitiesBold ? 700 : 500,
                       textTransform: "none",
-                      letterSpacing: "0.01em",
-                      fontSize: "clamp(0.95rem, 1.7vw, 1.35rem)",
-                      lineHeight: 1.4,
+                      letterSpacing: matchHomepage ? "0.02em" : "0.01em",
+                      fontSize: matchHomepage
+                        ? "clamp(1rem, 2vw, 1.6rem)"
+                        : "clamp(0.95rem, 1.7vw, 1.35rem)",
+                      lineHeight: matchHomepage ? 1.5 : 1.4,
                       color: "rgba(255,255,255,0.8)",
                     }}
                   >
@@ -240,10 +308,10 @@ export function ServicePage({ data }: { data: ServicePageData }) {
               )}
             </h1>
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8 }}>
-              <Link href="/free-quote" style={heroCtaBtn}>
+              <Link href="/free-quote" style={ctaBtnStyle}>
                 Get A Free Quote
               </Link>
-              <a href="tel:+13035208023" style={heroCtaBtnOutline}>
+              <a href="tel:+13035208023" style={ctaBtnOutlineStyle}>
                 Call (303) 520-8023
               </a>
             </div>
