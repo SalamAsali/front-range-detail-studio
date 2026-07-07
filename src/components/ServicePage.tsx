@@ -73,6 +73,23 @@ export interface ServicePageData {
    */
   featuresImage?: string;
   featuresImageAlt?: string;
+  /**
+   * Centered-title section of bordered service boxes (image on top, eyebrow,
+   * H2 title, divider, CTA buttons, chevron bullet list, optional trailing
+   * paragraphs) — replicates the WordPress "Marine / Boat Ceramic Coating
+   * Services" 2-up card grid. Renders right after the features section.
+   */
+  serviceBoxes?: {
+    h2: string;
+    boxes: {
+      image: string;
+      imageAlt: string;
+      eyebrow: string;
+      title: string;
+      bullets: string[];
+      footer?: string[];
+    }[];
+  };
   includedH2?: string;
   included?: string[];
   stepsH2?: string;
@@ -728,6 +745,142 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 ))}
               </div>
             )}
+          </div>
+        </section>
+      )}
+
+      {/* SERVICE BOXES — centered title + 2-up bordered cards (WP parity) */}
+      {d.serviceBoxes && (
+        <section style={{ background: "#000", padding: `${sectionPad} 0` }}>
+          <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+            <ScrollReveal>
+              <div style={{ textAlign: "center", marginBottom: 42 }}>
+                <h2
+                  style={{
+                    ...archivoBold,
+                    margin: 0,
+                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    lineHeight: 1.12,
+                  }}
+                >
+                  {d.serviceBoxes.h2}
+                </h2>
+                <hr
+                  style={{
+                    width: 96,
+                    height: 2,
+                    background: CYAN,
+                    border: "none",
+                    margin: "20px auto 0",
+                  }}
+                />
+              </div>
+            </ScrollReveal>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 270px), 1fr))",
+                gap: 18,
+              }}
+            >
+              {d.serviceBoxes.boxes.map((box, i) => (
+                <ScrollReveal key={i}>
+                  <div
+                    style={{
+                      border: "1px solid rgba(255,255,255,0.16)",
+                      borderRadius: 4,
+                      overflow: "hidden",
+                      background: "#111",
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <div style={{ position: "relative", aspectRatio: "4/3" }}>
+                      <Image
+                        src={box.image}
+                        alt={box.imageAlt}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        sizes="(max-width:768px) 100vw, 50vw"
+                      />
+                    </div>
+                    <div style={{ padding: "clamp(16px, 1.6vw, 22px)", display: "flex", flexDirection: "column", gap: 12, flexGrow: 1 }}>
+                      <span
+                        style={{
+                          fontFamily: "'Inter', sans-serif",
+                          fontSize: 12,
+                          letterSpacing: "0.1em",
+                          textTransform: "uppercase",
+                          lineHeight: 1.5,
+                          color: "rgba(255,255,255,0.7)",
+                        }}
+                      >
+                        {box.eyebrow}
+                      </span>
+                      <h2
+                        style={{
+                          ...archivoBold,
+                          margin: 0,
+                          fontSize: "clamp(1.05rem, 1.3vw, 1.25rem)",
+                          lineHeight: 1.15,
+                        }}
+                      >
+                        {box.title}
+                      </h2>
+                      <hr
+                        style={{
+                          width: 96,
+                          height: 2,
+                          background: CYAN,
+                          border: "none",
+                          margin: 0,
+                        }}
+                      />
+                      <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
+                        {box.bullets.map((b, j) => (
+                          <li key={j} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                            <svg
+                              viewBox="0 0 24 24"
+                              width={20}
+                              height={20}
+                              aria-hidden="true"
+                              style={{ flexShrink: 0, marginTop: 2, fill: CYAN }}
+                            >
+                              <path d="M10.6 6L9.4 7l4.6 5-4.6 5 1.2 1 5.4-6z" />
+                            </svg>
+                            <span style={{ ...manropeBody, fontSize: "15px", lineHeight: 1.55 }}>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      {box.footer?.map((f, j) => (
+                        <p key={j} style={{ ...manropeBody, fontSize: "15px", lineHeight: 1.55 }}>
+                          {f}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+            <ScrollReveal>
+              <div
+                style={{
+                  display: "flex",
+                  gap: 16,
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  marginTop: 42,
+                }}
+              >
+                <Link href="/free-quote" style={heroCtaBtn}>
+                  Get A Free Quote
+                </Link>
+                <a href="tel:+13035208023" style={heroCtaBtnOutline}>
+                  Call (303) 520-8023
+                </a>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
       )}

@@ -31,50 +31,68 @@ export const boatCeramicCoatingData: ServicePageData = {
       body: "We customize every package to your vessel and boating lifestyle, ensuring the best protection and gloss.",
     },
   ],
-  /* Marine / Boat Ceramic Coating Services section + Annual Boat Waxing + Interior Boat Detailing */
-  additionalSections: [
-    {
-      h2: "Marine / Boat Ceramic Coating Services",
-      body: "Our full suite of marine ceramic coating services covers everything from hull-only applications to complete interior and exterior protection packages. We use System X Marine Ceramic Coatings exclusively, ensuring professional-grade results backed by manufacturer warranties.",
-    },
-    {
-      h2: "Annual Boat Waxing",
-      body: "Maintain your boat\u2019s luster and protect against sun and water with premium marine wax. Applied after buffing or as annual refresh. Shields gelcoat from UV and water spots on painted or gelcoat areas prone to abrasion. Call us for more details.",
-    },
-    {
-      h2: "Interior Boat Detailing",
-      body: "Keep your boat\u2019s interior clean, fresh, and ready for adventure. We deep clean all seating, carpets, and upholstery, provide vinyl and leather conditioning, mold and mildew treatment, and glass, dash, and panel detailing. Call us for more details.",
-    },
-  ],
-  /* System X Marine + SunTek PPF details with product images */
-  contentBlocks: [
-    {
-      h2: "System X Marine Ceramic Coating",
-      body: "Protect your boat with the industry\u2019s leading marine ceramic.",
-      image: "/images/gallery/System-X-Max-G-819x1024.webp",
-      imageAlt: "System X MAX G+ product",
-      bullets: [
-        "Hull-Only Coating: Defends against oxidation, algae stains, and waterline buildup",
-        "Full Exterior Coating: Maximum hydrophobic protection for hull, deck, topside, and stainless steel",
-        "Ultimate Marine Protection Package: Add interior surface coating for vinyl, plastic, and more",
-        "3-Year Manufacturer Warranty on new boats (annual top coat required for warranty)",
-        "Call us for more details",
-      ],
-    },
-    {
-      h2: "SunTek Reaction Paint Protection Film (PPF) for Boats",
-      body: "Add a virtually invisible, self-healing layer for scratch and impact protection. SunTek Reaction PPF offers a 12-year warranty against yellowing, cracking, and peeling\u2014even in harsh marine environments. Get the same world-class protection trusted by car enthusiasts, now for your boat.",
-      image: "/images/gallery/boat-2.webp",
-      imageAlt: "Boat protected with SunTek Reaction paint protection film",
-      bullets: [
-        "Hull leading edges (defend against trailer & dock rash)",
-        "High-wear swim platforms",
-        "Boarding steps and grab rails",
-        "Painted or gelcoat areas prone to abrasion",
-        "Stainless and aluminum surfaces (optional)",
-      ],
-    },
-  ],
+  /* "Marine / Boat Ceramic Coating Services" \u2014 centered title + 4 bordered
+     service boxes, matching the WordPress layout and content verbatim */
+  serviceBoxes: {
+    h2: "Marine / Boat Ceramic Coating Services",
+    boxes: [
+      {
+        image: "/images/gallery/boat-2.webp",
+        imageAlt: "Boat detailing, boat ceramic coating",
+        eyebrow: "Protect your boat with the industry\u2019s leading marine ceramic",
+        title: "System X Marine Ceramic Coating",
+        bullets: [
+          "Hull-Only Coating: Defends against oxidation, algae stains, and waterline buildup",
+          "Full Exterior Coating: Maximum hydrophobic protection for hull, deck, topside, and stainless steel",
+          "Ultimate Marine Protection Package: Add interior surface coating for vinyl, plastic, and more",
+          "3-Year Manufacturer Warranty on new boats (annual top coat required for warranty)",
+          "Call us for more details",
+        ],
+      },
+      {
+        image: "/images/gallery/boat.webp",
+        imageAlt: "Boat detailing, boat ceramic coating",
+        eyebrow: "Add a virtually invisible, self-healing layer for scratch and impact protection",
+        title: "SunTek Reaction Paint Protection Film (PPF) for Boats",
+        bullets: [
+          "Hull leading edges (defend against trailer & dock rash)",
+          "High-wear swim platforms",
+          "Boarding steps and grab rails",
+          "Painted or gelcoat areas prone to abrasion",
+          "Stainless and aluminum surfaces (optional)",
+        ],
+        footer: [
+          "SunTek Reaction PPF offers a 12-year warranty against yellowing, cracking, and peeling\u2014even in harsh marine environments",
+          "Get the same world-class protection trusted by car enthusiasts, now for your boat",
+        ],
+      },
+      {
+        image: "/images/services/boat-1.jpg",
+        imageAlt: "Boat detailing, boat ceramic coating",
+        eyebrow: "Maintain your boat\u2019s luster and protect against sun and water with premium marine wax",
+        title: "Annual Boat Waxing",
+        bullets: [
+          "Applied after buffing or as annual refresh",
+          "Shields gelcoat from UV and water spots",
+          "Painted or gelcoat areas prone to abrasion",
+          "Call us for more details",
+        ],
+      },
+      {
+        image: "/images/services/boat-detailing.jpg",
+        imageAlt: "Boat detailing Denver",
+        eyebrow: "Keep your boat\u2019s interior clean, fresh, and ready for adventure",
+        title: "Interior Boat Detailing",
+        bullets: [
+          "Deep clean all seating, carpets, and upholstery",
+          "Vinyl and leather conditioning",
+          "Mold and mildew treatment",
+          "Glass, dash, and panel detailing",
+          "Call us for more details",
+        ],
+      },
+    ],
+  },
   /* Second "Why Choose" block — WP repeats the same H2 text here, right before the Process section */
   whyChoose: {
     h2: "Why Choose Front Range Detail Studio?",
