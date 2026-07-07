@@ -1,4 +1,5 @@
 import type { ServicePageData } from "@/components/ServicePage";
+import { videos } from "@/data/videos";
 
 export const boatCeramicCoatingData: ServicePageData = {
   heroImg: "/images/services/boat-2-1024x768.jpg",
@@ -142,6 +143,19 @@ export const boatCeramicCoatingData: ServicePageData = {
           },
         ],
       },
+    ],
+  },
+  /* "Denver's Most Trusted Vehicle Aesthetic Experts" — exact same 3x2
+     services grid as the homepage (same cards, images, and hover videos) */
+  servicesGrid: {
+    h2: "Denver's Most Trusted Vehicle Aesthetic Experts",
+    cards: [
+      { title: "Paint Protection Film & Clear Bra", subtitle: "10 Year Warranty", image: "/images/services/new-ppf-scaled.jpg", href: "/paint-protection-film-ppf", videoSrc: videos.services.ppf },
+      { title: "Window Tinting", subtitle: "Lifetime Warranty", image: "/images/services/new-tint.jpg", href: "/window-tint", videoSrc: videos.services.tint },
+      { title: "Ceramic Coating", subtitle: "Lifetime Warranty", image: "/images/services/car-ceramic-1.jpg", href: "/ceramic-coating", videoSrc: videos.services.ceramic },
+      { title: "Paint Correction", subtitle: "Multi-Stage Polish", image: "/images/services/paint-correction-new.jpg", href: "/auto-detailing", videoSrc: videos.services.correction },
+      { title: "Vinyl Wrap & Decals", subtitle: "200+ Finishes", image: "/images/services/vinylwraps-1920w.webp", href: "/vinyl-wraps", videoSrc: videos.services.wrap },
+      { title: "RV & Boat Services", subtitle: "RV · Boat · Marine", image: "/images/hero/coach-scaled.jpg", href: "/rv-detailing", videoSrc: videos.services.rv },
     ],
   },
   gallery: [

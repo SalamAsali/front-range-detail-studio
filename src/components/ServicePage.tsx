@@ -6,6 +6,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { PartnersStrip } from "@/components/PartnersStrip";
 import { DenverCTA } from "@/components/DenverCTA";
+import { ServiceCard } from "@/components/ServiceCard";
 
 export interface ServicePageData {
   heroImg: string;
@@ -104,6 +105,16 @@ export interface ServicePageData {
       h2: string;
       items: { title: string; body: string }[];
     }[];
+  };
+  /**
+   * Reuses the homepage's "Denver's Most Trusted Vehicle Aesthetic Experts"
+   * services grid (same H2/divider treatment, same ServiceCard component
+   * with hover-video behavior) on a service page. Renders right after
+   * imageTextSection.
+   */
+  servicesGrid?: {
+    h2: string;
+    cards: { title: string; subtitle?: string; image: string; href: string; videoSrc?: string }[];
   };
   includedH2?: string;
   included?: string[];
@@ -966,6 +977,45 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 </div>
               </div>
             </ScrollReveal>
+          </div>
+        </section>
+      )}
+
+      {/* SERVICES GRID (reused verbatim from the homepage) */}
+      {d.servicesGrid && (
+        <section style={{ background: "#0d0d0d", padding: "clamp(64px, 8vw, 110px) 0" }}>
+          <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+            <ScrollReveal>
+              <div style={{ maxWidth: 820, marginBottom: 48 }}>
+                <h2
+                  style={{
+                    margin: 0,
+                    fontFamily: "var(--font-heading)",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "-0.3px",
+                    fontSize: "clamp(1.9rem, 3vw, 2.8rem)",
+                    lineHeight: 1.08,
+                  }}
+                >
+                  {d.servicesGrid.h2}
+                </h2>
+                <hr style={{ width: 96, height: 2, background: CYAN, border: "none", margin: "22px 0 0" }} />
+              </div>
+            </ScrollReveal>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                gap: 22,
+              }}
+            >
+              {d.servicesGrid.cards.map((card) => (
+                <ScrollReveal key={card.href}>
+                  <ServiceCard {...card} />
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
         </section>
       )}
