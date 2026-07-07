@@ -93,51 +93,57 @@ export const boatCeramicCoatingData: ServicePageData = {
       },
     ],
   },
-  /* Second "Why Choose" block — WP repeats the same H2 text here, right before the Process section */
-  whyChoose: {
-    h2: "Why Choose Front Range Detail Studio?",
-    items: [
+  /* "Why Choose" (2nd) + "Process" combined into one image-left/text-right
+     block, matching the WordPress layout exactly — replaces the old
+     separate whyChoose grid and numbered-steps sections for this page */
+  imageTextSection: {
+    image: "/images/services/boat-detailing.jpg",
+    imageAlt: "Boat detailing Denver",
+    groups: [
       {
-        title: "Marine Detailing Specialists",
-        body: "Our experienced team understands the unique challenges boats face and uses only marine-grade products for superior protection.",
+        h2: "Why Choose Front Range Detail Studio?",
+        items: [
+          {
+            title: "Marine Detailing Specialists",
+            body: "Our experienced team understands the unique challenges boats face and uses only marine-grade products for superior protection.",
+          },
+          {
+            title: "Certified System X Installers",
+            body: "We are certified applicators of System X Marine Ceramic Coating, ensuring professional-grade results.",
+          },
+          {
+            title: "Attention to Detail",
+            body: "From hull to topside, we meticulously coat every surface for comprehensive protection.",
+          },
+          {
+            title: "Seasonal, Appointment-Only Service",
+            body: "We offer boat ceramic coating services by appointment during the boating season to ensure the highest quality care.",
+          },
+        ],
       },
       {
-        title: "Certified System X Installers",
-        body: "We are certified applicators of System X Marine Ceramic Coating, ensuring professional-grade results.",
-      },
-      {
-        title: "Attention to Detail",
-        body: "From hull to topside, we meticulously coat every surface for comprehensive protection.",
-      },
-      {
-        title: "Seasonal, Appointment-Only Service",
-        body: "We offer boat ceramic coating services by appointment during the boating season to ensure the highest quality care.",
+        h2: "The Boat Ceramic Coating Process",
+        items: [
+          {
+            title: "Thorough Hand Wash & Decontamination",
+            body: "We begin with a deep cleaning to remove algae, grime, and contaminants from the boat’s surface.",
+          },
+          {
+            title: "Oxidation Removal & Gelcoat Correction",
+            body: "Any oxidation, scratches, or imperfections are corrected to ensure a flawless base before coating.",
+          },
+          {
+            title: "Ceramic Coating Application",
+            body: "System X Marine Ceramic Coating is carefully applied to all designated surfaces, creating a hydrophobic, UV-resistant barrier.",
+          },
+          {
+            title: "Curing & Inspection",
+            body: "The coating is allowed to cure, followed by a detailed inspection to ensure complete coverage and a perfect finish.",
+          },
+        ],
       },
     ],
   },
-  stepsH2: "The Boat Ceramic Coating Process",
-  steps: [
-    {
-      title: "Thorough Hand Wash & Decontamination",
-      body: "We begin with a deep cleaning to remove algae, grime, and contaminants from the boat\u2019s surface.",
-      image: "/images/gallery/boat.webp",
-    },
-    {
-      title: "Oxidation Removal & Gelcoat Correction",
-      body: "Any oxidation, scratches, or imperfections are corrected to ensure a flawless base before coating.",
-      image: "/images/gallery/boat-2.webp",
-    },
-    {
-      title: "Ceramic Coating Application",
-      body: "System X Marine Ceramic Coating is carefully applied to all designated surfaces, creating a hydrophobic, UV-resistant barrier.",
-      image: "/images/services/boat-detailing.jpg",
-    },
-    {
-      title: "Curing & Inspection",
-      body: "The coating is allowed to cure, followed by a detailed inspection to ensure complete coverage and a perfect finish.",
-      image: "/images/gallery/boat.webp",
-    },
-  ],
   gallery: [
     { src: "/images/services/boat-2-1024x768.jpg", alt: "Boat detailing, boat ceramic coating" },
     { src: "/images/gallery/System-X-Max-G-819x1024.webp", alt: "System X MAX G+ product" },

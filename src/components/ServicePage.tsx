@@ -90,6 +90,21 @@ export interface ServicePageData {
       footer?: string[];
     }[];
   };
+  /**
+   * Large image on one side, one or more stacked heading+list groups on the
+   * other (each group: H2, divider, "Title: body" items), with CTA buttons
+   * at the bottom of the text column — replicates the WordPress pattern
+   * used for combined "Why Choose" + "Process" sections. Renders right
+   * after serviceBoxes.
+   */
+  imageTextSection?: {
+    image: string;
+    imageAlt: string;
+    groups: {
+      h2: string;
+      items: { title: string; body: string }[];
+    }[];
+  };
   includedH2?: string;
   included?: string[];
   stepsH2?: string;
@@ -879,6 +894,76 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 <a href="tel:+13035208023" style={heroCtaBtnOutline}>
                   Call (303) 520-8023
                 </a>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
+      {/* IMAGE + TEXT SECTION — large image one side, stacked heading/list groups + CTA the other */}
+      {d.imageTextSection && (
+        <section style={{ background: "#0d0d0d", padding: `${sectionPad} 0` }}>
+          <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+            <ScrollReveal>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                  gap: "clamp(28px, 4vw, 56px)",
+                  alignItems: "stretch",
+                }}
+              >
+                <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
+                  <Image
+                    src={d.imageTextSection.image}
+                    alt={d.imageTextSection.imageAlt}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="(max-width:768px) 100vw, 50vw"
+                  />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+                  {d.imageTextSection.groups.map((group, gi) => (
+                    <div key={gi}>
+                      <h2
+                        style={{
+                          ...archivoBold,
+                          margin: 0,
+                          fontSize: "clamp(1.4rem, 2vw, 1.8rem)",
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {group.h2}
+                      </h2>
+                      <hr
+                        style={{
+                          width: 96,
+                          height: 2,
+                          background: CYAN,
+                          border: "none",
+                          margin: "12px 0 20px",
+                        }}
+                      />
+                      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                        {group.items.map((item, ii) => (
+                          <p key={ii} style={manropeBody}>
+                            <strong style={{ color: "#fff", fontWeight: 700 }}>{item.title}:</strong>
+                            <br />
+                            {item.body}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                  <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8 }}>
+                    <Link href="/free-quote" style={heroCtaBtn}>
+                      Get A Free Quote
+                    </Link>
+                    <a href="tel:+13035208023" style={heroCtaBtnOutline}>
+                      Call (303) 520-8023
+                    </a>
+                  </div>
+                </div>
               </div>
             </ScrollReveal>
           </div>
