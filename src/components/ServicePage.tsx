@@ -162,6 +162,18 @@ export interface ServicePageData {
   whyChoose?: { h2: string; items: { title: string; body: string }[] };
   crossSell2?: { title: string; body: string; href: string; label: string };
   additionalSections?: { h2: string; body: string; items?: { title: string; body: string }[] }[];
+  /**
+   * Opt-out: when true, hides the standard Reviews section (unlike most
+   * fields above, Reviews normally renders unconditionally). Default
+   * (unset) keeps every other page's Reviews section unchanged.
+   */
+  hideReviews?: boolean;
+  /**
+   * Opt-out: when true, hides the standard "Send A Quick Quote Form"
+   * section (unlike most fields above, it normally renders
+   * unconditionally). Default (unset) keeps every other page unchanged.
+   */
+  hideQuoteForm?: boolean;
   contentBlocks?: { h2: string; body: string; image: string; imageAlt: string; bullets?: string[] }[];
 }
 
@@ -2193,6 +2205,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       {d.denverCtaPosition !== "afterServicesGrid" && <DenverCTA {...d.denverCta} />}
 
       {/* REVIEWS */}
+      {!d.hideReviews && (
       <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>
         <div
           style={{
@@ -2241,8 +2254,10 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           <ReviewCarousel />
         </div>
       </section>
+      )}
 
       {/* CTA / QUOTE */}
+      {!d.hideQuoteForm && (
       <section
         id="quote"
         style={{
@@ -2391,6 +2406,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           </div>
         </div>
       </section>
+      )}
     </div>
   );
 }

@@ -160,28 +160,12 @@ export const boatCeramicCoatingData: ServicePageData = {
   },
   denverCtaPosition: "afterServicesGrid",
   partnersStripPosition: "afterServicesGrid",
-  gallery: [
-    { src: "/images/services/boat-2-1024x768.jpg", alt: "Boat detailing, boat ceramic coating" },
-    { src: "/images/gallery/System-X-Max-G-819x1024.webp", alt: "System X MAX G+ product" },
-    { src: "/images/gallery/boat-2.webp", alt: "Boat ceramic coating Denver" },
-    { src: "/images/gallery/boat.webp", alt: "Boat detailing Denver" },
-    { src: "/images/services/boat-1.jpg", alt: "Boat detailing and ceramic coating" },
-    { src: "/images/services/boat-detailing.jpg", alt: "Boat detailing Denver" },
-  ],
-  faqs: [
-    {
-      q: "How long does marine ceramic coating last?",
-      a: "System X Marine coatings carry a 3-year warranty on new boats with annual top coat maintenance required to maintain coverage.",
-    },
-    {
-      q: "Can you apply PPF to a boat?",
-      a: "Yes \u2014 SunTek Reaction PPF protects hull leading edges, swim platforms, boarding steps and any high-wear gelcoat or painted areas.",
-    },
-    {
-      q: "Do you offer seasonal boat services?",
-      a: "Yes, boat ceramic coating and detailing services are available by appointment during the boating season.",
-    },
-  ],
+  /* The WordPress boat-ceramic-coating page ends with "Our Partners –
+     Trusted Brands" and goes straight to the sitewide footer — no gallery,
+     FAQ, cross-sell, reviews, or quote-form section exists there, so those
+     standard ServicePage sections are removed/hidden for this page only. */
+  hideReviews: true,
+  hideQuoteForm: true,
   /* "Denver's 1st Choice in Paint Protection Film and Clear Bra" —
      page-specific override of the shared DenverCTA section, matching the
      WordPress boat-ceramic-coating page's body copy, added H3 blurb, and
@@ -203,9 +187,4 @@ export const boatCeramicCoatingData: ServicePageData = {
       },
     ],
   },
-  crossTitle: "Need Boat Detailing Too?",
-  crossBody:
-    "Pair ceramic coating with our full boat detailing services for complete protection inside and out.",
-  crossHref: "/boat-detailing",
-  crossLabel: "Explore Detailing",
 };
