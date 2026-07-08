@@ -14,12 +14,19 @@ export function PartnerLogo({ src, alt }: { src: string; alt: string }) {
         width: "auto",
         maxWidth: 160,
         objectFit: "contain",
-        filter: "brightness(0) invert(1)",
-        opacity: 0.55,
-        transition: "opacity .25s ease",
+        opacity: 0.9,
+        transition: "opacity .25s ease, transform .25s ease",
       }}
-      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = "1"; }}
-      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = "0.55"; }}
+      onMouseEnter={(e) => {
+        const el = e.currentTarget as HTMLElement;
+        el.style.opacity = "1";
+        el.style.transform = "scale(1.05)";
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget as HTMLElement;
+        el.style.opacity = "0.9";
+        el.style.transform = "scale(1)";
+      }}
     />
   );
 }

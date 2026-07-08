@@ -135,6 +135,14 @@ export interface ServicePageData {
    * always been, so every other page is unaffected.
    */
   denverCtaPosition?: "afterServicesGrid";
+  /**
+   * Opt-in: when "afterServicesGrid", the PartnersStrip section renders
+   * immediately after DenverCTA (which must also be positioned there)
+   * instead of its default position near the bottom of the page. Unset
+   * (default) keeps PartnersStrip where it's always been, so every other
+   * page is unaffected.
+   */
+  partnersStripPosition?: "afterServicesGrid";
   includedH2?: string;
   included?: string[];
   stepsH2?: string;
@@ -1040,6 +1048,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       )}
 
       {d.denverCtaPosition === "afterServicesGrid" && <DenverCTA {...d.denverCta} />}
+      {d.partnersStripPosition === "afterServicesGrid" && <PartnersStrip />}
 
       {/* INCLUDED CHECKLIST */}
       {d.included && d.included.length > 0 && (
@@ -2178,7 +2187,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       )}
 
       {/* PARTNERS */}
-      <PartnersStrip />
+      {d.partnersStripPosition !== "afterServicesGrid" && <PartnersStrip />}
 
       {/* DENVER CTA */}
       {d.denverCtaPosition !== "afterServicesGrid" && <DenverCTA {...d.denverCta} />}

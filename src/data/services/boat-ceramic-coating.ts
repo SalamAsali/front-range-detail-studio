@@ -159,6 +159,7 @@ export const boatCeramicCoatingData: ServicePageData = {
     ],
   },
   denverCtaPosition: "afterServicesGrid",
+  partnersStripPosition: "afterServicesGrid",
   gallery: [
     { src: "/images/services/boat-2-1024x768.jpg", alt: "Boat detailing, boat ceramic coating" },
     { src: "/images/gallery/System-X-Max-G-819x1024.webp", alt: "System X MAX G+ product" },
