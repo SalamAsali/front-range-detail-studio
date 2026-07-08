@@ -158,6 +158,7 @@ export const boatCeramicCoatingData: ServicePageData = {
       { title: "RV & Boat Services", subtitle: "RV · Boat · Marine", image: "/images/hero/coach-scaled.jpg", href: "/rv-detailing", videoSrc: videos.services.rv },
     ],
   },
+  denverCtaPosition: "afterServicesGrid",
   gallery: [
     { src: "/images/services/boat-2-1024x768.jpg", alt: "Boat detailing, boat ceramic coating" },
     { src: "/images/gallery/System-X-Max-G-819x1024.webp", alt: "System X MAX G+ product" },
@@ -180,6 +181,27 @@ export const boatCeramicCoatingData: ServicePageData = {
       a: "Yes, boat ceramic coating and detailing services are available by appointment during the boating season.",
     },
   ],
+  /* "Denver's 1st Choice in Paint Protection Film and Clear Bra" —
+     page-specific override of the shared DenverCTA section, matching the
+     WordPress boat-ceramic-coating page's body copy, added H3 blurb, and
+     6-image gallery verbatim */
+  denverCta: {
+    body: "Preserve the pristine condition of your vehicle with our high-quality Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an invisible shield, guarding your car’s paint against scratches, stone chips, and road debris. With self-healing technology and a ceramic coating layer applied over the film, our PPF service is the clear choice to protect your investment in South Denver, Colorado",
+    h3: "Detailing Services in Denver, Colorado and All Surrounding Cities",
+    h3Body:
+      "Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, our team of detail specialists are equipped and experienced to handle all detailing needs anywhere in Metro Denver.",
+    images: [
+      { src: "/images/gallery/Audi-car-detailing.webp", alt: "Corvette car detailing and ceramic coating" },
+      { src: "/images/gallery/boat-1.webp", alt: "Boat detailing, boat ceramic coating" },
+      { src: "/images/gallery/audi-interior-detailing-1024x768.jpg", alt: "Audi interior detailing" },
+      { src: "/images/gallery/audi-1-1024x1024.jpg", alt: "Audi Quattro detailing Denver" },
+      { src: "/images/gallery/mercedes-benz-maybach-1024x768.jpg", alt: "Mercedes Benz detailing Denver" },
+      {
+        src: "/images/gallery/Rivian-ceramic-coatin-vertical-pic.webp",
+        alt: "Rivian car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
+      },
+    ],
+  },
   crossTitle: "Need Boat Detailing Too?",
   crossBody:
     "Pair ceramic coating with our full boat detailing services for complete protection inside and out.",

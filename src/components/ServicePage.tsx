@@ -116,6 +116,25 @@ export interface ServicePageData {
     h2: string;
     cards: { title: string; subtitle?: string; image: string; href: string; videoSrc?: string }[];
   };
+  /**
+   * Optional page-specific override for the shared DenverCTA section
+   * (body copy, an extra h3+paragraph, and/or the 6-image gallery).
+   * Unset fields fall back to DenverCTA's own generic defaults, so pages
+   * that don't set this render exactly as before.
+   */
+  denverCta?: {
+    body?: string;
+    h3?: string;
+    h3Body?: string;
+    images?: { src: string; alt: string }[];
+  };
+  /**
+   * Opt-in: when "afterServicesGrid", the DenverCTA section renders
+   * immediately after servicesGrid instead of its default position near
+   * the bottom of the page. Unset (default) keeps DenverCTA where it's
+   * always been, so every other page is unaffected.
+   */
+  denverCtaPosition?: "afterServicesGrid";
   includedH2?: string;
   included?: string[];
   stepsH2?: string;
@@ -1019,6 +1038,8 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           </div>
         </section>
       )}
+
+      {d.denverCtaPosition === "afterServicesGrid" && <DenverCTA {...d.denverCta} />}
 
       {/* INCLUDED CHECKLIST */}
       {d.included && d.included.length > 0 && (
@@ -2160,7 +2181,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       <PartnersStrip />
 
       {/* DENVER CTA */}
-      <DenverCTA />
+      {d.denverCtaPosition !== "afterServicesGrid" && <DenverCTA {...d.denverCta} />}
 
       {/* REVIEWS */}
       <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>

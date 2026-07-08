@@ -11,7 +11,23 @@ const galleryImages = [
   { src: "/images/hero/coach-scaled.jpg", alt: "rv detailing denver" },
 ];
 
-export function DenverCTA() {
+interface DenverCTAProps {
+  /** Overrides the default PPF paragraph body. */
+  body?: string;
+  /** Optional second heading (e.g. a page-specific "Detailing Services..." blurb), rendered between the body paragraph and the CTA buttons. */
+  h3?: string;
+  /** Body paragraph for the optional h3. */
+  h3Body?: string;
+  /** Overrides the default 6-image gallery on the right. */
+  images?: { src: string; alt: string }[];
+}
+
+export function DenverCTA({ body, h3, h3Body, images }: DenverCTAProps = {}) {
+  const bodyText =
+    body ??
+    "Preserve the pristine condition of your vehicle with our high-quality Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an invisible shield, guarding your car's paint against scratches, stone chips, and road debris. With advanced self-healing technology and ceramic coating, your vehicle stays looking brand new. Protect your investment with our expert application.";
+  const galleryImgs = images ?? galleryImages;
+
   return (
     <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
       <div
@@ -19,10 +35,14 @@ export function DenverCTA() {
           maxWidth: 1280,
           margin: "0 auto",
           padding: "0 clamp(20px, 5vw, 56px)",
+          display: "grid",
+          gridTemplateColumns: "minmax(280px, 1.7fr) minmax(260px, 1fr)",
+          gap: "clamp(24px, 3vw, 48px)",
+          alignItems: "center",
         }}
       >
         <ScrollReveal>
-          <div style={{ maxWidth: 880, marginBottom: 32 }}>
+          <div>
             <h2
               style={{
                 margin: 0,
@@ -30,8 +50,8 @@ export function DenverCTA() {
                 fontWeight: 700,
                 textTransform: "uppercase",
                 letterSpacing: "-0.3px",
-                fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
-                lineHeight: 1.12,
+                fontSize: "clamp(1.35rem, 1.9vw, 1.8rem)",
+                lineHeight: 1.15,
               }}
             >
               Denver&apos;s 1st Choice in Paint Protection Film and Clear Bra
@@ -50,13 +70,42 @@ export function DenverCTA() {
                 margin: 0,
                 fontFamily: "'Manrope', sans-serif",
                 fontWeight: 300,
-                fontSize: "clamp(1.05rem, 1.3vw, 1.2rem)",
-                lineHeight: 1.7,
+                fontSize: "clamp(0.9rem, 1vw, 1rem)",
+                lineHeight: 1.65,
                 color: "rgba(255,255,255,0.82)",
               }}
             >
-              Preserve the pristine condition of your vehicle with our high-quality Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an invisible shield, guarding your car&apos;s paint against scratches, stone chips, and road debris. With advanced self-healing technology and ceramic coating, your vehicle stays looking brand new. Protect your investment with our expert application.
+              {bodyText}
             </p>
+            {h3 && (
+              <h3
+                style={{
+                  margin: "22px 0 0",
+                  fontFamily: "'Archivo', sans-serif",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "-0.3px",
+                  fontSize: "clamp(1.1rem, 1.5vw, 1.4rem)",
+                  lineHeight: 1.2,
+                }}
+              >
+                {h3}
+              </h3>
+            )}
+            {h3Body && (
+              <p
+                style={{
+                  margin: "14px 0 0",
+                  fontFamily: "'Manrope', sans-serif",
+                  fontWeight: 300,
+                  fontSize: "clamp(0.9rem, 1vw, 1rem)",
+                  lineHeight: 1.65,
+                  color: "rgba(255,255,255,0.82)",
+                }}
+              >
+                {h3Body}
+              </p>
+            )}
             <div style={{ marginTop: 24 }}>
               <Link
                 href="/free-quote"
@@ -96,12 +145,13 @@ export function DenverCTA() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-              gap: 14,
-              marginTop: 20,
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: 10,
+              maxWidth: 420,
+              marginLeft: "auto",
             }}
           >
-            {galleryImages.map((img) => (
+            {galleryImgs.map((img) => (
               <div
                 key={img.src}
                 style={{
@@ -117,7 +167,7 @@ export function DenverCTA() {
                   src={img.src}
                   alt={img.alt}
                   fill
-                  sizes="(max-width: 768px) 50vw, 16vw"
+                  sizes="(max-width: 768px) 33vw, 12vw"
                   loading="lazy"
                   style={{ objectFit: "cover" }}
                 />
