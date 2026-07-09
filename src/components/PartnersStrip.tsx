@@ -37,20 +37,9 @@ export function PartnersStrip() {
               alignItems: "center",
             }}
           >
-            <span
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: 12,
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-                color: "#00BCD4",
-              }}
-            >
-              Trusted Brands
-            </span>
             <h2
               style={{
-                margin: "12px 0 0",
+                margin: 0,
                 fontFamily: "var(--font-heading)",
                 fontWeight: 700,
                 textTransform: "uppercase",
