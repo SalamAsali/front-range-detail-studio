@@ -66,7 +66,14 @@ export interface ServicePageData {
   videos?: { label: string; src: string; poster?: string }[];
   featuresEyebrow?: string;
   featuresH2?: string;
-  features?: { title: string; body: string; image?: string }[];
+  /** Optional paragraph rendered between the divider and the bullet list
+   * (featuresImage layout only) — for WordPress content that opens with
+   * intro prose before the list. */
+  featuresIntro?: string;
+  /** Optional small bold heading rendered between featuresIntro and the
+   * bullet list (featuresImage layout only). */
+  featuresListHeading?: string;
+  features?: { title?: string; body: string; image?: string }[];
   /**
    * Optional single shared image for the whole features block, rendered
    * beside the eyebrow/heading/list instead of per-item cards. When set,
@@ -81,7 +88,9 @@ export interface ServicePageData {
    * Services" 2-up card grid. Renders right after the features section.
    */
   serviceBoxes?: {
-    h2: string;
+    /** Optional centered title above the grid. Omit when the page's own
+     * intro section (e.g. introImageSection) already carries this heading. */
+    h2?: string;
     boxes: {
       image: string;
       imageAlt: string;
@@ -90,6 +99,12 @@ export interface ServicePageData {
       bullets: string[];
       footer?: string[];
     }[];
+    /** Opt-in: when true, uses a narrower per-card minimum width so 5
+     * boxes fit on one row at desktop widths instead of wrapping a lone
+     * box onto its own row. Still wraps gracefully on narrower viewports.
+     * Default (unset) keeps the wider minimum, correct for counts that
+     * already divide evenly into a row (e.g. 4). */
+    compact?: boolean;
   };
   /**
    * Large image on one side, one or more stacked heading+list groups on the
@@ -103,8 +118,30 @@ export interface ServicePageData {
     imageAlt: string;
     groups: {
       h2: string;
-      items: { title: string; body: string }[];
+      /**
+       * Each item renders one of three ways, in priority order:
+       * - `bullets`: a `<ul>` list (WordPress content with a real bullet list)
+       * - `lines`: consecutive plain paragraphs, one per string (WordPress
+       *   content with several separate, non-bulleted lines)
+       * - `body` (with optional `title`): a single paragraph, bolded
+       *   "Title:" prefix when title is set — the original flowing-prose
+       *   format.
+       */
+      items: { title?: string; body?: string; bullets?: string[]; lines?: string[] }[];
     }[];
+  };
+  /**
+   * Image-left / text-right intro block (eyebrow, H2, single body
+   * paragraph, no CTA buttons) — replicates the WordPress pattern used to
+   * introduce a section before a serviceBoxes grid. Renders right before
+   * serviceBoxes.
+   */
+  introImageSection?: {
+    image: string;
+    imageAlt: string;
+    eyebrow?: string;
+    h2: string;
+    body: string;
   };
   /**
    * Reuses the homepage's "Denver's Most Trusted Vehicle Aesthetic Experts"
@@ -135,6 +172,20 @@ export interface ServicePageData {
    * always been, so every other page is unaffected.
    */
   denverCtaPosition?: "afterServicesGrid";
+  /**
+   * Opt-out: when true, hides the DenverCTA section entirely. Unlike
+   * denverCtaPosition, this fully removes it — for pages (like WordPress's
+   * boat-detailing) that have no "1st Choice in Paint Protection Film"
+   * section at all. Default (unset) keeps it shown on every other page.
+   */
+  hideDenverCta?: boolean;
+  /**
+   * Opt-in: when "afterServiceBoxes", the FEATURES section (featuresImage/
+   * featuresEyebrow/featuresH2/features) renders immediately after
+   * serviceBoxes instead of its default position before it. Unset (default)
+   * keeps every other page's ordering unchanged.
+   */
+  featuresPosition?: "afterServiceBoxes";
   /**
    * Opt-in: when "afterServicesGrid", the PartnersStrip section renders
    * immediately after DenverCTA (which must also be positioned there)
@@ -556,7 +607,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       )}
 
       {/* FEATURES */}
-      {d.features && d.features.length > 0 && (
+      {d.featuresPosition !== "afterServiceBoxes" && d.features && d.features.length > 0 && (
         <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
           <div
             style={{
@@ -656,10 +707,19 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                         margin: "20px 0 24px",
                       }}
                     />
+                    {d.featuresIntro && (
+                      <p style={{ ...manropeBody, margin: "0 0 20px" }}>{d.featuresIntro}</p>
+                    )}
+                    {d.featuresListHeading && (
+                      <p style={{ ...manropeBody, fontWeight: 700, color: "#fff", margin: "0 0 12px" }}>
+                        {d.featuresListHeading}
+                      </p>
+                    )}
                     <ul style={{ margin: 0, padding: "0 0 0 20px", listStyle: "disc" }}>
                       {d.features!.map((f, i) => (
                         <li key={i} style={{ ...manropeBody, marginBottom: 10 }}>
-                          <strong style={{ color: "#fff" }}>{f.title}:</strong> {f.body}
+                          {f.title ? <strong style={{ color: "#fff" }}>{f.title}: </strong> : null}
+                          {f.body}
                         </li>
                       ))}
                     </ul>
@@ -685,7 +745,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     >
                       {f.image && (
                         <div style={{ position: "relative", aspectRatio: "4/3", minHeight: 220 }}>
-                          <Image src={f.image} alt={f.title} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
+                          <Image src={f.image} alt={f.title || "Front Range Detail Studio"} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
                         </div>
                       )}
                       <div style={{ padding: f.image ? "24px 28px 24px 8px" : "28px 26px" }}>
@@ -815,9 +875,73 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       )}
 
       {/* SERVICE BOXES — centered title + 2-up bordered cards (WP parity) */}
+      {/* INTRO IMAGE SECTION — image one side, eyebrow/H2/body the other, no buttons */}
+      {d.introImageSection && (
+        <section style={{ background: "#0d0d0d", padding: `${sectionPad} 0` }}>
+          <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+            <ScrollReveal>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                  gap: "clamp(28px, 4vw, 56px)",
+                  alignItems: "stretch",
+                }}
+              >
+                <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
+                  <Image
+                    src={d.introImageSection.image}
+                    alt={d.introImageSection.imageAlt}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    sizes="(max-width:768px) 100vw, 50vw"
+                  />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                  {d.introImageSection.eyebrow && (
+                    <span
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: 12,
+                        letterSpacing: "0.16em",
+                        textTransform: "uppercase",
+                        color: "#00BCD4",
+                      }}
+                    >
+                      {d.introImageSection.eyebrow}
+                    </span>
+                  )}
+                  <h2
+                    style={{
+                      ...archivoBold,
+                      margin: d.introImageSection.eyebrow ? "12px 0 0" : 0,
+                      fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                      lineHeight: 1.15,
+                    }}
+                  >
+                    {d.introImageSection.h2}
+                  </h2>
+                  <hr
+                    style={{
+                      width: 96,
+                      height: 2,
+                      background: CYAN,
+                      border: "none",
+                      margin: "20px 0",
+                    }}
+                  />
+                  <p style={manropeBody}>{d.introImageSection.body}</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
       {d.serviceBoxes && (
         <section style={{ background: "#000", padding: `${sectionPad} 0` }}>
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+            {d.serviceBoxes.h2 && (
             <ScrollReveal>
               <div style={{ textAlign: "center", marginBottom: 42 }}>
                 <h2
@@ -841,92 +965,93 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 />
               </div>
             </ScrollReveal>
+            )}
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 270px), 1fr))",
+                gridTemplateColumns: `repeat(auto-fit, minmax(min(100%, ${d.serviceBoxes.compact ? 160 : 270}px), 1fr))`,
                 gap: 18,
               }}
             >
-              {d.serviceBoxes.boxes.map((box, i) => (
-                <ScrollReveal key={i}>
-                  <div
-                    style={{
-                      border: "1px solid rgba(255,255,255,0.16)",
-                      borderRadius: 4,
-                      overflow: "hidden",
-                      background: "#111",
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <div style={{ position: "relative", aspectRatio: "4/3" }}>
-                      <Image
-                        src={box.image}
-                        alt={box.imageAlt}
-                        fill
-                        style={{ objectFit: "cover" }}
-                        sizes="(max-width:768px) 100vw, 50vw"
-                      />
-                    </div>
-                    <div style={{ padding: "clamp(16px, 1.6vw, 22px)", display: "flex", flexDirection: "column", gap: 12, flexGrow: 1 }}>
-                      <span
-                        style={{
-                          fontFamily: "'Inter', sans-serif",
-                          fontSize: 12,
-                          letterSpacing: "0.1em",
-                          textTransform: "uppercase",
-                          lineHeight: 1.5,
-                          color: "rgba(255,255,255,0.7)",
-                        }}
-                      >
-                        {box.eyebrow}
-                      </span>
-                      <h2
-                        style={{
-                          ...archivoBold,
-                          margin: 0,
-                          fontSize: "clamp(1.05rem, 1.3vw, 1.25rem)",
-                          lineHeight: 1.15,
-                        }}
-                      >
-                        {box.title}
-                      </h2>
-                      <hr
-                        style={{
-                          width: 96,
-                          height: 2,
-                          background: CYAN,
-                          border: "none",
-                          margin: 0,
-                        }}
-                      />
-                      <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
-                        {box.bullets.map((b, j) => (
-                          <li key={j} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
-                            <svg
-                              viewBox="0 0 24 24"
-                              width={20}
-                              height={20}
-                              aria-hidden="true"
-                              style={{ flexShrink: 0, marginTop: 2, fill: CYAN }}
-                            >
-                              <path d="M10.6 6L9.4 7l4.6 5-4.6 5 1.2 1 5.4-6z" />
-                            </svg>
-                            <span style={{ ...manropeBody, fontSize: "15px", lineHeight: 1.55 }}>{b}</span>
-                          </li>
+                {d.serviceBoxes.boxes.map((box, i) => (
+                  <ScrollReveal key={i}>
+                    <div
+                      style={{
+                        border: "1px solid rgba(255,255,255,0.16)",
+                        borderRadius: 4,
+                        overflow: "hidden",
+                        background: "#111",
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <div style={{ position: "relative", aspectRatio: "4/3" }}>
+                        <Image
+                          src={box.image}
+                          alt={box.imageAlt}
+                          fill
+                          style={{ objectFit: "cover" }}
+                          sizes="(max-width:768px) 100vw, 50vw"
+                        />
+                      </div>
+                      <div style={{ padding: "clamp(16px, 1.6vw, 22px)", display: "flex", flexDirection: "column", gap: 12, flexGrow: 1 }}>
+                        <span
+                          style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontSize: 12,
+                            letterSpacing: "0.1em",
+                            textTransform: "uppercase",
+                            lineHeight: 1.5,
+                            color: "rgba(255,255,255,0.7)",
+                          }}
+                        >
+                          {box.eyebrow}
+                        </span>
+                        <h2
+                          style={{
+                            ...archivoBold,
+                            margin: 0,
+                            fontSize: "clamp(1.05rem, 1.3vw, 1.25rem)",
+                            lineHeight: 1.15,
+                          }}
+                        >
+                          {box.title}
+                        </h2>
+                        <hr
+                          style={{
+                            width: 96,
+                            height: 2,
+                            background: CYAN,
+                            border: "none",
+                            margin: 0,
+                          }}
+                        />
+                        <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
+                          {box.bullets.map((b, j) => (
+                            <li key={j} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                              <svg
+                                viewBox="0 0 24 24"
+                                width={20}
+                                height={20}
+                                aria-hidden="true"
+                                style={{ flexShrink: 0, marginTop: 2, fill: CYAN }}
+                              >
+                                <path d="M10.6 6L9.4 7l4.6 5-4.6 5 1.2 1 5.4-6z" />
+                              </svg>
+                              <span style={{ ...manropeBody, fontSize: "15px", lineHeight: 1.55 }}>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        {box.footer?.map((f, j) => (
+                          <p key={j} style={{ ...manropeBody, fontSize: "15px", lineHeight: 1.55 }}>
+                            {f}
+                          </p>
                         ))}
-                      </ul>
-                      {box.footer?.map((f, j) => (
-                        <p key={j} style={{ ...manropeBody, fontSize: "15px", lineHeight: 1.55 }}>
-                          {f}
-                        </p>
-                      ))}
+                      </div>
                     </div>
-                  </div>
-                </ScrollReveal>
-              ))}
+                  </ScrollReveal>
+                ))}
             </div>
             <ScrollReveal>
               <div
@@ -946,6 +1071,274 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 </a>
               </div>
             </ScrollReveal>
+          </div>
+        </section>
+      )}
+
+
+      {d.featuresPosition === "afterServiceBoxes" && d.features && d.features.length > 0 && (
+        <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
+          <div
+            style={{
+              maxWidth: 1280,
+              margin: "0 auto",
+              padding: "0 clamp(20px, 5vw, 56px)",
+            }}
+          >
+            {!d.featuresImage && (
+              <ScrollReveal>
+                <div style={{ marginBottom: 42, maxWidth: 680 }}>
+                  <span
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: 12,
+                      letterSpacing: "0.16em",
+                      textTransform: "uppercase",
+                      color: "#00BCD4",
+                    }}
+                  >
+                    {d.featuresEyebrow || "Why It Matters"}
+                  </span>
+                  <h2
+                    style={{
+                      margin: "12px 0 0",
+                      fontFamily: "'Archivo', sans-serif",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      letterSpacing: "-0.3px",
+                      fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    }}
+                  >
+                    {d.featuresH2 || "Key Features"}
+                  </h2>
+                  <hr
+                    style={{
+                      width: 96,
+                      height: 2,
+                      background: "#00BCD4",
+                      border: "none",
+                      margin: "20px 0 0",
+                    }}
+                  />
+                </div>
+              </ScrollReveal>
+            )}
+            {d.featuresImage ? (
+              /* Single shared image on the left; eyebrow/heading/divider/list on the right */
+              <ScrollReveal>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                    gap: "clamp(28px, 4vw, 56px)",
+                    alignItems: "center",
+                  }}
+                >
+                  <div style={{ position: "relative", aspectRatio: "4/3", borderRadius: 8, overflow: "hidden" }}>
+                    <Image
+                      src={d.featuresImage}
+                      alt={d.featuresImageAlt || d.featuresH2 || "Front Range Detail Studio"}
+                      fill
+                      style={{ objectFit: "contain" }}
+                      sizes="(max-width:768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div>
+                    <span
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: 12,
+                        letterSpacing: "0.16em",
+                        textTransform: "uppercase",
+                        color: "#00BCD4",
+                      }}
+                    >
+                      {d.featuresEyebrow || "Why It Matters"}
+                    </span>
+                    <h2
+                      style={{
+                        margin: "12px 0 0",
+                        fontFamily: "'Archivo', sans-serif",
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        letterSpacing: "-0.3px",
+                        fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                      }}
+                    >
+                      {d.featuresH2 || "Key Features"}
+                    </h2>
+                    <hr
+                      style={{
+                        width: 96,
+                        height: 2,
+                        background: "#00BCD4",
+                        border: "none",
+                        margin: "20px 0 24px",
+                      }}
+                    />
+                    {d.featuresIntro && (
+                      <p style={{ ...manropeBody, margin: "0 0 20px" }}>{d.featuresIntro}</p>
+                    )}
+                    {d.featuresListHeading && (
+                      <p style={{ ...manropeBody, fontWeight: 700, color: "#fff", margin: "0 0 12px" }}>
+                        {d.featuresListHeading}
+                      </p>
+                    )}
+                    <ul style={{ margin: 0, padding: "0 0 0 20px", listStyle: "disc" }}>
+                      {d.features!.map((f, i) => (
+                        <li key={i} style={{ ...manropeBody, marginBottom: 10 }}>
+                          {f.title ? <strong style={{ color: "#fff" }}>{f.title}: </strong> : null}
+                          {f.body}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ) : featuresHaveImages ? (
+              /* Features with images: 2-column layout per item */
+              <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
+                {d.features!.map((f, i) => (
+                  <ScrollReveal key={i}>
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                        gap: "clamp(20px, 3vw, 40px)",
+                        alignItems: "center",
+                        background: "#1a1a1a",
+                        border: "1px solid rgba(255,255,255,0.06)",
+                        borderRadius: 8,
+                        overflow: "hidden",
+                      }}
+                    >
+                      {f.image && (
+                        <div style={{ position: "relative", aspectRatio: "4/3", minHeight: 220 }}>
+                          <Image src={f.image} alt={f.title || "Front Range Detail Studio"} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
+                        </div>
+                      )}
+                      <div style={{ padding: f.image ? "24px 28px 24px 8px" : "28px 26px" }}>
+                        <span
+                          style={{
+                            width: 40,
+                            height: 40,
+                            borderRadius: "50%",
+                            background: "rgba(0,188,212,0.12)",
+                            border: "1px solid rgba(0,188,212,0.4)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            color: "#00BCD4",
+                            fontFamily: "'Archivo', sans-serif",
+                            fontWeight: 700,
+                            fontSize: 15,
+                            marginBottom: 12,
+                          }}
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <h3
+                          style={{
+                            margin: "0 0 10px",
+                            fontFamily: "'Archivo', sans-serif",
+                            fontWeight: 700,
+                            textTransform: "uppercase",
+                            letterSpacing: "0.01em",
+                            fontSize: "1.05rem",
+                            lineHeight: 1.2,
+                            color: "#fff",
+                          }}
+                        >
+                          {f.title}
+                        </h3>
+                        <p
+                          style={{
+                            margin: 0,
+                            fontFamily: "'Manrope', sans-serif",
+                            fontWeight: 300,
+                            fontSize: "14.5px",
+                            lineHeight: 1.6,
+                            color: "rgba(255,255,255,0.7)",
+                          }}
+                        >
+                          {f.body}
+                        </p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            ) : (
+              /* Features without images: original grid cards */
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                  gap: 18,
+                }}
+              >
+                {d.features!.map((f, i) => (
+                  <ScrollReveal key={i}>
+                    <div
+                      style={{
+                        background: "#1a1a1a",
+                        border: "1px solid rgba(255,255,255,0.06)",
+                        borderRadius: 6,
+                        padding: "28px 26px",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 12,
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: 40,
+                          height: 40,
+                          borderRadius: "50%",
+                          background: "rgba(0,188,212,0.12)",
+                          border: "1px solid rgba(0,188,212,0.4)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#00BCD4",
+                          fontFamily: "'Archivo', sans-serif",
+                          fontWeight: 700,
+                          fontSize: 15,
+                        }}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3
+                        style={{
+                          margin: 0,
+                          fontFamily: "'Archivo', sans-serif",
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.01em",
+                          fontSize: "1.05rem",
+                          lineHeight: 1.2,
+                          color: "#fff",
+                        }}
+                      >
+                        {f.title}
+                      </h3>
+                      <p
+                        style={{
+                          margin: 0,
+                          fontFamily: "'Manrope', sans-serif",
+                          fontWeight: 300,
+                          fontSize: "14.5px",
+                          lineHeight: 1.6,
+                          color: "rgba(255,255,255,0.7)",
+                        }}
+                      >
+                        {f.body}
+                      </p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -995,13 +1388,40 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                         }}
                       />
                       <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                        {group.items.map((item, ii) => (
-                          <p key={ii} style={manropeBody}>
-                            <strong style={{ color: "#fff", fontWeight: 700 }}>{item.title}:</strong>
-                            <br />
-                            {item.body}
-                          </p>
-                        ))}
+                        {group.items.map((item, ii) =>
+                          item.bullets || item.lines ? (
+                            <div key={ii}>
+                              {item.title && (
+                                <p style={{ ...manropeBody, margin: "0 0 8px" }}>
+                                  <strong style={{ color: "#fff", fontWeight: 700 }}>{item.title}</strong>
+                                </p>
+                              )}
+                              {item.bullets ? (
+                                <ul style={{ margin: 0, padding: "0 0 0 20px", listStyle: "disc" }}>
+                                  {item.bullets.map((b, bi) => (
+                                    <li key={bi} style={{ ...manropeBody, marginBottom: 6 }}>{b}</li>
+                                  ))}
+                                </ul>
+                              ) : (
+                                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                                  {item.lines!.map((l, li) => (
+                                    <p key={li} style={manropeBody}>{l}</p>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          ) : (
+                            <p key={ii} style={manropeBody}>
+                              {item.title ? (
+                                <>
+                                  <strong style={{ color: "#fff", fontWeight: 700 }}>{item.title}:</strong>
+                                  <br />
+                                </>
+                              ) : null}
+                              {item.body}
+                            </p>
+                          )
+                        )}
                       </div>
                     </div>
                   ))}
@@ -1059,7 +1479,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         </section>
       )}
 
-      {d.denverCtaPosition === "afterServicesGrid" && <DenverCTA {...d.denverCta} />}
+      {!d.hideDenverCta && d.denverCtaPosition === "afterServicesGrid" && <DenverCTA {...d.denverCta} />}
       {d.partnersStripPosition === "afterServicesGrid" && <PartnersStrip />}
 
       {/* INCLUDED CHECKLIST */}
@@ -2202,7 +2622,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       {d.partnersStripPosition !== "afterServicesGrid" && <PartnersStrip />}
 
       {/* DENVER CTA */}
-      {d.denverCtaPosition !== "afterServicesGrid" && <DenverCTA {...d.denverCta} />}
+      {!d.hideDenverCta && d.denverCtaPosition !== "afterServicesGrid" && <DenverCTA {...d.denverCta} />}
 
       {/* REVIEWS */}
       {!d.hideReviews && (
