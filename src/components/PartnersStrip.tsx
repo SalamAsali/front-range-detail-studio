@@ -22,7 +22,7 @@ export function PartnersStrip() {
     >
       <div
         style={{
-          maxWidth: 1280,
+          maxWidth: 1440,
           margin: "0 auto",
           padding: "0 clamp(20px, 5vw, 56px)",
         }}

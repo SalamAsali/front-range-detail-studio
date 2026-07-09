@@ -243,7 +243,7 @@ const manropeBody: React.CSSProperties = {
   margin: 0,
   fontFamily: "'Manrope', sans-serif",
   fontWeight: 300,
-  fontSize: "clamp(1.05rem, 1.3vw, 1.2rem)",
+  fontSize: "clamp(1.1rem, 1.4vw, 1.3rem)",
   lineHeight: 1.7,
   color: "rgba(255,255,255,0.82)",
 };
@@ -333,7 +333,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           style={{
             position: "relative",
             zIndex: 2,
-            maxWidth: 1280,
+            maxWidth: 1440,
             margin: "0 auto",
             padding: "0 clamp(20px, 5vw, 56px) clamp(48px, 6vw, 80px)",
             width: "100%",
@@ -454,7 +454,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
 
       {/* RATINGS BAR */}
       <section style={{ background: "#0a0a0a", padding: "32px 0" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
+        <div style={{ maxWidth: 1440, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
           <ScrollReveal>
             <div style={{ textAlign: "center", marginBottom: 24 }}>
               <h2
@@ -482,7 +482,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           <ScrollReveal>
             <div
               style={{
-                maxWidth: 900,
+                maxWidth: 980,
                 margin: "0 auto",
                 padding: "0 clamp(20px, 5vw, 56px)",
               }}
@@ -517,7 +517,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     margin: 0,
                     fontFamily: "'Manrope', sans-serif",
                     fontWeight: 300,
-                    fontSize: "clamp(1.05rem, 1.3vw, 1.2rem)",
+                    fontSize: "clamp(1.1rem, 1.4vw, 1.3rem)",
                     lineHeight: 1.7,
                     color: "rgba(255,255,255,0.82)",
                   }}
@@ -535,7 +535,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         <section style={{ background: "#000", padding: "clamp(40px, 5vw, 72px) 0" }}>
           <div
             style={{
-              maxWidth: 1280,
+              maxWidth: 1440,
               margin: "0 auto",
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
@@ -611,14 +611,14 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
           <div
             style={{
-              maxWidth: 1280,
+              maxWidth: 1440,
               margin: "0 auto",
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
           >
             {!d.featuresImage && (
               <ScrollReveal>
-                <div style={{ marginBottom: 42, maxWidth: 680 }}>
+                <div style={{ marginBottom: 42, maxWidth: 760 }}>
                   <span
                     style={{
                       fontFamily: "'Inter', sans-serif",
@@ -637,7 +637,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       fontWeight: 700,
                       textTransform: "uppercase",
                       letterSpacing: "-0.3px",
-                      fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                      fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                     }}
                   >
                     {d.featuresH2 || "Key Features"}
@@ -665,7 +665,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     alignItems: "center",
                   }}
                 >
-                  <div style={{ position: "relative", aspectRatio: "4/3", borderRadius: 8, overflow: "hidden" }}>
+                  <div style={{ position: "relative", aspectRatio: "4/5", borderRadius: 8, overflow: "hidden" }}>
                     <Image
                       src={d.featuresImage}
                       alt={d.featuresImageAlt || d.featuresH2 || "Front Range Detail Studio"}
@@ -693,7 +693,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                         fontWeight: 700,
                         textTransform: "uppercase",
                         letterSpacing: "-0.3px",
-                        fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                        fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                       }}
                     >
                       {d.featuresH2 || "Key Features"}
@@ -878,7 +878,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       {/* INTRO IMAGE SECTION — image one side, eyebrow/H2/body the other, no buttons */}
       {d.introImageSection && (
         <section style={{ background: "#0d0d0d", padding: `${sectionPad} 0` }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+          <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}` }}>
             <ScrollReveal>
               <div
                 style={{
@@ -915,7 +915,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     style={{
                       ...archivoBold,
                       margin: d.introImageSection.eyebrow ? "12px 0 0" : 0,
-                      fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                      fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                       lineHeight: 1.15,
                     }}
                   >
@@ -940,7 +940,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
 
       {d.serviceBoxes && (
         <section style={{ background: "#000", padding: `${sectionPad} 0` }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+          <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}` }}>
             {d.serviceBoxes.h2 && (
             <ScrollReveal>
               <div style={{ textAlign: "center", marginBottom: 42 }}>
@@ -948,7 +948,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   style={{
                     ...archivoBold,
                     margin: 0,
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                     lineHeight: 1.12,
                   }}
                 >
@@ -1080,14 +1080,14 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
           <div
             style={{
-              maxWidth: 1280,
+              maxWidth: 1440,
               margin: "0 auto",
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
           >
             {!d.featuresImage && (
               <ScrollReveal>
-                <div style={{ marginBottom: 42, maxWidth: 680 }}>
+                <div style={{ marginBottom: 42, maxWidth: 760 }}>
                   <span
                     style={{
                       fontFamily: "'Inter', sans-serif",
@@ -1106,7 +1106,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       fontWeight: 700,
                       textTransform: "uppercase",
                       letterSpacing: "-0.3px",
-                      fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                      fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                     }}
                   >
                     {d.featuresH2 || "Key Features"}
@@ -1134,7 +1134,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     alignItems: "center",
                   }}
                 >
-                  <div style={{ position: "relative", aspectRatio: "4/3", borderRadius: 8, overflow: "hidden" }}>
+                  <div style={{ position: "relative", aspectRatio: "4/5", borderRadius: 8, overflow: "hidden" }}>
                     <Image
                       src={d.featuresImage}
                       alt={d.featuresImageAlt || d.featuresH2 || "Front Range Detail Studio"}
@@ -1162,7 +1162,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                         fontWeight: 700,
                         textTransform: "uppercase",
                         letterSpacing: "-0.3px",
-                        fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                        fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                       }}
                     >
                       {d.featuresH2 || "Key Features"}
@@ -1346,7 +1346,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       {/* IMAGE + TEXT SECTION — large image one side, stacked heading/list groups + CTA the other */}
       {d.imageTextSection && (
         <section style={{ background: "#0d0d0d", padding: `${sectionPad} 0` }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+          <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}` }}>
             <ScrollReveal>
               <div
                 style={{
@@ -1443,6 +1443,8 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       {/* SERVICES GRID (reused verbatim from the homepage) */}
       {d.servicesGrid && (
         <section style={{ background: "#0d0d0d", padding: "clamp(64px, 8vw, 110px) 0" }}>
+          {/* Container intentionally kept at 1280 (not the sitewide 1440) so this
+              grid stays a 3x2 layout matching the homepage exactly. */}
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${GUTTER}` }}>
             <ScrollReveal>
               <div style={{ maxWidth: 820, marginBottom: 48 }}>
@@ -1487,7 +1489,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>
           <div
             style={{
-              maxWidth: 1000,
+              maxWidth: 1100,
               margin: "0 auto",
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
@@ -1501,7 +1503,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                   }}
                 >
                   {d.includedH2 || "What\u2019s Included"}
@@ -1572,7 +1574,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
           <div
             style={{
-              maxWidth: 1280,
+              maxWidth: 1440,
               margin: "0 auto",
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
@@ -1605,7 +1607,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                   }}
                 >
                   {d.stepsH2 || "How It Works"}
@@ -1698,13 +1700,13 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>
           <div
             style={{
-              maxWidth: 1280,
+              maxWidth: 1440,
               margin: "0 auto",
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
           >
             <ScrollReveal>
-              <div style={{ marginBottom: 42, maxWidth: 680 }}>
+              <div style={{ marginBottom: 42, maxWidth: 760 }}>
                 <h2
                   style={{
                     margin: 0,
@@ -1712,7 +1714,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                   }}
                 >
                   {d.cardsH2 || "Services"}
@@ -1809,13 +1811,13 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
           <div
             style={{
-              maxWidth: 1280,
+              maxWidth: 1440,
               margin: "0 auto",
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
           >
             <ScrollReveal>
-              <div style={{ marginBottom: 42, maxWidth: 680 }}>
+              <div style={{ marginBottom: 42, maxWidth: 760 }}>
                 <h2
                   style={{
                     margin: 0,
@@ -1823,7 +1825,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                   }}
                 >
                   {d.pricingH2 || "Pricing"}
@@ -1978,7 +1980,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>
           <div
             style={{
-              maxWidth: 1280,
+              maxWidth: 1440,
               margin: "0 auto",
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
@@ -2003,7 +2005,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                   }}
                 >
                   From The Studio
@@ -2064,13 +2066,13 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
           <div
             style={{
-              maxWidth: 1280,
+              maxWidth: 1440,
               margin: "0 auto",
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
           >
             <ScrollReveal>
-              <div style={{ marginBottom: 42, maxWidth: 680 }}>
+              <div style={{ marginBottom: 42, maxWidth: 760 }}>
                 {d.benefits.eyebrow && (
                   <span
                     style={{
@@ -2091,7 +2093,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                   }}
                 >
                   {d.benefits.h2}
@@ -2180,7 +2182,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>
           <div
             style={{
-              maxWidth: 1000,
+              maxWidth: 1100,
               margin: "0 auto",
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
@@ -2194,7 +2196,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                   }}
                 >
                   {d.whyChoose.h2}
@@ -2267,7 +2269,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       {d.contentBlocks && d.contentBlocks.length > 0 && (
         d.contentBlocks.map((block, i) => (
           <section key={i} style={{ background: i % 2 === 0 ? "#0d0d0d" : "#000", padding: `${sectionPad} 0` }}>
-            <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+            <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}` }}>
               <ScrollReveal>
                 <div style={{
                   display: "grid",
@@ -2283,7 +2285,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   </div>
                   {/* Text */}
                   <div>
-                    <h2 style={{ ...archivoBold, fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)", margin: "0 0 12px" }}>{block.h2}</h2>
+                    <h2 style={{ ...archivoBold, fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)", margin: "0 0 12px" }}>{block.h2}</h2>
                     <hr style={{ width: 96, height: 2, background: CYAN, border: "none", margin: "0 0 20px" }} />
                     <p style={{ ...manropeBody }}>{block.body}</p>
                     {block.bullets && (
@@ -2326,7 +2328,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                     lineHeight: 1.12,
                   }}
                 >
@@ -2347,7 +2349,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       margin: 0,
                       fontFamily: "'Manrope', sans-serif",
                       fontWeight: 300,
-                      fontSize: "clamp(1.05rem, 1.3vw, 1.2rem)",
+                      fontSize: "clamp(1.1rem, 1.4vw, 1.3rem)",
                       lineHeight: 1.7,
                       color: "rgba(255,255,255,0.82)",
                     }}
@@ -2442,7 +2444,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                   }}
                 >
                   Frequently Asked Questions
@@ -2475,7 +2477,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         <section style={{ background: "#000", padding: "clamp(40px, 5vw, 72px) 0" }}>
           <div
             style={{
-              maxWidth: 1280,
+              maxWidth: 1440,
               margin: "0 auto",
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
@@ -2549,7 +2551,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         <section style={{ background: "#0d0d0d", padding: "clamp(40px, 5vw, 72px) 0" }}>
           <div
             style={{
-              maxWidth: 1280,
+              maxWidth: 1440,
               margin: "0 auto",
               padding: "0 clamp(20px, 5vw, 56px)",
             }}
@@ -2629,7 +2631,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>
         <div
           style={{
-            maxWidth: 1280,
+            maxWidth: 1440,
             margin: "0 auto",
             padding: "0 clamp(20px, 5vw, 56px)",
           }}
@@ -2654,7 +2656,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   fontWeight: 700,
                   textTransform: "uppercase",
                   letterSpacing: "-0.3px",
-                  fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                  fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
                 }}
               >
                 Front Range Detail Studio client Reviews
@@ -2689,7 +2691,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       >
         <div
           style={{
-            maxWidth: 1280,
+            maxWidth: 1440,
             margin: "0 auto",
             padding: "0 clamp(20px, 5vw, 56px)",
           }}

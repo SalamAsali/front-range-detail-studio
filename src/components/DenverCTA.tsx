@@ -32,7 +32,7 @@ export function DenverCTA({ body, h3, h3Body, images }: DenverCTAProps = {}) {
     <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
       <div
         style={{
-          maxWidth: 1280,
+          maxWidth: 1440,
           margin: "0 auto",
           padding: "0 clamp(20px, 5vw, 56px)",
           display: "grid",
@@ -147,7 +147,7 @@ export function DenverCTA({ body, h3, h3Body, images }: DenverCTAProps = {}) {
               display: "grid",
               gridTemplateColumns: "repeat(3, 1fr)",
               gap: 10,
-              maxWidth: 420,
+              maxWidth: 460,
               marginLeft: "auto",
             }}
           >
