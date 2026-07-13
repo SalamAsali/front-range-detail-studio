@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "https://frontrangedetailstudio.com/window-tint/",
   },
   openGraph: {
-    title: "Ceramic Window Tint | Front Range Detail Studio",
+    title: "Window Tint - Front Range Detail Studio",
     description:
       "Keep Your Car Cool, Private, and Protected\u2014Year Round",
     url: "https://frontrangedetailstudio.com/window-tint/",
