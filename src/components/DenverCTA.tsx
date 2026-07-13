@@ -54,7 +54,7 @@ export function DenverCTA({ body, h3, h3Body, images }: DenverCTAProps = {}) {
                 lineHeight: 1.15,
               }}
             >
-              Denver&apos;s 1st Choice in Paint Protection Film and Clear Bra
+              Denver’s 1st Choice in Paint Protection Film and Clear Bra
             </h2>
             <hr
               style={{

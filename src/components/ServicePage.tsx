@@ -239,6 +239,14 @@ export interface ServicePageData {
   includedH2?: string;
   included?: string[];
   stepsH2?: string;
+  /**
+   * Overrides the process section's small uppercase eyebrow (default
+   * "The Process"). Pass an empty string to suppress it entirely — for
+   * pages like WordPress's Window Tint, whose real steps section has no
+   * eyebrow line at all and reads oddly with "The Process" stacked right
+   * above a heading that already contains the word "Process".
+   */
+  stepsEyebrow?: string;
   steps?: { title: string; body: string; image?: string }[];
   cardsH2?: string;
   cards?: { img: string; tag: string; title: string; href: string }[];
@@ -1764,17 +1772,19 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   alignItems: "center",
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 12,
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                    color: "#00BCD4",
-                  }}
-                >
-                  The Process
-                </span>
+                {d.stepsEyebrow !== "" && (
+                  <span
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: 12,
+                      letterSpacing: "0.16em",
+                      textTransform: "uppercase",
+                      color: "#00BCD4",
+                    }}
+                  >
+                    {d.stepsEyebrow || "The Process"}
+                  </span>
+                )}
                 <h2
                   style={{
                     margin: "12px 0 0",
@@ -1806,7 +1816,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
               }}
             >
               {d.steps.map((s, i) => (
-                <ScrollReveal key={i}>
+                <ScrollReveal key={i} className="h-full">
                   <div
                     style={{
                       position: "relative",
@@ -1816,6 +1826,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       overflow: "hidden",
                       display: "flex",
                       flexDirection: "column",
+                      height: "100%",
                     }}
                   >
                     {s.image && (
@@ -1844,6 +1855,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                           letterSpacing: "0.01em",
                           fontSize: "1.02rem",
                           lineHeight: 1.2,
+                          minHeight: "2.4em",
                           color: "#fff",
                         }}
                       >
