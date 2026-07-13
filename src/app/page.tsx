@@ -267,7 +267,7 @@ export default function HomePage() {
       </section>
 
       {/* 6. Vehicle Brands — H2 "Protection For All Brands and Models..." */}
-      <section style={{ background: "#000", padding: "clamp(64px, 8vw, 110px) 0" }}>
+      <section style={{ background: "#0d0d0d", padding: "clamp(64px, 8vw, 110px) 0" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
           <ScrollReveal>
             <div style={{ maxWidth: 880, marginBottom: 48 }}>
