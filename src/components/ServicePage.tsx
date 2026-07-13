@@ -7,11 +7,19 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { PartnersStrip } from "@/components/PartnersStrip";
 import { DenverCTA } from "@/components/DenverCTA";
 import { ServiceCard } from "@/components/ServiceCard";
+import { VehicleTile } from "@/components/VehicleTile";
 
 export interface ServicePageData {
   heroImg: string;
   heroImgAlt?: string;
   eyebrow: string;
+  /**
+   * Opt-out: when true, hides the sitewide "Serving the Denver Metro..."
+   * ratings bar that normally renders unconditionally right after the
+   * hero. Set this for pages where WordPress has no such section (e.g.
+   * Auto Detailing). Default (unset) keeps every other page unchanged.
+   */
+  hideRatingsBar?: boolean;
   /** Opt-in bold weight for the hero eyebrow text (default stays regular). */
   eyebrowBold?: boolean;
   h1: string;
@@ -141,6 +149,30 @@ export interface ServicePageData {
     }[];
   };
   /**
+   * Repeatable version of imageTextSection — one image + one heading + a
+   * list of items + CTA buttons per entry, with independently choosable
+   * image placement per entry (unlike imageTextSection, which always
+   * grid-places its image first/left and supports multiple *grouped*
+   * headings sharing that one image). Use this when a page needs two or
+   * more standalone image+text+button sections with different images and
+   * alternating sides (e.g. Auto Detailing's "Specialized Auto Detailing
+   * Services" — text left/image right — immediately followed by "Why
+   * Choose Front Range Detail Studio?" — image left/text right). Renders
+   * right after imageTextSection, in array order.
+   */
+  imageTextSections?: {
+    image: string;
+    imageAlt: string;
+    /** Default "left" (image first/left, text second/right). */
+    imageSide?: "left" | "right";
+    /** Optional small uppercase caption above the H2 (WordPress renders
+     * this with two small chevron icons before it — omitted here as the
+     * text alone carries the same meaning). */
+    eyebrow?: string;
+    h2: string;
+    items: { title?: string; body?: string; bullets?: string[]; lines?: string[] }[];
+  }[];
+  /**
    * Image-left / text-right intro block (eyebrow, H2, single body
    * paragraph, no CTA buttons) — replicates the WordPress pattern used to
    * introduce a section before a serviceBoxes grid. Renders right before
@@ -222,7 +254,20 @@ export interface ServicePageData {
   benefits?: { eyebrow?: string; h2: string; body?: string; items: { title: string; body: string }[] };
   whyChoose?: { h2: string; items: { title: string; body: string }[] };
   crossSell2?: { title: string; body: string; href: string; label: string };
-  additionalSections?: { h2: string; body: string; items?: { title: string; body: string }[] }[];
+  additionalSections?: {
+    h2: string;
+    body: string;
+    items?: { title: string; body: string }[];
+    /**
+     * Optional grid of vehicle brand logo tiles below the body copy —
+     * replicates the homepage's "Protection For All Brands and Models..."
+     * section verbatim (same VehicleTile component/styling, same 1280
+     * container width with an 880-wide heading/body column). Pass logo
+     * filenames exactly as used on the homepage (e.g. "BMW-logo.svg"),
+     * resolved against /public/images/logos/.
+     */
+    vehicleLogos?: string[];
+  }[];
   /**
    * Opt-out: when true, hides the standard Reviews section (unlike most
    * fields above, Reviews normally renders unconditionally). Default
@@ -467,6 +512,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       </section>
 
       {/* RATINGS BAR */}
+      {!d.hideRatingsBar && (
       <section style={{ background: "#0a0a0a", padding: "32px 0" }}>
         <div style={{ maxWidth: 1440, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
           <ScrollReveal>
@@ -489,6 +535,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           <ReviewBadges />
         </div>
       </section>
+      )}
 
       {/* INTRO */}
       {(d.introH2 || d.introBody) && (
@@ -1454,6 +1501,120 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         </section>
       )}
 
+      {/* REPEATABLE IMAGE + TEXT SECTIONS — same visual language as
+          imageTextSection above, but one image+heading+items+buttons per
+          array entry with independently choosable image side. */}
+      {d.imageTextSections && d.imageTextSections.length > 0 &&
+        d.imageTextSections.map((sec, si) => (
+          <section key={si} style={{ background: si % 2 === 0 ? "#0d0d0d" : "#000", padding: `${sectionPad} 0` }}>
+            <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+              <ScrollReveal>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                    gap: "clamp(28px, 4vw, 56px)",
+                    alignItems: "stretch",
+                  }}
+                >
+                  {sec.imageSide !== "right" && (
+                    <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
+                      <Image
+                        src={sec.image}
+                        alt={sec.imageAlt}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        sizes="(max-width:768px) 100vw, 50vw"
+                      />
+                    </div>
+                  )}
+                  <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 20 }}>
+                    {sec.eyebrow && (
+                      <span
+                        style={{
+                          fontFamily: "'Inter', sans-serif",
+                          fontSize: 12,
+                          letterSpacing: "0.16em",
+                          textTransform: "uppercase",
+                          color: "#00BCD4",
+                        }}
+                      >
+                        {sec.eyebrow}
+                      </span>
+                    )}
+                    <h2
+                      style={{
+                        ...archivoBold,
+                        margin: 0,
+                        fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
+                        lineHeight: 1.15,
+                      }}
+                    >
+                      {sec.h2}
+                    </h2>
+                    <hr style={{ width: 96, height: 2, background: CYAN, border: "none", margin: 0 }} />
+                    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                      {sec.items.map((item, ii) =>
+                        item.bullets || item.lines ? (
+                          <div key={ii}>
+                            {item.title && (
+                              <p style={{ ...manropeBody, margin: "0 0 8px" }}>
+                                <strong style={{ color: "#fff", fontWeight: 700 }}>{item.title}</strong>
+                              </p>
+                            )}
+                            {item.bullets ? (
+                              <ul style={{ margin: 0, padding: "0 0 0 20px", listStyle: "disc" }}>
+                                {item.bullets.map((b, bi) => (
+                                  <li key={bi} style={{ ...manropeBody, marginBottom: 6 }}>{b}</li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                                {item.lines!.map((l, li) => (
+                                  <p key={li} style={manropeBody}>{l}</p>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <p key={ii} style={manropeBody}>
+                            {item.title ? (
+                              <>
+                                <strong style={{ color: "#fff", fontWeight: 700 }}>{item.title}:</strong>
+                                <br />
+                              </>
+                            ) : null}
+                            {item.body}
+                          </p>
+                        )
+                      )}
+                    </div>
+                    <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8 }}>
+                      <Link href="/free-quote" style={heroCtaBtn}>
+                        Get A Free Quote
+                      </Link>
+                      <a href="tel:+13035208023" style={heroCtaBtnOutline}>
+                        Call (303) 520-8023
+                      </a>
+                    </div>
+                  </div>
+                  {sec.imageSide === "right" && (
+                    <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
+                      <Image
+                        src={sec.image}
+                        alt={sec.imageAlt}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        sizes="(max-width:768px) 100vw, 50vw"
+                      />
+                    </div>
+                  )}
+                </div>
+              </ScrollReveal>
+            </div>
+          </section>
+        ))}
+
       {/* SERVICES GRID (reused verbatim from the homepage) */}
       {d.servicesGrid && (
         <section style={{ background: "#0d0d0d", padding: "clamp(64px, 8vw, 110px) 0" }}>
@@ -2330,11 +2491,12 @@ export function ServicePage({ data }: { data: ServicePageData }) {
             <ScrollReveal>
               <div
                 style={{
-                  maxWidth: sec.items ? 1280 : 900,
+                  maxWidth: sec.items || sec.vehicleLogos ? 1280 : 900,
                   margin: "0 auto",
                   padding: "0 clamp(20px, 5vw, 56px)",
                 }}
               >
+              <div style={sec.vehicleLogos ? { maxWidth: 880, marginBottom: 48 } : undefined}>
                 <h2
                   style={{
                     margin: 0,
@@ -2370,6 +2532,24 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   >
                     {sec.body}
                   </p>
+                )}
+              </div>
+                {sec.vehicleLogos && sec.vehicleLogos.length > 0 && (
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
+                      gap: 1,
+                      background: "rgba(255,255,255,0.06)",
+                      border: "1px solid rgba(255,255,255,0.06)",
+                      borderRadius: 6,
+                      overflow: "hidden",
+                    }}
+                  >
+                    {sec.vehicleLogos.map((logo) => (
+                      <VehicleTile key={logo} logo={logo} />
+                    ))}
+                  </div>
                 )}
                 {sec.items && sec.items.length > 0 && (
                   <div
