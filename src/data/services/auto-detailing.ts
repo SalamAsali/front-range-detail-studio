@@ -1,10 +1,22 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const autoDetailingData: ServicePageData = {
-  heroImg: "/images/services/paint-correction-new.jpg",
+  heroImg: "/images/vehicles/Rivian-6.webp",
   heroImgAlt: "Rivian car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
-  eyebrow: "Auto Detailing & Paint Correction",
-  h1: "Auto Detailing and Paind Correction. comprehensive detailing packages to fit every need",
+  eyebrow: "From basic maintenance to deep restoration",
+  heroVariant: "homepage",
+  heroContentMaxWidth: 1200,
+  heroH1FontSize: "clamp(2rem, 4vw, 3.5rem)",
+  h1: "Auto Detailing and Paint Correction",
+  /* Hidden period+space reconstructs WP's exact H1 text content for SEO
+     ("...Correction. comprehensive...") without showing the mid-sentence
+     period on screen — same technique used for the boat pages' hidden
+     "– " prefix. h1CitiesNoLeadingSpace drops the component's usual
+     leading word-boundary space since the period must sit directly
+     against "Correction" (the space belongs after the period instead). */
+  h1CitiesNoLeadingSpace: true,
+  h1CitiesHiddenPrefix: ". ",
+  h1Cities: "Comprehensive Detailing Packages To Fit Every Need",
   introH2: "Colorado\u2019s Vehicle Paint Correction and Detailing Experts",
   introBody:
     "Front Range Detail Studio offers comprehensive auto detailing and paint correction services for all makes and models. From basic maintenance washes to full interior and exterior detailing, our experienced technicians use only the best tools, products, and techniques to deliver top-quality results.",

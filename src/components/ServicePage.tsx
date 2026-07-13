@@ -56,6 +56,16 @@ export interface ServicePageData {
    */
   h1CitiesHiddenPrefix?: string;
   /**
+   * Opt-in: suppresses the automatic word-boundary space normally inserted
+   * before h1CitiesHiddenPrefix/h1Cities (correct for a separator like an
+   * em dash that needs a space on both sides). Set this when the hidden
+   * prefix must sit directly against the preceding text instead (e.g. a
+   * period that closes the previous sentence) — bake the trailing space
+   * into h1CitiesHiddenPrefix itself in that case. Default (unset) keeps
+   * every other page's spacing unchanged.
+   */
+  h1CitiesNoLeadingSpace?: boolean;
+  /**
    * Optional second bold line of the H1 (same size/weight as the first line,
    * separated by a literal line break) — e.g. a location line. Still inside
    * the <h1> for SEO. Distinct from h1Cities, which renders smaller.
@@ -401,8 +411,12 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 <>
                   {/* Space preserved so the H1's text content stays a single
                       natural sentence for crawlers, even though the cities
-                      render on their own line. */}
-                  {" "}
+                      render on their own line. Skippable via
+                      h1CitiesNoLeadingSpace for separators (e.g. a period)
+                      that must sit directly against the preceding text —
+                      bake the trailing space into h1CitiesHiddenPrefix
+                      itself in that case. */}
+                  {!d.h1CitiesNoLeadingSpace && " "}
                   {d.h1CitiesHiddenPrefix && (
                     <span
                       style={{
