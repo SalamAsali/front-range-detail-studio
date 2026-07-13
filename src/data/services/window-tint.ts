@@ -1,9 +1,10 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const windowTintData: ServicePageData = {
-  heroImg: "/images/services/new-tint.jpg",
+  heroImg: "/images/vehicles/BMW-3-1024x768.webp",
   heroImgAlt: "BMW car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
   eyebrow: "Keep Your Car Cool, Private, and Protected\u2014Year Round",
+  heroVariant: "homepage",
   h1: "Ceramic Window Tint",
   h1Cities:
     "in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
