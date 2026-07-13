@@ -2540,10 +2540,6 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       display: "grid",
                       gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
                       gap: 1,
-                      background: "rgba(255,255,255,0.06)",
-                      border: "1px solid rgba(255,255,255,0.06)",
-                      borderRadius: 6,
-                      overflow: "hidden",
                     }}
                   >
                     {sec.vehicleLogos.map((logo) => (

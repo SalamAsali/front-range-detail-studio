@@ -61,10 +61,10 @@ const partnerLogos = [
 ];
 
 const vehicleLogos = [
-  "Mercedes-Benz-Logo-1.svg", "Porsche-Logo.svg", "Ford-logo.svg",
-  "Logo-della-Jaguar.svg", "Lamborghini-Logo.svg", "Audi-logo.svg",
+  "Mercedes-Benz-Logo-1.svg", "Porsche-new-Logo.png", "Ford-logo.svg",
+  "Jaguar-white-Logo.webp", "Lamborghini-Logo.svg", "Audi-white-Logo.png",
   "BMW-logo.svg", "LandRover-logo.svg", "Ferrari-Logo.svg",
-  "rivian-logo.svg", "McLaren-Automotive-logo.svg", "Tesla-Motors-logo.svg",
+  "Rivian-white-logo.png", "McLaren-Automotive-logo.svg", "Tesla-Motors-logo.svg",
   "Rolls-royce.svg", "Cadillac-logo.svg",
 ];
 
@@ -296,10 +296,6 @@ export default function HomePage() {
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
                 gap: 1,
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.06)",
-                borderRadius: 6,
-                overflow: "hidden",
               }}
             >
               {vehicleLogos.map((logo) => (

@@ -149,10 +149,10 @@ export const autoDetailingData: ServicePageData = {
       h2: "Protection For All Brands and Models Including Tesla, Rivian, Porsche, BMW, Mercedes Benz and More",
       body: "At Front Range Detail Studio, we protect all brands and models including Tesla, Rivian, Porsche, BMW, Mercedes Benz and more. Protect your vehicle with ceramic coatings, paint protection film, window tinting, paint correction and more.",
       vehicleLogos: [
-        "Mercedes-Benz-Logo-1.svg", "Porsche-Logo.svg", "Ford-logo.svg",
-        "Logo-della-Jaguar.svg", "Lamborghini-Logo.svg", "Audi-logo.svg",
+        "Mercedes-Benz-Logo-1.svg", "Porsche-new-Logo.png", "Ford-logo.svg",
+        "Jaguar-white-Logo.webp", "Lamborghini-Logo.svg", "Audi-white-Logo.png",
         "BMW-logo.svg", "LandRover-logo.svg", "Ferrari-Logo.svg",
-        "rivian-logo.svg", "McLaren-Automotive-logo.svg", "Tesla-Motors-logo.svg",
+        "Rivian-white-logo.png", "McLaren-Automotive-logo.svg", "Tesla-Motors-logo.svg",
         "Rolls-royce.svg", "Cadillac-logo.svg",
       ],
     },
