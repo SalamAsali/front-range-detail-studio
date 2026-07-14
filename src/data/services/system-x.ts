@@ -9,7 +9,6 @@ export const systemXData: ServicePageData = {
   heroImgAlt: "SystemX authorized dealer",
   heroLogo: "/images/logos/system-x-logo.png",
   heroLogoAlt: "system X Ceramic Protection logo",
-  heroH1Color: "#c22929",
   eyebrow: "System X",
   h1: "System X",
   heroH3: "Automotive Ceramic Coatings",
@@ -58,47 +57,44 @@ export const systemXData: ServicePageData = {
     },
   ],
 
-  /* Product blocks — Glass/Renew (image right), a full-bleed sports-car
-     banner, then Revive/Interior (image left), matching WordPress's exact
-     layout and alternation. */
-  contentBlocks: [
-    {
-      h2: "System X Glass",
-      h3: "Clarity and Protection",
-      body: "System X Glass™ dramatically increases visibility in the rain and makes de-icing in the winter and cleaning summer insect matter.",
-      image: "/images/gallery/System-X-Glass-product-819x1024.webp",
-      imageAlt: "System X Glass product",
-      imageSide: "right",
-    },
-    {
-      h2: "System X Renew",
-      h3: "Clarity and Protection",
-      body: "Renew™ can be used as a standalone HYPER gloss coat or as a topper for your professional ceramic coating. Ideal as a stand-alone or a renewal to your existing coating.",
-      image: "/images/gallery/System-X-Renew-product-819x1024.webp",
-      imageAlt: "System X Renew product",
-      imageSide: "right",
-      bannerAfter: {
-        image: "/images/gallery/sports-car-1-819x1024.webp",
-        imageAlt: "red sports car",
+  /* Glass/Renew on the left, the red sports car centered, Revive/Interior
+     on the right — one symmetrical section, matching WordPress exactly. */
+  productShowcase: {
+    centerImage: "/images/gallery/sports-car-1-819x1024.webp",
+    centerImageAlt: "red sports car",
+    leftItems: [
+      {
+        h2: "System X Glass",
+        h3: "Clarity and Protection",
+        body: "System X Glass™ dramatically increases visibility in the rain and makes de-icing in the winter and cleaning summer insect matter.",
+        image: "/images/gallery/System-X-Glass-product-819x1024.webp",
+        imageAlt: "System X Glass product",
       },
-    },
-    {
-      h2: "System X Revive",
-      h3: "Plastic and Trim",
-      body: "System X® Revive™ protects from future micro-scratches and UV fading while multiplying the surface’s hydrophobic properties.",
-      image: "/images/gallery/System-X-Revive-product-819x1024.webp",
-      imageAlt: "System X Revive product",
-      imageSide: "left",
-    },
-    {
-      h2: "System X Interior",
-      h3: "Leather, Vinyl, and Fabric",
-      body: "System X Interior™ protects all your interior surfaces; such as fabric seats, carpet, leather, and vinyl with a single professional coating. Spills and stains clean up easily and quickly.",
-      image: "/images/gallery/System-X-Interior-product-819x1024.webp",
-      imageAlt: "System X Interior product",
-      imageSide: "left",
-    },
-  ],
+      {
+        h2: "System X Renew",
+        h3: "Clarity and Protection",
+        body: "Renew™ can be used as a standalone HYPER gloss coat or as a topper for your professional ceramic coating. Ideal as a stand-alone or a renewal to your existing coating.",
+        image: "/images/gallery/System-X-Renew-product-819x1024.webp",
+        imageAlt: "System X Renew product",
+      },
+    ],
+    rightItems: [
+      {
+        h2: "System X Revive",
+        h3: "Plastic and Trim",
+        body: "System X® Revive™ protects from future micro-scratches and UV fading while multiplying the surface’s hydrophobic properties.",
+        image: "/images/gallery/System-X-Revive-product-819x1024.webp",
+        imageAlt: "System X Revive product",
+      },
+      {
+        h2: "System X Interior",
+        h3: "Leather, Vinyl, and Fabric",
+        body: "System X Interior™ protects all your interior surfaces; such as fabric seats, carpet, leather, and vinyl with a single professional coating. Spills and stains clean up easily and quickly.",
+        image: "/images/gallery/System-X-Interior-product-819x1024.webp",
+        imageAlt: "System X Interior product",
+      },
+    ],
+  },
 
   /* Connect with Us/Business Hours/Denver Location + Send A Quick Quote
      Form renders right after the content blocks on WordPress, not at the

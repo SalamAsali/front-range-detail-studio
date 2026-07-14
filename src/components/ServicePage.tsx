@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FAQ } from "@/components/FAQ";
@@ -312,22 +311,7 @@ export interface ServicePageData {
    * ordering unchanged.
    */
   quoteFormPosition?: "afterContentBlocks";
-  contentBlocks?: {
-    h2: string;
-    /** Optional real H3 subheading rendered between h2 and body. */
-    h3?: string;
-    body: string;
-    image: string;
-    imageAlt: string;
-    bullets?: string[];
-    /** Overrides the automatic left/right alternation (image on left for
-     * even index, right for odd) with an explicit side for this entry. */
-    imageSide?: "left" | "right";
-    /** Optional full-bleed banner image rendered directly after this block
-     * (e.g. WordPress's diagonal-cropped "red sports car" banner between
-     * System X's Renew and Revive blocks). */
-    bannerAfter?: { image: string; imageAlt: string };
-  }[];
+  contentBlocks?: { h2: string; body: string; image: string; imageAlt: string; bullets?: string[] }[];
   /**
    * Centered logo + H2 + a horizontal row of bordered icon cards —
    * replicates WordPress's "Why Have Us Install System X On Your Vehicle?"
@@ -337,6 +321,19 @@ export interface ServicePageData {
   iconCardsLogoAlt?: string;
   iconCardsH2?: string;
   iconCards?: { icon: "medal" | "flag" | "spray"; title: string; body: string }[];
+  /**
+   * Symmetrical product-grid section — two stacked text+image pairs on the
+   * left, a large centered photo, two stacked image+text pairs on the
+   * right. Replicates WordPress's System X product layout (Glass/Renew on
+   * the left, a car photo in the middle, Revive/Interior on the right).
+   * Renders right after CONTENT BLOCKS.
+   */
+  productShowcase?: {
+    centerImage: string;
+    centerImageAlt: string;
+    leftItems: { h2: string; h3?: string; body: string; image: string; imageAlt: string }[];
+    rightItems: { h2: string; h3?: string; body: string; image: string; imageAlt: string }[];
+  };
 }
 
 const ICON_PATHS: Record<string, string> = {
@@ -1277,7 +1274,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 <ScrollReveal key={i}>
                   <div
                     style={{
-                      border: "1px solid #c22929",
+                      border: `1px solid ${CYAN}`,
                       borderRadius: 4,
                       padding: "clamp(28px, 3vw, 48px)",
                       display: "flex",
@@ -2821,11 +2818,8 @@ export function ServicePage({ data }: { data: ServicePageData }) {
 
       {/* CONTENT BLOCKS - alternating image+text */}
       {d.contentBlocks && d.contentBlocks.length > 0 && (
-        d.contentBlocks.map((block, i) => {
-          const imageRight = block.imageSide ? block.imageSide === "right" : i % 2 !== 0;
-          return (
-          <Fragment key={i}>
-          <section style={{ background: i % 2 === 0 ? "#0d0d0d" : "#000", padding: `${sectionPad} 0` }}>
+        d.contentBlocks.map((block, i) => (
+          <section key={i} style={{ background: i % 2 === 0 ? "#0d0d0d" : "#000", padding: `${sectionPad} 0` }}>
             <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}` }}>
               <ScrollReveal>
                 <div style={{
@@ -2834,8 +2828,8 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   gap: "clamp(28px, 4vw, 56px)",
                   alignItems: "center",
                 }}>
-                  {/* Image - left by default, right when imageRight */}
-                  <div style={{ order: imageRight ? 1 : 0 }}>
+                  {/* Image - left on odd, right on even */}
+                  <div style={{ order: i % 2 === 0 ? 0 : 1 }}>
                     <div style={{ position: "relative", aspectRatio: "4/3", borderRadius: 8, overflow: "hidden" }}>
                       <Image src={block.image} alt={block.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
                     </div>
@@ -2843,20 +2837,6 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   {/* Text */}
                   <div>
                     <h2 style={{ ...archivoBold, fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)", margin: "0 0 12px" }}>{block.h2}</h2>
-                    {block.h3 && (
-                      <h3
-                        style={{
-                          margin: "0 0 14px",
-                          fontFamily: "'Archivo', sans-serif",
-                          fontWeight: 500,
-                          textTransform: "uppercase",
-                          fontSize: "1rem",
-                          color: CYAN,
-                        }}
-                      >
-                        {block.h3}
-                      </h3>
-                    )}
                     <hr style={{ width: 96, height: 2, background: CYAN, border: "none", margin: "0 0 20px" }} />
                     <p style={{ ...manropeBody }}>{block.body}</p>
                     {block.bullets && (
@@ -2871,14 +2851,76 @@ export function ServicePage({ data }: { data: ServicePageData }) {
               </ScrollReveal>
             </div>
           </section>
-          {block.bannerAfter && (
-            <div style={{ position: "relative", width: "100%", aspectRatio: "16/6", overflow: "hidden" }}>
-              <Image src={block.bannerAfter.image} alt={block.bannerAfter.imageAlt} fill style={{ objectFit: "cover" }} sizes="100vw" />
+        ))
+      )}
+
+      {/* PRODUCT SHOWCASE — symmetrical 3-column layout: two stacked
+          text+image pairs on the left, a large centered photo, two stacked
+          image+text pairs on the right (System X's product grid). */}
+      {d.productShowcase && (
+        <section style={{ background: "#0d0d0d", padding: `${sectionPad} 0` }}>
+          <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                gap: "clamp(32px, 4vw, 64px)",
+                alignItems: "center",
+              }}
+            >
+              {/* Left column */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "clamp(32px, 4vw, 56px)" }}>
+                {d.productShowcase.leftItems.map((item, i) => (
+                  <ScrollReveal key={i}>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 20, alignItems: "center" }}>
+                      <div>
+                        <h2 style={{ ...archivoBold, fontSize: "1.4rem", margin: "0 0 8px" }}>{item.h2}</h2>
+                        {item.h3 && (
+                          <h3 style={{ margin: "0 0 10px", fontFamily: "'Archivo', sans-serif", fontWeight: 500, textTransform: "uppercase", fontSize: "0.95rem", color: CYAN }}>
+                            {item.h3}
+                          </h3>
+                        )}
+                        <p style={{ ...manropeBody, fontSize: "0.95rem" }}>{item.body}</p>
+                      </div>
+                      <div style={{ position: "relative", width: 110, height: 140, flexShrink: 0 }}>
+                        <Image src={item.image} alt={item.imageAlt} fill style={{ objectFit: "contain" }} sizes="110px" />
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+
+              {/* Center photo */}
+              <ScrollReveal>
+                <div style={{ position: "relative", width: "100%", aspectRatio: "1/1" }}>
+                  <Image src={d.productShowcase.centerImage} alt={d.productShowcase.centerImageAlt} fill style={{ objectFit: "contain" }} sizes="(max-width:768px) 100vw, 33vw" />
+                </div>
+              </ScrollReveal>
+
+              {/* Right column */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "clamp(32px, 4vw, 56px)" }}>
+                {d.productShowcase.rightItems.map((item, i) => (
+                  <ScrollReveal key={i}>
+                    <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 20, alignItems: "center" }}>
+                      <div style={{ position: "relative", width: 110, height: 140, flexShrink: 0 }}>
+                        <Image src={item.image} alt={item.imageAlt} fill style={{ objectFit: "contain" }} sizes="110px" />
+                      </div>
+                      <div>
+                        <h2 style={{ ...archivoBold, fontSize: "1.4rem", margin: "0 0 8px" }}>{item.h2}</h2>
+                        {item.h3 && (
+                          <h3 style={{ margin: "0 0 10px", fontFamily: "'Archivo', sans-serif", fontWeight: 500, textTransform: "uppercase", fontSize: "0.95rem", color: CYAN }}>
+                            {item.h3}
+                          </h3>
+                        )}
+                        <p style={{ ...manropeBody, fontSize: "0.95rem" }}>{item.body}</p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
-          )}
-          </Fragment>
-          );
-        })
+          </div>
+        </section>
       )}
 
       {!d.hideQuoteForm && d.quoteFormPosition === "afterContentBlocks" && quoteFormSection}
