@@ -122,11 +122,11 @@ export const autoDetailingData: ServicePageData = {
       ],
     },
   ],
-  /* "Denver's Most Trusted Vehicle Aesthetic Experts" — exact same 3x2
+  /* "Denver’s Most Trusted Vehicle Aesthetic Experts" — exact same 3x2
      services grid as the homepage and Boat Detailing (same cards, images,
      and hover videos). */
   servicesGrid: {
-    h2: "Denver's Most Trusted Vehicle Aesthetic Experts",
+    h2: "Denver’s Most Trusted Vehicle Aesthetic Experts",
     cards: [
       { title: "Paint Protection Film & Clear Bra", subtitle: "10 Year Warranty", image: "/images/services/new-ppf-scaled.jpg", href: "/paint-protection-film-ppf", videoSrc: videos.services.ppf },
       { title: "Window Tinting", subtitle: "Lifetime Warranty", image: "/images/services/new-tint.jpg", href: "/window-tint", videoSrc: videos.services.tint },

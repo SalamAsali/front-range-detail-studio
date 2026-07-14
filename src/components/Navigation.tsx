@@ -4,6 +4,21 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+/** Visually hidden but present in the DOM/accessibility tree — matches
+ * WordPress's mobile-drawer site title (H3) and tagline (H6), which our
+ * drawer previously had no equivalent for at all. */
+const visuallyHidden: React.CSSProperties = {
+  position: "absolute",
+  width: 1,
+  height: 1,
+  padding: 0,
+  margin: -1,
+  overflow: "hidden",
+  clip: "rect(0,0,0,0)",
+  whiteSpace: "nowrap",
+  border: 0,
+};
+
 interface NavItem {
   label: string;
   href: string;
@@ -306,7 +321,13 @@ export function Navigation() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 36 }}>
-          <Image src="/logo-inverse.svg" alt="" width={120} height={38} style={{ height: 38, width: "auto" }} />
+          <Link href="/" onClick={closeMenu} style={{ display: "block" }}>
+            <Image src="/logo-inverse.svg" alt="" width={120} height={38} style={{ height: 38, width: "auto" }} />
+            <h3 style={visuallyHidden}>Front Range Detail Studio</h3>
+            <h6 style={visuallyHidden}>
+              Crafting Radiance. Preserving Elegance. Colorado&apos;s One Stop Shop for All Your Vehicle Care Needs
+            </h6>
+          </Link>
           <button
             aria-label="Close"
             onClick={closeMenu}

@@ -89,7 +89,7 @@ export default function HomePage() {
                   lineHeight: 1.08,
                 }}
               >
-                Denver&apos;s Most Trusted Vehicle Aesthetic Experts
+                Denver’s Most Trusted Vehicle Aesthetic Experts
               </h2>
               <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "22px 0 0" }} />
             </div>

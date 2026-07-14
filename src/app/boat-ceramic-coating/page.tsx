@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "https://frontrangedetailstudio.com/boat-ceramic-coating/",
   },
   openGraph: {
-    title: "Boat Ceramic Coating & PPF | Front Range Detail Studio",
+    title: "Boat Ceramic Coating - Front Range Detail Studio",
     description:
       "Professional detailing and System X Marine Ceramic Coating",
     url: "https://frontrangedetailstudio.com/boat-ceramic-coating/",
