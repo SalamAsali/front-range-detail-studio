@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "https://frontrangedetailstudio.com/system-x-automotive-ceramic-coatings/",
   },
   openGraph: {
-    title: "System X Automotive Ceramic Coatings | Front Range Detail Studio",
+    title: "System X Automotive Ceramic Coatings - Front Range Detail Studio",
     description:
       "Owners and collectors of the finest vintage and exotic automobiles worldwide trust System X to consistently provide unmatched slickness, protection,",
     url: "https://frontrangedetailstudio.com/system-x-automotive-ceramic-coatings/",
