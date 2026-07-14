@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FAQ } from "@/components/FAQ";
@@ -28,8 +29,23 @@ export interface ServicePageData {
    * (larger H1, homepage eyebrow sizing, Archivo-based subtitle, larger
    * buttons) instead of the default ServicePage hero look. Only affects
    * pages that set this — every other page's hero is unchanged.
+   *
+   * "split" replaces the full-bleed image-cover hero entirely with a plain
+   * two-column layout (optional logo + H1 + heroH3 + heroIntroBody + CTA
+   * buttons on the left, a plain contained photo on the right, no dark
+   * gradient overlay) — for pages like System X whose WordPress source has
+   * no traditional cover-image hero at all.
    */
-  heroVariant?: "homepage";
+  heroVariant?: "homepage" | "split";
+  /** heroVariant "split" only: optional logo image rendered above the H1. */
+  heroLogo?: string;
+  heroLogoAlt?: string;
+  /** heroVariant "split" only: overrides the H1's text color (default "#fff"). */
+  heroH1Color?: string;
+  /** heroVariant "split" only: real H3 subheading rendered directly below the H1. */
+  heroH3?: string;
+  /** heroVariant "split" only: intro paragraph rendered below heroH3. */
+  heroIntroBody?: string;
   /**
    * Only used when heroVariant is "homepage". Overrides the H1's font-size
    * clamp() string for this page — needed because homepage's own size
@@ -288,7 +304,63 @@ export interface ServicePageData {
    * unconditionally). Default (unset) keeps every other page unchanged.
    */
   hideQuoteForm?: boolean;
-  contentBlocks?: { h2: string; body: string; image: string; imageAlt: string; bullets?: string[] }[];
+  /**
+   * Opt-in: when "afterContentBlocks", the CTA/QUOTE section (Connect with
+   * Us/Business Hours/Denver Location + Send A Quick Quote Form) renders
+   * immediately after contentBlocks instead of its default position at the
+   * very bottom of the page. Unset (default) keeps every other page's
+   * ordering unchanged.
+   */
+  quoteFormPosition?: "afterContentBlocks";
+  contentBlocks?: {
+    h2: string;
+    /** Optional real H3 subheading rendered between h2 and body. */
+    h3?: string;
+    body: string;
+    image: string;
+    imageAlt: string;
+    bullets?: string[];
+    /** Overrides the automatic left/right alternation (image on left for
+     * even index, right for odd) with an explicit side for this entry. */
+    imageSide?: "left" | "right";
+    /** Optional full-bleed banner image rendered directly after this block
+     * (e.g. WordPress's diagonal-cropped "red sports car" banner between
+     * System X's Renew and Revive blocks). */
+    bannerAfter?: { image: string; imageAlt: string };
+  }[];
+  /**
+   * Centered logo + H2 + a horizontal row of bordered icon cards —
+   * replicates WordPress's "Why Have Us Install System X On Your Vehicle?"
+   * section. Renders right after the FEATURES section.
+   */
+  iconCardsLogo?: string;
+  iconCardsLogoAlt?: string;
+  iconCardsH2?: string;
+  iconCards?: { icon: "medal" | "flag" | "spray"; title: string; body: string }[];
+}
+
+const ICON_PATHS: Record<string, string> = {
+  medal:
+    "m387-412 35-114-92-74h114l36-112 36 112h114l-93 74 35 114-92-71-93 71ZM240-40v-309q-38-42-59-96t-21-115q0-134 93-227t227-93q134 0 227 93t93 227q0 61-21 115t-59 96v309l-240-80-240 80Zm240-280q100 0 170-70t70-170q0-100-70-170t-170-70q-100 0-170 70t-70 170q0 100 70 170t170 70ZM320-159l160-41 160 41v-124q-35 20-75.5 31.5T480-240q-44 0-84.5-11.5T320-283v124Zm160-62Z",
+  spray:
+    "M320-80q-33 0-56.5-23.5T240-160v-172q0-74 21-142.5T327-611q-38-9-62.5-41T240-724v-42q0-48 41.5-80.5T368-874l356 35q17 2 26.5 13.5T760-799v119q0 15-10.5 26.5T724-640l-36 4q14 49 37 88t55 56l-40 70q-53-31-82-85.5T612-629l-44 4q8 50 30.5 101t45.5 92q18 32 27 67t9 71v134q0 33-23.5 56.5T600-80H320Zm0-676v32q0 18 13 29t31 9l316-30v-48l-316-30q-18-2-31 9t-13 29Zm0 596h280v-134q0-26-6.5-51T574-393q-31-54-54-111.5T488-617l-60 5-26 34q-40 53-61 116.5T320-332v172Zm0 0h280-280Z",
+};
+
+function IconCardIcon({ icon }: { icon: "medal" | "flag" | "spray" }) {
+  if (icon === "flag") {
+    return (
+      <svg viewBox="0 0 7410 3900" width={56} height={30} aria-hidden="true">
+        <path fill="#b22234" d="M0 0h7410v3900H0z" />
+        <path stroke="#fff" strokeWidth={300} d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" />
+        <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 -960 960 960" width={40} height={40} fill="#c22929" aria-hidden="true">
+      <path d={ICON_PATHS[icon]} />
+    </svg>
+  );
 }
 
 const CYAN = "#00BCD4";
@@ -348,18 +420,241 @@ export function ServicePage({ data }: { data: ServicePageData }) {
     ? { ...heroCtaBtnOutline, fontSize: 14, padding: "18px 36px" }
     : heroCtaBtnOutline;
 
+  /* Connect with Us/Business Hours/Denver Location + Send A Quick Quote
+     Form. Rendered at the bottom of the page by default, or right after
+     CONTENT BLOCKS when quoteFormPosition is "afterContentBlocks". */
+  const quoteFormSection = (
+    <section
+      id="quote"
+      style={{
+        background: "#0d0d0d",
+        padding: "clamp(64px, 8vw, 110px) 0",
+        borderTop: "1px solid rgba(255,255,255,0.05)",
+        scrollMarginTop: 90,
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1440,
+          margin: "0 auto",
+          padding: "0 clamp(20px, 5vw, 56px)",
+        }}
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: "clamp(28px, 4vw, 56px)",
+            alignItems: "start",
+          }}
+        >
+          <ScrollReveal>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 28,
+              }}
+            >
+              {/* Connect with Us */}
+              <div>
+                <h3
+                  style={{
+                    margin: "0 0 14px",
+                    fontFamily: "'Archivo', sans-serif",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    fontSize: "1.05rem",
+                    color: "#fff",
+                  }}
+                >
+                  Connect with Us
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  <a
+                    href="tel:+13035208023"
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontWeight: 600,
+                      fontSize: "1.3rem",
+                      color: "#00BCD4",
+                      textDecoration: "none",
+                    }}
+                  >
+                    (303) 520-8023
+                  </a>
+                  <a
+                    href="mailto:info@frontrangedetailstudio.com"
+                    style={{
+                      fontFamily: "'Manrope', sans-serif",
+                      fontWeight: 400,
+                      fontSize: "0.95rem",
+                      color: "rgba(255,255,255,0.7)",
+                      textDecoration: "none",
+                    }}
+                  >
+                    info@frontrangedetailstudio.com
+                  </a>
+                </div>
+              </div>
+              {/* Business Hours */}
+              <div>
+                <h3
+                  style={{
+                    margin: "0 0 8px",
+                    fontFamily: "'Archivo', sans-serif",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    fontSize: "1.05rem",
+                    color: "#fff",
+                  }}
+                >
+                  Business Hours
+                </h3>
+                <p
+                  style={{
+                    margin: 0,
+                    fontFamily: "'Manrope', sans-serif",
+                    fontWeight: 300,
+                    fontSize: "0.95rem",
+                    color: "rgba(255,255,255,0.7)",
+                  }}
+                >
+                  Monday &ndash; Sunday: By Appointment Only
+                </p>
+              </div>
+              {/* Denver Location */}
+              <div>
+                <h3
+                  style={{
+                    margin: "0 0 8px",
+                    fontFamily: "'Archivo', sans-serif",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    fontSize: "1.05rem",
+                    color: "#fff",
+                  }}
+                >
+                  Denver Location
+                </h3>
+                <p
+                  style={{
+                    margin: 0,
+                    fontFamily: "'Manrope', sans-serif",
+                    fontWeight: 300,
+                    fontSize: "0.95rem",
+                    color: "rgba(255,255,255,0.7)",
+                  }}
+                >
+                  12559 E Broncos Pkwy, Centennial, CO 80112
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div>
+              <h2
+                style={{
+                  margin: "0 0 20px",
+                  fontFamily: "'Archivo', sans-serif",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "-0.3px",
+                  fontSize: "clamp(1.4rem, 2vw, 1.8rem)",
+                  lineHeight: 1.08,
+                }}
+              >
+                Send A Quick Quote Form
+              </h2>
+              <QuoteForm />
+            </div>
+          </ScrollReveal>
+        </div>
+      </div>
+    </section>
+  );
+
   return (
     <div style={{ background: "#000", fontFamily: "'Manrope', sans-serif" }}>
       {/* HERO */}
-      <section
-        style={{
-          position: "relative",
-          minHeight: matchHomepage
-            ? "100vh"
-            : "clamp(420px, 72vh, 680px)",
-          display: "flex",
-          alignItems: matchHomepage ? "center" : "flex-end",
-          overflow: "hidden",
+      {d.heroVariant === "split" ? (
+        <section
+          style={{
+            position: "relative",
+            marginTop: -82,
+            paddingTop: "clamp(120px, 14vw, 160px)",
+            paddingBottom: sectionPad,
+            background: "#000",
+          }}
+        >
+          <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}`, width: "100%" }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                gap: "clamp(28px, 4vw, 56px)",
+                alignItems: "center",
+              }}
+            >
+              <div>
+                {d.heroLogo && (
+                  <div style={{ position: "relative", width: 180, height: 70, marginBottom: 4 }}>
+                    <Image src={d.heroLogo} alt={d.heroLogoAlt || ""} fill style={{ objectFit: "contain", objectPosition: "left center" }} />
+                  </div>
+                )}
+                <h1
+                  style={{
+                    margin: 0,
+                    fontFamily: "'Archivo', sans-serif",
+                    fontWeight: 800,
+                    textTransform: "uppercase",
+                    letterSpacing: "-0.4px",
+                    fontSize: "clamp(2.4rem, 5vw, 4rem)",
+                    lineHeight: 1,
+                    color: d.heroH1Color || "#fff",
+                  }}
+                >
+                  {d.h1}
+                </h1>
+                {d.heroH3 && (
+                  <h3
+                    style={{
+                      margin: "6px 0 0",
+                      fontFamily: "'Archivo', sans-serif",
+                      fontWeight: 800,
+                      textTransform: "uppercase",
+                      fontSize: "clamp(1.15rem, 2.2vw, 1.6rem)",
+                      lineHeight: 1,
+                      color: "#fff",
+                    }}
+                  >
+                    {d.heroH3}
+                  </h3>
+                )}
+                {d.heroIntroBody && (
+                  <p style={{ ...manropeBody, margin: "20px 0 0", color: "rgba(255,255,255,0.85)" }}>{d.heroIntroBody}</p>
+                )}
+                <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 28 }}>
+                  <Link href="/free-quote" style={heroCtaBtn}>Get A Free Quote</Link>
+                  <a href="tel:+13035208023" style={heroCtaBtnOutline}>Call (303) 520-8023</a>
+                </div>
+              </div>
+              <div style={{ position: "relative", aspectRatio: "1/1", minHeight: 320, borderRadius: 8, overflow: "hidden" }}>
+                <Image src={d.heroImg} alt={d.heroImgAlt || ""} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section
+          style={{
+            position: "relative",
+            minHeight: matchHomepage
+              ? "100vh"
+              : "clamp(420px, 72vh, 680px)",
+            display: "flex",
+            alignItems: matchHomepage ? "center" : "flex-end",
+            overflow: "hidden",
           marginTop: -82,
           paddingTop: matchHomepage ? 82 : undefined,
         }}
@@ -518,6 +813,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           </div>
         </div>
       </section>
+      )}
 
       {/* RATINGS BAR */}
       {!d.hideRatingsBar && (
@@ -939,6 +1235,77 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 ))}
               </div>
             )}
+          </div>
+        </section>
+      )}
+
+      {/* ICON CARDS — centered logo + H2 + horizontal row of bordered icon cards */}
+      {d.iconCards && d.iconCards.length > 0 && (
+        <section style={{ background: "#000", padding: `${sectionPad} 0` }}>
+          <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+            <ScrollReveal>
+              <div style={{ textAlign: "center", marginBottom: 44 }}>
+                {d.iconCardsLogo && (
+                  <div style={{ position: "relative", width: 200, height: 80, margin: "0 auto 20px" }}>
+                    <Image src={d.iconCardsLogo} alt={d.iconCardsLogoAlt || ""} fill style={{ objectFit: "contain" }} />
+                  </div>
+                )}
+                {d.iconCardsH2 && (
+                  <h2
+                    style={{
+                      margin: 0,
+                      fontFamily: "'Archivo', sans-serif",
+                      fontWeight: 800,
+                      textTransform: "uppercase",
+                      letterSpacing: "-0.3px",
+                      fontSize: "clamp(1.5rem, 2.4vw, 2.1rem)",
+                    }}
+                  >
+                    {d.iconCardsH2}
+                  </h2>
+                )}
+              </div>
+            </ScrollReveal>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                gap: 24,
+              }}
+            >
+              {d.iconCards.map((card, i) => (
+                <ScrollReveal key={i}>
+                  <div
+                    style={{
+                      border: "1px solid #c22929",
+                      borderRadius: 4,
+                      padding: "clamp(28px, 3vw, 48px)",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                      gap: 14,
+                      height: "100%",
+                    }}
+                  >
+                    <IconCardIcon icon={card.icon} />
+                    <p
+                      style={{
+                        margin: 0,
+                        fontFamily: "'Archivo', sans-serif",
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        fontSize: "1.05rem",
+                        color: "#fff",
+                      }}
+                    >
+                      {card.title}
+                    </p>
+                    <p style={{ ...manropeBody, fontSize: "0.95rem" }}>{card.body}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
         </section>
       )}
@@ -2454,8 +2821,11 @@ export function ServicePage({ data }: { data: ServicePageData }) {
 
       {/* CONTENT BLOCKS - alternating image+text */}
       {d.contentBlocks && d.contentBlocks.length > 0 && (
-        d.contentBlocks.map((block, i) => (
-          <section key={i} style={{ background: i % 2 === 0 ? "#0d0d0d" : "#000", padding: `${sectionPad} 0` }}>
+        d.contentBlocks.map((block, i) => {
+          const imageRight = block.imageSide ? block.imageSide === "right" : i % 2 !== 0;
+          return (
+          <Fragment key={i}>
+          <section style={{ background: i % 2 === 0 ? "#0d0d0d" : "#000", padding: `${sectionPad} 0` }}>
             <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}` }}>
               <ScrollReveal>
                 <div style={{
@@ -2464,8 +2834,8 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   gap: "clamp(28px, 4vw, 56px)",
                   alignItems: "center",
                 }}>
-                  {/* Image - left on odd, right on even */}
-                  <div style={{ order: i % 2 === 0 ? 0 : 1 }}>
+                  {/* Image - left by default, right when imageRight */}
+                  <div style={{ order: imageRight ? 1 : 0 }}>
                     <div style={{ position: "relative", aspectRatio: "4/3", borderRadius: 8, overflow: "hidden" }}>
                       <Image src={block.image} alt={block.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
                     </div>
@@ -2473,6 +2843,20 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   {/* Text */}
                   <div>
                     <h2 style={{ ...archivoBold, fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)", margin: "0 0 12px" }}>{block.h2}</h2>
+                    {block.h3 && (
+                      <h3
+                        style={{
+                          margin: "0 0 14px",
+                          fontFamily: "'Archivo', sans-serif",
+                          fontWeight: 500,
+                          textTransform: "uppercase",
+                          fontSize: "1rem",
+                          color: CYAN,
+                        }}
+                      >
+                        {block.h3}
+                      </h3>
+                    )}
                     <hr style={{ width: 96, height: 2, background: CYAN, border: "none", margin: "0 0 20px" }} />
                     <p style={{ ...manropeBody }}>{block.body}</p>
                     {block.bullets && (
@@ -2487,8 +2871,17 @@ export function ServicePage({ data }: { data: ServicePageData }) {
               </ScrollReveal>
             </div>
           </section>
-        ))
+          {block.bannerAfter && (
+            <div style={{ position: "relative", width: "100%", aspectRatio: "16/6", overflow: "hidden" }}>
+              <Image src={block.bannerAfter.image} alt={block.bannerAfter.imageAlt} fill style={{ objectFit: "cover" }} sizes="100vw" />
+            </div>
+          )}
+          </Fragment>
+          );
+        })
       )}
+
+      {!d.hideQuoteForm && d.quoteFormPosition === "afterContentBlocks" && quoteFormSection}
 
       {/* ADDITIONAL SECTIONS */}
       {d.additionalSections && d.additionalSections.length > 0 &&
@@ -2881,156 +3274,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       )}
 
       {/* CTA / QUOTE */}
-      {!d.hideQuoteForm && (
-      <section
-        id="quote"
-        style={{
-          background: "#0d0d0d",
-          padding: "clamp(64px, 8vw, 110px) 0",
-          borderTop: "1px solid rgba(255,255,255,0.05)",
-          scrollMarginTop: 90,
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1440,
-            margin: "0 auto",
-            padding: "0 clamp(20px, 5vw, 56px)",
-          }}
-        >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "clamp(28px, 4vw, 56px)",
-              alignItems: "start",
-            }}
-          >
-            <ScrollReveal>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 28,
-                }}
-              >
-                {/* Connect with Us */}
-                <div>
-                  <h3
-                    style={{
-                      margin: "0 0 14px",
-                      fontFamily: "'Archivo', sans-serif",
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                      fontSize: "1.05rem",
-                      color: "#fff",
-                    }}
-                  >
-                    Connect with Us
-                  </h3>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                    <a
-                      href="tel:+13035208023"
-                      style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontWeight: 600,
-                        fontSize: "1.3rem",
-                        color: "#00BCD4",
-                        textDecoration: "none",
-                      }}
-                    >
-                      (303) 520-8023
-                    </a>
-                    <a
-                      href="mailto:info@frontrangedetailstudio.com"
-                      style={{
-                        fontFamily: "'Manrope', sans-serif",
-                        fontWeight: 400,
-                        fontSize: "0.95rem",
-                        color: "rgba(255,255,255,0.7)",
-                        textDecoration: "none",
-                      }}
-                    >
-                      info@frontrangedetailstudio.com
-                    </a>
-                  </div>
-                </div>
-                {/* Business Hours */}
-                <div>
-                  <h3
-                    style={{
-                      margin: "0 0 8px",
-                      fontFamily: "'Archivo', sans-serif",
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                      fontSize: "1.05rem",
-                      color: "#fff",
-                    }}
-                  >
-                    Business Hours
-                  </h3>
-                  <p
-                    style={{
-                      margin: 0,
-                      fontFamily: "'Manrope', sans-serif",
-                      fontWeight: 300,
-                      fontSize: "0.95rem",
-                      color: "rgba(255,255,255,0.7)",
-                    }}
-                  >
-                    Monday &ndash; Sunday: By Appointment Only
-                  </p>
-                </div>
-                {/* Denver Location */}
-                <div>
-                  <h3
-                    style={{
-                      margin: "0 0 8px",
-                      fontFamily: "'Archivo', sans-serif",
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                      fontSize: "1.05rem",
-                      color: "#fff",
-                    }}
-                  >
-                    Denver Location
-                  </h3>
-                  <p
-                    style={{
-                      margin: 0,
-                      fontFamily: "'Manrope', sans-serif",
-                      fontWeight: 300,
-                      fontSize: "0.95rem",
-                      color: "rgba(255,255,255,0.7)",
-                    }}
-                  >
-                    12559 E Broncos Pkwy, Centennial, CO 80112
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal>
-              <div>
-                <h2
-                  style={{
-                    margin: "0 0 20px",
-                    fontFamily: "'Archivo', sans-serif",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.4rem, 2vw, 1.8rem)",
-                    lineHeight: 1.08,
-                  }}
-                >
-                  Send A Quick Quote Form
-                </h2>
-                <QuoteForm />
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-      )}
+      {!d.hideQuoteForm && d.quoteFormPosition !== "afterContentBlocks" && quoteFormSection}
     </div>
   );
 }
