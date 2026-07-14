@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     canonical: "https://frontrangedetailstudio.com/contact/",
   },
   openGraph: {
-    title: "Contact | Front Range Detail Studio",
+    title: "Contact - Front Range Detail Studio",
     description:
       "Denver's Most Trusted Vehicle Aesthetic Experts",
     url: "https://frontrangedetailstudio.com/contact/",
