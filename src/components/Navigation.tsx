@@ -190,7 +190,7 @@ export function Navigation() {
 
         {/* CTA */}
         <Link
-          href="/#quote"
+          href="/free-quote"
           className="desktop-cta"
           style={{
             fontFamily: "var(--font-button)",
@@ -386,7 +386,7 @@ export function Navigation() {
         ))}
 
         <Link
-          href="/#quote"
+          href="/free-quote"
           onClick={closeMenu}
           style={{
             marginTop: 28,
