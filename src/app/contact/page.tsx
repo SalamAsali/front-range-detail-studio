@@ -1,8 +1,36 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ScrollReveal } from "@/components/ScrollReveal";
+
+const CYAN = "#00BCD4";
+
+/* Mirrors ServicePage.tsx's heroVariant:"homepage" CTA button styling
+   exactly, since Contact is a hand-built page with no ServicePageData. */
+const heroCtaBtn: React.CSSProperties = {
+  fontFamily: "'Michroma', sans-serif",
+  textTransform: "uppercase",
+  letterSpacing: "0.05em",
+  fontSize: 14,
+  color: "#fff",
+  background: CYAN,
+  borderRadius: "3.125rem",
+  padding: "18px 36px",
+  textDecoration: "none",
+  whiteSpace: "nowrap",
+  display: "inline-block",
+  boxShadow: "0 10px 34px rgba(0,188,212,0.36)",
+};
+
+const heroCtaBtnOutline: React.CSSProperties = {
+  ...heroCtaBtn,
+  background: "transparent",
+  border: `1px solid ${CYAN}`,
+  color: CYAN,
+  boxShadow: "none",
+};
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -34,11 +62,12 @@ export default function ContactPage() {
       <section
         style={{
           position: "relative",
-          minHeight: "clamp(420px, 72vh, 680px)",
+          minHeight: "100vh",
           display: "flex",
-          alignItems: "flex-end",
+          alignItems: "center",
           overflow: "hidden",
           marginTop: -82,
+          paddingTop: 82,
         }}
       >
         <Image
@@ -54,7 +83,7 @@ export default function ContactPage() {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(100deg, rgba(0,188,212,0.4) 0%, rgba(0,0,0,0.6) 58%, rgba(0,0,0,0.8) 100%)",
+              "linear-gradient(100deg, rgba(0,188,212,0.42) 0%, rgba(0,0,0,0.62) 60%, rgba(0,0,0,0.78) 100%)",
             zIndex: 1,
           }}
         />
@@ -63,7 +92,7 @@ export default function ContactPage() {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.15) 55%)",
+              "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.1) 42%)",
             zIndex: 1,
           }}
         />
@@ -71,38 +100,49 @@ export default function ContactPage() {
           style={{
             position: "relative",
             zIndex: 2,
-            maxWidth: 1280,
+            maxWidth: 1440,
             margin: "0 auto",
             padding: "0 clamp(20px, 5vw, 56px) clamp(48px, 6vw, 80px)",
             width: "100%",
           }}
         >
-          <div style={{ maxWidth: 880, display: "flex", flexDirection: "column", gap: 18 }}>
+          <div style={{ maxWidth: 1080, display: "flex", flexDirection: "column", gap: 26 }}>
             <span
               style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: 12,
+                fontSize: "clamp(12px, 1.1vw, 14px)",
+                fontWeight: 500,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 color: "#32EEFF",
+                lineHeight: 1.7,
               }}
             >
-              Contact Us
+              Denver&rsquo;s Most Trusted Vehicle Aesthetic Experts
             </span>
+            <hr style={{ width: 64, height: 2, background: CYAN, border: "none", margin: 0 }} />
             <h1
               style={{
                 margin: 0,
                 fontFamily: "'Archivo', sans-serif",
                 fontWeight: 800,
                 textTransform: "uppercase",
-                letterSpacing: "-0.4px",
-                fontSize: "clamp(2rem, 4.2vw, 3.6rem)",
-                lineHeight: 1.02,
-                textShadow: "0 3px 30px rgba(0,0,0,0.5)",
+                letterSpacing: "-0.5px",
+                fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                lineHeight: 0.98,
+                textShadow: "0 4px 40px rgba(0,0,0,0.5)",
               }}
             >
-              Denver&rsquo;s Most Trusted Vehicle Aesthetic Experts
+              We Proudly Serve Denver and All Surrounding Cities
             </h1>
+            <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8 }}>
+              <Link href="/free-quote" style={heroCtaBtn}>
+                Get A Free Quote
+              </Link>
+              <a href="tel:+13035208023" style={heroCtaBtnOutline}>
+                Call (303) 520-8023
+              </a>
+            </div>
           </div>
         </div>
       </section>
