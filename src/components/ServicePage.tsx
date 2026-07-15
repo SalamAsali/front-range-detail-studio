@@ -149,18 +149,26 @@ export interface ServicePageData {
   imageTextSection?: {
     image: string;
     imageAlt: string;
+    /** Optional small uppercase caption above the first group's heading. */
+    eyebrow?: string;
     groups: {
       h2: string;
+      /** Heading tag for this group (default "h2") — set "h3" for a
+       * subheading nested under a preceding group's H2, matching WordPress's
+       * real heading level (e.g. "Why Choose Us?" under the intro H2). */
+      tag?: "h2" | "h3";
       /**
        * Each item renders one of three ways, in priority order:
-       * - `bullets`: a `<ul>` list (WordPress content with a real bullet list)
+       * - `bullets`: a `<ul>` list (WordPress content with a real bullet list).
+       *   Each bullet is either a plain string, or `{ title, body }` to bold
+       *   a lead-in phrase before the rest of the bullet's text.
        * - `lines`: consecutive plain paragraphs, one per string (WordPress
        *   content with several separate, non-bulleted lines)
        * - `body` (with optional `title`): a single paragraph, bolded
        *   "Title:" prefix when title is set — the original flowing-prose
        *   format.
        */
-      items: { title?: string; body?: string; bullets?: string[]; lines?: string[] }[];
+      items: { title?: string; body?: string; bullets?: (string | { title: string; body: string })[]; lines?: string[] }[];
     }[];
   };
   /**
@@ -176,8 +184,12 @@ export interface ServicePageData {
    * right after imageTextSection, in array order.
    */
   imageTextSections?: {
-    image: string;
-    imageAlt: string;
+    image?: string;
+    imageAlt?: string;
+    /** Renders an autoplaying, muted, looping video instead of the static
+     * Image — for WordPress sections that embed a video instead of a
+     * photo (e.g. "Protect Your Vehicle..."). Takes priority over `image`. */
+    videoSrc?: string;
     /** Default "left" (image first/left, text second/right). */
     imageSide?: "left" | "right";
     /** Optional small uppercase caption above the H2 (WordPress renders
@@ -185,7 +197,18 @@ export interface ServicePageData {
      * text alone carries the same meaning). */
     eyebrow?: string;
     h2: string;
-    items: { title?: string; body?: string; bullets?: string[]; lines?: string[] }[];
+    items: { title?: string; body?: string; bullets?: (string | { title: string; body: string })[]; lines?: string[] }[];
+    /** Opt-out: hides the "Get A Free Quote"/"Call" buttons this section
+     * renders by default — for WordPress sections lower on a page that
+     * repeat the same CTA redundantly. Default (unset) keeps buttons shown. */
+    hideButtons?: boolean;
+    /** Opt-in: when "afterPartners", this entry renders in a second batch
+     * right after the PARTNERS section instead of its default position
+     * before SERVICES GRID — for pages (like PPF) whose WordPress source
+     * has some image+text sections early and others much further down,
+     * after Reviews/FAQ/Partners. Unset (default) keeps every other page's
+     * ordering unchanged. */
+    position?: "afterPartners";
   }[];
   /**
    * Image-left / text-right intro block (eyebrow, H2, single body
@@ -252,7 +275,17 @@ export interface ServicePageData {
    */
   partnersStripPosition?: "afterServicesGrid";
   includedH2?: string;
-  included?: string[];
+  /** Optional small uppercase caption above includedH2. */
+  includedEyebrow?: string;
+  /** Optional companion image — switches the section from a centered
+   * checklist grid to a 2-column image+text layout (bold title + separate
+   * description paragraph per item), matching WordPress's real "What's
+   * Included" layout. Default (unset) keeps the checklist-grid layout. */
+  includedImage?: string;
+  includedImageAlt?: string;
+  /** Default "right" when includedImage is set. */
+  includedImageSide?: "left" | "right";
+  included?: (string | { title: string; body: string })[];
   stepsH2?: string;
   /**
    * Overrides the process section's small uppercase eyebrow (default
@@ -297,6 +330,14 @@ export interface ServicePageData {
    * (unset) keeps every other page's Reviews section unchanged.
    */
   hideReviews?: boolean;
+  /**
+   * Opt-in: when "afterSteps", the Reviews section renders immediately
+   * after PROCESS STEPS instead of its default position near the bottom of
+   * the page — for pages (like PPF) whose WordPress source shows reviews
+   * right after the process steps, well before FAQ/Partners. Unset
+   * (default) keeps every other page's ordering unchanged.
+   */
+  reviewsPosition?: "afterSteps";
   /**
    * Opt-out: when true, hides the standard "Send A Quick Quote Form"
    * section (unlike most fields above, it normally renders
@@ -364,6 +405,139 @@ const CYAN = "#00BCD4";
 const GUTTER = "clamp(20px, 5vw, 56px)";
 const sectionPad = "clamp(56px, 7vw, 96px)";
 
+/** Renders a bullet's content — a plain string, or a bold lead-in phrase
+ * followed by the rest of the bullet's text (WordPress's "**Title** —
+ * body" bullet pattern). */
+function BulletContent({ bullet }: { bullet: string | { title: string; body: string } }) {
+  if (typeof bullet === "string") return <>{bullet}</>;
+  return (
+    <>
+      <strong style={{ color: "#fff", fontWeight: 700 }}>{bullet.title}</strong> — {bullet.body}
+    </>
+  );
+}
+
+function ImageTextSectionsList({ sections }: { sections: NonNullable<ServicePageData["imageTextSections"]> }) {
+  return (
+    <>
+      {sections.map((sec, si) => {
+        const media = sec.videoSrc ? (
+          <video autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
+            <source src={sec.videoSrc} type="video/mp4" />
+          </video>
+        ) : (
+          <Image
+            src={sec.image!}
+            alt={sec.imageAlt || ""}
+            fill
+            style={{ objectFit: "cover" }}
+            sizes="(max-width:768px) 100vw, 50vw"
+          />
+        );
+        return (
+          <section key={si} style={{ background: si % 2 === 0 ? "#0d0d0d" : "#000", padding: `${sectionPad} 0` }}>
+            <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+              <ScrollReveal>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                    gap: "clamp(28px, 4vw, 56px)",
+                    alignItems: "stretch",
+                  }}
+                >
+                  {sec.imageSide !== "right" && (
+                    <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
+                      {media}
+                    </div>
+                  )}
+                  <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 20 }}>
+                    {sec.eyebrow && (
+                      <span
+                        style={{
+                          fontFamily: "'Inter', sans-serif",
+                          fontSize: 12,
+                          letterSpacing: "0.16em",
+                          textTransform: "uppercase",
+                          color: "#00BCD4",
+                        }}
+                      >
+                        {sec.eyebrow}
+                      </span>
+                    )}
+                    <h2
+                      style={{
+                        ...archivoBold,
+                        margin: 0,
+                        fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
+                        lineHeight: 1.15,
+                      }}
+                    >
+                      {sec.h2}
+                    </h2>
+                    <hr style={{ width: 96, height: 2, background: CYAN, border: "none", margin: 0 }} />
+                    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                      {sec.items.map((item, ii) =>
+                        item.bullets || item.lines ? (
+                          <div key={ii}>
+                            {item.title && (
+                              <p style={{ ...manropeBody, margin: "0 0 8px" }}>
+                                <strong style={{ color: "#fff", fontWeight: 700 }}>{item.title}</strong>
+                              </p>
+                            )}
+                            {item.bullets ? (
+                              <ul style={{ margin: 0, padding: "0 0 0 20px", listStyle: "disc" }}>
+                                {item.bullets.map((b, bi) => (
+                                  <li key={bi} style={{ ...manropeBody, marginBottom: 6 }}><BulletContent bullet={b} /></li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                                {item.lines!.map((l, li) => (
+                                  <p key={li} style={manropeBody}>{l}</p>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <p key={ii} style={manropeBody}>
+                            {item.title ? (
+                              <>
+                                <strong style={{ color: "#fff", fontWeight: 700 }}>{item.title}:</strong>
+                                <br />
+                              </>
+                            ) : null}
+                            {item.body}
+                          </p>
+                        )
+                      )}
+                    </div>
+                    {!sec.hideButtons && (
+                      <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8 }}>
+                        <Link href="/free-quote" style={heroCtaBtn}>
+                          Get A Free Quote
+                        </Link>
+                        <a href="tel:+13035208023" style={heroCtaBtnOutline}>
+                          Call (303) 520-8023
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                  {sec.imageSide === "right" && (
+                    <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
+                      {media}
+                    </div>
+                  )}
+                </div>
+              </ScrollReveal>
+            </div>
+          </section>
+        );
+      })}
+    </>
+  );
+}
+
 const archivoBold: React.CSSProperties = {
   fontFamily: "'Archivo', sans-serif",
   fontWeight: 700,
@@ -416,6 +590,58 @@ export function ServicePage({ data }: { data: ServicePageData }) {
   const ctaBtnOutlineStyle: React.CSSProperties = matchHomepage
     ? { ...heroCtaBtnOutline, fontSize: 14, padding: "18px 36px" }
     : heroCtaBtnOutline;
+
+  /* Reviews. Rendered near the bottom of the page by default, or right
+     after PROCESS STEPS when reviewsPosition is "afterSteps". */
+  const reviewsSection = (
+    <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>
+      <div
+        style={{
+          maxWidth: 1440,
+          margin: "0 auto",
+          padding: "0 clamp(20px, 5vw, 56px)",
+        }}
+      >
+        <ScrollReveal>
+          <div style={{ marginBottom: 36 }}>
+            <span
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: 12,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: "#00BCD4",
+              }}
+            >
+              Testimonials
+            </span>
+            <h2
+              style={{
+                margin: "12px 0 0",
+                fontFamily: "'Archivo', sans-serif",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "-0.3px",
+                fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
+              }}
+            >
+              Front Range Detail Studio client Reviews
+            </h2>
+            <hr
+              style={{
+                width: 96,
+                height: 2,
+                background: "#00BCD4",
+                border: "none",
+                margin: "20px 0 0",
+              }}
+            />
+          </div>
+        </ScrollReveal>
+        <ReviewCarousel />
+      </div>
+    </section>
+  );
 
   /* Connect with Us/Business Hours/Denver Location + Send A Quick Quote
      Form. Rendered at the bottom of the page by default, or right after
@@ -1799,18 +2025,34 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   />
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
-                  {d.imageTextSection.groups.map((group, gi) => (
+                  {d.imageTextSection.eyebrow && (
+                    <span
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: 12,
+                        letterSpacing: "0.16em",
+                        textTransform: "uppercase",
+                        color: "#00BCD4",
+                        marginBottom: -16,
+                      }}
+                    >
+                      {d.imageTextSection.eyebrow}
+                    </span>
+                  )}
+                  {d.imageTextSection.groups.map((group, gi) => {
+                    const HeadingTag = group.tag === "h3" ? "h3" : "h2";
+                    return (
                     <div key={gi}>
-                      <h2
+                      <HeadingTag
                         style={{
                           ...archivoBold,
                           margin: 0,
-                          fontSize: "clamp(1.4rem, 2vw, 1.8rem)",
+                          fontSize: group.tag === "h3" ? "clamp(1.2rem, 1.7vw, 1.5rem)" : "clamp(1.4rem, 2vw, 1.8rem)",
                           lineHeight: 1.2,
                         }}
                       >
                         {group.h2}
-                      </h2>
+                      </HeadingTag>
                       <hr
                         style={{
                           width: 96,
@@ -1832,7 +2074,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                               {item.bullets ? (
                                 <ul style={{ margin: 0, padding: "0 0 0 20px", listStyle: "disc" }}>
                                   {item.bullets.map((b, bi) => (
-                                    <li key={bi} style={{ ...manropeBody, marginBottom: 6 }}>{b}</li>
+                                    <li key={bi} style={{ ...manropeBody, marginBottom: 6 }}><BulletContent bullet={b} /></li>
                                   ))}
                                 </ul>
                               ) : (
@@ -1857,7 +2099,8 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                         )}
                       </div>
                     </div>
-                  ))}
+                    );
+                  })}
                   <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8 }}>
                     <Link href="/free-quote" style={heroCtaBtn}>
                       Get A Free Quote
@@ -1876,116 +2119,9 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       {/* REPEATABLE IMAGE + TEXT SECTIONS — same visual language as
           imageTextSection above, but one image+heading+items+buttons per
           array entry with independently choosable image side. */}
-      {d.imageTextSections && d.imageTextSections.length > 0 &&
-        d.imageTextSections.map((sec, si) => (
-          <section key={si} style={{ background: si % 2 === 0 ? "#0d0d0d" : "#000", padding: `${sectionPad} 0` }}>
-            <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}` }}>
-              <ScrollReveal>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-                    gap: "clamp(28px, 4vw, 56px)",
-                    alignItems: "stretch",
-                  }}
-                >
-                  {sec.imageSide !== "right" && (
-                    <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
-                      <Image
-                        src={sec.image}
-                        alt={sec.imageAlt}
-                        fill
-                        style={{ objectFit: "cover" }}
-                        sizes="(max-width:768px) 100vw, 50vw"
-                      />
-                    </div>
-                  )}
-                  <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 20 }}>
-                    {sec.eyebrow && (
-                      <span
-                        style={{
-                          fontFamily: "'Inter', sans-serif",
-                          fontSize: 12,
-                          letterSpacing: "0.16em",
-                          textTransform: "uppercase",
-                          color: "#00BCD4",
-                        }}
-                      >
-                        {sec.eyebrow}
-                      </span>
-                    )}
-                    <h2
-                      style={{
-                        ...archivoBold,
-                        margin: 0,
-                        fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
-                        lineHeight: 1.15,
-                      }}
-                    >
-                      {sec.h2}
-                    </h2>
-                    <hr style={{ width: 96, height: 2, background: CYAN, border: "none", margin: 0 }} />
-                    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                      {sec.items.map((item, ii) =>
-                        item.bullets || item.lines ? (
-                          <div key={ii}>
-                            {item.title && (
-                              <p style={{ ...manropeBody, margin: "0 0 8px" }}>
-                                <strong style={{ color: "#fff", fontWeight: 700 }}>{item.title}</strong>
-                              </p>
-                            )}
-                            {item.bullets ? (
-                              <ul style={{ margin: 0, padding: "0 0 0 20px", listStyle: "disc" }}>
-                                {item.bullets.map((b, bi) => (
-                                  <li key={bi} style={{ ...manropeBody, marginBottom: 6 }}>{b}</li>
-                                ))}
-                              </ul>
-                            ) : (
-                              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                                {item.lines!.map((l, li) => (
-                                  <p key={li} style={manropeBody}>{l}</p>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        ) : (
-                          <p key={ii} style={manropeBody}>
-                            {item.title ? (
-                              <>
-                                <strong style={{ color: "#fff", fontWeight: 700 }}>{item.title}:</strong>
-                                <br />
-                              </>
-                            ) : null}
-                            {item.body}
-                          </p>
-                        )
-                      )}
-                    </div>
-                    <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8 }}>
-                      <Link href="/free-quote" style={heroCtaBtn}>
-                        Get A Free Quote
-                      </Link>
-                      <a href="tel:+13035208023" style={heroCtaBtnOutline}>
-                        Call (303) 520-8023
-                      </a>
-                    </div>
-                  </div>
-                  {sec.imageSide === "right" && (
-                    <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
-                      <Image
-                        src={sec.image}
-                        alt={sec.imageAlt}
-                        fill
-                        style={{ objectFit: "cover" }}
-                        sizes="(max-width:768px) 100vw, 50vw"
-                      />
-                    </div>
-                  )}
-                </div>
-              </ScrollReveal>
-            </div>
-          </section>
-        ))}
+      {d.imageTextSections && (
+        <ImageTextSectionsList sections={d.imageTextSections.filter((sec) => sec.position !== "afterPartners")} />
+      )}
 
       {/* SERVICES GRID (reused verbatim from the homepage) */}
       {d.servicesGrid && (
@@ -2033,6 +2169,72 @@ export function ServicePage({ data }: { data: ServicePageData }) {
 
       {/* INCLUDED CHECKLIST */}
       {d.included && d.included.length > 0 && (
+        d.includedImage ? (
+          <section style={{ background: "#000", padding: `${sectionPad} 0` }}>
+            <div style={{ maxWidth: 1440, margin: "0 auto", padding: `0 ${GUTTER}` }}>
+              <ScrollReveal>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                    gap: "clamp(28px, 4vw, 56px)",
+                    alignItems: "stretch",
+                  }}
+                >
+                  {d.includedImageSide !== "left" && (
+                    <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden", order: 1 }}>
+                      <Image src={d.includedImage} alt={d.includedImageAlt || ""} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
+                    </div>
+                  )}
+                  <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 16, order: d.includedImageSide !== "left" ? 0 : 1 }}>
+                    {d.includedEyebrow && (
+                      <span
+                        style={{
+                          fontFamily: "'Inter', sans-serif",
+                          fontSize: 12,
+                          letterSpacing: "0.16em",
+                          textTransform: "uppercase",
+                          color: "#00BCD4",
+                        }}
+                      >
+                        {d.includedEyebrow}
+                      </span>
+                    )}
+                    <h2
+                      style={{
+                        ...archivoBold,
+                        margin: 0,
+                        fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
+                        lineHeight: 1.15,
+                      }}
+                    >
+                      {d.includedH2 || "What\u2019s Included"}
+                    </h2>
+                    <hr style={{ width: 96, height: 2, background: CYAN, border: "none", margin: 0 }} />
+                    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                      {d.included.map((item, i) =>
+                        typeof item === "string" ? (
+                          <p key={i} style={manropeBody}>{item}</p>
+                        ) : (
+                          <p key={i} style={manropeBody}>
+                            <strong style={{ color: "#fff", fontWeight: 700 }}>{item.title}:</strong>
+                            <br />
+                            {item.body}
+                          </p>
+                        )
+                      )}
+                    </div>
+                  </div>
+                  {d.includedImageSide === "left" && (
+                    <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
+                      <Image src={d.includedImage} alt={d.includedImageAlt || ""} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
+                    </div>
+                  )}
+                </div>
+              </ScrollReveal>
+            </div>
+          </section>
+        ) : (
         <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>
           <div
             style={{
@@ -2106,7 +2308,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                         color: "rgba(255,255,255,0.85)",
                       }}
                     >
-                      {item}
+                      {typeof item === "string" ? item : `${item.title}: ${item.body}`}
                     </span>
                   </div>
                 ))}
@@ -2114,6 +2316,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
             </ScrollReveal>
           </div>
         </section>
+        )
       )}
 
       {/* PROCESS STEPS */}
@@ -2245,6 +2448,8 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           </div>
         </section>
       )}
+
+      {!d.hideReviews && d.reviewsPosition === "afterSteps" && reviewsSection}
 
       {/* SERVICE CARDS */}
       {d.cards && d.cards.length > 0 && (
@@ -3260,60 +3465,16 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       {/* PARTNERS */}
       {d.partnersStripPosition !== "afterServicesGrid" && <PartnersStrip />}
 
+      {/* IMAGE + TEXT SECTIONS positioned after Partners (see imageTextSections[].position) */}
+      {d.imageTextSections && (
+        <ImageTextSectionsList sections={d.imageTextSections.filter((sec) => sec.position === "afterPartners")} />
+      )}
+
       {/* DENVER CTA */}
       {!d.hideDenverCta && d.denverCtaPosition !== "afterServicesGrid" && <DenverCTA {...d.denverCta} />}
 
       {/* REVIEWS */}
-      {!d.hideReviews && (
-      <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>
-        <div
-          style={{
-            maxWidth: 1440,
-            margin: "0 auto",
-            padding: "0 clamp(20px, 5vw, 56px)",
-          }}
-        >
-          <ScrollReveal>
-            <div style={{ marginBottom: 36 }}>
-              <span
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 12,
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  color: "#00BCD4",
-                }}
-              >
-                Testimonials
-              </span>
-              <h2
-                style={{
-                  margin: "12px 0 0",
-                  fontFamily: "'Archivo', sans-serif",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "-0.3px",
-                  fontSize: "clamp(1.7rem, 2.6vw, 2.35rem)",
-                }}
-              >
-                Front Range Detail Studio client Reviews
-              </h2>
-              <hr
-                style={{
-                  width: 96,
-                  height: 2,
-                  background: "#00BCD4",
-                  border: "none",
-                  margin: "20px 0 0",
-                }}
-              />
-            </div>
-          </ScrollReveal>
-          <ReviewBadges />
-          <ReviewCarousel />
-        </div>
-      </section>
-      )}
+      {!d.hideReviews && d.reviewsPosition !== "afterSteps" && reviewsSection}
 
       {/* CTA / QUOTE */}
       {!d.hideQuoteForm && d.quoteFormPosition !== "afterContentBlocks" && quoteFormSection}
