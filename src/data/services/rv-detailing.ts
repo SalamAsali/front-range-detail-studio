@@ -4,6 +4,9 @@ export const rvDetailingData: ServicePageData = {
   heroImg: "/images/services/Newmar-London-Aire-1024x768.jpg",
   heroImgAlt: "Newmar London Aire RV detailing Denver",
   eyebrow: "RV \u00B7 Boat \u00B7 Marine",
+  heroVariant: "homepage",
+  heroContentMaxWidth: 1200,
+  heroH1FontSize: "clamp(2rem, 4vw, 3.5rem)",
   h1: "RV Detailing & Ceramic Coating",
   h1Cities:
     "in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
