@@ -4,14 +4,16 @@ import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd"
 import { ppfData } from "@/data/services/ppf";
 
 export const metadata: Metadata = {
-  title: "#1 PPF Clear Bra Paint Protection Film - Denver's Best Rated Shop",
+  title: {
+    absolute: "#1 PPF Clear Bra Paint Protection Film - Denver's Best Rated Shop",
+  },
   description:
     "Paint Protection Film (PPF) & Clear Bra — Serving Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, & Castle Pines",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/paint-protection-film-ppf/",
   },
   openGraph: {
-    title: "Paint Protection Film (PPF) & Clear Bra | Front Range Detail Studio",
+    title: "#1 PPF Clear Bra Paint Protection Film - Denver's Best Rated Shop",
     description:
       "Paint Protection Film (PPF) & Clear Bra — Serving Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, & Castle Pines",
     url: "https://frontrangedetailstudio.com/paint-protection-film-ppf/",
