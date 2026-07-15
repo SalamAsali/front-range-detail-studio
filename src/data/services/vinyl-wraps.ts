@@ -1,9 +1,13 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const vinylWrapsData: ServicePageData = {
-  heroImg: "/images/services/vinylwraps-1920w.webp",
-  heroImgAlt: "Vinyl wraps Denver",
-  eyebrow: "Vinyl Wraps & Decals",
+  heroImg: "/images/vehicles/Rivian.webp",
+  heroImgAlt:
+    "Rivian car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
+  eyebrow: "Full Color Changes & Custom Graphics",
+  heroVariant: "homepage",
+  heroContentMaxWidth: 1200,
+  heroH1FontSize: "clamp(2rem, 4vw, 3.5rem)",
   h1: "Denver Metro Premier Choice in Vinyl Wraps Application",
   introH2: "Transform Your Ride with Custom Vinyl Wraps",
   introBody:
