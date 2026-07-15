@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "https://frontrangedetailstudio.com/rv-detailing/",
   },
   openGraph: {
-    title: "RV Detailing & Ceramic Coating | Front Range Detail Studio",
+    title: "RV Detailing - Front Range Detail Studio",
     description:
       "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts",
     url: "https://frontrangedetailstudio.com/rv-detailing/",
