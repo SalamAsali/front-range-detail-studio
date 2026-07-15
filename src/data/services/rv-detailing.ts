@@ -3,7 +3,7 @@ import type { ServicePageData } from "@/components/ServicePage";
 export const rvDetailingData: ServicePageData = {
   heroImg: "/images/services/Newmar-London-Aire-1024x768.jpg",
   heroImgAlt: "Newmar London Aire RV detailing Denver",
-  eyebrow: "RV \u00B7 Boat \u00B7 Marine",
+  eyebrow: "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts",
   heroVariant: "homepage",
   heroContentMaxWidth: 1200,
   heroH1FontSize: "clamp(2rem, 4vw, 3.5rem)",
