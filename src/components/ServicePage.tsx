@@ -124,6 +124,9 @@ export interface ServicePageData {
     /** Optional centered title above the grid. Omit when the page's own
      * intro section (e.g. introImageSection) already carries this heading. */
     h2?: string;
+    /** Optional centered paragraph rendered between the h2/divider and the
+     * boxes grid — for WordPress intro copy that precedes the card grid. */
+    body?: string;
     boxes: {
       image: string;
       imageAlt: string;
@@ -337,7 +340,7 @@ export interface ServicePageData {
    * right after the process steps, well before FAQ/Partners. Unset
    * (default) keeps every other page's ordering unchanged.
    */
-  reviewsPosition?: "afterSteps";
+  reviewsPosition?: "afterSteps" | "afterFAQ";
   /**
    * Opt-out: when true, hides the standard "Send A Quick Quote Form"
    * section (unlike most fields above, it normally renders
@@ -1216,7 +1219,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       color: "#00BCD4",
                     }}
                   >
-                    {d.featuresEyebrow || "Why It Matters"}
+                    {d.featuresEyebrow !== "" && (d.featuresEyebrow || "Why It Matters")}
                   </span>
                   <h2
                     style={{
@@ -1272,7 +1275,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                         color: "#00BCD4",
                       }}
                     >
-                      {d.featuresEyebrow || "Why It Matters"}
+                      {d.featuresEyebrow !== "" && (d.featuresEyebrow || "Why It Matters")}
                     </span>
                     <h2
                       style={{
@@ -1625,6 +1628,22 @@ export function ServicePage({ data }: { data: ServicePageData }) {
               </div>
             </ScrollReveal>
             )}
+            {d.serviceBoxes.body && (
+              <ScrollReveal>
+                <p
+                  style={{
+                    ...manropeBody,
+                    maxWidth: 760,
+                    margin: "0 auto 32px",
+                    textAlign: "center",
+                    fontSize: "16px",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {d.serviceBoxes.body}
+                </p>
+              </ScrollReveal>
+            )}
             <div
               style={{
                 display: "grid",
@@ -1756,7 +1775,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       color: "#00BCD4",
                     }}
                   >
-                    {d.featuresEyebrow || "Why It Matters"}
+                    {d.featuresEyebrow !== "" && (d.featuresEyebrow || "Why It Matters")}
                   </span>
                   <h2
                     style={{
@@ -1812,7 +1831,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                         color: "#00BCD4",
                       }}
                     >
-                      {d.featuresEyebrow || "Why It Matters"}
+                      {d.featuresEyebrow !== "" && (d.featuresEyebrow || "Why It Matters")}
                     </span>
                     <h2
                       style={{
@@ -3314,6 +3333,8 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         </section>
       )}
 
+      {!d.hideReviews && d.reviewsPosition === "afterFAQ" && reviewsSection}
+
       {/* CROSS SELL */}
       {d.crossTitle && (
         <section style={{ background: "#000", padding: "clamp(40px, 5vw, 72px) 0" }}>
@@ -3474,7 +3495,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       {!d.hideDenverCta && d.denverCtaPosition !== "afterServicesGrid" && <DenverCTA {...d.denverCta} />}
 
       {/* REVIEWS */}
-      {!d.hideReviews && d.reviewsPosition !== "afterSteps" && reviewsSection}
+      {!d.hideReviews && d.reviewsPosition !== "afterSteps" && d.reviewsPosition !== "afterFAQ" && reviewsSection}
 
       {/* CTA / QUOTE */}
       {!d.hideQuoteForm && d.quoteFormPosition !== "afterContentBlocks" && quoteFormSection}

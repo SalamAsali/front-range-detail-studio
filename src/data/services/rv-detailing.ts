@@ -3,105 +3,155 @@ import type { ServicePageData } from "@/components/ServicePage";
 export const rvDetailingData: ServicePageData = {
   heroImg: "/images/services/Newmar-London-Aire-1024x768.jpg",
   heroImgAlt: "Newmar London Aire RV detailing Denver",
-  eyebrow: "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts",
+  eyebrow:
+    "Protect your home on wheels with Colorado’s most trusted RV detailing experts",
   heroVariant: "homepage",
   heroContentMaxWidth: 1200,
   heroH1FontSize: "clamp(2rem, 4vw, 3.5rem)",
   h1: "RV Detailing & Ceramic Coating",
   h1Cities:
     "in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
-  introH2: "Protect your home on wheels with Colorado\u2019s most trusted RV detailing experts.",
-  introBody:
-    "At Front Range Detail Studio, we use only the industry\u2019s best: System X MAX G Plus ceramic coatings and SunTek Reaction paint protection film. These are the same premium products trusted on high-end cars\u2014now protecting your RV or motorhome against Colorado\u2019s toughest conditions. Our team has worked on everything from luxury Class A motorhomes to Sprinter conversions and classic fifth-wheels. We restore shine, remove oxidation, and preserve your investment using proven, warrantied products from brands you can trust.",
-  pricingH2: "RV Detailing & Protection Packages",
-  pricing: [
-    {
-      title: "RV Exterior Wash & Wheels",
-      price: "From $10/ft",
-      body: "Hand wash (roof to wheels), bug/tar removal, application of high-quality sealant for lasting shine, wheel & tire cleaning.",
-      image: "/images/gallery/New-Aire-RV-vertical-pic.webp",
-    },
-    {
-      title: "Oxidation Removal & Paint Correction",
-      price: "$20\u2013$35/ft",
-      body: "Machine compounding and polishing using premium compounds. Restores faded or chalky fiberglass/gelcoat. System X ceramic top coat for UV and weather defense.",
-      image: "/images/services/RV-ceramic-coating.jpeg",
-    },
-    {
-      title: "Ceramic Coating for RVs & Motorhomes",
-      price: "From $100/ft",
-      body: "Multi-stage paint correction. Application of System X MAX G Plus. New RVs: 3-year warranty \u2013 Older RVs: 1\u20132 years based on surface. Lasting protection against sun, bird droppings, tree sap, and harsh chemicals. Optional wheel, trim, and glass ceramic coating.",
-      image: "/images/services/rv-detailing.jpg",
-    },
-    {
-      title: "Paint Protection Film (PPF) \u2013 SunTek Reaction",
-      price: "12-yr warranty",
-      body: "SunTek Reaction PPF for high-impact zones: front cap, lower panels, mirrors, headlights. 12-year warranty, self-healing, hydrophobic, and virtually invisible. Custom quote based on coverage.",
-      image: "/images/services/coach-576x1024.jpg",
-    },
-    {
-      title: "Roof, Decal, and Specialty Services",
-      price: "Custom quote",
-      body: "Rubber, TPO, or fiberglass roof cleaning & UV treatment. Decal removal & replacement. Metal polishing, window cleaning, and more. Contact us for a personalized quote.",
-      image: "/images/services/RV-ceramic-coating.jpeg",
-    },
-  ],
-  whyChoose: {
-    h2: "Why Choose Front Range for Your RV?",
-    items: [
+
+  /* Image-left/text-right intro block, verbatim from WordPress (eyebrow +
+     H2 duplicate the hero's own text, with a trailing period WP adds here
+     but not in the hero eyebrow — a legitimate WP content-reuse pattern). */
+  introImageSection: {
+    image: "/images/services/New-Aire-RV-1024x768.jpg",
+    imageAlt: "RV detailing New Aire",
+    eyebrow: "we use only the industry’s best",
+    h2: "Protect your home on wheels with Colorado’s most trusted RV detailing experts.",
+    body: "At Front Range Detail Studio, we use only the industry’s best: System X MAX G Plus ceramic coatings and SunTek Reaction paint protection film. These are the same premium products trusted on high-end cars—now protecting your RV or motorhome against Colorado’s toughest conditions. Our team has worked on everything from luxury Class A motorhomes to Sprinter conversions and classic fifth-wheels. We restore shine, remove oxidation, and preserve your investment using proven, warrantied products from brands you can trust.",
+  },
+
+  /* "RV Detailing & Protection Packages" — 5-box grid matching the
+     boat-detailing layout, with the exact WordPress content/images/prices.
+     Buttons render once at the bottom of the grid, not per box. */
+  serviceBoxes: {
+    h2: "RV Detailing & Protection Packages",
+    body: "All services include a full hand wash, premium decontamination, and thorough inspection using only System X, SunTek, and top professional products.",
+    boxes: [
       {
-        title: "Experience with All RV Types",
-        body: "Class A, Class B, Class C, fifth-wheels, travel trailers, toy haulers, and custom vans.",
+        image: "/images/services/RV-detailing-3-1024x768.jpg",
+        imageAlt: "RV detailing Denver",
+        eyebrow: "high-quality sealant for lasting shine",
+        title: "RV Exterior Wash & Wheels",
+        bullets: [
+          "Hand wash (roof to wheels)",
+          "Bug/tar removal",
+          "Application of high-quality sealant for lasting shine",
+          "Wheel & tire cleaning",
+        ],
+        footer: ["Starting at $10/foot"],
       },
       {
-        title: "Premium Brands",
-        body: "System X MAX G Plus Ceramic Coating: 3-year warranty for new RVs/motorhomes\u2014industry-leading gloss and hydrophobic protection. SunTek Reaction Paint Protection Film: 12-year warranty, advanced self-healing, and virtually invisible.",
+        image: "/images/services/RV-ceramic-coating.jpeg",
+        imageAlt: "Vienna RV ceramic coating",
+        eyebrow: "Restores faded fiberglass",
+        title: "Oxidation Removal & Paint Correction",
+        bullets: [
+          "Machine compounding and polishing using premium compounds",
+          "Restores faded or chalky fiberglass/gelcoat",
+          "System X ceramic top coat for UV and weather defense",
+        ],
+        footer: ["Typical investment: $20–$35/foot"],
       },
       {
-        title: "Professional Studio Service",
-        body: "Detailing, correction, and coatings applied in our climate-controlled Centennial facility\u2014never mobile for full-service jobs.",
+        image: "/images/services/rv-detailing-1024x768.jpg",
+        imageAlt: "RV detailing Denver",
+        eyebrow: "Lasting protection",
+        title: "Ceramic Coating for RVs & Motorhomes",
+        bullets: [
+          "Multi-stage paint correction",
+          "Application of System X MAX G Plus. New RVs: 3-year warranty – Older RVs: 1–2 years based on surface",
+          "Lasting protection against sun, bird droppings, tree sap, and harsh chemicals",
+          "Optional wheel, trim, and glass ceramic coating",
+        ],
+        footer: ["Starting at $100/foot"],
       },
       {
-        title: "Trusted by Colorado RV Owners",
-        body: "See our reviews and actual photos below!",
+        image: "/images/services/coach-576x1024.jpg",
+        imageAlt: "rv detailing denver",
+        eyebrow: "12-year warranty",
+        title: "Paint Protection Film (PPF) – SunTek Reaction",
+        bullets: [
+          "SunTek Reaction PPF for high-impact zones: front cap, lower panels, mirrors, headlights",
+          "12-year warranty, self-healing, hydrophobic, and virtually invisible",
+        ],
+        footer: ["Custom quote based on coverage"],
+      },
+      {
+        image: "/images/services/rv-newmar-mountainaire.webp",
+        imageAlt: "Newmar Mountainaire RV",
+        eyebrow: "Decal removal & replacement",
+        title: "Roof, Decal, and Specialty Services",
+        bullets: [
+          "Rubber, TPO, or fiberglass roof cleaning & UV treatment",
+          "Decal removal & replacement",
+          "Metal polishing, window cleaning, and more",
+        ],
+        footer: ["Contact us for a personalized quote"],
       },
     ],
+    compact: true,
   },
-  gallery: [
-    { src: "/images/services/Newmar-London-Aire-1024x768.jpg", alt: "Newmar London Aire RV detailing Denver" },
-    { src: "/images/services/rv-detailing-1024x768.jpg", alt: "RV detailing Denver" },
-    { src: "/images/services/RV-detailing-3-1024x768.jpg", alt: "RV detailing services" },
-    { src: "/images/services/RV-ceramic-coating.jpeg", alt: "RV ceramic coating" },
-    { src: "/images/services/rv-detailing.jpg", alt: "RV detailing" },
-    { src: "/images/services/coach-576x1024.jpg", alt: "RV coach detailing" },
-    { src: "/images/services/rv-newmar-mountainaire.webp", alt: "Newmar Mountain Aire RV" },
-    { src: "/images/gallery/System-X-Max-G-819x1024.png", alt: "System X MAX G+ product" },
+
+  /* "Why Choose Front Range for Your RV?" — image-left/text-right,
+     same pattern as boat-detailing's "Hyper Gloss 9H Lifetime Coating"
+     section. WordPress has no eyebrow caption before this H2. */
+  featuresPosition: "afterServiceBoxes",
+  featuresEyebrow: "",
+  featuresH2: "Why Choose Front Range for Your RV?",
+  featuresImage: "/images/gallery/System-X-Max-G-819x1024.png",
+  featuresImageAlt: "System X MAX G+ product",
+  features: [
+    {
+      title: "Experience with All RV Types",
+      body: "Class A, Class B, Class C, fifth-wheels, travel trailers, toy haulers, and custom vans.",
+    },
+    {
+      title: "Premium Brands",
+      body: "System X MAX G Plus Ceramic Coating: 3-year warranty for new RVs/motorhomes—industry-leading gloss and hydrophobic protection. SunTek Reaction Paint Protection Film: 12-year warranty, advanced self-healing, and virtually invisible.",
+    },
+    {
+      title: "Professional Studio Service",
+      body: "Detailing, correction, and coatings applied in our climate-controlled Centennial facility—never mobile for full-service jobs.",
+    },
+    {
+      title: "Trusted by Colorado RV Owners",
+      body: "See our reviews and actual photos below!",
+    },
   ],
+
   faqs: [
     {
       q: "Do you detail all types of RVs and motorhomes?",
-      a: "Yes, from Sprinter vans and pop-ups to large Class A diesel pushers \u2014 no rig is too big or too small!",
+      a: "Yes, from Sprinter vans and pop-ups to large Class A diesel pushers — no rig is too big or too small!",
     },
     {
-      q: "What\u2019s the difference between wax and ceramic coating?",
+      q: "What’s the difference between wax and ceramic coating?",
       a: "Wax offers a few months of shine and protection. Our System X ceramic coating provides up to 3 years of real-world defense and makes cleaning much easier.",
     },
     {
       q: "How long does the process take?",
-      a: "Most exterior packages take 1\u20133 days depending on the size and condition of your RV. We\u2019ll provide a firm timeline with your quote.",
+      a: "Most exterior packages take 1–3 days depending on the size and condition of your RV. We’ll provide a firm timeline with your quote.",
     },
     {
       q: "Can you remove heavy oxidation and faded gelcoat?",
-      a: "Absolutely\u2014our multi-step correction process restores shine to even badly faded surfaces.",
+      a: "Absolutely—our multi-step correction process restores shine to even badly faded surfaces.",
     },
     {
       q: "Do you offer mobile or on-site service?",
-      a: "For best results and warranty, we recommend our controlled shop environment. Mobile service may be available for select maintenance jobs\u2014ask for details.",
+      a: "For best results and warranty, we recommend our controlled shop environment. Mobile service may be available for select maintenance jobs—ask for details.",
     },
   ],
-  crossTitle: "Coat It For Years Of Protection",
-  crossBody:
-    "Ask about adding a System X ceramic coating to your RV or boat for lasting gloss, UV resistance and effortless cleaning.",
-  crossHref: "/ceramic-coating",
-  crossLabel: "Explore Ceramic",
+
+  /* WordPress's real order is FAQ → Reviews → Partners, with no
+     process-steps section to anchor the usual "afterSteps" position. */
+  reviewsPosition: "afterFAQ",
+
+  /* WordPress's RV Detailing page has no "Denver's 1st Choice..." CTA and
+     no "Connect with Us / Send A Quick Quote Form" section — it ends
+     at "Our Partners – Trusted Brands". */
+  hideDenverCta: true,
+  hideQuoteForm: true,
 };
