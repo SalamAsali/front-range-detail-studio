@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "https://frontrangedetailstudio.com/ford-truck-detailing/",
   },
   openGraph: {
-    title: "Ford Truck PPF, Ceramic Coating & Window Tint | Front Range Detail Studio",
+    title: "Ford Truck Detailing - Front Range Detail Studio",
     description:
       "Colorado's Ford Truck PPF & Ceramic Coating Experts",
     url: "https://frontrangedetailstudio.com/ford-truck-detailing/",

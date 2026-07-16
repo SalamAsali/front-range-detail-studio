@@ -4,9 +4,11 @@ export const fordTruckDetailingData: VehiclePageData = {
   brand: "Ford Truck",
   heroImg: "/images/vehicles/ford-truck-1-1024x576.jpg",
   heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
-  heroH1: "Ford Truck Paint Protection & Restyling in Englewood, CO | Front Range Detail Studio",
+  heroH1: "Ford Truck Paint Protection & Restyling in Englewood, CO",
+  heroH1HiddenSuffix: " | Front Range Detail Studio",
   heroSubtitle:
     "Colorado\u2019s Ford Truck PPF & Ceramic Coating Experts",
+  heroCallout: "CALL NOW to Protect and Elevate Your Ford Truck in Colorado",
 
   /* Brand intro */
   logoImg: "/images/logos/Ford-logo.svg",

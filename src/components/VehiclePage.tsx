@@ -19,7 +19,12 @@ export interface VehiclePageData {
   heroImg: string;
   heroImgAlt?: string;
   heroH1: string;
+  /** Visually-hidden text appended after heroH1 (e.g. " | Front Range Detail Studio") so the H1's textContent reconstructs WordPress's real heading exactly for SEO, without showing the site-name suffix on screen. */
+  heroH1HiddenSuffix?: string;
+  /** Small uppercase kicker line rendered above the hero H1 (e.g. "Colorado's Ford Truck PPF & Ceramic Coating Experts"). */
   heroSubtitle: string;
+  /** Optional bold callout line rendered below the hero H1 (e.g. "CALL NOW to Protect and Elevate Your Ford Truck in Colorado"). */
+  heroCallout?: string;
 
   /* Brand intro */
   logoImg: string;
@@ -149,11 +154,12 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
       <section
         style={{
           position: "relative",
-          minHeight: "clamp(420px, 72vh, 680px)",
+          minHeight: "100vh",
           display: "flex",
-          alignItems: "flex-end",
+          alignItems: "center",
           overflow: "hidden",
           marginTop: -82,
+          paddingTop: 82,
         }}
       >
         <Image
@@ -169,7 +175,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(100deg, rgba(0,188,212,0.4) 0%, rgba(0,0,0,0.6) 58%, rgba(0,0,0,0.8) 100%)",
+              "linear-gradient(100deg, rgba(0,188,212,0.42) 0%, rgba(0,0,0,0.62) 60%, rgba(0,0,0,0.78) 100%)",
             zIndex: 1,
           }}
         />
@@ -178,7 +184,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.15) 55%)",
+              "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.1) 42%)",
             zIndex: 1,
           }}
         />
@@ -194,13 +200,13 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
               maxWidth: 880,
               display: "flex",
               flexDirection: "column",
-              gap: 18,
-              paddingBottom: "clamp(48px, 6vw, 80px)",
+              gap: 22,
             }}
           >
             <span style={{ ...interEyebrow, color: CYAN_BRIGHT }}>
-              {d.brand} Specialists
+              {d.heroSubtitle}
             </span>
+            <hr style={cyanDivider} />
             <h1
               style={{
                 margin: 0,
@@ -212,17 +218,37 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
               }}
             >
               {d.heroH1}
+              {d.heroH1HiddenSuffix && (
+                <span
+                  style={{
+                    position: "absolute",
+                    width: 1,
+                    height: 1,
+                    padding: 0,
+                    margin: -1,
+                    overflow: "hidden",
+                    clip: "rect(0,0,0,0)",
+                    whiteSpace: "nowrap",
+                    border: 0,
+                  }}
+                >
+                  {d.heroH1HiddenSuffix}
+                </span>
+              )}
             </h1>
-            <p
-              style={{
-                margin: 0,
-                ...manropeBody,
-                fontSize: "clamp(1rem, 1.2vw, 1.15rem)",
-                maxWidth: 600,
-              }}
-            >
-              {d.heroSubtitle}
-            </p>
+            {d.heroCallout && (
+              <p
+                style={{
+                  margin: 0,
+                  ...archivoBold,
+                  textTransform: "none",
+                  fontSize: "clamp(1.05rem, 1.6vw, 1.4rem)",
+                  lineHeight: 1.3,
+                }}
+              >
+                {d.heroCallout}
+              </p>
+            )}
             <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 8 }}>
               <Link href="/free-quote" style={ctaBtn}>
                 Get A Free Quote
