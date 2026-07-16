@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "https://frontrangedetailstudio.com/vinyl-wraps/",
   },
   openGraph: {
-    title: "Vinyl Wraps & Decals | Front Range Detail Studio",
+    title: "Vinyl Wraps - Front Range Detail Studio",
     description:
       "Full Color Changes & Custom Graphics",
     url: "https://frontrangedetailstudio.com/vinyl-wraps/",
