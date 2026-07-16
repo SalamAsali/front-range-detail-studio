@@ -479,7 +479,7 @@ function ImageTextSectionsList({ sections }: { sections: NonNullable<ServicePage
                       {media}
                     </div>
                   )}
-                  <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 20 }}>
+                  <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 14 }}>
                     {sec.eyebrow && (
                       <span
                         style={{
@@ -504,7 +504,7 @@ function ImageTextSectionsList({ sections }: { sections: NonNullable<ServicePage
                       {sec.h2}
                     </h2>
                     <hr style={{ width: 96, height: 2, background: CYAN, border: "none", margin: 0 }} />
-                    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                       {sec.items.map((item, ii) =>
                         item.heading ? (
                           <h3
@@ -589,10 +589,11 @@ const manropeBody: React.CSSProperties = {
   margin: 0,
   fontFamily: "'Manrope', sans-serif",
   fontWeight: 300,
-  fontSize: "clamp(1.1rem, 1.4vw, 1.3rem)",
-  lineHeight: 1.7,
+  fontSize: "clamp(0.95rem, 1.05vw, 1.05rem)",
+  lineHeight: 1.65,
   color: "rgba(255,255,255,0.82)",
 };
+
 
 const heroCtaBtn: React.CSSProperties = {
   fontFamily: "'Michroma', sans-serif",
@@ -2088,7 +2089,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     sizes="(max-width:768px) 100vw, 50vw"
                   />
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
                   {d.imageTextSection.eyebrow && (
                     <span
                       style={{
@@ -2126,7 +2127,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                           margin: "12px 0 20px",
                         }}
                       />
-                      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                         {group.items.map((item, ii) =>
                           item.heading ? (
                             <h3
@@ -2287,7 +2288,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       {d.includedH2 || "What\u2019s Included"}
                     </h2>
                     <hr style={{ width: 96, height: 2, background: CYAN, border: "none", margin: 0 }} />
-                    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                       {d.included.map((item, i) =>
                         typeof item === "string" ? (
                           <p key={i} style={manropeBody}>{item}</p>
