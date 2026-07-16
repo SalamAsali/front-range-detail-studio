@@ -46,8 +46,16 @@ export interface VehiclePageData {
   packageImg: string;
   packageH2: string;
   packageIncludes: string[];
-  /** Optional package-card row (boat-detailing style): each card gets a name + checklist, with one consolidated CTA row below the grid. When set, replaces the default single packageIncludes card + image + the "custom quote" CTA box entirely. */
-  packageCards?: { name: string; items: string[] }[];
+  /** Optional package-card row, matching the ServicePage `serviceBoxes` treatment (boat-detailing etc.) exactly: each card gets an image, a small caption eyebrow, a title, an optional intro paragraph, a bullet checklist, and optional footer paragraphs, with one consolidated CTA row below the grid. When set, replaces the default single packageIncludes card + image + the "custom quote" CTA box entirely. */
+  packageCards?: {
+    image: string;
+    imageAlt: string;
+    eyebrow?: string;
+    title: string;
+    intro?: string;
+    bullets: string[];
+    footer?: string[];
+  }[];
 
   /* Ceramic section */
   ceramicImg: string;
@@ -69,14 +77,26 @@ export interface VehiclePageData {
   caseStudy?: {
     h2: string;
     body: string;
+    /** Optional bolded closing sentence, e.g. WP's "The result? ..." lead-in. */
+    resultLine?: string;
     images: string[];
   };
 
   /** Optional secondary image(left)+text(right) section, e.g. when WP repeats an earlier heading as its own block later on the page. */
   secondaryIntro?: {
+    eyebrow?: string;
     h2: string;
     body: string;
+    quote?: string;
     img: string;
+  };
+
+  /** Page-specific override for the shared DenverCTA section ("Denver's 1st Choice in Paint Protection Film and Clear Bra"), same pattern as ServicePage's `denverCta` (see ceramic-coating.ts/ppf.ts). Unset fields fall back to DenverCTA's own generic defaults. */
+  denverCta?: {
+    body?: string;
+    h3?: string;
+    h3Body?: string;
+    images?: { src: string; alt: string }[];
   };
 
   /** Hides the two generic cross-sell banners ("Denver's 1st Choice..." + "Detailing Services...") that render after DenverCTA by default. */
@@ -282,19 +302,21 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
       {/* ============================================================ */}
       {/* 2. SERVICE AREA + REVIEW BADGES                              */}
       {/* ============================================================ */}
-      <section style={{ background: "#0d0d0d", padding: `${sectionPad} 0` }}>
-        <div style={wrap()}>
+      <section style={{ background: "#0a0a0a", padding: "32px 0" }}>
+        <div style={{ maxWidth: 1440, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
           <ScrollReveal>
-            <h2
-              style={{
-                textAlign: "center",
-                margin: "0 0 32px",
-                ...interEyebrow,
-                fontSize: 13,
-              }}
-            >
-              Serving THE Denver Metro And surrounding areas
-            </h2>
+            <div style={{ textAlign: "center", marginBottom: 24 }}>
+              <h2
+                style={{
+                  margin: 0,
+                  ...archivoBold,
+                  fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)",
+                  lineHeight: 1.2,
+                }}
+              >
+                Serving THE Denver Metro And surrounding areas
+              </h2>
+            </div>
           </ScrollReveal>
           <ReviewBadges />
         </div>
@@ -319,8 +341,6 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                       width: "auto",
                       maxWidth: 120,
                       objectFit: "contain",
-                      filter: "brightness(0) invert(1)",
-                      opacity: 0.8,
                     }}
                   />
                 </div>
@@ -383,8 +403,6 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                         width: "auto",
                         maxWidth: 120,
                         objectFit: "contain",
-                        filter: "brightness(0) invert(1)",
-                        opacity: 0.8,
                       }}
                     />
                   </div>
@@ -458,7 +476,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 500px), 1fr))",
                 gap: "clamp(32px, 5vw, 64px)",
-                alignItems: "start",
+                alignItems: "center",
               }}
             >
               {/* Image left */}
@@ -637,91 +655,138 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
       {d.packageCards ? (
         <section style={{ background: "#000", padding: `${sectionPad} 0` }}>
           <div style={wrap()}>
-            <ScrollReveal>
-              <div style={{ marginBottom: 36, textAlign: "center" }}>
-                <span style={interEyebrow}>Best Value</span>
-                <h2
-                  style={{
-                    ...archivoBold,
-                    margin: "12px 0 0",
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
-                  }}
-                >
-                  {d.packageH2}
-                </h2>
-                <hr style={{ ...cyanDivider, margin: "20px auto 0" }} />
-              </div>
-            </ScrollReveal>
-            <ScrollReveal>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
-                  gap: "clamp(24px, 3vw, 40px)",
-                }}
-              >
-                {d.packageCards.map((card, ci) => (
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
+                gap: 18,
+              }}
+            >
+              {d.packageCards.map((box, ci) => (
+                <ScrollReveal key={ci}>
                   <div
-                    key={ci}
                     style={{
-                      background: CARD_BG,
-                      border: CARD_BORDER,
-                      borderRadius: 8,
-                      padding: "clamp(28px, 3vw, 36px)",
+                      border: "1px solid rgba(255,255,255,0.16)",
+                      borderRadius: 4,
+                      overflow: "hidden",
+                      background: "#111",
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
                     }}
                   >
-                    <h3
-                      style={{
-                        ...archivoBold,
-                        margin: 0,
-                        fontSize: "1.2rem",
-                        color: CYAN,
-                      }}
-                    >
-                      {card.name}
-                    </h3>
-                    <hr style={{ ...cyanDivider, margin: "16px 0 0" }} />
+                    <div style={{ position: "relative", aspectRatio: "4/3" }}>
+                      <Image
+                        src={box.image}
+                        alt={box.imageAlt}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        sizes="(max-width:768px) 100vw, 50vw"
+                      />
+                    </div>
                     <div
                       style={{
+                        padding: "clamp(16px, 1.6vw, 22px)",
                         display: "flex",
                         flexDirection: "column",
                         gap: 12,
-                        marginTop: 22,
+                        flexGrow: 1,
                       }}
                     >
-                      {card.items.map((item, ii) => (
-                        <div
-                          key={ii}
-                          style={{ display: "flex", alignItems: "flex-start", gap: 12 }}
+                      {box.eyebrow && (
+                        <span
+                          style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontSize: 12,
+                            letterSpacing: "0.1em",
+                            textTransform: "uppercase",
+                            lineHeight: 1.5,
+                            color: "rgba(255,255,255,0.7)",
+                          }}
                         >
-                          <span
-                            style={{
-                              color: CYAN,
-                              fontSize: 16,
-                              lineHeight: 1.4,
-                              flex: "none",
-                            }}
-                          >
-                            &#10003;
-                          </span>
-                          <span
-                            style={{
-                              fontFamily: "'Manrope', sans-serif",
-                              fontWeight: 400,
-                              fontSize: "14.5px",
-                              lineHeight: 1.55,
-                              color: "rgba(255,255,255,0.85)",
-                            }}
-                          >
-                            {item}
-                          </span>
-                        </div>
+                          {box.eyebrow}
+                        </span>
+                      )}
+                      <h2
+                        style={{
+                          ...archivoBold,
+                          margin: 0,
+                          fontSize: "clamp(1.05rem, 1.3vw, 1.25rem)",
+                          lineHeight: 1.15,
+                        }}
+                      >
+                        {box.title}
+                      </h2>
+                      <hr style={{ ...cyanDivider, margin: 0 }} />
+                      {box.intro && (
+                        <p
+                          style={{
+                            fontFamily: "'Manrope', sans-serif",
+                            fontWeight: 300,
+                            fontSize: "14.5px",
+                            lineHeight: 1.55,
+                            color: "rgba(255,255,255,0.85)",
+                            margin: 0,
+                          }}
+                        >
+                          {box.intro}
+                        </p>
+                      )}
+                      <ul
+                        style={{
+                          margin: 0,
+                          padding: 0,
+                          listStyle: "none",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 8,
+                        }}
+                      >
+                        {box.bullets.map((b, j) => (
+                          <li key={j} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                            <svg
+                              viewBox="0 0 24 24"
+                              width={20}
+                              height={20}
+                              aria-hidden="true"
+                              style={{ flexShrink: 0, marginTop: 2, fill: CYAN }}
+                            >
+                              <path d="M10.6 6L9.4 7l4.6 5-4.6 5 1.2 1 5.4-6z" />
+                            </svg>
+                            <span
+                              style={{
+                                fontFamily: "'Manrope', sans-serif",
+                                fontWeight: 400,
+                                fontSize: "14.5px",
+                                lineHeight: 1.55,
+                                color: "rgba(255,255,255,0.85)",
+                              }}
+                            >
+                              {b}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                      {box.footer?.map((f, j) => (
+                        <p
+                          key={j}
+                          style={{
+                            fontFamily: "'Manrope', sans-serif",
+                            fontWeight: 300,
+                            fontSize: "14.5px",
+                            lineHeight: 1.55,
+                            color: "rgba(255,255,255,0.7)",
+                            margin: 0,
+                          }}
+                        >
+                          {f}
+                        </p>
                       ))}
                     </div>
                   </div>
-                ))}
-              </div>
-            </ScrollReveal>
+                </ScrollReveal>
+              ))}
+            </div>
             <ScrollReveal>
               <div
                 style={{
@@ -950,7 +1015,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 500px), 1fr))",
                 gap: "clamp(32px, 5vw, 64px)",
-                alignItems: "start",
+                alignItems: "center",
               }}
             >
               {/* Text left */}
@@ -1070,7 +1135,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 500px), 1fr))",
                 gap: "clamp(32px, 5vw, 64px)",
-                alignItems: "start",
+                alignItems: "center",
               }}
             >
               {/* Image left */}
@@ -1262,9 +1327,12 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                 </div>
                 {/* Text right */}
                 <div>
+                  {d.secondaryIntro.eyebrow && (
+                    <span style={interEyebrow}>{d.secondaryIntro.eyebrow}</span>
+                  )}
                   <h2
                     style={{
-                      margin: 0,
+                      margin: "12px 0 0",
                       ...archivoBold,
                       fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
                       lineHeight: 1.15,
@@ -1276,6 +1344,38 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   <p style={{ ...manropeBody, margin: "26px 0 0" }}>
                     {d.secondaryIntro.body}
                   </p>
+                  {d.secondaryIntro.quote && (
+                    <blockquote
+                      style={{
+                        margin: "28px 0 0",
+                        padding: "0 0 0 20px",
+                        borderLeft: `3px solid ${CYAN}`,
+                        fontFamily: "'Manrope', sans-serif",
+                        fontWeight: 300,
+                        fontStyle: "italic",
+                        fontSize: "1rem",
+                        lineHeight: 1.65,
+                        color: "rgba(255,255,255,0.7)",
+                      }}
+                    >
+                      {d.secondaryIntro.quote}
+                    </blockquote>
+                  )}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: 14,
+                      marginTop: 28,
+                    }}
+                  >
+                    <Link href="/free-quote" style={ctaBtn}>
+                      Get A Free Quote
+                    </Link>
+                    <a href="tel:+13035208023" style={ctaBtnOutline}>
+                      Call (303) 520-8023
+                    </a>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
@@ -1314,12 +1414,32 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   <p style={{ ...manropeBody, margin: "26px 0 0" }}>
                     {d.caseStudy.body}
                   </p>
+                  {d.caseStudy.resultLine && (
+                    <p style={{ ...manropeBody, margin: "16px 0 0" }}>
+                      <strong>{d.caseStudy.resultLine}</strong>
+                    </p>
+                  )}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: 14,
+                      marginTop: 28,
+                    }}
+                  >
+                    <Link href="/free-quote" style={ctaBtn}>
+                      Get A Free Quote
+                    </Link>
+                    <a href="tel:+13035208023" style={ctaBtnOutline}>
+                      Call (303) 520-8023
+                    </a>
+                  </div>
                 </div>
                 {/* Image grid right */}
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(3, 1fr)",
+                    gridTemplateColumns: `repeat(${d.caseStudy.images.length <= 4 ? 2 : 3}, 1fr)`,
                     gap: 10,
                   }}
                 >
@@ -1468,7 +1588,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
       {/* ============================================================ */}
       {/* 14. DENVER CTA WITH GALLERY                                  */}
       {/* ============================================================ */}
-      <DenverCTA />
+      <DenverCTA {...d.denverCta} />
 
       {!d.hideCrossSellBanners && (
         <>

@@ -50,7 +50,11 @@ export const fordTruckDetailingData: VehiclePageData = {
   ],
   benefitsAsAccordion: true,
 
-  /* Front Range Package — 2 package cards instead of a single card + custom-quote box */
+  /* Front Range Package — serviceBoxes-style card row (boat-detailing pattern).
+     Card 1 = WordPress's real "The Front Range Package" section, including
+     its intro/closing sentences (previously missing). Card 2 = WordPress's
+     "custom quote" checkbox box, restyled as a package card instead of a
+     form-like box, also including its real intro/closing sentences. */
   packageImg: "/images/vehicles/Ford-truck-ceramic-coating.png",
   packageH2: "Ford Truck’s Best Defense — The Front Range Package",
   packageIncludes: [
@@ -60,20 +64,36 @@ export const fordTruckDetailingData: VehiclePageData = {
   ],
   packageCards: [
     {
-      name: "The Front Range Package",
-      items: [
+      image: "/images/vehicles/ford-truck-1-1024x576.jpg",
+      imageAlt: "Ford detailing",
+      eyebrow: "Ford Truck’s Best Defense",
+      title: "The Front Range Package",
+      intro:
+        "Our exclusive Front Range Package is engineered for Colorado’s unique road hazards. It combines:",
+      bullets: [
         "Full-Front PPF (bumper, hood, fenders, mirrors, headlights, rockers)",
         "Level-2 Paint Correction & Multi-Layer Ceramic Coating",
         "Ceramic Window Tint with Advanced UV & Heat Rejection",
       ],
+      footer: [
+        "Designed specifically for luxury performance vehicles like Ford Trucks, this package is the best way to protect against chips, scratches, UV damage, and road chemicals—while enhancing gloss, depth, and ease of maintenance.",
+      ],
     },
     {
-      name: "Build Your Own Package",
-      items: [
+      image: "/images/vehicles/ford-truck-1-1024x576.jpg",
+      imageAlt: "Ford detailing",
+      eyebrow: "Get a Custom Ford Truck Paint Protection Quote",
+      title: "custom quote",
+      intro:
+        "Ready to safeguard and elevate your Ford Truck? Request a custom quote today and tell us what you need. Which services you’re interested in:",
+      bullets: [
         "Front Range Package (PPF + Ceramic Coating + Tint)",
         "Paint Protection Film (clear SunTek Reaction or color-change PURE PPF)",
         "Ceramic Coating",
         "Ceramic Window Tint",
+      ],
+      footer: [
+        "Our team will review your request and get back to you promptly with an expert recommendation and quote tailored for your car and driving habits in Colorado.",
       ],
     },
   ],
@@ -140,30 +160,61 @@ export const fordTruckDetailingData: VehiclePageData = {
   /* Gallery — hidden; the case study grid below covers this need */
   gallery: [],
 
-  /* Secondary intro — image left, text right, echoing the primary heading
-     (mirrors WordPress's own repeated-heading structure on this page). */
+  /* Secondary intro — image left, text right, echoing the primary heading.
+     WordPress genuinely repeats this exact heading a second time later on
+     the page (id="ppf-options"), with the same eyebrow kicker, the same
+     hero photo (not Ford-truck-ppf.png — corrected below), a body
+     paragraph, the pull-quote, and CTA buttons — all restored here. */
   secondaryIntro: {
+    eyebrow: "Colorado’s Ford Truck PPF & Ceramic Coating Experts",
     h2: "Premier Ford Truck Paint Protection in Englewood, CO",
     body: "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your Ford Truck. Whether you own a rugged F-150, a heavy-duty Super Duty, or the all-electric Lightning, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services—all designed for Colorado’s demanding driving conditions.",
-    img: "/images/vehicles/Ford-truck-ppf.png",
+    quote:
+      "We’re not just protecting paint — we’re protecting your investment.",
+    img: "/images/vehicles/ford-truck-1-1024x576.jpg",
   },
 
-  /* Case study — text left, 3x2 image grid right. WordPress's real copy here
-     was actually about a BMW (“G80 M3”, SunTek Matte film) with 6 BMW photos,
-     apparently copy-pasted from the BMW Detailing page and never corrected.
-     Replaced with clean, accurate Ford Truck copy. NOTE: only 4 real Ford
-     Truck photos exist locally, so 2 are repeated to fill the 3x2 grid —
-     flagged for the user, new photography would let all 6 be unique. */
+  /* Case study — text left, image grid right. Images are WordPress's exact
+     real sources for this section — note these are actually 6 BMW photos
+     (WP's own copy here was also about a BMW, "G80 M3"/SunTek Matte film,
+     apparently copy-pasted from the BMW Detailing page and never corrected
+     for this Ford Truck page). Body copy replaced with accurate Ford Truck
+     text, matching WP's real 2-sentence structure (main narrative + bolded
+     "The result?" line), since the images are the only piece pulled
+     verbatim from WP per instruction. */
   caseStudy: {
     h2: "See Our Ford Truck Paint Protection in Action",
-    body: "We recently completed a full Front Range Package on a Ford F-150 — combining custom-fit SunTek Reaction PPF across the front end with a multi-layer ceramic coating and ceramic window tint. The result is a chip-resistant, easy-to-maintain finish built to handle Colorado’s gravel roads, road salt, and high-altitude sun while keeping that showroom shine.",
+    body: "We recently completed a full Front Range Package on a Ford F-150 — featuring a custom-fit SunTek Reaction PPF install across the front end, completely shielding it from rock chips and road debris. We followed up with a multi-layer ceramic coating on all painted surfaces and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection.",
+    resultLine:
+      "The result? A bold, head-turning, chip-resistant, and maintenance-friendly Ford Truck built to thrive on Colorado roads and look flawless doing it.",
     images: [
-      "/images/vehicles/ford-truck-1-1024x576.jpg",
-      "/images/vehicles/Ford-truck-ppf.png",
-      "/images/vehicles/Ford-truck-ceramic-coating.png",
-      "/images/vehicles/Ford-truck-window-tint.png",
-      "/images/vehicles/ford-truck-1-1024x576.jpg",
-      "/images/vehicles/Ford-truck-ceramic-coating.png",
+      "/images/vehicles/bmw-i4-1-768x1024.jpg",
+      "/images/vehicles/BMW-X5-front-1024x768.jpg",
+      "/images/vehicles/BMW-M50i-1024x768.jpg",
+      "/images/vehicles/BMW-green-1024x768.jpg",
+      "/images/vehicles/BMW-2-1024x768.jpg",
+      "/images/vehicles/BMW-6-1024x576.jpg",
+    ],
+  },
+
+  /* "Denver's 1st Choice in Paint Protection Film and Clear Bra" — content
+     and 6-image gallery verbatim from WordPress, same pattern and same
+     reused gallery as ceramic-coating.ts/ppf.ts/vinyl-wraps.ts. */
+  denverCta: {
+    body: "Preserve the pristine condition of your vehicle with our high-quality Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an invisible shield, guarding your car’s paint against scratches, stone chips, and road debris.",
+    h3: "Detailing Services in Denver, Colorado and All Surrounding Cities",
+    h3Body:
+      "Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, our team of detail specialists are equipped and experienced to handle all detailing needs anywhere in Metro Denver.",
+    images: [
+      { src: "/images/gallery/Audi-car-detailing.webp", alt: "Corvette car detailing and ceramic coating" },
+      { src: "/images/gallery/boat-1.webp", alt: "Boat detailing, boat ceramic coating" },
+      { src: "/images/gallery/audi-interior-detailing-1024x768.jpg", alt: "Audi interior detailing" },
+      { src: "/images/gallery/audi-1-1024x1024.jpg", alt: "Audi Quattro detailing Denver" },
+      { src: "/images/gallery/mercedes-benz-maybach-1024x768.jpg", alt: "Mercedes Benz detailing Denver" },
+      {
+        src: "/images/gallery/Rivian-ceramic-coatin-vertical-pic.webp",
+        alt: "Rivian car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
+      },
     ],
   },
 
