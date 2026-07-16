@@ -161,7 +161,13 @@ export interface ServicePageData {
        * real heading level (e.g. "Why Choose Us?" under the intro H2). */
       tag?: "h2" | "h3";
       /**
-       * Each item renders one of three ways, in priority order:
+       * Each item renders one of four ways, in priority order:
+       * - `heading` (on its own, no body/bullets/lines): a real nested
+       *   subheading (`<h3>`) — for WordPress content with a genuine H3
+       *   between two groups of prose under one shared H2 (e.g. "System X
+       *   Ceramic Coating Benefits" nested under "What is Ceramic
+       *   Coating?"). Distinct from `title`, which only bolds a lead-in
+       *   phrase inline and never renders as its own heading tag.
        * - `bullets`: a `<ul>` list (WordPress content with a real bullet list).
        *   Each bullet is either a plain string, or `{ title, body }` to bold
        *   a lead-in phrase before the rest of the bullet's text.
@@ -171,7 +177,7 @@ export interface ServicePageData {
        *   "Title:" prefix when title is set — the original flowing-prose
        *   format.
        */
-      items: { title?: string; body?: string; bullets?: (string | { title: string; body: string })[]; lines?: string[] }[];
+      items: { heading?: string; title?: string; body?: string; bullets?: (string | { title: string; body: string })[]; lines?: string[] }[];
     }[];
   };
   /**
@@ -200,18 +206,33 @@ export interface ServicePageData {
      * text alone carries the same meaning). */
     eyebrow?: string;
     h2: string;
-    items: { title?: string; body?: string; bullets?: (string | { title: string; body: string })[]; lines?: string[] }[];
+    /** Each item renders one of four ways, in priority order: `heading`
+     * (on its own, no body/bullets/lines) as a real nested `<h3>`
+     * subheading; `bullets` as a `<ul>` list; `lines` as consecutive plain
+     * paragraphs; or `body` (with optional `title`) as a single paragraph
+     * with a bolded "Title:" prefix — see imageTextSection's matching
+     * doc-comment above for the full rationale. */
+    items: { heading?: string; title?: string; body?: string; bullets?: (string | { title: string; body: string })[]; lines?: string[] }[];
     /** Opt-out: hides the "Get A Free Quote"/"Call" buttons this section
      * renders by default — for WordPress sections lower on a page that
      * repeat the same CTA redundantly. Default (unset) keeps buttons shown. */
     hideButtons?: boolean;
-    /** Opt-in: when "afterPartners", this entry renders in a second batch
-     * right after the PARTNERS section instead of its default position
-     * before SERVICES GRID — for pages (like PPF) whose WordPress source
-     * has some image+text sections early and others much further down,
-     * after Reviews/FAQ/Partners. Unset (default) keeps every other page's
-     * ordering unchanged. */
-    position?: "afterPartners";
+    /** Opt-in positioning for this entry, relative to its default spot
+     * (right before SERVICES GRID, in array order alongside every other
+     * unset entry):
+     * - "afterPartners": renders in a second batch right after the
+     *   PARTNERS section — for pages (like PPF) whose WordPress source has
+     *   some image+text sections early and others much further down, after
+     *   Reviews/FAQ/Partners.
+     * - "top": renders immediately after the RATINGS BAR, before INTRO/
+     *   VIDEO/FEATURES — for pages whose WordPress source opens with an
+     *   image+text section before any other content.
+     * - "afterFAQ": renders immediately after the FAQ section (and before
+     *   any reviewsPosition:"afterFAQ" content) — for pages whose
+     *   WordPress source has more image+text sections between FAQ and
+     *   Reviews/Partners.
+     * Unset (default) keeps every other page's ordering unchanged. */
+    position?: "afterPartners" | "top" | "afterFAQ";
   }[];
   /**
    * Image-left / text-right intro block (eyebrow, H2, single body
@@ -348,13 +369,17 @@ export interface ServicePageData {
    */
   hideQuoteForm?: boolean;
   /**
-   * Opt-in: when "afterContentBlocks", the CTA/QUOTE section (Connect with
-   * Us/Business Hours/Denver Location + Send A Quick Quote Form) renders
-   * immediately after contentBlocks instead of its default position at the
-   * very bottom of the page. Unset (default) keeps every other page's
-   * ordering unchanged.
+   * Opt-in positioning for the CTA/QUOTE section (Connect with Us/Business
+   * Hours/Denver Location + Send A Quick Quote Form), relative to its
+   * default spot at the very bottom of the page:
+   * - "afterContentBlocks": renders immediately after contentBlocks.
+   * - "afterIntro": renders immediately after an imageTextSections entry
+   *   positioned "top" — for pages whose WordPress source shows the quote
+   *   form right after the opening intro section, well before the rest of
+   *   the page's content.
+   * Unset (default) keeps every other page's ordering unchanged.
    */
-  quoteFormPosition?: "afterContentBlocks";
+  quoteFormPosition?: "afterContentBlocks" | "afterIntro";
   contentBlocks?: { h2: string; body: string; image: string; imageAlt: string; bullets?: string[] }[];
   /**
    * Centered logo + H2 + a horizontal row of bordered icon cards —
@@ -481,7 +506,19 @@ function ImageTextSectionsList({ sections }: { sections: NonNullable<ServicePage
                     <hr style={{ width: 96, height: 2, background: CYAN, border: "none", margin: 0 }} />
                     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                       {sec.items.map((item, ii) =>
-                        item.bullets || item.lines ? (
+                        item.heading ? (
+                          <h3
+                            key={ii}
+                            style={{
+                              ...archivoBold,
+                              margin: 0,
+                              fontSize: "clamp(1.2rem, 1.7vw, 1.5rem)",
+                              lineHeight: 1.2,
+                            }}
+                          >
+                            {item.heading}
+                          </h3>
+                        ) : item.bullets || item.lines ? (
                           <div key={ii}>
                             {item.title && (
                               <p style={{ ...manropeBody, margin: "0 0 8px" }}>
@@ -1066,6 +1103,14 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         </div>
       </section>
       )}
+
+      {/* IMAGE + TEXT SECTIONS positioned at the very top (see imageTextSections[].position "top") */}
+      {d.imageTextSections && (
+        <ImageTextSectionsList sections={d.imageTextSections.filter((sec) => sec.position === "top")} />
+      )}
+
+      {/* CTA / QUOTE positioned right after the top intro section (see quoteFormPosition "afterIntro") */}
+      {!d.hideQuoteForm && d.quoteFormPosition === "afterIntro" && quoteFormSection}
 
       {/* INTRO */}
       {(d.introH2 || d.introBody) && (
@@ -2083,7 +2128,19 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       />
                       <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                         {group.items.map((item, ii) =>
-                          item.bullets || item.lines ? (
+                          item.heading ? (
+                            <h3
+                              key={ii}
+                              style={{
+                                ...archivoBold,
+                                margin: 0,
+                                fontSize: "clamp(1.2rem, 1.7vw, 1.5rem)",
+                                lineHeight: 1.2,
+                              }}
+                            >
+                              {item.heading}
+                            </h3>
+                          ) : item.bullets || item.lines ? (
                             <div key={ii}>
                               {item.title && (
                                 <p style={{ ...manropeBody, margin: "0 0 8px" }}>
@@ -2139,7 +2196,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           imageTextSection above, but one image+heading+items+buttons per
           array entry with independently choosable image side. */}
       {d.imageTextSections && (
-        <ImageTextSectionsList sections={d.imageTextSections.filter((sec) => sec.position !== "afterPartners")} />
+        <ImageTextSectionsList sections={d.imageTextSections.filter((sec) => sec.position !== "afterPartners" && sec.position !== "top" && sec.position !== "afterFAQ")} />
       )}
 
       {/* SERVICES GRID (reused verbatim from the homepage) */}
@@ -3333,6 +3390,11 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         </section>
       )}
 
+      {/* IMAGE + TEXT SECTIONS positioned after FAQ (see imageTextSections[].position "afterFAQ") */}
+      {d.imageTextSections && (
+        <ImageTextSectionsList sections={d.imageTextSections.filter((sec) => sec.position === "afterFAQ")} />
+      )}
+
       {!d.hideReviews && d.reviewsPosition === "afterFAQ" && reviewsSection}
 
       {/* CROSS SELL */}
@@ -3498,7 +3560,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       {!d.hideReviews && d.reviewsPosition !== "afterSteps" && d.reviewsPosition !== "afterFAQ" && reviewsSection}
 
       {/* CTA / QUOTE */}
-      {!d.hideQuoteForm && d.quoteFormPosition !== "afterContentBlocks" && quoteFormSection}
+      {!d.hideQuoteForm && d.quoteFormPosition !== "afterContentBlocks" && d.quoteFormPosition !== "afterIntro" && quoteFormSection}
     </div>
   );
 }
