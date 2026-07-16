@@ -31,17 +31,23 @@ export interface VehiclePageData {
   introH2: string;
   introBody: string;
   introQuote?: string;
+  /** Renders the brand-intro section centered (logo + heading + body + quote, no image side) instead of the default 2-column layout. */
+  introCentered?: boolean;
 
   /* PPF section */
   ppfImg: string;
   ppfH2: string;
   ppfFeatures: { title: string; body: string }[];
   ppfOptions: { name: string; details: string }[];
+  /** Renders the PPF/ceramic/tint benefit blocks as an FAQ-style accordion (reusing <FAQ/>) instead of static cards. */
+  benefitsAsAccordion?: boolean;
 
   /* Front Range Package */
   packageImg: string;
   packageH2: string;
   packageIncludes: string[];
+  /** Optional package-card row (boat-detailing style): each card gets a name + checklist, with one consolidated CTA row below the grid. When set, replaces the default single packageIncludes card + image + the "custom quote" CTA box entirely. */
+  packageCards?: { name: string; items: string[] }[];
 
   /* Ceramic section */
   ceramicImg: string;
@@ -65,6 +71,18 @@ export interface VehiclePageData {
     body: string;
     images: string[];
   };
+
+  /** Optional secondary image(left)+text(right) section, e.g. when WP repeats an earlier heading as its own block later on the page. */
+  secondaryIntro?: {
+    h2: string;
+    body: string;
+    img: string;
+  };
+
+  /** Hides the two generic cross-sell banners ("Denver's 1st Choice..." + "Detailing Services...") that render after DenverCTA by default. */
+  hideCrossSellBanners?: boolean;
+  /** Hides the bottom Connect/Hours/Location + QuoteForm section. */
+  hideQuoteForm?: boolean;
 }
 
 /* ------------------------------------------------------------------ */
@@ -267,7 +285,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
       <section style={{ background: "#0d0d0d", padding: `${sectionPad} 0` }}>
         <div style={wrap()}>
           <ScrollReveal>
-            <p
+            <h2
               style={{
                 textAlign: "center",
                 margin: "0 0 32px",
@@ -276,7 +294,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
               }}
             >
               Serving THE Denver Metro And surrounding areas
-            </p>
+            </h2>
           </ScrollReveal>
           <ReviewBadges />
         </div>
@@ -288,17 +306,9 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
       <section style={{ background: "#000", padding: `${sectionPad} 0` }}>
         <div style={wrap()}>
           <ScrollReveal>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 500px), 1fr))",
-                gap: "clamp(32px, 5vw, 64px)",
-                alignItems: "center",
-              }}
-            >
-              {/* Logo + text side */}
-              <div>
-                <div style={{ marginBottom: 24 }}>
+            {d.introCentered ? (
+              <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
+                <div style={{ marginBottom: 24, display: "flex", justifyContent: "center" }}>
                   <Image
                     src={d.logoImg}
                     alt={`${d.brand} logo`}
@@ -324,7 +334,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                 >
                   {d.introH2}
                 </h2>
-                <hr style={cyanDivider} />
+                <hr style={{ ...cyanDivider, margin: "20px auto 0" }} />
                 <p
                   style={{
                     ...manropeBody,
@@ -336,9 +346,9 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                 {d.introQuote && (
                   <blockquote
                     style={{
-                      margin: "28px 0 0",
-                      padding: "0 0 0 20px",
-                      borderLeft: `3px solid ${CYAN}`,
+                      margin: "28px auto 0",
+                      maxWidth: 560,
+                      padding: 0,
                       fontFamily: "'Manrope', sans-serif",
                       fontWeight: 300,
                       fontStyle: "italic",
@@ -351,23 +361,88 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   </blockquote>
                 )}
               </div>
-              {/* Image side */}
+            ) : (
               <div
                 style={{
-                  position: "relative",
-                  aspectRatio: "4/3",
-                  borderRadius: 8,
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 500px), 1fr))",
+                  gap: "clamp(32px, 5vw, 64px)",
+                  alignItems: "center",
                 }}
               >
-                <Image
-                  src={d.ppfImg}
-                  alt={`${d.brand} paint protection film`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "contain" }}
-                />
+                {/* Logo + text side */}
+                <div>
+                  <div style={{ marginBottom: 24 }}>
+                    <Image
+                      src={d.logoImg}
+                      alt={`${d.brand} logo`}
+                      width={120}
+                      height={48}
+                      style={{
+                        height: 48,
+                        width: "auto",
+                        maxWidth: 120,
+                        objectFit: "contain",
+                        filter: "brightness(0) invert(1)",
+                        opacity: 0.8,
+                      }}
+                    />
+                  </div>
+                  <h2
+                    style={{
+                      margin: 0,
+                      ...archivoBold,
+                      fontSize: "clamp(1.7rem, 2.6vw, 2.4rem)",
+                      lineHeight: 1.12,
+                    }}
+                  >
+                    {d.introH2}
+                  </h2>
+                  <hr style={cyanDivider} />
+                  <p
+                    style={{
+                      ...manropeBody,
+                      margin: "26px 0 0",
+                    }}
+                  >
+                    {d.introBody}
+                  </p>
+                  {d.introQuote && (
+                    <blockquote
+                      style={{
+                        margin: "28px 0 0",
+                        padding: "0 0 0 20px",
+                        borderLeft: `3px solid ${CYAN}`,
+                        fontFamily: "'Manrope', sans-serif",
+                        fontWeight: 300,
+                        fontStyle: "italic",
+                        fontSize: "1rem",
+                        lineHeight: 1.65,
+                        color: "rgba(255,255,255,0.7)",
+                      }}
+                    >
+                      {d.introQuote}
+                    </blockquote>
+                  )}
+                </div>
+                {/* Image side */}
+                <div
+                  style={{
+                    position: "relative",
+                    aspectRatio: "4/3",
+                    borderRadius: 8,
+                  }}
+                >
+                  <Image
+                    src={d.ppfImg}
+                    alt={`${d.brand} paint protection film`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
               </div>
-            </div>
+            )}
           </ScrollReveal>
         </div>
       </section>
@@ -417,101 +492,122 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                 </h2>
                 <hr style={cyanDivider} />
 
-                {/* Feature cards */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 14,
-                    marginTop: 28,
-                  }}
-                >
-                  {d.ppfFeatures.map((f, i) => (
+                {d.benefitsAsAccordion ? (
+                  <div style={{ marginTop: 28 }}>
+                    <FAQ
+                      items={[
+                        ...d.ppfFeatures.map((f) => ({
+                          question: f.title,
+                          answer: f.body,
+                        })),
+                        {
+                          question: "Paint Protection Film Options",
+                          answer: d.ppfOptions
+                            .map((opt) => `${opt.name} — ${opt.details}`)
+                            .join(" "),
+                        },
+                      ]}
+                    />
+                  </div>
+                ) : (
+                  <>
+                    {/* Feature cards */}
                     <div
-                      key={i}
                       style={{
-                        background: CARD_BG,
-                        border: CARD_BORDER,
-                        borderRadius: 6,
-                        padding: "22px 24px",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 14,
+                        marginTop: 28,
                       }}
                     >
+                      {d.ppfFeatures.map((f, i) => (
+                        <div
+                          key={i}
+                          style={{
+                            background: CARD_BG,
+                            border: CARD_BORDER,
+                            borderRadius: 6,
+                            padding: "22px 24px",
+                          }}
+                        >
+                          <h3
+                            style={{
+                              margin: 0,
+                              ...archivoBold,
+                              fontSize: "1.02rem",
+                              lineHeight: 1.2,
+                              color: "#fff",
+                            }}
+                          >
+                            {f.title}
+                          </h3>
+                          <p
+                            style={{
+                              margin: "10px 0 0",
+                              fontFamily: "'Manrope', sans-serif",
+                              fontWeight: 300,
+                              fontSize: "14.5px",
+                              lineHeight: 1.6,
+                              color: "rgba(255,255,255,0.7)",
+                            }}
+                          >
+                            {f.body}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* PPF Options list */}
+                    <div style={{ marginTop: 28 }}>
                       <h3
                         style={{
                           margin: 0,
                           ...archivoBold,
-                          fontSize: "1.02rem",
-                          lineHeight: 1.2,
-                          color: "#fff",
+                          fontSize: "1.05rem",
+                          color: CYAN,
                         }}
                       >
-                        {f.title}
+                        Paint Protection Film Options
                       </h3>
-                      <p
+                      <div
                         style={{
-                          margin: "10px 0 0",
-                          fontFamily: "'Manrope', sans-serif",
-                          fontWeight: 300,
-                          fontSize: "14.5px",
-                          lineHeight: 1.6,
-                          color: "rgba(255,255,255,0.7)",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 16,
+                          marginTop: 18,
                         }}
                       >
-                        {f.body}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* PPF Options list */}
-                <div style={{ marginTop: 28 }}>
-                  <h3
-                    style={{
-                      margin: 0,
-                      ...archivoBold,
-                      fontSize: "1.05rem",
-                      color: CYAN,
-                    }}
-                  >
-                    Paint Protection Film Options
-                  </h3>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 16,
-                      marginTop: 18,
-                    }}
-                  >
-                    {d.ppfOptions.map((opt, i) => (
-                      <div key={i}>
-                        <h4
-                          style={{
-                            margin: 0,
-                            fontFamily: "'Inter', sans-serif",
-                            fontWeight: 600,
-                            fontSize: 15,
-                            color: "#fff",
-                          }}
-                        >
-                          {opt.name}
-                        </h4>
-                        <p
-                          style={{
-                            margin: "6px 0 0",
-                            fontFamily: "'Manrope', sans-serif",
-                            fontWeight: 300,
-                            fontSize: 14,
-                            lineHeight: 1.6,
-                            color: "rgba(255,255,255,0.7)",
-                          }}
-                        >
-                          {opt.details}
-                        </p>
+                        {d.ppfOptions.map((opt, i) => (
+                          <div key={i}>
+                            <h4
+                              style={{
+                                margin: 0,
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 600,
+                                fontSize: 15,
+                                color: "#fff",
+                              }}
+                            >
+                              {opt.name}
+                            </h4>
+                            <p
+                              style={{
+                                margin: "6px 0 0",
+                                fontFamily: "'Manrope', sans-serif",
+                                fontWeight: 300,
+                                fontSize: 14,
+                                lineHeight: 1.6,
+                                color: "rgba(255,255,255,0.7)",
+                              }}
+                            >
+                              {opt.details}
+                            </p>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </div>
+                    </div>
+                  </>
+                )}
 
                 {/* CTAs */}
                 <div
@@ -538,19 +634,11 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
       {/* ============================================================ */}
       {/* 5. FRONT RANGE PACKAGE                                       */}
       {/* ============================================================ */}
-      <section style={{ background: "#000", padding: `${sectionPad} 0` }}>
-        <div style={wrap()}>
-          <ScrollReveal>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 500px), 1fr))",
-                gap: "clamp(32px, 5vw, 64px)",
-                alignItems: "center",
-              }}
-            >
-              {/* Text left */}
-              <div>
+      {d.packageCards ? (
+        <section style={{ background: "#000", padding: `${sectionPad} 0` }}>
+          <div style={wrap()}>
+            <ScrollReveal>
+              <div style={{ marginBottom: 36, textAlign: "center" }}>
                 <span style={interEyebrow}>Best Value</span>
                 <h2
                   style={{
@@ -561,175 +649,295 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                 >
                   {d.packageH2}
                 </h2>
-                <hr style={cyanDivider} />
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 12,
-                    marginTop: 28,
-                  }}
-                >
-                  {d.packageIncludes.map((item, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: 14,
-                        background: "#141414",
-                        border: CARD_BORDER,
-                        borderRadius: 6,
-                        padding: "16px 20px",
-                      }}
-                    >
-                      <span
-                        style={{
-                          color: CYAN,
-                          fontSize: 18,
-                          lineHeight: 1.3,
-                          flex: "none",
-                        }}
-                      >
-                        &#10003;
-                      </span>
-                      <span
-                        style={{
-                          fontFamily: "'Manrope', sans-serif",
-                          fontWeight: 400,
-                          fontSize: 15,
-                          lineHeight: 1.5,
-                          color: "rgba(255,255,255,0.85)",
-                        }}
-                      >
-                        {item}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <p
-                  style={{
-                    ...manropeBody,
-                    fontSize: "0.95rem",
-                    margin: "24px 0 0",
-                  }}
-                >
-                  The complete protection package built specifically for{" "}
-                  {d.brand} owners in Colorado.
-                </p>
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: 14,
-                    marginTop: 24,
-                  }}
-                >
-                  <Link href="/free-quote" style={ctaBtn}>
-                    Get A Free Quote
-                  </Link>
-                  <a href="tel:+13035208023" style={ctaBtnOutline}>
-                    Call (303) 520-8023
-                  </a>
-                </div>
+                <hr style={{ ...cyanDivider, margin: "20px auto 0" }} />
               </div>
-              {/* Image right */}
+            </ScrollReveal>
+            <ScrollReveal>
               <div
                 style={{
-                  position: "relative",
-                  aspectRatio: "4/3",
-                  borderRadius: 8,
-
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
+                  gap: "clamp(24px, 3vw, 40px)",
                 }}
               >
-                <Image
-                  src={d.packageImg}
-                  alt={`${d.brand} Front Range Package`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "contain" }}
-                />
+                {d.packageCards.map((card, ci) => (
+                  <div
+                    key={ci}
+                    style={{
+                      background: CARD_BG,
+                      border: CARD_BORDER,
+                      borderRadius: 8,
+                      padding: "clamp(28px, 3vw, 36px)",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        ...archivoBold,
+                        margin: 0,
+                        fontSize: "1.2rem",
+                        color: CYAN,
+                      }}
+                    >
+                      {card.name}
+                    </h3>
+                    <hr style={{ ...cyanDivider, margin: "16px 0 0" }} />
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 12,
+                        marginTop: 22,
+                      }}
+                    >
+                      {card.items.map((item, ii) => (
+                        <div
+                          key={ii}
+                          style={{ display: "flex", alignItems: "flex-start", gap: 12 }}
+                        >
+                          <span
+                            style={{
+                              color: CYAN,
+                              fontSize: 16,
+                              lineHeight: 1.4,
+                              flex: "none",
+                            }}
+                          >
+                            &#10003;
+                          </span>
+                          <span
+                            style={{
+                              fontFamily: "'Manrope', sans-serif",
+                              fontWeight: 400,
+                              fontSize: "14.5px",
+                              lineHeight: 1.55,
+                              color: "rgba(255,255,255,0.85)",
+                            }}
+                          >
+                            {item}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+            </ScrollReveal>
+            <ScrollReveal>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  gap: 14,
+                  marginTop: 36,
+                }}
+              >
+                <Link href="/free-quote" style={ctaBtn}>
+                  Get A Free Quote
+                </Link>
+                <a href="tel:+13035208023" style={ctaBtnOutline}>
+                  Call (303) 520-8023
+                </a>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      ) : (
+        <section style={{ background: "#000", padding: `${sectionPad} 0` }}>
+          <div style={wrap()}>
+            <ScrollReveal>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 500px), 1fr))",
+                  gap: "clamp(32px, 5vw, 64px)",
+                  alignItems: "center",
+                }}
+              >
+                {/* Text left */}
+                <div>
+                  <span style={interEyebrow}>Best Value</span>
+                  <h2
+                    style={{
+                      ...archivoBold,
+                      margin: "12px 0 0",
+                      fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    }}
+                  >
+                    {d.packageH2}
+                  </h2>
+                  <hr style={cyanDivider} />
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 12,
+                      marginTop: 28,
+                    }}
+                  >
+                    {d.packageIncludes.map((item, i) => (
+                      <div
+                        key={i}
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: 14,
+                          background: "#141414",
+                          border: CARD_BORDER,
+                          borderRadius: 6,
+                          padding: "16px 20px",
+                        }}
+                      >
+                        <span
+                          style={{
+                            color: CYAN,
+                            fontSize: 18,
+                            lineHeight: 1.3,
+                            flex: "none",
+                          }}
+                        >
+                          &#10003;
+                        </span>
+                        <span
+                          style={{
+                            fontFamily: "'Manrope', sans-serif",
+                            fontWeight: 400,
+                            fontSize: 15,
+                            lineHeight: 1.5,
+                            color: "rgba(255,255,255,0.85)",
+                          }}
+                        >
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <p
+                    style={{
+                      ...manropeBody,
+                      fontSize: "0.95rem",
+                      margin: "24px 0 0",
+                    }}
+                  >
+                    The complete protection package built specifically for{" "}
+                    {d.brand} owners in Colorado.
+                  </p>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: 14,
+                      marginTop: 24,
+                    }}
+                  >
+                    <Link href="/free-quote" style={ctaBtn}>
+                      Get A Free Quote
+                    </Link>
+                    <a href="tel:+13035208023" style={ctaBtnOutline}>
+                      Call (303) 520-8023
+                    </a>
+                  </div>
+                </div>
+                {/* Image right */}
+                <div
+                  style={{
+                    position: "relative",
+                    aspectRatio: "4/3",
+                    borderRadius: 8,
+
+                  }}
+                >
+                  <Image
+                    src={d.packageImg}
+                    alt={`${d.brand} Front Range Package`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* ============================================================ */}
       {/* 6. CUSTOM QUOTE CTA                                          */}
       {/* ============================================================ */}
-      <section style={{ background: "#0d0d0d", padding: `${sectionPad} 0` }}>
-        <div style={wrap(900)}>
-          <ScrollReveal>
-            <div
-              style={{
-                background: "linear-gradient(110deg, #0e2a30, #0d0d0d)",
-                border: "1px solid rgba(0,188,212,0.25)",
-                borderRadius: 10,
-                padding: "clamp(32px, 4vw, 48px)",
-              }}
-            >
-              <h2
+      {!d.packageCards && (
+        <section style={{ background: "#0d0d0d", padding: `${sectionPad} 0` }}>
+          <div style={wrap(900)}>
+            <ScrollReveal>
+              <div
                 style={{
-                  ...archivoBold,
-                  margin: 0,
-                  fontSize: "clamp(1.4rem, 2.2vw, 1.8rem)",
+                  background: "linear-gradient(110deg, #0e2a30, #0d0d0d)",
+                  border: "1px solid rgba(0,188,212,0.25)",
+                  borderRadius: 10,
+                  padding: "clamp(32px, 4vw, 48px)",
                 }}
               >
-                Get a Custom {d.brand} Paint Protection Quote
-              </h2>
-              <hr style={{ ...cyanDivider, margin: "18px 0 22px" }} />
-              <p
-                style={{
-                  ...manropeBody,
-                  fontSize: "0.95rem",
-                  margin: "0 0 12px",
-                }}
-              >
-                Which services are you interested in:
-              </p>
-              <ul
-                style={{
-                  margin: "0 0 24px",
-                  padding: "0 0 0 20px",
-                  listStyle: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 8,
-                }}
-              >
-                {[
-                  "Front Range Package (PPF + Ceramic Coating + Tint)",
-                  "Paint Protection Film (clear SunTek Reaction or color-change PURE PPF)",
-                  "Ceramic Coating",
-                  "Ceramic Window Tint",
-                ].map((s, i) => (
-                  <li
-                    key={i}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 10,
-                      fontFamily: "'Manrope', sans-serif",
-                      fontWeight: 400,
-                      fontSize: 14,
-                      color: "rgba(255,255,255,0.85)",
-                    }}
-                  >
-                    <span style={{ color: CYAN, fontSize: 14, flex: "none" }}>
-                      &#9679;
-                    </span>
-                    {s}
-                  </li>
-                ))}
-              </ul>
-              <Link href="/free-quote" style={ctaBtn}>
-                Get A Free Quote
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+                <h2
+                  style={{
+                    ...archivoBold,
+                    margin: 0,
+                    fontSize: "clamp(1.4rem, 2.2vw, 1.8rem)",
+                  }}
+                >
+                  Get a Custom {d.brand} Paint Protection Quote
+                </h2>
+                <hr style={{ ...cyanDivider, margin: "18px 0 22px" }} />
+                <p
+                  style={{
+                    ...manropeBody,
+                    fontSize: "0.95rem",
+                    margin: "0 0 12px",
+                  }}
+                >
+                  Which services are you interested in:
+                </p>
+                <ul
+                  style={{
+                    margin: "0 0 24px",
+                    padding: "0 0 0 20px",
+                    listStyle: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 8,
+                  }}
+                >
+                  {[
+                    "Front Range Package (PPF + Ceramic Coating + Tint)",
+                    "Paint Protection Film (clear SunTek Reaction or color-change PURE PPF)",
+                    "Ceramic Coating",
+                    "Ceramic Window Tint",
+                  ].map((s, i) => (
+                    <li
+                      key={i}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 10,
+                        fontFamily: "'Manrope', sans-serif",
+                        fontWeight: 400,
+                        fontSize: 14,
+                        color: "rgba(255,255,255,0.85)",
+                      }}
+                    >
+                      <span style={{ color: CYAN, fontSize: 14, flex: "none" }}>
+                        &#9679;
+                      </span>
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/free-quote" style={ctaBtn}>
+                  Get A Free Quote
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* ============================================================ */}
       {/* 7. CERAMIC COATING SECTION                                   */}
@@ -758,50 +966,61 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   {d.ceramicH2}
                 </h2>
                 <hr style={cyanDivider} />
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 14,
-                    marginTop: 28,
-                  }}
-                >
-                  {d.ceramicBenefits.map((b, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        background: CARD_BG,
-                        border: CARD_BORDER,
-                        borderRadius: 6,
-                        padding: "22px 24px",
-                      }}
-                    >
-                      <h3
+                {d.benefitsAsAccordion ? (
+                  <div style={{ marginTop: 28 }}>
+                    <FAQ
+                      items={d.ceramicBenefits.map((b) => ({
+                        question: b.title,
+                        answer: b.body,
+                      }))}
+                    />
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 14,
+                      marginTop: 28,
+                    }}
+                  >
+                    {d.ceramicBenefits.map((b, i) => (
+                      <div
+                        key={i}
                         style={{
-                          margin: 0,
-                          ...archivoBold,
-                          fontSize: "1.02rem",
-                          lineHeight: 1.2,
-                          color: CYAN,
+                          background: CARD_BG,
+                          border: CARD_BORDER,
+                          borderRadius: 6,
+                          padding: "22px 24px",
                         }}
                       >
-                        {b.title}
-                      </h3>
-                      <p
-                        style={{
-                          margin: "10px 0 0",
-                          fontFamily: "'Manrope', sans-serif",
-                          fontWeight: 300,
-                          fontSize: "14.5px",
-                          lineHeight: 1.6,
-                          color: "rgba(255,255,255,0.7)",
-                        }}
-                      >
-                        {b.body}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                        <h3
+                          style={{
+                            margin: 0,
+                            ...archivoBold,
+                            fontSize: "1.02rem",
+                            lineHeight: 1.2,
+                            color: CYAN,
+                          }}
+                        >
+                          {b.title}
+                        </h3>
+                        <p
+                          style={{
+                            margin: "10px 0 0",
+                            fontFamily: "'Manrope', sans-serif",
+                            fontWeight: 300,
+                            fontSize: "14.5px",
+                            lineHeight: 1.6,
+                            color: "rgba(255,255,255,0.7)",
+                          }}
+                        >
+                          {b.body}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
                 <div
                   style={{
                     display: "flex",
@@ -884,50 +1103,61 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   {d.tintH2}
                 </h2>
                 <hr style={cyanDivider} />
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 14,
-                    marginTop: 28,
-                  }}
-                >
-                  {d.tintBenefits.map((b, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        background: CARD_BG,
-                        border: CARD_BORDER,
-                        borderRadius: 6,
-                        padding: "22px 24px",
-                      }}
-                    >
-                      <h3
+                {d.benefitsAsAccordion ? (
+                  <div style={{ marginTop: 28 }}>
+                    <FAQ
+                      items={d.tintBenefits.map((b) => ({
+                        question: b.title,
+                        answer: b.body,
+                      }))}
+                    />
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 14,
+                      marginTop: 28,
+                    }}
+                  >
+                    {d.tintBenefits.map((b, i) => (
+                      <div
+                        key={i}
                         style={{
-                          margin: 0,
-                          ...archivoBold,
-                          fontSize: "1.02rem",
-                          lineHeight: 1.2,
-                          color: CYAN,
+                          background: CARD_BG,
+                          border: CARD_BORDER,
+                          borderRadius: 6,
+                          padding: "22px 24px",
                         }}
                       >
-                        {b.title}
-                      </h3>
-                      <p
-                        style={{
-                          margin: "10px 0 0",
-                          fontFamily: "'Manrope', sans-serif",
-                          fontWeight: 300,
-                          fontSize: "14.5px",
-                          lineHeight: 1.6,
-                          color: "rgba(255,255,255,0.7)",
-                        }}
-                      >
-                        {b.body}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                        <h3
+                          style={{
+                            margin: 0,
+                            ...archivoBold,
+                            fontSize: "1.02rem",
+                            lineHeight: 1.2,
+                            color: CYAN,
+                          }}
+                        >
+                          {b.title}
+                        </h3>
+                        <p
+                          style={{
+                            margin: "10px 0 0",
+                            fontFamily: "'Manrope', sans-serif",
+                            fontWeight: 300,
+                            fontSize: "14.5px",
+                            lineHeight: 1.6,
+                            color: "rgba(255,255,255,0.7)",
+                          }}
+                        >
+                          {b.body}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
                 <div
                   style={{
                     display: "flex",
@@ -995,65 +1225,127 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
               <hr style={cyanDivider} />
             </div>
           </ScrollReveal>
-          <ReviewBadges />
           <ReviewCarousel />
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* 11. CASE STUDY / PORTFOLIO                                   */}
+      {/* 10b. SECONDARY INTRO (image left / text right)                */}
       {/* ============================================================ */}
-      {d.caseStudy && (
+      {d.secondaryIntro && (
         <section style={{ background: "#000", padding: `${sectionPad} 0` }}>
           <div style={wrap()}>
-            <ScrollReveal>
-              <div style={{ marginBottom: 36 }}>
-                <span style={interEyebrow}>Recent Work</span>
-                <h2
-                  style={{
-                    ...archivoBold,
-                    margin: "12px 0 0",
-                    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
-                  }}
-                >
-                  {d.caseStudy.h2}
-                </h2>
-                <hr style={cyanDivider} />
-              </div>
-              <p style={{ ...manropeBody, margin: "0 0 32px" }}>
-                {d.caseStudy.body}
-              </p>
-            </ScrollReveal>
             <ScrollReveal>
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-                  gap: 14,
+                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 500px), 1fr))",
+                  gap: "clamp(32px, 5vw, 64px)",
+                  alignItems: "center",
                 }}
               >
-                {d.caseStudy.images.map((img, i) => (
-                  <div
-                    key={i}
+                {/* Image left */}
+                <div
+                  style={{
+                    position: "relative",
+                    aspectRatio: "4/3",
+                    borderRadius: 8,
+                  }}
+                >
+                  <Image
+                    src={d.secondaryIntro.img}
+                    alt={`${d.brand} paint protection film at Front Range Detail Studio`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
+                {/* Text right */}
+                <div>
+                  <h2
                     style={{
-                      position: "relative",
-                      overflow: "hidden",
-                      borderRadius: 6,
-                      aspectRatio: "4/3",
-                      background: "#141414",
-                      border: "1px solid rgba(255,255,255,0.05)",
+                      margin: 0,
+                      ...archivoBold,
+                      fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                      lineHeight: 1.15,
                     }}
                   >
-                    <Image
-                      src={img}
-                      alt={`${d.brand} project at Front Range Detail Studio`}
-                      fill
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      loading="lazy"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-                ))}
+                    {d.secondaryIntro.h2}
+                  </h2>
+                  <hr style={cyanDivider} />
+                  <p style={{ ...manropeBody, margin: "26px 0 0" }}>
+                    {d.secondaryIntro.body}
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
+      {/* ============================================================ */}
+      {/* 11. CASE STUDY / PORTFOLIO                                   */}
+      {/* ============================================================ */}
+      {d.caseStudy && (
+        <section style={{ background: "#0d0d0d", padding: `${sectionPad} 0` }}>
+          <div style={wrap()}>
+            <ScrollReveal>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 500px), 1fr))",
+                  gap: "clamp(32px, 5vw, 64px)",
+                  alignItems: "center",
+                }}
+              >
+                {/* Text left */}
+                <div>
+                  <span style={interEyebrow}>Recent Work</span>
+                  <h2
+                    style={{
+                      ...archivoBold,
+                      margin: "12px 0 0",
+                      fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
+                    }}
+                  >
+                    {d.caseStudy.h2}
+                  </h2>
+                  <hr style={cyanDivider} />
+                  <p style={{ ...manropeBody, margin: "26px 0 0" }}>
+                    {d.caseStudy.body}
+                  </p>
+                </div>
+                {/* Image grid right */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(3, 1fr)",
+                    gap: 10,
+                  }}
+                >
+                  {d.caseStudy.images.map((img, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        position: "relative",
+                        overflow: "hidden",
+                        borderRadius: 6,
+                        aspectRatio: "3/4",
+                        background: "#141414",
+                        border: "1px solid rgba(255,255,255,0.05)",
+                      }}
+                    >
+                      <Image
+                        src={img}
+                        alt={`${d.brand} project at Front Range Detail Studio`}
+                        fill
+                        sizes="(max-width: 768px) 33vw, 16vw"
+                        loading="lazy"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </ScrollReveal>
           </div>
@@ -1178,119 +1470,124 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
       {/* ============================================================ */}
       <DenverCTA />
 
-      {/* ============================================================ */}
-      {/* 15a. PPF CROSS-SELL BANNER                                   */}
-      {/* ============================================================ */}
-      <section style={{ background: "#000", padding: "clamp(40px, 5vw, 72px) 0" }}>
-        <div style={wrap()}>
-          <ScrollReveal>
-            <div
-              style={{
-                background: "linear-gradient(110deg, #0e2a30, #0d0d0d)",
-                border: "1px solid rgba(0,188,212,0.25)",
-                borderRadius: 10,
-                padding: "clamp(32px, 4vw, 48px)",
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: 24,
-              }}
-            >
-              <div style={{ maxWidth: 560 }}>
-                <h2
+      {!d.hideCrossSellBanners && (
+        <>
+          {/* ============================================================ */}
+          {/* 15a. PPF CROSS-SELL BANNER                                   */}
+          {/* ============================================================ */}
+          <section style={{ background: "#000", padding: "clamp(40px, 5vw, 72px) 0" }}>
+            <div style={wrap()}>
+              <ScrollReveal>
+                <div
                   style={{
-                    margin: "0 0 10px",
-                    ...archivoBold,
-                    fontSize: "clamp(1.3rem, 2vw, 1.7rem)",
-                    color: "#fff",
+                    background: "linear-gradient(110deg, #0e2a30, #0d0d0d)",
+                    border: "1px solid rgba(0,188,212,0.25)",
+                    borderRadius: 10,
+                    padding: "clamp(32px, 4vw, 48px)",
+                    display: "flex",
+                    flexWrap: "wrap",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: 24,
                   }}
                 >
-                  Denver&rsquo;s 1st Choice in Paint Protection Film and Clear Bra
-                </h2>
-                <p
-                  style={{
-                    margin: 0,
-                    fontFamily: "'Manrope', sans-serif",
-                    fontWeight: 300,
-                    fontSize: 15,
-                    lineHeight: 1.6,
-                    color: "rgba(255,255,255,0.78)",
-                  }}
-                >
-                  Preserve the pristine condition of your vehicle with our high-quality
-                  Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an
-                  invisible shield, guarding your car&rsquo;s paint against scratches,
-                  stone chips, and road debris.
-                </p>
-              </div>
-              <Link href="/paint-protection-film-ppf" style={ctaBtn}>
-                Explore PPF
-              </Link>
+                  <div style={{ maxWidth: 560 }}>
+                    <h2
+                      style={{
+                        margin: "0 0 10px",
+                        ...archivoBold,
+                        fontSize: "clamp(1.3rem, 2vw, 1.7rem)",
+                        color: "#fff",
+                      }}
+                    >
+                      Denver&rsquo;s 1st Choice in Paint Protection Film and Clear Bra
+                    </h2>
+                    <p
+                      style={{
+                        margin: 0,
+                        fontFamily: "'Manrope', sans-serif",
+                        fontWeight: 300,
+                        fontSize: 15,
+                        lineHeight: 1.6,
+                        color: "rgba(255,255,255,0.78)",
+                      }}
+                    >
+                      Preserve the pristine condition of your vehicle with our high-quality
+                      Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an
+                      invisible shield, guarding your car&rsquo;s paint against scratches,
+                      stone chips, and road debris.
+                    </p>
+                  </div>
+                  <Link href="/paint-protection-film-ppf" style={ctaBtn}>
+                    Explore PPF
+                  </Link>
+                </div>
+              </ScrollReveal>
             </div>
-          </ScrollReveal>
-        </div>
-      </section>
+          </section>
 
-      {/* ============================================================ */}
-      {/* 15b. DETAILING CROSS-SELL BANNER                             */}
-      {/* ============================================================ */}
-      <section
-        style={{ background: "#0d0d0d", padding: "clamp(40px, 5vw, 72px) 0" }}
-      >
-        <div style={wrap()}>
-          <ScrollReveal>
-            <div
-              style={{
-                background: "linear-gradient(110deg, #0e2a30, #0d0d0d)",
-                border: "1px solid rgba(0,188,212,0.25)",
-                borderRadius: 10,
-                padding: "clamp(32px, 4vw, 48px)",
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: 24,
-              }}
-            >
-              <div style={{ maxWidth: 560 }}>
-                <h3
+          {/* ============================================================ */}
+          {/* 15b. DETAILING CROSS-SELL BANNER                             */}
+          {/* ============================================================ */}
+          <section
+            style={{ background: "#0d0d0d", padding: "clamp(40px, 5vw, 72px) 0" }}
+          >
+            <div style={wrap()}>
+              <ScrollReveal>
+                <div
                   style={{
-                    margin: "0 0 10px",
-                    ...archivoBold,
-                    fontSize: "clamp(1.3rem, 2vw, 1.7rem)",
-                    color: "#fff",
+                    background: "linear-gradient(110deg, #0e2a30, #0d0d0d)",
+                    border: "1px solid rgba(0,188,212,0.25)",
+                    borderRadius: 10,
+                    padding: "clamp(32px, 4vw, 48px)",
+                    display: "flex",
+                    flexWrap: "wrap",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: 24,
                   }}
                 >
-                  Detailing Services in Denver, Colorado and All Surrounding Cities
-                </h3>
-                <p
-                  style={{
-                    margin: 0,
-                    fontFamily: "'Manrope', sans-serif",
-                    fontWeight: 300,
-                    fontSize: 15,
-                    lineHeight: 1.6,
-                    color: "rgba(255,255,255,0.78)",
-                  }}
-                >
-                  Our clients have one thing in common: they love their vehicle.
-                  From the Class A motorhome to the two-door convertible, our
-                  team of detail specialists are equipped and experienced to
-                  handle all detailing needs anywhere in Metro Denver.
-                </p>
-              </div>
-              <Link href="/auto-detailing" style={ctaBtn}>
-                Explore Detailing
-              </Link>
+                  <div style={{ maxWidth: 560 }}>
+                    <h3
+                      style={{
+                        margin: "0 0 10px",
+                        ...archivoBold,
+                        fontSize: "clamp(1.3rem, 2vw, 1.7rem)",
+                        color: "#fff",
+                      }}
+                    >
+                      Detailing Services in Denver, Colorado and All Surrounding Cities
+                    </h3>
+                    <p
+                      style={{
+                        margin: 0,
+                        fontFamily: "'Manrope', sans-serif",
+                        fontWeight: 300,
+                        fontSize: 15,
+                        lineHeight: 1.6,
+                        color: "rgba(255,255,255,0.78)",
+                      }}
+                    >
+                      Our clients have one thing in common: they love their vehicle.
+                      From the Class A motorhome to the two-door convertible, our
+                      team of detail specialists are equipped and experienced to
+                      handle all detailing needs anywhere in Metro Denver.
+                    </p>
+                  </div>
+                  <Link href="/auto-detailing" style={ctaBtn}>
+                    Explore Detailing
+                  </Link>
+                </div>
+              </ScrollReveal>
             </div>
-          </ScrollReveal>
-        </div>
-      </section>
+          </section>
+        </>
+      )}
 
       {/* ============================================================ */}
       {/* CTA / QUOTE FORM                                            */}
       {/* ============================================================ */}
+      {!d.hideQuoteForm && (
       <section
         id="quote"
         style={{
@@ -1353,6 +1650,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
           </div>
         </div>
       </section>
+      )}
     </div>
   );
 }
