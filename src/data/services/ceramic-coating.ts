@@ -1,9 +1,10 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const ceramicCoatingData: ServicePageData = {
-  heroImg: "/images/services/car-ceramic-1.jpg",
+  heroImg: "/images/vehicles/Rivian-6.webp",
   heroImgAlt: "Rivian car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
   eyebrow: "Ultimate Protection and Lasting Gloss for Colorado Drivers",
+  heroVariant: "homepage",
   h1: "Ceramic Coating",
   h1Cities:
     "in Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village & Castle Pines",
