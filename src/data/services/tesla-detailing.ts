@@ -2,11 +2,13 @@ import type { VehiclePageData } from "@/components/VehiclePage";
 
 export const teslaDetailingData: VehiclePageData = {
   brand: "Tesla",
-  heroImg: "/images/vehicles/tesla-ceramic-coating.png",
-  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
-  heroH1: "Tesla Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio",
+  heroImg: "/images/vehicles/911-Targa-4S-1024x768.jpg",
+  heroImgAlt: "911 Targa 4S with a Manual Transmission protected for life with @systemxceramic Max G+",
+  heroH1: "Tesla Paint Protection & Restyling in Englewood, CO",
+  heroH1HiddenSuffix: ".  Front Range Detail Studio",
   heroSubtitle:
     "Colorado\u2019s Tesla PPF & Ceramic Coating Experts",
+  heroCallout: "Protect and Elevate Your Tesla in Colorado",
 
   /* Brand intro */
   logoImg: "/images/logos/Tesla-Motors-logo.svg",
