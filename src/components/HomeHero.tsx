@@ -160,6 +160,26 @@ export function HomeHero() {
             Front Range
             <br />
             Detail Studio
+            {/* Real space + visually-hidden em dash so the H1's textContent
+                reconstructs WordPress's real "Front Range Detail Studio –
+                RV, Boat..." heading exactly, for SEO/crawlers, without
+                showing the dash on screen. */}
+            {" "}
+            <span
+              style={{
+                position: "absolute",
+                width: 1,
+                height: 1,
+                padding: 0,
+                margin: -1,
+                overflow: "hidden",
+                clip: "rect(0,0,0,0)",
+                whiteSpace: "nowrap",
+                border: 0,
+              }}
+            >
+              {"– "}
+            </span>
             <span style={{ display: "block", fontSize: "clamp(1rem, 2vw, 1.6rem)", fontWeight: 500, letterSpacing: "0.02em", lineHeight: 1.5, marginTop: 14, textTransform: "none", color: "rgba(255,255,255,0.8)" }}>
               RV, Boat, Auto. Paint Protection Film, Ceramic Coating, Tint, Vinyl Wrap
             </span>
