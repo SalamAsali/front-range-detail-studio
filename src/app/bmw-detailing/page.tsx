@@ -4,14 +4,16 @@ import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd"
 import { bmwDetailingData } from "@/data/services/bmw-detailing";
 
 export const metadata: Metadata = {
-  title: "BMW Paint Protection & PPF in Englewood, CO",
+  title: {
+    absolute: "BMW Paint Protection & PPF in Englewood, CO | Front Range Detail Studio",
+  },
   description:
     "Protect your BMW in Englewood, CO with paint protection film, ceramic coatings, color-changing PPF, and window tint. Front Range Detail Studio\u2014Colorado\u2019s BMW protection experts",
   alternates: {
     canonical: "https://frontrangedetailstudio.com/bmw-detailing/",
   },
   openGraph: {
-    title: "BMW Paint Protection & PPF | Front Range Detail Studio",
+    title: "BMW Paint Protection & PPF in Englewood, CO | Front Range Detail Studio",
     description:
       "Protect your BMW in Englewood, CO with paint protection film, ceramic coatings, color-changing PPF, and window tint. Front Range Detail Studio\u2014Colorado\u2019s BMW protection experts",
     url: "https://frontrangedetailstudio.com/bmw-detailing/",

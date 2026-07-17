@@ -2,31 +2,36 @@ import type { VehiclePageData } from "@/components/VehiclePage";
 
 export const bmwDetailingData: VehiclePageData = {
   brand: "BMW",
-  heroImg: "/images/vehicles/BMW-green-1024x768.jpg",
-  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
-  heroH1: "BMW Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio",
+  heroImg: "/images/vehicles/BMW-1-1024x768.webp",
+  heroImgAlt: "BMW car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
+  heroH1: "BMW Paint Protection & Restyling in Englewood, CO",
+  heroH1HiddenSuffix: ". Front Range Detail Studio",
   heroSubtitle:
-    "Colorado\u2019s BMW PPF & Ceramic Coating Experts",
+    "Colorado’s BMW PPF & Ceramic Coating Experts",
+  heroCallout: "Protect and Elevate Your BMW in Colorado",
 
-  /* Brand intro */
+  /* Brand intro — centered, logo at top. This is BMW's own real page, so
+     the "sharp M3, a bold X7, a cutting-edge i4" copy is genuinely
+     accurate here, not brand bleed like on the other vehicle pages. */
   logoImg: "/images/logos/BMW-logo.svg",
   introH2: "Premier BMW Paint Protection in Englewood, CO",
   introBody:
-    "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your BMW. Whether you own a sharp M3, a bold X7, or a cutting-edge i4, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services\u2014all designed for Colorado\u2019s demanding driving conditions.",
+    "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your BMW. Whether you own a sharp M3, a bold X7, or a cutting-edge i4, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services—all designed for Colorado’s demanding driving conditions.",
   introQuote:
-    "We\u2019re not just protecting paint \u2014 we\u2019re protecting your investment.",
+    "We’re not just protecting paint — we’re protecting your investment.",
+  introCentered: true,
 
-  /* PPF section */
+  /* PPF section — image left, text right, benefits as an accordion */
   ppfImg: "/images/vehicles/bmw-ppf.png",
   ppfH2: "BMW Paint Protection Film Packages",
   ppfFeatures: [
     {
       title: "Custom-Fit BMW-Specific PPF",
-      body: "We apply premium, self-healing clear film designed to shield your BMW\u2019s paint from rock chips, scratches, road debris, and environmental damage without compromising gloss or clarity.",
+      body: "We apply premium, self-healing clear film designed to shield your BMW’s paint from rock chips, scratches, road debris, and environmental damage without compromising gloss or clarity.",
     },
     {
       title: "Digital Precision Cutting",
-      body: "Each install uses precision-cut patterns tailored to your BMW\u2019s exact body lines, from aggressive M bumpers to aerodynamic side skirts.",
+      body: "Each install uses precision-cut patterns tailored to your BMW’s exact body lines, from aggressive M bumpers to aerodynamic side skirts.",
     },
     {
       title: "Ideal for Colorado Roads",
@@ -45,17 +50,58 @@ export const bmwDetailingData: VehiclePageData = {
         "A high-performance color-change PPF available in satin, matte, gloss, and bold custom finishes. Restyle your BMW while protecting your original paint underneath, backed by a 12-year warranty.",
     },
   ],
+  benefitsAsAccordion: true,
 
-  /* Front Range Package */
+  /* Front Range Package — serviceBoxes-style card row (boat-detailing/
+     Ford Truck/Tesla/Rivian pattern). Card 1 = WordPress's real "The Front
+     Range Package" section, including its intro/closing sentences. Card 2 =
+     WordPress's "custom quote" checkbox box, restyled as a package card,
+     also including its real intro/closing sentences. Images are WP's exact
+     real, correctly-branded BMW photos for both cards. */
   packageImg: "/images/vehicles/BMW-M50i-1024x768.jpg",
-  packageH2: "BMW\u2019s Best Defense \u2014 The Front Range Package",
+  packageH2: "BMW’s Best Defense — The Front Range Package",
   packageIncludes: [
     "Full-Front PPF (bumper, hood, fenders, mirrors, headlights, rockers)",
     "Level-2 Paint Correction & Multi-Layer Ceramic Coating",
     "Ceramic Window Tint with Advanced UV & Heat Rejection",
   ],
+  packageCards: [
+    {
+      image: "/images/vehicles/BMW-green-1024x768.jpg",
+      imageAlt: "BMW ceramic coating and PPF service",
+      eyebrow: "BMW’s Best Defense",
+      title: "The Front Range Package",
+      intro:
+        "Our exclusive Front Range Package is engineered for Colorado’s unique road hazards. It combines:",
+      bullets: [
+        "Full-Front PPF (bumper, hood, fenders, mirrors, headlights, rockers)",
+        "Level-2 Paint Correction & Multi-Layer Ceramic Coating",
+        "Ceramic Window Tint with Advanced UV & Heat Rejection",
+      ],
+      footer: [
+        "Designed specifically for luxury performance vehicles like BMWs, this package is the best way to protect against chips, scratches, UV damage, and road chemicals—while enhancing gloss, depth, and ease of maintenance.",
+      ],
+    },
+    {
+      image: "/images/vehicles/BMW-M50i-1024x768.jpg",
+      imageAlt: "BMW M50i ceramic coating",
+      eyebrow: "Get a Custom BMW Paint Protection Quote",
+      title: "custom quote",
+      intro:
+        "Ready to safeguard and elevate your BMW? Request a custom quote today and tell us what you need. Which services you’re interested in:",
+      bullets: [
+        "Front Range Package (PPF + Ceramic Coating + Tint)",
+        "Paint Protection Film (clear SunTek Reaction or color-change PURE PPF)",
+        "Ceramic Coating",
+        "Ceramic Window Tint",
+      ],
+      footer: [
+        "Our team will review your request and get back to you promptly with an expert recommendation and quote tailored for your car and driving habits in Colorado.",
+      ],
+    },
+  ],
 
-  /* Ceramic section */
+  /* Ceramic section — text left, image right, benefits as an accordion */
   ceramicImg: "/images/vehicles/bmw-ceramic-coating.png",
   ceramicH2: "BMW Ceramic Coating In Englewood",
   ceramicBenefits: [
@@ -65,7 +111,7 @@ export const bmwDetailingData: VehiclePageData = {
     },
     {
       title: "UV and Chemical Barrier",
-      body: "Prevents oxidation and environmental damage, especially critical in Colorado\u2019s high-altitude sun.",
+      body: "Prevents oxidation and environmental damage, especially critical in Colorado’s high-altitude sun.",
     },
     {
       title: "Extends PPF Longevity",
@@ -73,12 +119,12 @@ export const bmwDetailingData: VehiclePageData = {
     },
     {
       title: "Perfect for Daily Drivers and Track Cars",
-      body: "Whether you drive an M4 Competition or a 530e commuter, ceramic coating preserves your BMW\u2019s finish and value.",
+      body: "Whether you drive an M4 Competition or a 530e commuter, ceramic coating preserves your BMW’s finish and value.",
     },
   ],
 
-  /* Window Tint section */
-  tintImg: "/images/vehicles/bmw-window-tint.png",
+  /* Window Tint section — image left, text right, benefits as an accordion */
+  tintImg: "/images/vehicles/bmw-window-tint-1024x576.png",
   tintH2: "BMW Window Tinting in Englewood, CO",
   tintBenefits: [
     {
@@ -87,11 +133,11 @@ export const bmwDetailingData: VehiclePageData = {
     },
     {
       title: "Privacy & Aesthetic Boost",
-      body: "Clean, precision-installed tint enhances your BMW\u2019s aggressive styling.",
+      body: "Clean, precision-installed tint enhances your BMW’s aggressive styling.",
     },
     {
       title: "Safe for Driver-Assist Systems",
-      body: "Our ceramic films are 100% compatible with BMW\u2019s blind-spot monitors, heads-up displays, and cameras.",
+      body: "Our ceramic films are 100% compatible with BMW’s blind-spot monitors, heads-up displays, and cameras.",
     },
   ],
 
@@ -114,18 +160,36 @@ export const bmwDetailingData: VehiclePageData = {
     },
   ],
 
-  /* Gallery */
-  gallery: [
-    "/images/vehicles/BMW-green-1024x768.jpg",
-    "/images/vehicles/BMW-M50i-1024x768.jpg",
-    "/images/vehicles/BMW-X5-front-1024x768.jpg",
-  ],
+  /* Gallery — hidden; the case study grid below covers this need */
+  gallery: [],
 
+  /* Secondary intro — image left, text right, echoing the primary heading.
+     WordPress genuinely repeats this exact heading a second time later on
+     the page (id="ppf-options"), with the same eyebrow kicker, a decorative
+     photo, a body paragraph, the pull-quote, and CTA buttons. */
+  secondaryIntro: {
+    eyebrow: "Colorado’s BMW PPF & Ceramic Coating Experts",
+    h2: "Premier BMW Paint Protection in Englewood, CO",
+    body: "At Front Range Detail Studio in Englewood, CO, we specialize in preserving the beauty, performance, and value of your BMW. Whether you own a sharp M3, a bold X7, or a cutting-edge i4, our dedicated team offers precision paint protection film (PPF), ceramic coatings, and ceramic window tint services—all designed for Colorado’s demanding driving conditions.",
+    quote:
+      "We’re not just protecting paint — we’re protecting your investment.",
+    img: "/images/vehicles/bmw-i4-768x1024.jpg",
+  },
+
+  /* Case study — text left, image grid right. This is BMW's own real page,
+     so the "G80 M3"/SunTek Matte film copy is genuinely accurate here
+     (unlike the other vehicle pages, where this exact text was bled in
+     from this page). Images are WP's exact real 6 sources in order —
+     note the first image is bmw-i4-1 (the ceramic-coating shot used in
+     this grid), distinct from bmw-i4 (without "-1"), which is the
+     secondary intro's decorative photo above. */
   caseStudy: {
     h2: "See Our BMW Paint Protection in Action",
-    body: "We recently completed a full Front Range Package on a G80 M3 \u2014 featuring a Matte paint protection film using SunTek PPF, completely transforming the car\u2019s appearance while shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection. The result? A bold, head-turning, chip-resistant, and maintenance-friendly BMW built to thrive on Colorado roads and look flawless doing it.",
+    body: "We recently completed a full Front Range Package on a G80 M3 — featuring a Matte paint protection film using SunTek PPF, completely transforming the car’s appearance while shielding it from rock chips and road debris. We followed up with a lifetime warranty ceramic coating on all painted surfaces, glass, and wheels, then finished it off with full ceramic window tint for heat rejection and UV protection.",
+    resultLine:
+      "The result? A bold, head-turning, chip-resistant, and maintenance-friendly BMW built to thrive on Colorado roads and look flawless doing it.",
     images: [
-      "/images/vehicles/bmw-i4-768x1024.jpg",
+      "/images/vehicles/bmw-i4-1-768x1024.jpg",
       "/images/vehicles/BMW-X5-front-1024x768.jpg",
       "/images/vehicles/BMW-M50i-1024x768.jpg",
       "/images/vehicles/BMW-green-1024x768.jpg",
@@ -133,4 +197,28 @@ export const bmwDetailingData: VehiclePageData = {
       "/images/vehicles/BMW-6-1024x576.jpg",
     ],
   },
+
+  /* "Denver's 1st Choice in Paint Protection Film and Clear Bra" — content
+     and 6-image gallery verbatim from WordPress, same pattern and same
+     reused gallery as every other rebuilt page. */
+  denverCta: {
+    body: "Preserve the pristine condition of your vehicle with our high-quality Paint Protection Film, or Clear Bra. Our warranty backed PPF acts as an invisible shield, guarding your car’s paint against scratches, stone chips, and road debris.",
+    h3: "Detailing Services in Denver, Colorado and All Surrounding Cities",
+    h3Body:
+      "Our clients have one thing in common: they love their vehicle. From the Class A motorhome to the two-door convertible, our team of detail specialists are equipped and experienced to handle all detailing needs anywhere in Metro Denver.",
+    images: [
+      { src: "/images/gallery/Audi-car-detailing.webp", alt: "Corvette car detailing and ceramic coating" },
+      { src: "/images/gallery/boat-1.webp", alt: "Boat detailing, boat ceramic coating" },
+      { src: "/images/gallery/audi-interior-detailing-1024x768.jpg", alt: "Audi interior detailing" },
+      { src: "/images/gallery/audi-1-1024x1024.jpg", alt: "Audi Quattro detailing Denver" },
+      { src: "/images/gallery/mercedes-benz-maybach-1024x768.jpg", alt: "Mercedes Benz detailing Denver" },
+      {
+        src: "/images/gallery/Rivian-ceramic-coatin-vertical-pic.webp",
+        alt: "Rivian car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
+      },
+    ],
+  },
+
+  hideCrossSellBanners: true,
+  hideQuoteForm: true,
 };
