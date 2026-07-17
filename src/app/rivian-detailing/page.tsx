@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "https://frontrangedetailstudio.com/rivian-detailing/",
   },
   openGraph: {
-    title: "Rivian R1T & R1S Protection | Front Range Detail Studio",
+    title: "Rivian Detailing - Front Range Detail Studio",
     description:
       "Colorado's Rivian PPF & Ceramic Coating Experts",
     url: "https://frontrangedetailstudio.com/rivian-detailing/",

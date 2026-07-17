@@ -3,10 +3,12 @@ import type { VehiclePageData } from "@/components/VehiclePage";
 export const rivianDetailingData: VehiclePageData = {
   brand: "Rivian",
   heroImg: "/images/vehicles/Rivian-1024x768.jpg",
-  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
-  heroH1: "Rivian Paint Protection & Restyling in Englewood, CO | Front Range Detail Studio",
+  heroImgAlt: "Rivian car detailing including paint protection film (PPF) or clear bra, window tinting, ceramic coating, vinyl wraps and more",
+  heroH1: "Rivian Paint Protection & Restyling in Englewood, CO",
+  heroH1HiddenSuffix: " | Front Range Detail Studio",
   heroSubtitle:
     "Colorado\u2019s Rivian PPF & Ceramic Coating Experts",
+  heroCallout: "Protect and Elevate Your Rivian in Colorado",
 
   /* Brand intro */
   logoImg: "/images/logos/rivian-logo.svg",
