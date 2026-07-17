@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "https://frontrangedetailstudio.com/porsche-detailing/",
   },
   openGraph: {
-    title: "Porsche PPF, Ceramic Coating & Window Tint | Front Range Detail Studio",
+    title: "Porsche Detailing - Front Range Detail Studio",
     description:
       "Colorado's Porsche PPF & Ceramic Coating Experts",
     url: "https://frontrangedetailstudio.com/porsche-detailing/",

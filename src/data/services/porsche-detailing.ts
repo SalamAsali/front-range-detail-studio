@@ -3,10 +3,12 @@ import type { VehiclePageData } from "@/components/VehiclePage";
 export const porscheDetailingData: VehiclePageData = {
   brand: "Porsche",
   heroImg: "/images/vehicles/Porsche-Cayenne-Turbo-S-PPF-1024x768.jpg",
-  heroImgAlt: "PPF Clear Bra Denver Tint Ceramic Coating Paint Correction",
-  heroH1: "Porsche Paint Protection & Restyling in Englewood, CO. Front Range Detail Studio",
+  heroImgAlt: "Porsche Cayenne Turbo S paint protection film font side view",
+  heroH1: "Porsche Paint Protection & Restyling in Englewood, CO",
+  heroH1HiddenSuffix: ".  Front Range Detail Studio",
   heroSubtitle:
     "Colorado\u2019s Porsche PPF & Ceramic Coating Experts",
+  heroCallout: "Protect and Elevate Your Porsche in Colorado",
 
   /* Brand intro */
   logoImg: "/images/logos/Porsche-Logo.svg",
