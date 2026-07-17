@@ -1,9 +1,12 @@
 import type { ServicePageData } from "@/components/ServicePage";
 
 export const rvCeramicCoatingData: ServicePageData = {
-  heroImg: "/images/services/RV-ceramic-coating.jpeg",
-  heroImgAlt: "RV ceramic coating Denver",
-  eyebrow: "RV Ceramic Coating \u00B7 System X",
+  heroImg: "/images/services/Newmar-London-Aire-1024x768.jpg",
+  heroImgAlt: "Newmar London Aire RV detailing Dnver",
+  heroVariant: "homepage",
+  heroContentMaxWidth: 1200,
+  heroH1FontSize: "clamp(2rem, 4vw, 3.5rem)",
+  eyebrow: "Safeguard your RV from UV rays, oxidation, and road grime",
   h1: "RV Ceramic Coating in Denver, CO \u2013 Protect Your Home on Wheels",
   introH2: "Premium RV Ceramic Coating for Lasting Protection",
   introBody:
