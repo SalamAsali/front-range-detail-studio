@@ -7,7 +7,9 @@ export const rvCeramicCoatingData: ServicePageData = {
   heroContentMaxWidth: 1200,
   heroH1FontSize: "clamp(2rem, 4vw, 3.5rem)",
   eyebrow: "Safeguard your RV from UV rays, oxidation, and road grime",
-  h1: "RV Ceramic Coating in Denver, CO \u2013 Protect Your Home on Wheels",
+  h1: "RV Ceramic Coating in Denver, CO",
+  h1CitiesHiddenPrefix: "\u2013 ",
+  h1Cities: "Protect Your Home on Wheels",
   introH2: "Premium RV Ceramic Coating for Lasting Protection",
   introBody:
     "Your RV is more than just a vehicle \u2014 it\u2019s your home on the road. Protect it from the elements and keep it looking new with our professional System X Ceramic Coating services. At Front Range Detail Studio, we specialize in high-quality ceramic coatings for all types of RVs and motorhomes, ensuring long-lasting protection against UV rays, oxidation, and the wear and tear of the open road.",
