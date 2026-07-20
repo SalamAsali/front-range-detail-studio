@@ -1,9 +1,10 @@
 import { chromium } from 'playwright';
 import { writeFileSync } from 'fs';
 import { join } from 'path';
+import { fileURLToPath } from 'url';
 
 const BASE = 'http://localhost:3000';
-const OUT_DIR = new URL('.', import.meta.url).pathname;
+const OUT_DIR = fileURLToPath(new URL('.', import.meta.url));
 
 const PAGES = [
   { slug: 'homepage', path: '/' },
