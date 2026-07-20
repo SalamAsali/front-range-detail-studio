@@ -31,7 +31,7 @@ export default function BlogPage() {
       />
 
       {/* Header */}
-      <section style={{ background: "#000", padding: "clamp(140px, 14vw, 180px) 0 clamp(48px, 5vw, 72px)" }}>
+      <section style={{ background: "#000", padding: "clamp(108px, 11vw, 138px) 0 clamp(32px, 3.5vw, 48px)" }}>
         <div style={{ maxWidth: 840, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
           <span
             style={{
@@ -64,41 +64,82 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Blog Grid */}
+      {/* Blog List */}
+      <style>{`
+        .blog-post-card {
+          transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+        .blog-post-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 26px 60px rgba(0,0,0,0.55);
+          border-color: rgba(0,188,212,0.35);
+        }
+        .blog-post-card-img {
+          transition: transform .6s cubic-bezier(.2,.7,.2,1);
+        }
+        .blog-post-card:hover .blog-post-card-img {
+          transform: scale(1.06);
+        }
+        .blog-post-card-arrow {
+          transition: transform .25s ease;
+        }
+        .blog-post-card:hover .blog-post-card-arrow {
+          transform: translateX(5px);
+        }
+        .blog-post-card-media {
+          aspect-ratio: 4/3;
+        }
+        @media (min-width: 761px) {
+          .blog-post-card-media {
+            aspect-ratio: auto;
+            height: 100%;
+          }
+        }
+        @media (max-width: 760px) {
+          .blog-post-card {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
       <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: 24,
-            }}
-          >
+          <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
             {blogPostList.map((post) => (
               <ScrollReveal key={post.slug}>
                 <Link
                   href={`/${post.slug}`}
+                  className="blog-post-card"
                   style={{
-                    display: "block",
+                    display: "grid",
+                    gridTemplateColumns: "minmax(240px, 400px) 1fr",
                     background: "#1a1a1a",
-                    border: "1px solid rgba(255,255,255,0.06)",
-                    borderRadius: 6,
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    borderRadius: 10,
                     overflow: "hidden",
                     textDecoration: "none",
                     color: "#fff",
+                    boxShadow: "0 12px 30px rgba(0,0,0,0.35)",
                   }}
                 >
-                  <div style={{ position: "relative", aspectRatio: "16/9", overflow: "hidden" }}>
+                  <div className="blog-post-card-media" style={{ position: "relative", overflow: "hidden" }}>
                     <Image
                       src={post.cardImage}
                       alt={post.cardImageAlt}
                       fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 760px) 100vw, 400px"
+                      className="blog-post-card-img"
                       style={{ objectFit: "cover" }}
                     />
                   </div>
-                  <div style={{ padding: 24 }}>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 12 }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: "clamp(24px, 3vw, 40px)",
+                      gap: 14,
+                    }}
+                  >
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                       {post.categories.map((cat) => (
                         <span
                           key={cat}
@@ -119,11 +160,11 @@ export default function BlogPage() {
                     </div>
                     <h2
                       style={{
-                        margin: "0 0 8px",
+                        margin: 0,
                         fontFamily: "'Archivo', sans-serif",
                         fontWeight: 700,
-                        fontSize: "1.1rem",
-                        lineHeight: 1.25,
+                        fontSize: "clamp(1.25rem, 2vw, 1.6rem)",
+                        lineHeight: 1.2,
                         color: "#fff",
                       }}
                     >
@@ -131,7 +172,7 @@ export default function BlogPage() {
                     </h2>
                     <p
                       style={{
-                        margin: "0 0 12px",
+                        margin: 0,
                         fontFamily: "'Inter', sans-serif",
                         fontSize: 13,
                         color: "rgba(255,255,255,0.4)",
@@ -139,17 +180,52 @@ export default function BlogPage() {
                     >
                       {post.date}
                     </p>
+                    <hr style={{ width: 48, height: 2, background: "#00BCD4", border: "none", margin: 0 }} />
                     <p
                       style={{
                         margin: 0,
                         fontWeight: 300,
-                        fontSize: 14,
-                        lineHeight: 1.6,
+                        fontSize: 15,
+                        lineHeight: 1.65,
                         color: "rgba(255,255,255,0.6)",
+                        maxWidth: 620,
                       }}
                     >
                       {post.excerpt}
                     </p>
+                    <span
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 8,
+                        marginTop: "auto",
+                        paddingTop: 8,
+                        fontFamily: "'Inter', sans-serif",
+                        fontWeight: 600,
+                        fontSize: 13,
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#00BCD4",
+                      }}
+                    >
+                      Read Article
+                      <svg
+                        className="blog-post-card-arrow"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12"
+                          stroke="#00BCD4"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
                   </div>
                 </Link>
               </ScrollReveal>
