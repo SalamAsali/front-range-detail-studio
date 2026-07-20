@@ -177,10 +177,10 @@ export const blogPosts: Record<string, BlogPost> = {
         "2024 Corvette Stingray – Annual System X Ceramic Coating Maintenance in Denver | Front Range Detail Studio",
       excerpt:
         "This 2024 Chevrolet Corvette Stingray recently came back to Front Range Detail Studio for its annual System X Top Coat service.",
-      cardImage: "/images/blog/image-1024x576.jpeg",
+      cardImage: "/images/blog/image-1-1024x576.jpeg",
       cardImageAlt:
         "Corvette Stingray annual System X ceramic coating maintenance",
-      heroImage: "/images/blog/image-1024x576.jpeg",
+      heroImage: "/images/blog/image-1-1024x576.jpeg",
       heroImageAlt:
         "Corvette Stingray annual System X ceramic coating maintenance",
       showAboutSection: true,
