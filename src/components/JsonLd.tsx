@@ -210,6 +210,49 @@ export function FAQSchema({
   );
 }
 
+export function BlogPostingSchema({
+  url,
+  headline,
+  description,
+  datePublished,
+  dateModified,
+  articleSection,
+  image,
+}: {
+  url: string;
+  headline: string;
+  description: string;
+  datePublished: string;
+  dateModified: string;
+  articleSection: string;
+  image?: string;
+}) {
+  const BASE = "https://frontrangedetailstudio.com";
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#richSnippet`,
+    headline,
+    description,
+    datePublished,
+    dateModified,
+    articleSection,
+    inLanguage: "en-US",
+    author: { "@id": `${BASE}/#person` },
+    publisher: { "@id": `${BASE}/#person` },
+    isPartOf: { "@id": `${url}#webpage` },
+    mainEntityOfPage: { "@id": `${url}#webpage` },
+    ...(image && { image: { "@type": "ImageObject", url: image } }),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export function BreadcrumbSchema({
   items,
 }: {

@@ -4,43 +4,34 @@ import Link from "next/link";
 import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { BreadcrumbSchema } from "@/components/JsonLd";
+import { blogPostList } from "@/data/blog-posts";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: { absolute: "Blog | Front Range Detail Studio" },
   description:
     "Latest detailing projects, tips, and case studies from Front Range Detail Studio. PPF, ceramic coating, window tinting in Englewood, CO.",
+  alternates: {
+    canonical: "https://frontrangedetailstudio.com/blog/",
+  },
+  openGraph: {
+    title: "Blog | Front Range Detail Studio",
+    description:
+      "Latest detailing projects, tips, and case studies from Front Range Detail Studio. PPF, ceramic coating, window tinting in Englewood, CO.",
+    url: "https://frontrangedetailstudio.com/blog/",
+  },
 };
-
-const blogPosts = [
-  {
-    slug: "2025-dodge-ram-1500-etorque-hemi-limited-protected-with-the-front-range-package-centennial-co",
-    title:
-      "2025 Dodge Ram 1500 eTorque HEMI Limited Protected with the Front Range Package \u2014 Centennial, CO",
-    date: "October 29, 2025",
-    categories: ["PPF", "Automotive Window Tint"],
-    image: "/images/blog/image-6-1024x576.jpeg",
-    imageAlt:
-      "Finished 2025 Dodge Ram 1500 Limited with deep gloss, flawless reflections, and full-front protection",
-    excerpt:
-      "Even brand-new vehicles deserve expert protection. This 2025 Dodge Ram 1500 eTorque HEMI Limited arrived at our studio straight from the dealership.",
-  },
-  {
-    slug: "2024-corvette-stingray-annual-system-x-ceramic-coating-maintenance-in-denver",
-    title:
-      "2024 Corvette Stingray \u2013 Annual System X Ceramic Coating Maintenance in Denver",
-    date: "October 29, 2025",
-    categories: ["Ceramic Coating", "PPF"],
-    image: "/images/blog/image-1024x576.jpeg",
-    imageAlt:
-      "Corvette Stingray annual System X ceramic coating maintenance",
-    excerpt:
-      "This 2024 Chevrolet Corvette Stingray recently came back to Front Range Detail Studio for its annual System X Top Coat service.",
-  },
-];
 
 export default function BlogPage() {
   return (
     <div style={{ background: "#000", fontFamily: "'Manrope', sans-serif" }}>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" },
+        ]}
+      />
+
       {/* Header */}
       <section style={{ background: "#000", padding: "clamp(140px, 14vw, 180px) 0 clamp(48px, 5vw, 72px)" }}>
         <div style={{ maxWidth: 840, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
@@ -84,10 +75,10 @@ export default function BlogPage() {
               gap: 24,
             }}
           >
-            {blogPosts.map((post) => (
+            {blogPostList.map((post) => (
               <ScrollReveal key={post.slug}>
                 <Link
-                  href={`/blog/${post.slug}`}
+                  href={`/${post.slug}`}
                   style={{
                     display: "block",
                     background: "#1a1a1a",
@@ -100,8 +91,8 @@ export default function BlogPage() {
                 >
                   <div style={{ position: "relative", aspectRatio: "16/9", overflow: "hidden" }}>
                     <Image
-                      src={post.image}
-                      alt={post.imageAlt}
+                      src={post.cardImage}
+                      alt={post.cardImageAlt}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       style={{ objectFit: "cover" }}

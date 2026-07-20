@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { blogPostList } from "@/data/blog-posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://frontrangedetailstudio.com";
@@ -28,17 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/blog", priority: 0.5, changeFrequency: "weekly" as const },
   ];
 
-  const blogPosts = [
-    {
-      path: "/blog/2025-dodge-ram-1500-etorque-hemi-limited-protected-with-the-front-range-package-centennial-co",
-      lastModified: "2025-10-15",
-    },
-    {
-      path: "/blog/2024-corvette-stingray-annual-system-x-ceramic-coating-maintenance-in-denver",
-      lastModified: "2025-10-15",
-    },
-  ];
-
   return [
     ...routes.map((route) => ({
       url: `${baseUrl}${route.path}`,
@@ -46,9 +36,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: route.changeFrequency,
       priority: route.priority,
     })),
-    ...blogPosts.map((post) => ({
-      url: `${baseUrl}${post.path}`,
-      lastModified: post.lastModified,
+    ...blogPostList.map((post) => ({
+      url: `${baseUrl}/${post.slug}`,
+      lastModified: post.dateModified.split("T")[0],
       changeFrequency: "yearly" as const,
       priority: 0.5,
     })),

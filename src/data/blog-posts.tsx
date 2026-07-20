@@ -1,37 +1,43 @@
-import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
-import { QuoteForm } from "@/components/QuoteForm";
-import { ScrollReveal } from "@/components/ScrollReveal";
 
-interface BlogPost {
+export interface BlogPost {
   slug: string;
   title: string;
   date: string;
+  datePublished: string;
+  dateModified: string;
   categories: string[];
   tags: string[];
   metaTitle: string;
-  metaDescription: string;
+  excerpt: string;
+  cardImage: string;
+  cardImageAlt: string;
   heroImage: string;
   heroImageAlt: string;
-  content: React.ReactNode;
+  showAboutSection?: boolean;
+  content: ReactNode;
 }
 
-const blogPosts: Record<string, BlogPost> = {
+export const blogPosts: Record<string, BlogPost> = {
   "2025-dodge-ram-1500-etorque-hemi-limited-protected-with-the-front-range-package-centennial-co":
     {
       slug: "2025-dodge-ram-1500-etorque-hemi-limited-protected-with-the-front-range-package-centennial-co",
       title:
-        "2025 Dodge Ram 1500 eTorque HEMI Limited Protected with the Front Range Package \u2014 Centennial, CO",
+        "2025 Dodge Ram 1500 eTorque HEMI Limited Protected with the Front Range Package — Centennial, CO",
       date: "October 29, 2025",
-      categories: ["PPF", "Automotive Window Tint"],
+      datePublished: "2025-10-29T16:52:08-06:00",
+      dateModified: "2025-10-29T17:57:16-06:00",
+      categories: ["Automotive Window Tint", "Ceramic Coating", "PPF"],
       tags: ["SunTek", "System X", "Dodge Ram", "Evolve", "paint correction"],
       metaTitle:
-        "2025 Dodge Ram 1500 eTorque HEMI Limited Protected with the Front Range Package \u2014 Centennial, CO",
-      metaDescription:
-        "See how we protected a brand-new 2025 Dodge Ram 1500 eTorque HEMI Limited with SunTek Ultra PPF, System X ceramic coating, and SunTek Evolve window tint.",
+        "2025 Dodge Ram 1500 eTorque HEMI Limited Protected with the Front Range Package — Centennial, CO | Front Range Detail Studio",
+      excerpt:
+        "Even brand-new vehicles deserve expert protection. This 2025 Dodge Ram 1500 eTorque HEMI Limited arrived at our studio straight from the dealership.",
+      cardImage: "/images/blog/image-6-1024x576.jpeg",
+      cardImageAlt:
+        "Finished 2025 Dodge Ram 1500 Limited with deep gloss, flawless reflections, and full-front protection",
       heroImage: "/images/blog/image-6-1024x576.jpeg",
       heroImageAlt:
         "Silver Ram 1500 Limited with mirror-like reflections after ceramic coating and PPF installation",
@@ -161,17 +167,23 @@ const blogPosts: Record<string, BlogPost> = {
     {
       slug: "2024-corvette-stingray-annual-system-x-ceramic-coating-maintenance-in-denver",
       title:
-        "2024 Corvette Stingray \u2013 Annual System X Ceramic Coating Maintenance in Denver",
+        "2024 Corvette Stingray – Annual System X Ceramic Coating Maintenance in Denver",
       date: "October 29, 2025",
+      datePublished: "2025-10-29T15:09:11-06:00",
+      dateModified: "2025-10-29T16:26:18-06:00",
       categories: ["Ceramic Coating", "PPF"],
       tags: ["Corvette", "Chevrolet", "SunTek", "System X"],
       metaTitle:
-        "2024 Corvette Stingray \u2013 Annual System X Ceramic Coating Maintenance in Denver",
-      metaDescription:
-        "Annual System X ceramic coating maintenance on a 2024 Corvette Stingray. See why annual inspections keep your coating performing like day one.",
+        "2024 Corvette Stingray – Annual System X Ceramic Coating Maintenance in Denver | Front Range Detail Studio",
+      excerpt:
+        "This 2024 Chevrolet Corvette Stingray recently came back to Front Range Detail Studio for its annual System X Top Coat service.",
+      cardImage: "/images/blog/image-1024x576.jpeg",
+      cardImageAlt:
+        "Corvette Stingray annual System X ceramic coating maintenance",
       heroImage: "/images/blog/image-1024x576.jpeg",
       heroImageAlt:
         "Corvette Stingray annual System X ceramic coating maintenance",
+      showAboutSection: true,
       content: (
         <>
           <p>
@@ -326,312 +338,4 @@ const blogPosts: Record<string, BlogPost> = {
     },
 };
 
-export async function generateStaticParams() {
-  return Object.keys(blogPosts).map((slug) => ({ slug }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
-  const post = blogPosts[slug];
-  if (!post) return {};
-  return {
-    title: post.metaTitle,
-    description: post.metaDescription,
-  };
-}
-
-export default async function BlogPostPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const post = blogPosts[slug];
-
-  if (!post) {
-    notFound();
-  }
-
-  return (
-    <div style={{ background: "#000", fontFamily: "'Manrope', sans-serif" }}>
-      {/* Hero Image */}
-      <section style={{ paddingTop: 82 }}>
-        <div style={{ position: "relative", aspectRatio: "2/1", maxHeight: 500, width: "100%", overflow: "hidden" }}>
-          <Image
-            src={post.heroImage}
-            alt={post.heroImageAlt}
-            fill
-            priority
-            sizes="100vw"
-            style={{ objectFit: "cover" }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(to top, #000 0%, rgba(0,0,0,0.3) 50%, transparent 100%)",
-            }}
-          />
-        </div>
-      </section>
-
-      {/* Article */}
-      <section style={{ background: "#000", padding: "clamp(40px, 5vw, 64px) 0" }}>
-        <div style={{ maxWidth: 840, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
-          <article>
-            {/* Categories */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
-              {post.categories.map((cat) => (
-                <span
-                  key={cat}
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 11,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    color: "#00BCD4",
-                    background: "rgba(0,188,212,0.1)",
-                    padding: "4px 10px",
-                    borderRadius: 4,
-                  }}
-                >
-                  {cat}
-                </span>
-              ))}
-            </div>
-
-            <h1
-              style={{
-                margin: "0 0 16px",
-                fontFamily: "'Archivo', sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
-                lineHeight: 1.08,
-              }}
-            >
-              {post.title}
-            </h1>
-
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                gap: 16,
-                marginBottom: 40,
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 13,
-                color: "rgba(255,255,255,0.4)",
-              }}
-            >
-              <time>{post.date}</time>
-              <span style={{ color: "rgba(255,255,255,0.15)" }}>|</span>
-              <span>Front Range Detail Studio</span>
-            </div>
-
-            {/* Content */}
-            <div
-              style={{
-                fontFamily: "'Manrope', sans-serif",
-                fontWeight: 300,
-                fontSize: 16,
-                lineHeight: 1.7,
-                color: "rgba(255,255,255,0.7)",
-              }}
-              /* Article content styles are inherited via the prose wrapper div */
-            >
-              <style>{`
-                .blog-content h2 {
-                  font-family: 'Archivo', sans-serif;
-                  font-weight: 700;
-                  text-transform: uppercase;
-                  font-size: clamp(1.3rem, 2vw, 1.6rem);
-                  color: #fff;
-                  margin: 40px 0 16px;
-                }
-                .blog-content p {
-                  margin: 0 0 24px;
-                }
-                .blog-content ul {
-                  margin: 0 0 24px;
-                  padding-left: 24px;
-                  list-style-type: disc;
-                }
-                .blog-content li {
-                  margin-bottom: 8px;
-                  line-height: 1.7;
-                }
-                .blog-content a {
-                  color: #00BCD4;
-                  text-decoration: none;
-                }
-              `}</style>
-              <div className="blog-content">
-                {post.content}
-              </div>
-            </div>
-
-            {/* Tags */}
-            <div
-              style={{
-                marginTop: 48,
-                paddingTop: 24,
-                borderTop: "1px solid rgba(255,255,255,0.08)",
-              }}
-            >
-              <p
-                style={{
-                  margin: "0 0 8px",
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 12,
-                  color: "rgba(255,255,255,0.4)",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.08em",
-                }}
-              >
-                Tags:
-              </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                {post.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: 12,
-                      color: "rgba(255,255,255,0.5)",
-                      background: "#1a1a1a",
-                      padding: "6px 12px",
-                      borderRadius: 4,
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      {/* Reviews */}
-      <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
-          <ScrollReveal>
-            <div style={{ marginBottom: 36 }}>
-              <span
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 12,
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  color: "#00BCD4",
-                }}
-              >
-                Testimonials
-              </span>
-              <h2
-                style={{
-                  margin: "12px 0 0",
-                  fontFamily: "'Archivo', sans-serif",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "-0.3px",
-                  fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
-                }}
-              >
-                Client Reviews
-              </h2>
-              <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "20px 0 0" }} />
-            </div>
-          </ScrollReveal>
-          <ReviewBadges />
-          <ReviewCarousel />
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section
-        id="quote"
-        style={{
-          background: "#000",
-          padding: "clamp(64px, 8vw, 110px) 0",
-          borderTop: "1px solid rgba(255,255,255,0.05)",
-        }}
-      >
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "clamp(28px, 4vw, 56px)",
-              alignItems: "start",
-            }}
-          >
-            <ScrollReveal>
-              <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-                <span
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 12,
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                    color: "#00BCD4",
-                  }}
-                >
-                  Free Quote
-                </span>
-                <h2
-                  style={{
-                    margin: 0,
-                    fontFamily: "'Archivo', sans-serif",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)",
-                    lineHeight: 1.08,
-                  }}
-                >
-                  Get A Free Quote
-                </h2>
-                <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: 0 }} />
-                <p
-                  style={{
-                    margin: 0,
-                    fontWeight: 300,
-                    fontSize: "1.05rem",
-                    lineHeight: 1.65,
-                    color: "rgba(255,255,255,0.78)",
-                    maxWidth: 420,
-                  }}
-                >
-                  Ready to protect your vehicle like this one? Contact us today for a free, no-obligation
-                  quote.
-                </p>
-                <a
-                  href="tel:+13035208023"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 600,
-                    fontSize: "1.4rem",
-                    color: "#00BCD4",
-                    textDecoration: "none",
-                    marginTop: 4,
-                  }}
-                >
-                  (303) 520-8023
-                </a>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal>
-              <QuoteForm />
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
+export const blogPostList: BlogPost[] = Object.values(blogPosts);
