@@ -1324,7 +1324,7 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                     alt={`${d.brand} paint protection film at Front Range Detail Studio`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    style={{ objectFit: "contain" }}
+                    style={{ objectFit: "cover" }}
                   />
                 </div>
                 {/* Text right */}
