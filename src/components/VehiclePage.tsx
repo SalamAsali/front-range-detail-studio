@@ -448,7 +448,8 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   style={{
                     position: "relative",
                     aspectRatio: "4/3",
-                    borderRadius: 8,
+                    borderRadius: 16,
+                    overflow: "hidden",
                   }}
                 >
                   <Image
@@ -484,8 +485,8 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                 style={{
                   position: "relative",
                   aspectRatio: "4/3",
-                  borderRadius: 8,
-
+                  borderRadius: 16,
+                  overflow: "hidden",
                 }}
               >
                 <Image
@@ -908,8 +909,8 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   style={{
                     position: "relative",
                     aspectRatio: "4/3",
-                    borderRadius: 8,
-
+                    borderRadius: 16,
+                    overflow: "hidden",
                   }}
                 >
                   <Image
@@ -1107,8 +1108,8 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                 style={{
                   position: "relative",
                   aspectRatio: "4/3",
-                  borderRadius: 8,
-
+                  borderRadius: 16,
+                  overflow: "hidden",
                 }}
               >
                 <Image
@@ -1143,8 +1144,8 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                 style={{
                   position: "relative",
                   aspectRatio: "4/3",
-                  borderRadius: 8,
-
+                  borderRadius: 16,
+                  overflow: "hidden",
                 }}
               >
                 <Image
@@ -1314,7 +1315,8 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   style={{
                     position: "relative",
                     aspectRatio: "4/3",
-                    borderRadius: 8,
+                    borderRadius: 16,
+                    overflow: "hidden",
                   }}
                 >
                   <Image

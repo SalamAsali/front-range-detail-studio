@@ -475,7 +475,7 @@ function ImageTextSectionsList({ sections }: { sections: NonNullable<ServicePage
                   }}
                 >
                   {sec.imageSide !== "right" && (
-                    <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
+                    <div style={{ position: "relative", minHeight: 420, borderRadius: 16, overflow: "hidden" }}>
                       {media}
                     </div>
                   )}
@@ -564,7 +564,7 @@ function ImageTextSectionsList({ sections }: { sections: NonNullable<ServicePage
                     )}
                   </div>
                   {sec.imageSide === "right" && (
-                    <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
+                    <div style={{ position: "relative", minHeight: 420, borderRadius: 16, overflow: "hidden" }}>
                       {media}
                     </div>
                   )}
@@ -903,7 +903,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   <a href="tel:+13035208023" style={heroCtaBtnOutline}>Call (303) 520-8023</a>
                 </div>
               </div>
-              <div style={{ position: "relative", aspectRatio: "1/1", minHeight: 320, borderRadius: 8, overflow: "hidden" }}>
+              <div style={{ position: "relative", aspectRatio: "1/1", minHeight: 320, borderRadius: 16, overflow: "hidden" }}>
                 <Image src={d.heroImg} alt={d.heroImgAlt || ""} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
               </div>
             </div>
@@ -1190,7 +1190,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     key={i}
                     style={{
                       position: "relative",
-                      borderRadius: 8,
+                      borderRadius: 16,
                       overflow: "hidden",
                       border: "1px solid rgba(255,255,255,0.08)",
                       aspectRatio: "16/9",
@@ -1302,7 +1302,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     alignItems: "center",
                   }}
                 >
-                  <div style={{ position: "relative", aspectRatio: "4/5", borderRadius: 8, overflow: "hidden" }}>
+                  <div style={{ position: "relative", aspectRatio: "4/5", borderRadius: 16, overflow: "hidden" }}>
                     <Image
                       src={d.featuresImage}
                       alt={d.featuresImageAlt || d.featuresH2 || "Front Range Detail Studio"}
@@ -1376,7 +1376,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                         alignItems: "center",
                         background: "#1a1a1a",
                         border: "1px solid rgba(255,255,255,0.06)",
-                        borderRadius: 8,
+                        borderRadius: 16,
                         overflow: "hidden",
                       }}
                     >
@@ -1596,7 +1596,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   alignItems: "stretch",
                 }}
               >
-                <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
+                <div style={{ position: "relative", minHeight: 420, borderRadius: 16, overflow: "hidden" }}>
                   <Image
                     src={d.introImageSection.image}
                     alt={d.introImageSection.imageAlt}
@@ -1858,7 +1858,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     alignItems: "center",
                   }}
                 >
-                  <div style={{ position: "relative", aspectRatio: "4/5", borderRadius: 8, overflow: "hidden" }}>
+                  <div style={{ position: "relative", aspectRatio: "4/5", borderRadius: 16, overflow: "hidden" }}>
                     <Image
                       src={d.featuresImage}
                       alt={d.featuresImageAlt || d.featuresH2 || "Front Range Detail Studio"}
@@ -1932,7 +1932,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                         alignItems: "center",
                         background: "#1a1a1a",
                         border: "1px solid rgba(255,255,255,0.06)",
-                        borderRadius: 8,
+                        borderRadius: 16,
                         overflow: "hidden",
                       }}
                     >
@@ -2080,7 +2080,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   alignItems: "stretch",
                 }}
               >
-                <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
+                <div style={{ position: "relative", minHeight: 420, borderRadius: 16, overflow: "hidden" }}>
                   <Image
                     src={d.imageTextSection.image}
                     alt={d.imageTextSection.imageAlt}
@@ -2259,7 +2259,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   }}
                 >
                   {d.includedImageSide !== "left" && (
-                    <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden", order: 1 }}>
+                    <div style={{ position: "relative", minHeight: 420, borderRadius: 16, overflow: "hidden", order: 1 }}>
                       <Image src={d.includedImage} alt={d.includedImageAlt || ""} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
                     </div>
                   )}
@@ -2303,7 +2303,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                     </div>
                   </div>
                   {d.includedImageSide === "left" && (
-                    <div style={{ position: "relative", minHeight: 420, borderRadius: 8, overflow: "hidden" }}>
+                    <div style={{ position: "relative", minHeight: 420, borderRadius: 16, overflow: "hidden" }}>
                       <Image src={d.includedImage} alt={d.includedImageAlt || ""} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
                     </div>
                   )}
@@ -2689,7 +2689,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                       style={{
                         background: "#1a1a1a",
                         border: "1px solid rgba(255,255,255,0.06)",
-                        borderRadius: 8,
+                        borderRadius: 16,
                         overflow: "hidden",
                         display: "flex",
                         flexDirection: "column",
@@ -3112,7 +3112,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 }}>
                   {/* Image - left on odd, right on even */}
                   <div style={{ order: i % 2 === 0 ? 0 : 1 }}>
-                    <div style={{ position: "relative", aspectRatio: "4/3", borderRadius: 8, overflow: "hidden" }}>
+                    <div style={{ position: "relative", aspectRatio: "4/3", borderRadius: 16, overflow: "hidden" }}>
                       <Image src={block.image} alt={block.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
                     </div>
                   </div>
