@@ -1,7 +1,8 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
+import { fileURLToPath } from 'url';
 
-const DIR = new URL('.', import.meta.url).pathname;
+const DIR = fileURLToPath(new URL('.', import.meta.url));
 
 const SLUGS = [
   'homepage', 'services', 'ceramic-coating', 'ppf', 'window-tint',
