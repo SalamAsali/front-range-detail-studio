@@ -75,24 +75,92 @@ export default async function BlogPostPage({
         ]}
       />
 
-      {/* Hero Image */}
-      <section style={{ paddingTop: 82 }}>
-        <div style={{ position: "relative", aspectRatio: "2/1", maxHeight: 500, width: "100%", overflow: "hidden" }}>
-          <Image
-            src={post.heroImage}
-            alt={post.heroImageAlt}
-            fill
-            priority
-            sizes="100vw"
-            style={{ objectFit: "cover" }}
-          />
+      {/* Hero */}
+      <section
+        style={{
+          position: "relative",
+          minHeight: "clamp(420px, 60vh, 620px)",
+          display: "flex",
+          alignItems: "flex-end",
+          overflow: "hidden",
+          marginTop: -82,
+          paddingTop: 82,
+        }}
+      >
+        <Image
+          src={post.heroImage}
+          alt={post.heroImageAlt}
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(to top, #000 0%, rgba(0,0,0,0.55) 42%, rgba(0,0,0,0.1) 75%)",
+          }}
+        />
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            maxWidth: 840,
+            margin: "0 auto",
+            width: "100%",
+            padding: "0 clamp(20px, 5vw, 56px) clamp(40px, 5vw, 64px)",
+          }}
+        >
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
+            {post.categories.map((cat) => (
+              <span
+                key={cat}
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: 11,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "#00BCD4",
+                  background: "rgba(0,188,212,0.12)",
+                  border: "1px solid rgba(0,188,212,0.3)",
+                  padding: "4px 10px",
+                  borderRadius: 4,
+                }}
+              >
+                {cat}
+              </span>
+            ))}
+          </div>
+
+          <h1
+            style={{
+              margin: "0 0 16px",
+              fontFamily: "'Archivo', sans-serif",
+              fontWeight: 800,
+              fontSize: "clamp(2rem, 4vw, 3.2rem)",
+              lineHeight: 1.08,
+              textShadow: "0 4px 40px rgba(0,0,0,0.6)",
+            }}
+          >
+            {post.title}
+          </h1>
+
           <div
             style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(to top, #000 0%, rgba(0,0,0,0.3) 50%, transparent 100%)",
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              gap: 16,
+              fontFamily: "'Inter', sans-serif",
+              fontSize: 13,
+              color: "rgba(255,255,255,0.6)",
             }}
-          />
+          >
+            <time>{post.date}</time>
+            <span style={{ color: "rgba(255,255,255,0.2)" }}>|</span>
+            <span>Front Range Detail Studio</span>
+          </div>
         </div>
       </section>
 
@@ -100,56 +168,6 @@ export default async function BlogPostPage({
       <section style={{ background: "#000", padding: "clamp(40px, 5vw, 64px) 0" }}>
         <div style={{ maxWidth: 840, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
           <article>
-            {/* Categories */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
-              {post.categories.map((cat) => (
-                <span
-                  key={cat}
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 11,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    color: "#00BCD4",
-                    background: "rgba(0,188,212,0.1)",
-                    padding: "4px 10px",
-                    borderRadius: 4,
-                  }}
-                >
-                  {cat}
-                </span>
-              ))}
-            </div>
-
-            <h1
-              style={{
-                margin: "0 0 16px",
-                fontFamily: "'Archivo', sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
-                lineHeight: 1.08,
-              }}
-            >
-              {post.title}
-            </h1>
-
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                gap: 16,
-                marginBottom: 40,
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 13,
-                color: "rgba(255,255,255,0.4)",
-              }}
-            >
-              <time>{post.date}</time>
-              <span style={{ color: "rgba(255,255,255,0.15)" }}>|</span>
-              <span>Front Range Detail Studio</span>
-            </div>
-
             {/* Content */}
             <div
               style={{
@@ -185,6 +203,24 @@ export default async function BlogPostPage({
                   color: #00BCD4;
                   text-decoration: none;
                 }
+                .blog-content img {
+                  border-radius: 10px !important;
+                  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+                }
+                .more-post-card {
+                  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+                }
+                .more-post-card:hover {
+                  transform: translateY(-3px);
+                  box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+                  border-color: rgba(0,188,212,0.35);
+                }
+                .more-post-card-img {
+                  transition: transform .6s cubic-bezier(.2,.7,.2,1);
+                }
+                .more-post-card:hover .more-post-card-img {
+                  transform: scale(1.06);
+                }
               `}</style>
               <div className="blog-content">
                 {post.content}
@@ -195,8 +231,10 @@ export default async function BlogPostPage({
               <div
                 style={{
                   marginTop: 48,
-                  paddingTop: 24,
-                  borderTop: "1px solid rgba(255,255,255,0.08)",
+                  padding: "clamp(24px, 3vw, 32px)",
+                  background: "rgba(0,188,212,0.05)",
+                  border: "1px solid rgba(0,188,212,0.18)",
+                  borderRadius: 12,
                 }}
               >
                 <h2
@@ -265,10 +303,11 @@ export default async function BlogPostPage({
                     style={{
                       fontFamily: "'Inter', sans-serif",
                       fontSize: 12,
-                      color: "rgba(255,255,255,0.5)",
-                      background: "#1a1a1a",
-                      padding: "6px 12px",
-                      borderRadius: 4,
+                      color: "rgba(255,255,255,0.6)",
+                      background: "rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      padding: "6px 14px",
+                      borderRadius: 20,
                     }}
                   >
                     {tag}
@@ -297,47 +336,62 @@ export default async function BlogPostPage({
                     color: "rgba(255,255,255,0.6)",
                   }}
                 >
-                  More posts
+                  More Posts
                 </h2>
-                <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                   {morePosts.map((mp) => (
-                    <li
+                    <Link
                       key={mp.slug}
+                      href={`/${mp.slug}`}
+                      className="more-post-card"
                       style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        justifyContent: "space-between",
-                        alignItems: "baseline",
-                        gap: 12,
-                        padding: "16px 0",
-                        borderBottom: "1px solid rgba(255,255,255,0.06)",
+                        display: "grid",
+                        gridTemplateColumns: "120px 1fr",
+                        alignItems: "stretch",
+                        background: "#1a1a1a",
+                        border: "1px solid rgba(255,255,255,0.08)",
+                        borderRadius: 10,
+                        overflow: "hidden",
+                        textDecoration: "none",
+                        color: "#fff",
+                        boxShadow: "0 12px 30px rgba(0,0,0,0.3)",
                       }}
                     >
-                      <Link
-                        href={`/${mp.slug}`}
-                        style={{
-                          fontFamily: "'Archivo', sans-serif",
-                          fontWeight: 700,
-                          fontSize: "1.05rem",
-                          color: "#00BCD4",
-                          textDecoration: "none",
-                        }}
-                      >
-                        {mp.title}
-                      </Link>
-                      <time
-                        style={{
-                          fontFamily: "'Inter', sans-serif",
-                          fontSize: 13,
-                          color: "rgba(255,255,255,0.4)",
-                          whiteSpace: "nowrap",
-                        }}
-                      >
-                        {mp.date}
-                      </time>
-                    </li>
+                      <div style={{ position: "relative", overflow: "hidden" }}>
+                        <Image
+                          src={mp.cardImage}
+                          alt={mp.cardImageAlt}
+                          fill
+                          sizes="120px"
+                          className="more-post-card-img"
+                          style={{ objectFit: "cover" }}
+                        />
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 6, padding: "16px 20px" }}>
+                        <span
+                          style={{
+                            fontFamily: "'Archivo', sans-serif",
+                            fontWeight: 700,
+                            fontSize: "1.05rem",
+                            lineHeight: 1.25,
+                            color: "#fff",
+                          }}
+                        >
+                          {mp.title}
+                        </span>
+                        <time
+                          style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontSize: 13,
+                            color: "rgba(255,255,255,0.4)",
+                          }}
+                        >
+                          {mp.date}
+                        </time>
+                      </div>
+                    </Link>
                   ))}
-                </ul>
+                </div>
               </div>
             )}
           </article>
