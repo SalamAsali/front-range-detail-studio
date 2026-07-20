@@ -27,6 +27,9 @@ const PAGES = [
   { slug: 'about', path: '/about/' },
   { slug: 'contact', path: '/contact/' },
   { slug: 'free-quote', path: '/free-quote/' },
+  { slug: 'blog', path: '/blog/' },
+  { slug: 'blog-post-dodge-ram', path: '/2025-dodge-ram-1500-etorque-hemi-limited-protected-with-the-front-range-package-centennial-co/' },
+  { slug: 'blog-post-corvette', path: '/2024-corvette-stingray-annual-system-x-ceramic-coating-maintenance-in-denver/' },
 ];
 
 const extractPage = () => {
