@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
-import { QuoteForm } from "@/components/QuoteForm";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { BreadcrumbSchema } from "@/components/JsonLd";
 import { blogPostList } from "@/data/blog-posts";
@@ -54,9 +52,10 @@ export default function BlogPage() {
               fontFamily: "'Archivo', sans-serif",
               fontWeight: 800,
               textTransform: "uppercase",
-              letterSpacing: "-0.4px",
-              fontSize: "clamp(2rem, 4.2vw, 3.6rem)",
-              lineHeight: 1.02,
+              letterSpacing: "-0.5px",
+              fontSize: "clamp(2.6rem, 6vw, 5.4rem)",
+              lineHeight: 0.98,
+              textShadow: "0 4px 40px rgba(0,0,0,0.5)",
             }}
           >
             Blog
@@ -155,122 +154,6 @@ export default function BlogPage() {
                 </Link>
               </ScrollReveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews */}
-      <section style={{ background: "#000", padding: "clamp(56px, 7vw, 96px) 0" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
-          <ScrollReveal>
-            <div style={{ marginBottom: 36 }}>
-              <span
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 12,
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  color: "#00BCD4",
-                }}
-              >
-                Testimonials
-              </span>
-              <h2
-                style={{
-                  margin: "12px 0 0",
-                  fontFamily: "'Archivo', sans-serif",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "-0.3px",
-                  fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)",
-                }}
-              >
-                Client Reviews
-              </h2>
-              <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "20px 0 0" }} />
-            </div>
-          </ScrollReveal>
-          <ReviewBadges />
-          <ReviewCarousel />
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section
-        id="quote"
-        style={{
-          background: "#0d0d0d",
-          padding: "clamp(64px, 8vw, 110px) 0",
-          borderTop: "1px solid rgba(255,255,255,0.05)",
-        }}
-      >
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 clamp(20px, 5vw, 56px)" }}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "clamp(28px, 4vw, 56px)",
-              alignItems: "start",
-            }}
-          >
-            <ScrollReveal>
-              <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-                <span
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 12,
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                    color: "#00BCD4",
-                  }}
-                >
-                  Free Quote
-                </span>
-                <h2
-                  style={{
-                    margin: 0,
-                    fontFamily: "'Archivo', sans-serif",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "-0.3px",
-                    fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)",
-                    lineHeight: 1.08,
-                  }}
-                >
-                  Get A Free Quote
-                </h2>
-                <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: 0 }} />
-                <p
-                  style={{
-                    margin: 0,
-                    fontWeight: 300,
-                    fontSize: "1.05rem",
-                    lineHeight: 1.65,
-                    color: "rgba(255,255,255,0.78)",
-                    maxWidth: 420,
-                  }}
-                >
-                  Ready to protect your vehicle? Contact us today for a free, no-obligation quote on PPF,
-                  ceramic coating, window tinting, and more.
-                </p>
-                <a
-                  href="tel:+13035208023"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 600,
-                    fontSize: "1.4rem",
-                    color: "#00BCD4",
-                    textDecoration: "none",
-                    marginTop: 4,
-                  }}
-                >
-                  (303) 520-8023
-                </a>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal>
-              <QuoteForm />
-            </ScrollReveal>
           </div>
         </div>
       </section>
