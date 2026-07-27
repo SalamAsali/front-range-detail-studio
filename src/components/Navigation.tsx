@@ -40,7 +40,7 @@ const navLinks: NavItem[] = [
   { label: "System X", href: "/system-x-automotive-ceramic-coatings" },
   { label: "Wraps", href: "/vinyl-wraps" },
   {
-    label: "RV & Boat",
+    label: "RV & Boat Services",
     href: "/rv-detailing",
     children: [
       { label: "RV Detailing", href: "/rv-detailing" },
