@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
-const services = [
+const RECAPTCHA_SITE_KEY = "6LdWjyciAAAAAPT4v-usyxdhZvcm4kqIerLiTm9Z";
+
+const serviceOptions = [
   "PPF / Clear Bra",
   "Window Tint",
   "Ceramic Coating",
@@ -40,17 +42,20 @@ function InputField({
   placeholder,
   label,
   required,
+  name,
 }: {
   type?: string;
   placeholder: string;
   label: string;
   required?: boolean;
+  name: string;
 }) {
   return (
     <label style={{ display: "flex", flexDirection: "column", gap: 7 }}>
       <span style={labelTextStyle}>{label}</span>
       <input
         type={type}
+        name={name}
         placeholder={placeholder}
         required={required}
         style={inputStyle}
@@ -68,8 +73,80 @@ function InputField({
   );
 }
 
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
+
 export function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (document.querySelector(`script[src*="recaptcha"]`)) return;
+    const s = document.createElement("script");
+    s.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+    s.async = true;
+    document.head.appendChild(s);
+  }, []);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setError("");
+    setSubmitting(true);
+
+    try {
+      const form = formRef.current!;
+      const fd = new FormData(form);
+
+      const checkedServices = Array.from(
+        form.querySelectorAll<HTMLInputElement>('input[name="services"]:checked')
+      ).map((el) => el.value);
+
+      let recaptchaToken = "";
+      if (window.grecaptcha) {
+        recaptchaToken = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, {
+          action: "quote",
+        });
+      }
+
+      const payload = {
+        name: fd.get("name") as string,
+        email: fd.get("email") as string,
+        phone: fd.get("phone") as string,
+        make: fd.get("make") as string,
+        model: fd.get("model") as string,
+        year: fd.get("year") as string,
+        services: checkedServices,
+        contact: fd.get("pref") as string,
+        comments: fd.get("comments") as string,
+        recaptchaToken,
+      };
+
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   if (submitted) {
     return (
@@ -171,10 +248,8 @@ export function QuoteForm() {
       }}
     >
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          setSubmitted(true);
-        }}
+        ref={formRef}
+        onSubmit={handleSubmit}
         style={{ display: "flex", flexDirection: "column", gap: 20 }}
       >
         {/* Name, Email, Phone */}
@@ -185,9 +260,9 @@ export function QuoteForm() {
             gap: 16,
           }}
         >
-          <InputField label="Name" placeholder="Your name" />
-          <InputField type="email" label="Email" placeholder="you@email.com" />
-          <InputField type="tel" label="Phone" placeholder="(303) 000-0000" />
+          <InputField name="name" label="Name" placeholder="Your name" required />
+          <InputField name="email" type="email" label="Email" placeholder="you@email.com" required />
+          <InputField name="phone" type="tel" label="Phone" placeholder="(303) 000-0000" />
         </div>
 
         {/* Vehicle info */}
@@ -198,9 +273,9 @@ export function QuoteForm() {
             gap: 16,
           }}
         >
-          <InputField label="Vehicle Make" placeholder="e.g. BMW" />
-          <InputField label="Model" placeholder="e.g. M5" />
-          <InputField label="Year" placeholder="2024" />
+          <InputField name="make" label="Vehicle Make" placeholder="e.g. BMW" />
+          <InputField name="model" label="Model" placeholder="e.g. M5" />
+          <InputField name="year" label="Year" placeholder="2024" />
         </div>
 
         {/* Services checkboxes */}
@@ -213,7 +288,7 @@ export function QuoteForm() {
               gap: 10,
             }}
           >
-            {services.map((svc) => (
+            {serviceOptions.map((svc) => (
               <label
                 key={svc}
                 style={{
@@ -232,6 +307,8 @@ export function QuoteForm() {
               >
                 <input
                   type="checkbox"
+                  name="services"
+                  value={svc}
                   style={{
                     width: 16,
                     height: 16,
@@ -272,6 +349,7 @@ export function QuoteForm() {
                 <input
                   type="radio"
                   name="pref"
+                  value={p}
                   style={{
                     width: 15,
                     height: 15,
@@ -289,6 +367,7 @@ export function QuoteForm() {
         <label style={{ display: "flex", flexDirection: "column", gap: 7 }}>
           <span style={labelTextStyle}>Comments</span>
           <textarea
+            name="comments"
             rows={3}
             placeholder="Tell us about your vehicle and what you&#8217;re looking for&#8230;"
             style={{
@@ -340,35 +419,44 @@ export function QuoteForm() {
           </span>
         </label>
 
+        {error && (
+          <p style={{ margin: 0, color: "#f44336", fontSize: 14 }}>{error}</p>
+        )}
+
         {/* Submit */}
         <button
           type="submit"
+          disabled={submitting}
           style={{
             fontFamily: "'Michroma', sans-serif",
             textTransform: "uppercase",
             letterSpacing: "0.05em",
             fontSize: 14,
             color: "#fff",
-            background: "#00BCD4",
+            background: submitting ? "#666" : "#00BCD4",
             border: "none",
             borderRadius: "3.125rem",
             padding: "17px 32px",
-            cursor: "pointer",
+            cursor: submitting ? "not-allowed" : "pointer",
             alignSelf: "flex-start",
             transition:
               "background .2s ease, transform .2s ease, box-shadow .2s ease",
-            boxShadow: "0 8px 26px rgba(0,188,212,0.3)",
+            boxShadow: submitting ? "none" : "0 8px 26px rgba(0,188,212,0.3)",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#008AA2";
-            e.currentTarget.style.transform = "translateY(-2px)";
+            if (!submitting) {
+              e.currentTarget.style.background = "#008AA2";
+              e.currentTarget.style.transform = "translateY(-2px)";
+            }
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = "#00BCD4";
-            e.currentTarget.style.transform = "translateY(0)";
+            if (!submitting) {
+              e.currentTarget.style.background = "#00BCD4";
+              e.currentTarget.style.transform = "translateY(0)";
+            }
           }}
         >
-          Request My Free Quote
+          {submitting ? "Sending..." : "Request My Free Quote"}
         </button>
       </form>
     </div>

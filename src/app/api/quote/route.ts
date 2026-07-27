@@ -4,7 +4,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    const { name, email, phone, make, model, year, services, contact, comments } = body;
+    const { name, email, phone, make, model, year, services, contact, comments, recaptchaToken } = body;
 
     // Validate required fields
     if (!name || !email) {
@@ -12,6 +12,32 @@ export async function POST(request: Request) {
         { error: "Name and email are required" },
         { status: 400 }
       );
+    }
+
+    // Verify reCAPTCHA v3 token
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    if (recaptchaSecret) {
+      if (!recaptchaToken) {
+        return NextResponse.json(
+          { error: "reCAPTCHA verification failed" },
+          { status: 400 }
+        );
+      }
+
+      const verifyRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `secret=${recaptchaSecret}&response=${recaptchaToken}`,
+      });
+
+      const verifyData = await verifyRes.json();
+
+      if (!verifyData.success || verifyData.score < 0.3) {
+        return NextResponse.json(
+          { error: "reCAPTCHA verification failed" },
+          { status: 400 }
+        );
+      }
     }
 
     // If RESEND_API_KEY is configured, send email
