@@ -27,6 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/free-quote", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/blog", priority: 0.5, changeFrequency: "weekly" as const },
+    { path: "/category/ppf", priority: 0.4, changeFrequency: "weekly" as const },
+    { path: "/category/ceramic-coating", priority: 0.4, changeFrequency: "weekly" as const },
+    { path: "/category/automotive-window-tint", priority: 0.4, changeFrequency: "weekly" as const },
   ];
 
   return [
