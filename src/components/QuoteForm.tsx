@@ -1,8 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-
-const RECAPTCHA_SITE_KEY = "6LfCaHUtAAAAEuP2Du0eT2OgZmqNu1Ieu7TS2Us";
+import { useState, useRef } from "react";
 
 const serviceOptions = [
   "PPF / Clear Bra",
@@ -73,28 +71,12 @@ function InputField({
   );
 }
 
-declare global {
-  interface Window {
-    grecaptcha: {
-      ready: (cb: () => void) => void;
-      execute: (siteKey: string, options: { action: string }) => Promise<string>;
-    };
-  }
-}
-
 export function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    if (document.querySelector(`script[src*="recaptcha"]`)) return;
-    const s = document.createElement("script");
-    s.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
-    s.async = true;
-    document.head.appendChild(s);
-  }, []);
+  const loadedAt = useRef(Date.now());
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -109,13 +91,6 @@ export function QuoteForm() {
         form.querySelectorAll<HTMLInputElement>('input[name="services"]:checked')
       ).map((el) => el.value);
 
-      let recaptchaToken = "";
-      if (window.grecaptcha) {
-        recaptchaToken = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, {
-          action: "quote",
-        });
-      }
-
       const payload = {
         name: fd.get("name") as string,
         email: fd.get("email") as string,
@@ -126,7 +101,8 @@ export function QuoteForm() {
         services: checkedServices,
         contact: fd.get("pref") as string,
         comments: fd.get("comments") as string,
-        recaptchaToken,
+        website: fd.get("website") as string,
+        _t: loadedAt.current,
       };
 
       const res = await fetch("/api/quote", {
@@ -252,6 +228,11 @@ export function QuoteForm() {
         onSubmit={handleSubmit}
         style={{ display: "flex", flexDirection: "column", gap: 20 }}
       >
+        {/* Honeypot - hidden from humans, bots will fill it */}
+        <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
+          <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+        </div>
+
         {/* Name, Email, Phone */}
         <div
           style={{

@@ -4,7 +4,18 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    const { name, email, phone, make, model, year, services, contact, comments, recaptchaToken } = body;
+    const { name, email, phone, make, model, year, services, contact, comments, website, _t } = body;
+
+    // Honeypot check - bots fill hidden fields, humans don't
+    if (website) {
+      // Silently accept so bots think it worked
+      return NextResponse.json({ success: true });
+    }
+
+    // Time check - reject if submitted faster than 3 seconds
+    if (_t && Date.now() - _t < 3000) {
+      return NextResponse.json({ success: true });
+    }
 
     // Validate required fields
     if (!name || !email) {
@@ -14,30 +25,12 @@ export async function POST(request: Request) {
       );
     }
 
-    // Verify reCAPTCHA v3 token
-    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
-    if (recaptchaSecret) {
-      if (!recaptchaToken) {
-        return NextResponse.json(
-          { error: "reCAPTCHA verification failed" },
-          { status: 400 }
-        );
-      }
-
-      const verifyRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `secret=${recaptchaSecret}&response=${recaptchaToken}`,
-      });
-
-      const verifyData = await verifyRes.json();
-
-      if (!verifyData.success || verifyData.score < 0.3) {
-        return NextResponse.json(
-          { error: "reCAPTCHA verification failed" },
-          { status: 400 }
-        );
-      }
+    // Basic email format check
+    if (!email.includes("@") || !email.includes(".")) {
+      return NextResponse.json(
+        { error: "Please enter a valid email address" },
+        { status: 400 }
+      );
     }
 
     // If RESEND_API_KEY is configured, send email
