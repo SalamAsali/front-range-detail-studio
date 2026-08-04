@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 
-const RECAPTCHA_SITE_KEY = "6LdWjyciAAAAAPT4v-usyxdhZvcm4kqIerLiTm9Z";
+const RECAPTCHA_SITE_KEY = "6LfCaHUtAAAAEuP2Du0eT2OgZmqNu1Ieu7TS2Us";
 
 const serviceOptions = [
   "PPF / Clear Bra",
