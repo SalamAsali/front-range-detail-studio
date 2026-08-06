@@ -17,7 +17,7 @@ export const servicesHubData: ServicePageData = {
   cardsH2: "Denver’s Most Trusted Vehicle Aesthetic Experts",
   cards: [
     {
-      tag: "10 Year Warranty",
+      tag: "12 Year Warranty",
       title: "Paint Protection Film & Clear Bra",
       img: "/images/services/new-ppf-scaled.jpg",
       href: "/paint-protection-film-ppf",

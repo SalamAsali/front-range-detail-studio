@@ -129,7 +129,7 @@ export const ppfData: ServicePageData = {
       hideButtons: true,
       items: [
         {
-          body: "Preserve your vehicle’s flawless finish with our superior Paint Protection Film (PPF), also known as Clear Bra. Designed as an invisible shield, our high-performance PPF defends your car’s paint from scratches, stone chips, and the damaging effects of road debris. With a 10-year warranty and infused ceramic coating, you’ll experience unmatched protection and a brand new look for years to come.",
+          body: "Preserve your vehicle’s flawless finish with our superior Paint Protection Film (PPF), also known as Clear Bra. Designed as an invisible shield, our high-performance PPF defends your car’s paint from scratches, stone chips, and the damaging effects of road debris. With a 12-year warranty and infused ceramic coating, you’ll experience unmatched protection and a brand new look for years to come.",
         },
       ],
     },

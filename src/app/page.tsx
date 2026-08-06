@@ -34,7 +34,7 @@ const sectionCtaBtnOutline: React.CSSProperties = {
 const serviceCards = [
   {
     title: "Paint Protection Film & Clear Bra",
-    subtitle: "10 Year Warranty",
+    subtitle: "12 Year Warranty",
     image: "/images/services/new-ppf-scaled.jpg",
     href: "/paint-protection-film-ppf",
     videoSrc: videos.services.ppf,

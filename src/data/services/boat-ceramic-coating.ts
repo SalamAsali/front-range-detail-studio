@@ -150,7 +150,7 @@ export const boatCeramicCoatingData: ServicePageData = {
   servicesGrid: {
     h2: "Denver’s Most Trusted Vehicle Aesthetic Experts",
     cards: [
-      { title: "Paint Protection Film & Clear Bra", subtitle: "10 Year Warranty", image: "/images/services/new-ppf-scaled.jpg", href: "/paint-protection-film-ppf", videoSrc: videos.services.ppf },
+      { title: "Paint Protection Film & Clear Bra", subtitle: "12 Year Warranty", image: "/images/services/new-ppf-scaled.jpg", href: "/paint-protection-film-ppf", videoSrc: videos.services.ppf },
       { title: "Window Tinting", subtitle: "Lifetime Warranty", image: "/images/services/new-tint.jpg", href: "/window-tint", videoSrc: videos.services.tint },
       { title: "Ceramic Coating", subtitle: "Lifetime Warranty", image: "/images/services/car-ceramic-1.jpg", href: "/ceramic-coating", videoSrc: videos.services.ceramic },
       { title: "Paint Correction", subtitle: "Multi-Stage Polish", image: "/images/services/paint-correction-new.jpg", href: "/auto-detailing", videoSrc: videos.services.correction },
