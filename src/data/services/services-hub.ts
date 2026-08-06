@@ -14,7 +14,7 @@ export const servicesHubData: ServicePageData = {
       body: "The highest caliber treatment for protecting your prized vehicle. Maintain your ceramic coating and retain your warranty through periodic maintenance washes. Ceramic top coat applied to boost existing coating and extend longevity.",
     },
   ],
-  cardsH2: "Explore Our Services",
+  cardsH2: "Denver’s Most Trusted Vehicle Aesthetic Experts",
   cards: [
     {
       tag: "10 Year Warranty",

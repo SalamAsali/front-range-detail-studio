@@ -158,6 +158,11 @@ export function HomeHero() {
             }}
           >
             Front Range
+            {/* Real space (not just visual) so the H1's textContent reads
+                "Front Range Detail Studio" — a bare <br> contributes
+                nothing to .textContent and would otherwise glue the two
+                lines together for screen readers/crawlers. */}
+            {" "}
             <br />
             Detail Studio
             {/* Real space + visually-hidden em dash so the H1's textContent
