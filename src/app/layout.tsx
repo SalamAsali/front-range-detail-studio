@@ -92,7 +92,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <SiteGraphSchema />
         <LocalBusinessSchema />
         <Navigation />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

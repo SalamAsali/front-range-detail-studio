@@ -70,6 +70,7 @@ export function Navigation() {
   const closeMenu = useCallback(() => setMobileOpen(false), []);
 
   return (
+    <>
     <nav
       style={{
         position: "sticky",
@@ -286,7 +287,27 @@ export function Navigation() {
         </button>
       </div>
 
-      {/* Mobile overlay */}
+      {/* Mobile breakpoint styles */}
+      <style>{`
+        @media (max-width: 880px) {
+          .desktop-nav { display: none !important; }
+          .desktop-cta { display: none !important; }
+          .hamburger { display: flex !important; }
+        }
+      `}</style>
+    </nav>
+
+    {/*
+      Overlay + drawer are rendered as siblings of <nav>, not descendants —
+      <nav> has backdrop-filter applied (even at blur(0px) when not scrolled),
+      and any non-"none" backdrop-filter establishes a new CSS containing
+      block for position:fixed descendants. That silently broke both the
+      drawer's height:100% (it resolved against nav's own ~83px height
+      instead of the viewport) and its fixed positioning, which is what let
+      it be swiped into and rendered with no background behind its
+      overflowing content.
+    */}
+    {/* Mobile overlay */}
       <div
         onClick={closeMenu}
         style={{
@@ -316,11 +337,13 @@ export function Navigation() {
           transition: "transform .38s cubic-bezier(.4,0,.2,1)",
           display: "flex",
           flexDirection: "column",
-          padding: "28px 28px 40px",
+          padding: "22px 24px 28px",
+          overflowY: "auto",
+          WebkitOverflowScrolling: "touch",
           boxShadow: "-30px 0 60px rgba(0,0,0,0.5)",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 36 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 26 }}>
           <Link href="/" onClick={closeMenu} style={{ display: "block" }}>
             <Image src="/logo-inverse.svg" alt="" width={120} height={38} style={{ height: 38, width: "auto" }} />
             <h3 style={visuallyHidden}>Front Range Detail Studio</h3>
@@ -356,10 +379,10 @@ export function Navigation() {
                 fontWeight: 700,
                 textTransform: "uppercase",
                 letterSpacing: "0.02em",
-                fontSize: 22,
+                fontSize: 18,
                 color: "#fff",
                 textDecoration: "none",
-                padding: "16px 0",
+                padding: "12px 0",
                 borderBottom: "1px solid rgba(255,255,255,0.07)",
               }}
             >
@@ -373,10 +396,10 @@ export function Navigation() {
                 style={{
                   display: "block",
                   fontFamily: "var(--font-display)",
-                  fontSize: 15,
+                  fontSize: 14,
                   color: "rgba(255,255,255,0.5)",
                   textDecoration: "none",
-                  padding: "10px 0 10px 16px",
+                  padding: "8px 0 8px 16px",
                 }}
               >
                 {child.label}
@@ -389,7 +412,7 @@ export function Navigation() {
           href="/free-quote"
           onClick={closeMenu}
           style={{
-            marginTop: 28,
+            marginTop: 22,
             fontFamily: "var(--font-button)",
             textTransform: "uppercase",
             letterSpacing: "0.05em",
@@ -397,9 +420,10 @@ export function Navigation() {
             color: "#fff",
             background: "#00BCD4",
             borderRadius: "3.125rem",
-            padding: "16px 26px",
+            padding: "14px 26px",
             textDecoration: "none",
             textAlign: "center",
+            flexShrink: 0,
           }}
         >
           Get A Free Quote
@@ -408,27 +432,20 @@ export function Navigation() {
         <a
           href="tel:+13035208023"
           style={{
-            marginTop: 18,
+            marginTop: 14,
+            marginBottom: 4,
             fontFamily: "var(--font-display)",
             fontSize: 15,
             color: "#00BCD4",
             textDecoration: "none",
             textAlign: "center",
             letterSpacing: "0.02em",
+            flexShrink: 0,
           }}
         >
           (303) 520-8023
         </a>
       </aside>
-
-      {/* Mobile breakpoint styles */}
-      <style>{`
-        @media (max-width: 880px) {
-          .desktop-nav { display: none !important; }
-          .desktop-cta { display: none !important; }
-          .hamburger { display: flex !important; }
-        }
-      `}</style>
-    </nav>
+    </>
   );
 }

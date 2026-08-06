@@ -1360,11 +1360,20 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                         </li>
                       ))}
                     </ul>
+                    <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 28 }}>
+                      <Link href="/free-quote" style={ctaBtnStyle}>
+                        Get A Free Quote
+                      </Link>
+                      <a href="tel:+13035208023" style={ctaBtnOutlineStyle}>
+                        Call (303) 520-8023
+                      </a>
+                    </div>
                   </div>
                 </div>
               </ScrollReveal>
             ) : featuresHaveImages ? (
               /* Features with images: 2-column layout per item */
+              <>
               <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
                 {d.features!.map((f, i) => (
                   <ScrollReveal key={i}>
@@ -1436,8 +1445,18 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   </ScrollReveal>
                 ))}
               </div>
+              <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 28 }}>
+                <Link href="/free-quote" style={ctaBtnStyle}>
+                  Get A Free Quote
+                </Link>
+                <a href="tel:+13035208023" style={ctaBtnOutlineStyle}>
+                  Call (303) 520-8023
+                </a>
+              </div>
+              </>
             ) : (
               /* Features without images: original grid cards */
+              <>
               <div
                 style={{
                   display: "grid",
@@ -1506,6 +1525,15 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   </ScrollReveal>
                 ))}
               </div>
+              <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 28 }}>
+                <Link href="/free-quote" style={ctaBtnStyle}>
+                  Get A Free Quote
+                </Link>
+                <a href="tel:+13035208023" style={ctaBtnOutlineStyle}>
+                  Call (303) 520-8023
+                </a>
+              </div>
+              </>
             )}
           </div>
         </section>
@@ -1916,11 +1944,20 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                         </li>
                       ))}
                     </ul>
+                    <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 28 }}>
+                      <Link href="/free-quote" style={ctaBtnStyle}>
+                        Get A Free Quote
+                      </Link>
+                      <a href="tel:+13035208023" style={ctaBtnOutlineStyle}>
+                        Call (303) 520-8023
+                      </a>
+                    </div>
                   </div>
                 </div>
               </ScrollReveal>
             ) : featuresHaveImages ? (
               /* Features with images: 2-column layout per item */
+              <>
               <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
                 {d.features!.map((f, i) => (
                   <ScrollReveal key={i}>
@@ -1992,8 +2029,18 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   </ScrollReveal>
                 ))}
               </div>
+              <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 28 }}>
+                <Link href="/free-quote" style={ctaBtnStyle}>
+                  Get A Free Quote
+                </Link>
+                <a href="tel:+13035208023" style={ctaBtnOutlineStyle}>
+                  Call (303) 520-8023
+                </a>
+              </div>
+              </>
             ) : (
               /* Features without images: original grid cards */
+              <>
               <div
                 style={{
                   display: "grid",
@@ -2062,6 +2109,15 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   </ScrollReveal>
                 ))}
               </div>
+              <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 28 }}>
+                <Link href="/free-quote" style={ctaBtnStyle}>
+                  Get A Free Quote
+                </Link>
+                <a href="tel:+13035208023" style={ctaBtnOutlineStyle}>
+                  Call (303) 520-8023
+                </a>
+              </div>
+              </>
             )}
           </div>
         </section>
@@ -3006,6 +3062,14 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                 </ScrollReveal>
               ))}
             </div>
+            <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 32 }}>
+              <Link href="/free-quote" style={ctaBtnStyle}>
+                Get A Free Quote
+              </Link>
+              <a href="tel:+13035208023" style={ctaBtnOutlineStyle}>
+                Call (303) 520-8023
+              </a>
+            </div>
           </div>
         </section>
       )}
@@ -3093,6 +3157,14 @@ export function ServicePage({ data }: { data: ServicePageData }) {
                   </div>
                 </ScrollReveal>
               ))}
+            </div>
+            <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 32 }}>
+              <Link href="/free-quote" style={ctaBtnStyle}>
+                Get A Free Quote
+              </Link>
+              <a href="tel:+13035208023" style={ctaBtnOutlineStyle}>
+                Call (303) 520-8023
+              </a>
             </div>
           </div>
         </section>

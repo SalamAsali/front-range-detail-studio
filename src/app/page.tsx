@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -6,6 +7,29 @@ import { HomeHero } from "@/components/HomeHero";
 import { PartnerLogo } from "@/components/PartnerLogo";
 import { VehicleTile } from "@/components/VehicleTile";
 import { videos } from "@/data/videos";
+
+const sectionCtaBtn: React.CSSProperties = {
+  fontFamily: "'Michroma', sans-serif",
+  textTransform: "uppercase",
+  letterSpacing: "0.05em",
+  fontSize: 13,
+  color: "#fff",
+  background: "#00BCD4",
+  borderRadius: "3.125rem",
+  padding: "16px 30px",
+  textDecoration: "none",
+  whiteSpace: "nowrap",
+  display: "inline-block",
+  boxShadow: "0 4px 24px rgba(0,188,212,0.25)",
+};
+
+const sectionCtaBtnOutline: React.CSSProperties = {
+  ...sectionCtaBtn,
+  background: "transparent",
+  border: "1px solid #00BCD4",
+  color: "#00BCD4",
+  boxShadow: "none",
+};
 
 const serviceCards = [
   {
@@ -288,6 +312,14 @@ export default function HomePage() {
               <p style={{ margin: "20px 0 0", fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "clamp(1rem, 1.2vw, 1.1rem)", lineHeight: 1.7, color: "rgba(255,255,255,0.82)" }}>
                 At Front Range Detail Studio, we protect all brands and models including Tesla, Rivian, Porsche, BMW, Mercedes Benz and more. Protect your vehicle with ceramic coatings, paint protection film, window tinting, paint correction and more.
               </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 28 }}>
+                <Link href="/free-quote" style={sectionCtaBtn}>
+                  Get A Free Quote
+                </Link>
+                <a href="tel:+13035208023" style={sectionCtaBtnOutline}>
+                  Call (303) 520-8023
+                </a>
+              </div>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.15}>

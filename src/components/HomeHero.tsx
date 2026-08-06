@@ -209,6 +209,7 @@ export function HomeHero() {
                 borderRadius: "3.125rem",
                 padding: "18px 36px",
                 textDecoration: "none",
+                whiteSpace: "nowrap",
                 boxShadow: "0 10px 34px rgba(0,188,212,0.36)",
                 transition: "background .2s ease, transform .2s ease",
               }}
@@ -236,6 +237,7 @@ export function HomeHero() {
                 borderRadius: "3.125rem",
                 padding: "18px 36px",
                 textDecoration: "none",
+                whiteSpace: "nowrap",
                 transition: "border-color .2s ease, background .2s ease",
               }}
               onMouseEnter={(e) => {

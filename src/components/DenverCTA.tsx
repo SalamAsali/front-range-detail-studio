@@ -30,7 +30,13 @@ export function DenverCTA({ body, h3, h3Body, images }: DenverCTAProps = {}) {
 
   return (
     <section style={{ background: "#0d0d0d", padding: "clamp(56px, 7vw, 96px) 0" }}>
+      <style>{`
+        @media (max-width: 760px) {
+          .denver-cta-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
       <div
+        className="denver-cta-grid"
         style={{
           maxWidth: 1440,
           margin: "0 auto",
@@ -106,7 +112,7 @@ export function DenverCTA({ body, h3, h3Body, images }: DenverCTAProps = {}) {
                 {h3Body}
               </p>
             )}
-            <div style={{ marginTop: 24 }}>
+            <div style={{ marginTop: 24, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 24 }}>
               <Link
                 href="/free-quote"
                 style={{
@@ -120,6 +126,7 @@ export function DenverCTA({ body, h3, h3Body, images }: DenverCTAProps = {}) {
                   padding: "16px 30px",
                   textDecoration: "none",
                   display: "inline-block",
+                  whiteSpace: "nowrap",
                 }}
               >
                 Get A Free Quote
@@ -132,8 +139,8 @@ export function DenverCTA({ body, h3, h3Body, images }: DenverCTAProps = {}) {
                   letterSpacing: "0.05em",
                   fontSize: 13,
                   color: "#00BCD4",
-                  marginLeft: 24,
                   textDecoration: "none",
+                  whiteSpace: "nowrap",
                 }}
               >
                 Call (303) 520-8023

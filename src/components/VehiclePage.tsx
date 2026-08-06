@@ -380,6 +380,14 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                     {d.introQuote}
                   </blockquote>
                 )}
+                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16, marginTop: 28 }}>
+                  <Link href="/free-quote" style={ctaBtn}>
+                    Get A Free Quote
+                  </Link>
+                  <a href="tel:+13035208023" style={ctaBtnOutline}>
+                    Call (303) 520-8023
+                  </a>
+                </div>
               </div>
             ) : (
               <div
@@ -442,6 +450,14 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                       {d.introQuote}
                     </blockquote>
                   )}
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 28 }}>
+                    <Link href="/free-quote" style={ctaBtn}>
+                      Get A Free Quote
+                    </Link>
+                    <a href="tel:+13035208023" style={ctaBtnOutline}>
+                      Call (303) 520-8023
+                    </a>
+                  </div>
                 </div>
                 {/* Image side */}
                 <div
@@ -1438,7 +1454,13 @@ export function VehiclePage({ data: d }: { data: VehiclePageData }) {
                   </div>
                 </div>
                 {/* Image grid right */}
+                <style>{`
+                  @media (max-width: 420px) {
+                    .case-study-image-grid { grid-template-columns: repeat(2, 1fr) !important; }
+                  }
+                `}</style>
                 <div
+                  className="case-study-image-grid"
                   style={{
                     display: "grid",
                     gridTemplateColumns: `repeat(${d.caseStudy.images.length <= 4 ? 2 : 3}, 1fr)`,
