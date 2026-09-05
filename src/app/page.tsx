@@ -6,6 +6,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { HomeHero } from "@/components/HomeHero";
 import { PartnerLogo } from "@/components/PartnerLogo";
 import { VehicleTile } from "@/components/VehicleTile";
+import { LazyMap } from "@/components/LazyMap";
 import { videos } from "@/data/videos";
 
 const sectionCtaBtn: React.CSSProperties = {
@@ -13,7 +14,7 @@ const sectionCtaBtn: React.CSSProperties = {
   textTransform: "uppercase",
   letterSpacing: "0.05em",
   fontSize: 13,
-  color: "#fff",
+  color: "#0d0d0d",
   background: "#00BCD4",
   borderRadius: "3.125rem",
   padding: "16px 30px",
@@ -85,7 +86,7 @@ const partnerLogos = [
 ];
 
 const vehicleLogos = [
-  "Mercedes-Benz-Logo-1.svg", "Porsche-new-Logo.png", "Ford-logo.svg",
+  "Mercedes-Benz-Logo-1.png", "Porsche-new-Logo.png", "Ford-logo.svg",
   "Jaguar-white-Logo.webp", "Lamborghini-Logo.svg", "Audi-white-Logo.png",
   "BMW-logo.svg", "LandRover-logo.svg", "Ferrari-Logo.svg",
   "Rivian-white-logo.png", "McLaren-Automotive-logo.svg", "Tesla-Motors-logo.svg",
@@ -207,17 +208,12 @@ export default function HomePage() {
                   </h3>
                   <p style={{ margin: 0, fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
                     <a href="https://maps.app.goo.gl/hz9CMdtQmeKYWKKy7" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
-                      12559 E Broncos Pkwy, Centennial, CO 80112
+                      12559 E Broncos Pkwy, Englewood, CO 80112
                     </a>
                   </p>
                 </div>
                 <div style={{ position: "relative", borderRadius: 8, overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", aspectRatio: "16/10", background: "#111" }}>
-                  <iframe
-                    title="Map"
-                    src="https://www.google.com/maps?q=12559+E+Broncos+Pkwy+Centennial+CO+80112&output=embed"
-                    style={{ width: "100%", height: "100%", border: 0, filter: "grayscale(1) invert(0.9) contrast(0.9)" }}
-                    loading="lazy"
-                  />
+                  <LazyMap title="Map" src="https://www.google.com/maps?q=12559+E+Broncos+Pkwy+Englewood+CO+80112&output=embed" />
                 </div>
               </div>
             </ScrollReveal>

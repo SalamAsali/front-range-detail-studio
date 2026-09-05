@@ -54,10 +54,14 @@ export const teslaDetailingData: VehiclePageData = {
      Truck pattern). Card 1 = WordPress's real "The Front Range Package"
      section, including its intro/closing sentences. Card 2 = WordPress's
      "custom quote" checkbox box, restyled as a package card, also including
-     its real intro/closing sentences. Images are WP's exact real sources —
-     two different BMW photos (this page's WP source shows a different
-     wrong-brand photo per card, unlike Ford Truck where both were the same
-     photo), kept per the "match WP exactly" direction for this page. */
+     its real intro/closing sentences.
+
+     Images DEVIATE from WP here on purpose. WordPress showed two different
+     BMW photos on this Tesla page, and the original rebuild copied that for
+     strict parity. Showing a prospective Tesla customer a BMW is a
+     conversion problem, not a parity win, so these now use the site's own
+     Tesla photography. Revert to BMW-green-1024x768.jpg and
+     BMW-M50i-1024x768.jpg if exact WP parity is required. */
   packageImg: "/images/vehicles/tesla-ceramic-coating.png",
   packageH2: "Tesla’s Best Defense — The Front Range Package",
   packageIncludes: [
@@ -67,8 +71,8 @@ export const teslaDetailingData: VehiclePageData = {
   ],
   packageCards: [
     {
-      image: "/images/vehicles/BMW-green-1024x768.jpg",
-      imageAlt: "BMW ceramic coating and PPF service",
+      image: "/images/vehicles/tesla-ppf.png",
+      imageAlt: "Tesla paint protection film installation",
       eyebrow: "Tesla’s Best Defense",
       title: "The Front Range Package",
       intro:
@@ -83,8 +87,8 @@ export const teslaDetailingData: VehiclePageData = {
       ],
     },
     {
-      image: "/images/vehicles/BMW-M50i-1024x768.jpg",
-      imageAlt: "BMW M50i ceramic coating",
+      image: "/images/vehicles/tesla-ceramic-coating.png",
+      imageAlt: "Tesla ceramic coating",
       eyebrow: "Get a Custom Tesla Paint Protection Quote",
       title: "custom quote",
       intro:
@@ -192,8 +196,8 @@ export const teslaDetailingData: VehiclePageData = {
     images: [
       "/images/vehicles/bmw-i4-1-768x1024.jpg",
       "/images/vehicles/BMW-X5-front-1024x768.jpg",
-      "/images/vehicles/BMW-M50i-1024x768.jpg",
-      "/images/vehicles/BMW-green-1024x768.jpg",
+      "/images/vehicles/tesla-ceramic-coating.png",
+      "/images/vehicles/tesla-ppf.png",
       "/images/vehicles/BMW-2-1024x768.jpg",
       "/images/vehicles/BMW-6-1024x576.jpg",
     ],

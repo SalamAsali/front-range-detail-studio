@@ -1,30 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ServicePage } from "@/components/ServicePage";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd";
 import { systemXData } from "@/data/services/system-x";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "System X Automotive Ceramic Coatings",
   description:
-    "Owners and collectors of the finest vintage and exotic automobiles worldwide trust System X to consistently provide unmatched slickness, protection,",
-  alternates: {
-    canonical: "https://frontrangedetailstudio.com/system-x-automotive-ceramic-coatings/",
-  },
-  openGraph: {
-    title: "System X Automotive Ceramic Coatings - Front Range Detail Studio",
-    description:
-      "Owners and collectors of the finest vintage and exotic automobiles worldwide trust System X to consistently provide unmatched slickness, protection,",
-    url: "https://frontrangedetailstudio.com/system-x-automotive-ceramic-coatings/",
-    images: [
-      {
-        url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EVpSF8J7BYGcfrDJ4Z3bxfTn0C/hf_20260617_234445_6c35146a-5d69-4372-80d6-a91c3c0cd694.png",
-        width: 1200,
-        height: 630,
-        alt: "System X Ceramic Coatings - Front Range Detail Studio",
-      },
-    ],
-  },
-};
+    "Authorized System X dealer in Englewood, CO. MAX G+ Hyper Gloss 9H lifetime coating, plus System X Glass, Renew, Revive and Interior protection products.",
+  path: "/system-x-automotive-ceramic-coatings/",
+  image: "/images/og/og-system-x.jpg",
+});
 
 export default function SystemXPage() {
   return (

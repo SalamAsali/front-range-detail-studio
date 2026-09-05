@@ -1,32 +1,18 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description:
-    "Over 15 years of automotive detailing experience. System X & SunTek certified. Climate-controlled studio in Englewood, CO serving the Denver Metro area.",
-  alternates: {
-    canonical: "https://frontrangedetailstudio.com/about/",
-  },
-  openGraph: {
-    title: "About | Front Range Detail Studio",
-    description:
-      "Over 15 years of automotive detailing experience. System X & SunTek certified. Climate-controlled studio in Englewood, CO.",
-    url: "https://frontrangedetailstudio.com/about/",
-    images: [
-      {
-        url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EVpSF8J7BYGcfrDJ4Z3bxfTn0C/hf_20260617_234445_6c35146a-5d69-4372-80d6-a91c3c0cd694.png",
-        width: 1200,
-        height: 630,
-        alt: "About - Front Range Detail Studio",
-      },
-    ],
-  },
-};
+    "Over 15 years of automotive detailing experience. System X and SunTek certified, working from a climate-controlled studio in Englewood, CO near Denver.",
+  path: "/about/",
+  image: "/images/og/og-about.jpg",
+});
 
 const serviceCards = [
   {
@@ -149,7 +135,7 @@ export default function AboutPage() {
                 textShadow: "0 3px 30px rgba(0,0,0,0.5)",
               }}
             >
-              Front Range Detail Studio &mdash; RV, Boat, Auto. Paint Protection Film, Ceramic Coating, Tint, Vinyl Wrap
+              About Front Range Detail Studio &mdash; 15+ Years Protecting Colorado Vehicles
             </h1>
           </div>
         </div>
@@ -523,7 +509,7 @@ export default function AboutPage() {
                 color: "rgba(255,255,255,0.82)",
               }}
             >
-              Located at 12559 E Broncos Pkwy in Centennial, CO 80112, we proudly serve Denver and all
+              Located at 12559 E Broncos Pkwy in Englewood, CO 80112, we proudly serve Denver and all
               surrounding cities. Our clients come from across the Front Range &mdash; from Boulder to
               Castle Rock, Aurora to Lakewood &mdash; because they trust our expertise and commitment to
               quality.
@@ -615,7 +601,7 @@ export default function AboutPage() {
                     Denver Location
                   </h3>
                   <p style={{ margin: 0, fontFamily: "'Manrope', sans-serif", fontWeight: 300, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
-                    12559 E Broncos Pkwy, Centennial, CO 80112
+                    12559 E Broncos Pkwy, Englewood, CO 80112
                   </p>
                 </div>
               </div>

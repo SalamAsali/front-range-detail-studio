@@ -106,7 +106,7 @@ export const ceramicCoatingData: ServicePageData = {
     },
     {
       title: "Professional, Studio-Only Application",
-      body: "All coating is performed in our climate-controlled Centennial facility for flawless, dust-free results—never mobile.",
+      body: "All coating is performed in our climate-controlled Englewood facility for flawless, dust-free results—never mobile.",
     },
     {
       title: "Custom Packages for Boats & RVs",

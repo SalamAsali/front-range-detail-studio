@@ -1,31 +1,18 @@
 import type { Metadata } from "next";
+import { LazyMap } from "@/components/LazyMap";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Free Quote",
   description:
-    "Phone: (303) 520-8023",
-  alternates: {
-    canonical: "https://frontrangedetailstudio.com/free-quote/",
-  },
-  openGraph: {
-    title: "Free Quote - Front Range Detail Studio",
-    description:
-      "Phone: (303) 520-8023",
-    url: "https://frontrangedetailstudio.com/free-quote/",
-    images: [
-      {
-        url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EVpSF8J7BYGcfrDJ4Z3bxfTn0C/hf_20260617_234445_6c35146a-5d69-4372-80d6-a91c3c0cd694.png",
-        width: 1200,
-        height: 630,
-        alt: "Free Quote - Front Range Detail Studio",
-      },
-    ],
-  },
-};
+    "Request a free, no-obligation quote for PPF, ceramic coating, window tint, wraps or detailing. Tell us about your vehicle and we'll come back to you quickly.",
+  path: "/free-quote/",
+  image: "/images/og/og-contact.jpg",
+});
 
 export default function FreeQuotePage() {
   return (
@@ -144,17 +131,12 @@ export default function FreeQuotePage() {
                   </h3>
                   <p style={{ margin: 0, fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
                     <a href="https://maps.app.goo.gl/hz9CMdtQmeKYWKKy7" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
-                      12559 E Broncos Pkwy, Centennial, CO 80112
+                      12559 E Broncos Pkwy, Englewood, CO 80112
                     </a>
                   </p>
                 </div>
                 <div style={{ position: "relative", borderRadius: 8, overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", aspectRatio: "16/10", background: "#111" }}>
-                  <iframe
-                    title="Map"
-                    src="https://www.google.com/maps?q=12559+E+Broncos+Pkwy+Centennial+CO+80112&output=embed"
-                    style={{ width: "100%", height: "100%", border: 0, filter: "grayscale(1) invert(0.9) contrast(0.9)" }}
-                    loading="lazy"
-                  />
+                  <LazyMap title="Map" src="https://www.google.com/maps?q=12559+E+Broncos+Pkwy+Englewood+CO+80112&output=embed" />
                 </div>
               </div>
             </ScrollReveal>

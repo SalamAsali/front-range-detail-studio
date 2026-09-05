@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { LazyMap } from "@/components/LazyMap";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { ReviewBadges, ReviewCarousel } from "@/components/ReviewCarousel";
@@ -32,28 +34,13 @@ const heroCtaBtnOutline: React.CSSProperties = {
   boxShadow: "none",
 };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
   description:
-    "Denver's Most Trusted Vehicle Aesthetic Experts",
-  alternates: {
-    canonical: "https://frontrangedetailstudio.com/contact/",
-  },
-  openGraph: {
-    title: "Contact - Front Range Detail Studio",
-    description:
-      "Denver's Most Trusted Vehicle Aesthetic Experts",
-    url: "https://frontrangedetailstudio.com/contact/",
-    images: [
-      {
-        url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EVpSF8J7BYGcfrDJ4Z3bxfTn0C/hf_20260617_234445_6c35146a-5d69-4372-80d6-a91c3c0cd694.png",
-        width: 1200,
-        height: 630,
-        alt: "Contact - Front Range Detail Studio",
-      },
-    ],
-  },
-};
+    "Call (303) 520-8023 or send your vehicle details. Front Range Detail Studio is at 12559 E Broncos Pkwy, Englewood, CO 80112 — by appointment, serving Denver.",
+  path: "/contact/",
+  image: "/images/og/og-contact.jpg",
+});
 
 export default function ContactPage() {
   return (
@@ -220,17 +207,12 @@ export default function ContactPage() {
                   </h3>
                   <p style={{ margin: 0, fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
                     <a href="https://maps.app.goo.gl/hz9CMdtQmeKYWKKy7" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
-                      12559 E Broncos Pkwy, Centennial, CO 80112
+                      12559 E Broncos Pkwy, Englewood, CO 80112
                     </a>
                   </p>
                 </div>
                 <div style={{ position: "relative", borderRadius: 8, overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", aspectRatio: "16/10", background: "#111" }}>
-                  <iframe
-                    title="Map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1574286.3330619491!2d-104.957934!3d39.58715355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2389dee37bb384cb%3A0x12fc9f42bf60cec2!2sFront%20Range%20Detailing%20-%20RV%20Boat%20Auto!5e0!3m2!1sen!2sus!4v1681097187048!5m2!1sen!2sus"
-                    style={{ width: "100%", height: "100%", border: 0, filter: "grayscale(1) invert(0.9) contrast(0.9)" }}
-                    loading="lazy"
-                  />
+                  <LazyMap title="Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1574286.3330619491!2d-104.957934!3d39.58715355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2389dee37bb384cb%3A0x12fc9f42bf60cec2!2sFront%20Range%20Detailing%20-%20RV%20Boat%20Auto!5e0!3m2!1sen!2sus!4v1681097187048!5m2!1sen!2sus" />
                 </div>
               </div>
             </ScrollReveal>

@@ -114,7 +114,7 @@ export const rvDetailingData: ServicePageData = {
     },
     {
       title: "Professional Studio Service",
-      body: "Detailing, correction, and coatings applied in our climate-controlled Centennial facility—never mobile for full-service jobs.",
+      body: "Detailing, correction, and coatings applied in our climate-controlled Englewood facility—never mobile for full-service jobs.",
     },
     {
       title: "Trusted by Colorado RV Owners",

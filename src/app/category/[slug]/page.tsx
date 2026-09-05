@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -8,23 +9,26 @@ import { blogPostList } from "@/data/blog-posts";
 
 const categories: Record<
   string,
-  { name: string; matchLabel: string; description: string }
+  { name: string; matchLabel: string; description: string; image: string }
 > = {
   ppf: {
     name: "PPF",
     matchLabel: "PPF",
+    image: "/images/og/og-ppf.jpg",
     description:
       "Paint protection film (PPF) projects, tips, and case studies from Front Range Detail Studio in Englewood, CO.",
   },
   "ceramic-coating": {
     name: "Ceramic Coating",
     matchLabel: "Ceramic Coating",
+    image: "/images/og/og-ceramic-coating.jpg",
     description:
       "Ceramic coating projects, maintenance tips, and case studies from Front Range Detail Studio in Englewood, CO.",
   },
   "automotive-window-tint": {
     name: "Automotive Window Tint",
     matchLabel: "Automotive Window Tint",
+    image: "/images/og/og-window-tint.jpg",
     description:
       "Automotive window tint projects and case studies from Front Range Detail Studio in Englewood, CO.",
   },
@@ -43,18 +47,12 @@ export async function generateMetadata({
   const cat = categories[slug];
   if (!cat) return {};
 
-  return {
-    title: { absolute: `${cat.name} | Front Range Detail Studio` },
+  return pageMetadata({
+    title: cat.name,
     description: cat.description,
-    alternates: {
-      canonical: `https://frontrangedetailstudio.com/category/${slug}/`,
-    },
-    openGraph: {
-      title: `${cat.name} | Front Range Detail Studio`,
-      description: cat.description,
-      url: `https://frontrangedetailstudio.com/category/${slug}/`,
-    },
-  };
+    path: `/category/${slug}/`,
+    image: cat.image,
+  });
 }
 
 export default async function CategoryPage({

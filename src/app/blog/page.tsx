@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { BreadcrumbSchema } from "@/components/JsonLd";
 import { blogPostList } from "@/data/blog-posts";
 
-export const metadata: Metadata = {
-  title: { absolute: "Blog | Front Range Detail Studio" },
+const categoryLinks = [
+  { label: "PPF", href: "/category/ppf" },
+  { label: "Ceramic Coating", href: "/category/ceramic-coating" },
+  { label: "Automotive Window Tint", href: "/category/automotive-window-tint" },
+];
+
+export const metadata: Metadata = pageMetadata({
+  title: "Blog",
   description:
-    "Latest detailing projects, tips, and case studies from Front Range Detail Studio. PPF, ceramic coating, window tinting in Englewood, CO.",
-  alternates: {
-    canonical: "https://frontrangedetailstudio.com/blog/",
-  },
-  openGraph: {
-    title: "Blog | Front Range Detail Studio",
-    description:
-      "Latest detailing projects, tips, and case studies from Front Range Detail Studio. PPF, ceramic coating, window tinting in Englewood, CO.",
-    url: "https://frontrangedetailstudio.com/blog/",
-  },
-};
+    "Latest detailing projects, tips and case studies from Front Range Detail Studio. PPF, ceramic coating and window tinting in Englewood, CO.",
+  path: "/blog/",
+  image: "/images/og/og-blog.jpg",
+});
 
 export default function BlogPage() {
   return (
@@ -60,7 +60,29 @@ export default function BlogPage() {
           >
             Blog
           </h1>
-          <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "22px 0 0" }} />
+          <hr style={{ width: 96, height: 2, background: "#00BCD4", border: "none", margin: "22px 0 24px" }} />
+
+          {/* The three category archives are in the sitemap but nothing on the
+              site linked to them, so they were submitted-but-uncrawlable. */}
+          <nav aria-label="Browse by topic" style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {categoryLinks.map((c) => (
+              <Link
+                key={c.href}
+                href={c.href}
+                style={{
+                  fontFamily: "'Manrope', sans-serif",
+                  fontSize: 13,
+                  color: "rgba(255,255,255,0.85)",
+                  border: "1px solid rgba(255,255,255,0.18)",
+                  borderRadius: 999,
+                  padding: "8px 16px",
+                  textDecoration: "none",
+                }}
+              >
+                {c.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </section>
 

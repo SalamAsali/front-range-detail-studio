@@ -1,30 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ServicePage } from "@/components/ServicePage";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd";
 import { windowTintData } from "@/data/services/window-tint";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Window Tint",
   description:
-    "Keep Your Car Cool, Private, and Protected\u2014Year Round",
-  alternates: {
-    canonical: "https://frontrangedetailstudio.com/window-tint/",
-  },
-  openGraph: {
-    title: "Window Tint - Front Range Detail Studio",
-    description:
-      "Keep Your Car Cool, Private, and Protected\u2014Year Round",
-    url: "https://frontrangedetailstudio.com/window-tint/",
-    images: [
-      {
-        url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EVpSF8J7BYGcfrDJ4Z3bxfTn0C/hf_20260617_234445_6c35146a-5d69-4372-80d6-a91c3c0cd694.png",
-        width: 1200,
-        height: 630,
-        alt: "Window Tinting - Front Range Detail Studio",
-      },
-    ],
-  },
-};
+    "SunTek Evolve ceramic window tint blocking 99% of UV and up to 94% of heat, with a lifetime warranty. Colorado-legal shades installed in Englewood, CO.",
+  path: "/window-tint/",
+  image: "/images/og/og-window-tint.jpg",
+});
 
 export default function WindowTintPage() {
   return (

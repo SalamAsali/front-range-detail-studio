@@ -6,6 +6,7 @@ import Image from "next/image";
    Services). */
 const quickLinks = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
   { label: "Services", href: "/services" },
@@ -67,6 +68,15 @@ const socialLinks = [
     ),
   },
   {
+    label: "Google Maps",
+    href: "https://maps.app.goo.gl/hz9CMdtQmeKYWKKy7",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+        <path d="M12 0C7.802 0 4.4 3.403 4.4 7.602 4.4 11.8 7.469 16.812 12 24c4.531-7.188 7.6-12.2 7.6-16.398C19.6 3.403 16.198 0 12 0zm0 11a3.4 3.4 0 110-6.8 3.4 3.4 0 010 6.8z" />
+      </svg>
+    ),
+  },
+  {
     label: "Yelp",
     href: "https://www.yelp.com/biz/front-range-detail-studio-denver",
     icon: (
@@ -80,9 +90,9 @@ const socialLinks = [
 function FooterCol({ heading, children, width }: { heading: string; children: React.ReactNode; width: string }) {
   return (
     <div style={{ flex: `1 1 ${width}`, maxWidth: width }}>
-      <h6 className="text-xs font-semibold uppercase tracking-wider text-white/70 mb-3">
+      <h2 className="text-xs font-semibold uppercase tracking-wider text-white/70 mb-3">
         {heading}
-      </h6>
+      </h2>
       {children}
     </div>
   );
@@ -105,28 +115,28 @@ export function Footer() {
               height={32}
               className="mb-3"
             />
-            <p className="text-xs text-white/50 leading-relaxed">
+            <p className="text-xs text-white/60 leading-relaxed">
               Over 15 years experience in the automotive detailing industry.
               Car, Trucks, Semi Trucks, SUVs, RVs, Boats &amp; Watercraft.
             </p>
           </div>
 
           <FooterCol heading="Front Range Studio location" width="200px">
-            <div className="space-y-1.5 text-xs text-white/50">
+            <div className="space-y-1.5 text-xs text-white/60">
               <a
                 href="https://maps.app.goo.gl/hz9CMdtQmeKYWKKy7"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="block hover:text-primary transition-colors"
+                className="block py-1 hover:text-primary transition-colors"
               >
-                12559 E Broncos Pkwy, Centennial, CO 80112
+                12559 E Broncos Pkwy, Englewood, CO 80112
               </a>
-              <a href="tel:3035208023" className="block hover:text-primary transition-colors">
+              <a href="tel:+13035208023" className="block py-1 hover:text-primary transition-colors">
                 (303) 520-8023
               </a>
               <a
                 href="mailto:info@frontrangedetailstudio.com"
-                className="block hover:text-primary transition-colors"
+                className="block py-1 hover:text-primary transition-colors"
               >
                 info@frontrangedetailstudio.com
               </a>
@@ -142,7 +152,7 @@ export function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/40 hover:text-primary transition-colors"
+                  className="text-white/60 hover:text-primary transition-colors"
                   aria-label={s.label}
                 >
                   {s.icon}
@@ -155,7 +165,7 @@ export function Footer() {
             <ul className="space-y-1.5">
               {quickLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-xs text-white/40 hover:text-primary transition-colors">
+                  <Link href={l.href} className="text-xs text-white/60 hover:text-primary transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -167,7 +177,7 @@ export function Footer() {
             <ul className="space-y-1.5">
               {vehicleLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-xs text-white/40 hover:text-primary transition-colors">
+                  <Link href={l.href} className="text-xs text-white/60 hover:text-primary transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -179,7 +189,7 @@ export function Footer() {
             <ul className="space-y-1.5">
               {serviceLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-xs text-white/40 hover:text-primary transition-colors">
+                  <Link href={l.href} className="text-xs text-white/60 hover:text-primary transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -189,13 +199,13 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-5 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="text-xs text-white/30">
+          <p className="text-xs text-white/60">
             © {new Date().getFullYear()} Front Range Detail Studio. All rights
             reserved.
           </p>
           <Link
-            href="/free-quote"
-            className="text-xs text-white/30 hover:text-primary transition-colors"
+            href="/privacy-policy"
+            className="text-xs text-white/60 hover:text-primary transition-colors"
           >
             Privacy Policy
           </Link>

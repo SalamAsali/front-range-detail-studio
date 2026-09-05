@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -22,21 +23,16 @@ export async function generateMetadata({
 
   const url = `${BASE}/${post.slug}/`;
 
-  return {
-    title: { absolute: post.metaTitle },
+  return pageMetadata({
+    absoluteTitle: post.metaTitle,
     description: post.excerpt,
-    alternates: {
-      canonical: url,
-    },
-    openGraph: {
-      title: post.metaTitle,
-      description: post.excerpt,
-      url,
-      type: "article",
-      publishedTime: post.datePublished,
-      modifiedTime: post.dateModified,
-    },
-  };
+    path: `/${post.slug}/`,
+    image: post.cardImage || post.heroImage,
+    imageAlt: post.title,
+    type: "article",
+    publishedTime: post.datePublished,
+    modifiedTime: post.dateModified,
+  });
 }
 
 export default async function BlogPostPage({

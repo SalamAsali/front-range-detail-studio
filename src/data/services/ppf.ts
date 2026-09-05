@@ -36,7 +36,7 @@ export const ppfData: ServicePageData = {
           {
             bullets: [
               { title: "SunTek Reaction PPF", body: "Industry-leading protection with a 12-year warranty and advanced self-healing technology." },
-              { title: "Climate-controlled Centennial studio", body: "No dust, no mess, no mobile installs. Just flawless, professional results every time." },
+              { title: "Climate-controlled Englewood studio", body: "No dust, no mess, no mobile installs. Just flawless, professional results every time." },
             ],
           },
           { body: "Trusted by drivers across Denver and surrounding cities — Check out our 5-star reviews from local clients who value quality, honesty, and results." },

@@ -1,12 +1,50 @@
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { videos } from "@/data/videos";
+
+/* Self-hosted and re-encoded: the original was a 4.9 MB file on a
+   third-party generation CDN that every phone downloaded on page load. */
+const HERO_VIDEO = "/video/hero.mp4";
 
 export function HomeHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [playVideo, setPlayVideo] = useState(false);
+
+  /* Only mount the video on a wide viewport, on a connection that isn't
+     metered or slow, and when the visitor hasn't asked for reduced motion.
+     Nothing is requested until this passes — on mobile the hero is just the
+     poster image. */
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const wideEnough = window.matchMedia("(min-width: 1024px)").matches;
+    const okWithMotion = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const conn = (
+      navigator as Navigator & {
+        connection?: { saveData?: boolean; effectiveType?: string };
+      }
+    ).connection;
+    const goodConnection =
+      !conn || (!conn.saveData && !/2g/.test(conn.effectiveType || ""));
+
+    if (!(wideEnough && okWithMotion && goodConnection)) return;
+
+    /* Mount after the browser goes idle rather than synchronously in the
+       effect, so the video never competes with the hero image for bandwidth
+       during LCP. */
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (w.requestIdleCallback) {
+      const id = w.requestIdleCallback(() => setPlayVideo(true));
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const t = window.setTimeout(() => setPlayVideo(true), 1200);
+    return () => window.clearTimeout(t);
+  }, []);
 
   const handleCanPlay = useCallback(() => {
     if (videoRef.current) {
@@ -26,43 +64,44 @@ export function HomeHero() {
         paddingTop: 82,
       }}
     >
-      {/* Poster image (always visible) */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/hero/colorado-package-scaled.jpg"
+      {/* Poster image — this is the LCP element on the homepage, so it goes
+          through next/image with priority to get AVIF/WebP, a responsive
+          srcset and a high-priority preload. */}
+      <Image
+        src="/images/hero/colorado-package-hero.jpg"
         alt="PPF Clear Bra Denver Tint Ceramic Coating Paint Correction"
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          zIndex: 0,
-        }}
+        fill
+        priority
+        quality={70}
+        sizes="100vw"
+        style={{ objectFit: "cover", zIndex: 0 }}
       />
 
-      {/* Hero video — fades in on canplay */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/images/hero/colorado-package-scaled.jpg"
-        onCanPlay={handleCanPlay}
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          zIndex: 1,
-          opacity: 0,
-          transition: "opacity 1.2s ease",
-        }}
-      >
-        <source src={videos.hero} type="video/mp4" />
-      </video>
+      {/* Hero video — desktop only, fades in on canplay */}
+      {playVideo && (
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+          aria-hidden="true"
+          onCanPlay={handleCanPlay}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: 1,
+            opacity: 0,
+            transition: "opacity 1.2s ease",
+          }}
+        >
+          <source src={HERO_VIDEO} type="video/mp4" />
+        </video>
+      )}
 
       {/* Gradient overlay 1 — cyan tint */}
       <div
@@ -209,7 +248,7 @@ export function HomeHero() {
                 textTransform: "uppercase",
                 letterSpacing: "0.05em",
                 fontSize: 14,
-                color: "#fff",
+                color: "#0d0d0d",
                 background: "#00BCD4",
                 borderRadius: "3.125rem",
                 padding: "18px 36px",

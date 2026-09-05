@@ -120,7 +120,7 @@ export function DenverCTA({ body, h3, h3Body, images }: DenverCTAProps = {}) {
                   textTransform: "uppercase",
                   letterSpacing: "0.05em",
                   fontSize: 13,
-                  color: "#fff",
+                  color: "#0d0d0d",
                   background: "#00BCD4",
                   borderRadius: "3.125rem",
                   padding: "16px 30px",

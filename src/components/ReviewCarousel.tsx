@@ -12,7 +12,7 @@ export function ReviewBadges() {
   );
 
   useEffect(() => {
-    fetch("/api/reviews")
+    fetch("/api/reviews/")
       .then((r) => r.json())
       .then((data) => {
         if (data.source === "live") {

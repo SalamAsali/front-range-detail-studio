@@ -1,39 +1,23 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ServicePage } from "@/components/ServicePage";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd";
 import { ppfData } from "@/data/services/ppf";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "#1 PPF Clear Bra Paint Protection Film - Denver's Best Rated Shop",
-  },
+export const metadata: Metadata = pageMetadata({
+  absoluteTitle: "#1 PPF Clear Bra Paint Protection Film | Denver's Best Rated Shop",
   description:
-    "Paint Protection Film (PPF) & Clear Bra — Serving Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, & Castle Pines",
-  alternates: {
-    canonical: "https://frontrangedetailstudio.com/paint-protection-film-ppf/",
-  },
-  openGraph: {
-    title: "#1 PPF Clear Bra Paint Protection Film - Denver's Best Rated Shop",
-    description:
-      "Paint Protection Film (PPF) & Clear Bra — Serving Denver, Centennial, Lone Tree, Castle Rock, Englewood, Greenwood Village, & Castle Pines",
-    url: "https://frontrangedetailstudio.com/paint-protection-film-ppf/",
-    images: [
-      {
-        url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EVpSF8J7BYGcfrDJ4Z3bxfTn0C/hf_20260617_234445_6c35146a-5d69-4372-80d6-a91c3c0cd694.png",
-        width: 1200,
-        height: 630,
-        alt: "Paint Protection Film - Front Range Detail Studio",
-      },
-    ],
-  },
-};
+    "SunTek Reaction PPF and clear bra with a 12-year warranty and self-healing top coat, installed in our climate-controlled Englewood, CO studio near Denver.",
+  path: "/paint-protection-film-ppf/",
+  image: "/images/og/og-ppf.jpg",
+});
 
 export default function PPFPage() {
   return (
     <>
       <ServiceSchema
         name="Paint Protection Film (PPF)"
-        description="SunTek Reaction PPF with 12-year warranty and self-healing technology. Professional installation in our climate-controlled Centennial studio."
+        description="SunTek Reaction PPF with 12-year warranty and self-healing technology. Professional installation in our climate-controlled Englewood studio."
         url="/paint-protection-film-ppf"
       />
       {ppfData.faqs && <FAQSchema faqs={ppfData.faqs} />}

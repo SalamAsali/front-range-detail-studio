@@ -39,6 +39,20 @@ const navLinks: NavItem[] = [
   },
   { label: "System X", href: "/system-x-automotive-ceramic-coatings" },
   { label: "Wraps", href: "/vinyl-wraps" },
+  /* The five vehicle-brand pages had no contextual inbound links at all —
+     footer only — so they carried no internal weight despite being ~1,650
+     words each. */
+  {
+    label: "Vehicles",
+    href: "/tesla-detailing",
+    children: [
+      { label: "Tesla Detailing", href: "/tesla-detailing" },
+      { label: "BMW Detailing", href: "/bmw-detailing" },
+      { label: "Porsche Detailing", href: "/porsche-detailing" },
+      { label: "Rivian Detailing", href: "/rivian-detailing" },
+      { label: "Ford Truck Detailing", href: "/ford-truck-detailing" },
+    ],
+  },
   {
     label: "RV & Boat Services",
     href: "/rv-detailing",
@@ -49,6 +63,7 @@ const navLinks: NavItem[] = [
       { label: "Boat Ceramic Coating", href: "/boat-ceramic-coating" },
     ],
   },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -198,7 +213,7 @@ export function Navigation() {
             textTransform: "uppercase",
             letterSpacing: "0.05em",
             fontSize: "12.5px",
-            color: "#fff",
+            color: "#0d0d0d",
             background: "#00BCD4",
             borderRadius: "3.125rem",
             padding: "14px 26px",
@@ -345,11 +360,14 @@ export function Navigation() {
       >
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 26 }}>
           <Link href="/" onClick={closeMenu} style={{ display: "block" }}>
-            <Image src="/logo-inverse.svg" alt="" width={120} height={38} style={{ height: 38, width: "auto" }} />
+            <Image src="/logo-inverse.svg" alt="Front Range Detail Studio" width={120} height={38} style={{ height: 38, width: "auto" }} />
+            {/* Visually hidden, carrying WordPress's real H3 + H6 heading text
+                for parity. Level is h4 rather than h6 so the document doesn't
+                skip h3 -> h6, which failed the heading-order check. */}
             <h3 style={visuallyHidden}>Front Range Detail Studio</h3>
-            <h6 style={visuallyHidden}>
+            <h4 style={visuallyHidden}>
               Crafting Radiance. Preserving Elegance. Colorado&apos;s One Stop Shop for All Your Vehicle Care Needs
-            </h6>
+            </h4>
           </Link>
           <button
             aria-label="Close"
@@ -417,7 +435,7 @@ export function Navigation() {
             textTransform: "uppercase",
             letterSpacing: "0.05em",
             fontSize: 13,
-            color: "#fff",
+            color: "#0d0d0d",
             background: "#00BCD4",
             borderRadius: "3.125rem",
             padding: "14px 26px",

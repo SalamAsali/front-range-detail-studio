@@ -33,8 +33,12 @@ export const reviews = [
   },
 ];
 
+/* Fallback only — used when the Google Places API key is missing or the call
+   fails. The live count comes from fetchGoogleReviews() and drives both the
+   on-page badge and the AggregateRating in LocalBusiness schema, so these two
+   can no longer disagree. Refresh this figure if you ever see it rendered. */
 export const reviewPlatforms = [
-  { platform: "Google" as const, rating: "5.0", count: "106", color: "#e7711b" },
+  { platform: "Google" as const, rating: "5.0", count: "139", color: "#e7711b" },
   { platform: "Yelp" as const, rating: "5.0", count: "2", color: "#c41200" },
   { platform: "Facebook" as const, rating: "5.0", count: "170", color: "#3c5b9b" },
 ];

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 
 const serviceOptions = [
   "PPF / Clear Bra",
@@ -76,7 +77,13 @@ export function QuoteForm() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
-  const loadedAt = useRef(Date.now());
+  /* Set in an effect, not during render: Date.now() is impure and calling it
+     in the render path makes the value unstable across re-renders. 0 means
+     "unknown", which the API treats as no timing signal rather than as a bot. */
+  const loadedAt = useRef(0);
+  useEffect(() => {
+    loadedAt.current = Date.now();
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -105,7 +112,7 @@ export function QuoteForm() {
         _t: loadedAt.current,
       };
 
-      const res = await fetch("/api/quote", {
+      const res = await fetch("/api/quote/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -396,7 +403,14 @@ export function QuoteForm() {
             }}
           >
             I consent to be contacted by Front Range Detail Studio regarding my
-            request. We never share your information.
+            request. We never share your information. See our{" "}
+            <Link
+              href="/privacy-policy"
+              style={{ color: "#00BCD4", textDecoration: "underline" }}
+            >
+              privacy policy
+            </Link>
+            .
           </span>
         </label>
 

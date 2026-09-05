@@ -10,7 +10,7 @@ export const systemXData: ServicePageData = {
   heroLogo: "/images/logos/system-x-logo.png",
   heroLogoAlt: "system X Ceramic Protection logo",
   eyebrow: "System X",
-  h1: "System X",
+  h1: "System X Automotive Ceramic Coatings in Englewood, CO",
   heroH3: "Automotive Ceramic Coatings",
   heroIntroBody:
     "Owners and collectors of the finest vintage and exotic automobiles worldwide trust System X® to consistently provide unmatched slickness, protection, hardness, and brilliance.",

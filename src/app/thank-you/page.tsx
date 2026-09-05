@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Thank You - Front Range Detail Studio",
+export const metadata: Metadata = pageMetadata({
+  title: "Thank You",
   description:
-    "Thanks for contacting us! We will get in touch with you shortly.",
-  alternates: {
-    canonical: "https://frontrangedetailstudio.com/thank-you/",
-  },
-  openGraph: {
-    title: "Thank You - Front Range Detail Studio",
-    description:
-      "Thanks for contacting us! We will get in touch with you shortly.",
-    url: "https://frontrangedetailstudio.com/thank-you/",
-  },
-};
+    "Thanks for contacting Front Range Detail Studio. We've received your request and will get back to you shortly.",
+  path: "/thank-you/",
+  image: "/images/og/og-default.jpg",
+});
 
 export default function ThankYouPage() {
   return (
@@ -89,7 +83,7 @@ export default function ThankYouPage() {
             textTransform: "uppercase",
             letterSpacing: "0.05em",
             fontSize: 14,
-            color: "#fff",
+            color: "#0d0d0d",
             background: "#00BCD4",
             borderRadius: "3.125rem",
             padding: "18px 36px",

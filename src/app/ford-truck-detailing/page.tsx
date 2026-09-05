@@ -1,30 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { VehiclePage } from "@/components/VehiclePage";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd";
 import { fordTruckDetailingData } from "@/data/services/ford-truck-detailing";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Ford Truck Detailing",
   description:
-    "Colorado's Ford Truck PPF & Ceramic Coating Experts",
-  alternates: {
-    canonical: "https://frontrangedetailstudio.com/ford-truck-detailing/",
-  },
-  openGraph: {
-    title: "Ford Truck Detailing - Front Range Detail Studio",
-    description:
-      "Colorado's Ford Truck PPF & Ceramic Coating Experts",
-    url: "https://frontrangedetailstudio.com/ford-truck-detailing/",
-    images: [
-      {
-        url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EVpSF8J7BYGcfrDJ4Z3bxfTn0C/hf_20260617_234445_6c35146a-5d69-4372-80d6-a91c3c0cd694.png",
-        width: 1200,
-        height: 630,
-        alt: "Ford Truck Detailing - Front Range Detail Studio",
-      },
-    ],
-  },
-};
+    "Ford truck PPF, ceramic coating and window tint in Englewood, CO — F-150, Super Duty and Lightning. Protection built for Colorado work and weather.",
+  path: "/ford-truck-detailing/",
+  image: "/images/og/og-ford-truck.jpg",
+});
 
 export default function FordTruckDetailingPage() {
   return (

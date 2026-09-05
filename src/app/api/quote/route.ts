@@ -1,74 +1,142 @@
 import { NextResponse } from "next/server";
 
+/** Escape user input before it goes into the notification email's HTML. */
+function esc(v: unknown): string {
+  return String(v ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function row(label: string, value: string, last = false) {
+  const border = last ? "" : "border-bottom:1px solid #eee;";
+  return `<tr><td style="padding:8px;${border}font-weight:bold;vertical-align:top;">${label}</td><td style="padding:8px;${border}">${value || "—"}</td></tr>`;
+}
+
 export async function POST(request: Request) {
+  let body: Record<string, unknown>;
   try {
-    const body = await request.json();
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid request." }, { status: 400 });
+  }
 
-    const { name, email, phone, make, model, year, services, contact, comments, website, _t } = body;
+  const { name, email, phone, make, model, year, services, contact, comments, website, _t } =
+    body as Record<string, string | string[] | number | undefined>;
 
-    // Honeypot check - bots fill hidden fields, humans don't
-    if (website) {
-      // Silently accept so bots think it worked
+  // Honeypot — bots fill hidden fields, humans don't. Accept silently so the
+  // bot believes it succeeded.
+  if (website) return NextResponse.json({ success: true });
+
+  /* Timing check. `_t` is set by the browser, so it can be wrong — a device
+     with a fast clock used to make a real submission look instant and get it
+     silently dropped. Only reject when the value is plausible AND the gap is
+     implausibly short. */
+  const t = Number(_t);
+  if (Number.isFinite(t) && t > 0) {
+    const elapsed = Date.now() - t;
+    if (elapsed >= 0 && elapsed < 2000) {
       return NextResponse.json({ success: true });
     }
+  }
 
-    // Time check - reject if submitted faster than 3 seconds
-    if (_t && Date.now() - _t < 3000) {
-      return NextResponse.json({ success: true });
-    }
+  if (!name || !email) {
+    return NextResponse.json(
+      { error: "Please enter your name and email so we can reach you." },
+      { status: 400 }
+    );
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(email))) {
+    return NextResponse.json(
+      { error: "That email address doesn't look right — please check it." },
+      { status: 400 }
+    );
+  }
 
-    // Validate required fields
-    if (!name || !email) {
-      return NextResponse.json(
-        { error: "Name and email are required" },
-        { status: 400 }
-      );
-    }
+  const resendKey = process.env.RESEND_API_KEY;
+  const to = process.env.QUOTE_EMAIL || "info@frontrangedetailstudio.com";
+  const from = process.env.RESEND_FROM || "quotes@frontrangedetailstudio.com";
 
-    // Basic email format check
-    if (!email.includes("@") || !email.includes(".")) {
-      return NextResponse.json(
-        { error: "Please enter a valid email address" },
-        { status: 400 }
-      );
-    }
+  /* Previously, a missing key meant the route skipped the send and still
+     returned success — the customer saw a thank-you and the lead vanished.
+     A quote request that cannot be delivered is a failure, and the visitor
+     needs to know to phone instead. */
+  if (!resendKey) {
+    console.error("[quote] RESEND_API_KEY is not set — quote request NOT delivered", {
+      name,
+      email,
+      phone,
+    });
+    return NextResponse.json(
+      {
+        error:
+          "We couldn't send your request right now. Please call (303) 520-8023 and we'll take the details over the phone.",
+      },
+      { status: 502 }
+    );
+  }
 
-    // If RESEND_API_KEY is configured, send email
-    const resendKey = process.env.RESEND_API_KEY;
-    if (resendKey) {
-      const servicesList = Array.isArray(services) ? services.join(", ") : services || "Not specified";
+  const servicesList = Array.isArray(services)
+    ? services.join(", ")
+    : (services as string) || "Not specified";
 
-      await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${resendKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: process.env.RESEND_FROM || "quotes@frontrangedetailstudio.com",
-          to: process.env.QUOTE_EMAIL || "info@frontrangedetailstudio.com",
-          subject: `New Quote Request: ${make || ""} ${model || ""} ${year || ""} — ${name}`,
-          html: `
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from,
+        to,
+        reply_to: String(email),
+        subject: `New Quote Request: ${[year, make, model].filter(Boolean).join(" ")} — ${name}`.trim(),
+        html: `
             <h2>New Quote Request from frontrangedetailstudio.com</h2>
             <table style="border-collapse:collapse;width:100%;max-width:600px;">
-              <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Name</td><td style="padding:8px;border-bottom:1px solid #eee;">${name}</td></tr>
-              <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Email</td><td style="padding:8px;border-bottom:1px solid #eee;">${email}</td></tr>
-              <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Phone</td><td style="padding:8px;border-bottom:1px solid #eee;">${phone || "—"}</td></tr>
-              <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Vehicle</td><td style="padding:8px;border-bottom:1px solid #eee;">${year || ""} ${make || ""} ${model || ""}</td></tr>
-              <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Services</td><td style="padding:8px;border-bottom:1px solid #eee;">${servicesList}</td></tr>
-              <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Contact Pref</td><td style="padding:8px;border-bottom:1px solid #eee;">${contact || "—"}</td></tr>
-              <tr><td style="padding:8px;font-weight:bold;vertical-align:top;">Comments</td><td style="padding:8px;">${comments || "—"}</td></tr>
+              ${row("Name", esc(name))}
+              ${row("Email", esc(email))}
+              ${row("Phone", esc(phone))}
+              ${row("Vehicle", esc([year, make, model].filter(Boolean).join(" ")))}
+              ${row("Services", esc(servicesList))}
+              ${row("Contact Pref", esc(contact))}
+              ${row("Comments", esc(comments), true)}
             </table>
           `,
-        }),
+      }),
+    });
+
+    /* The response used to be discarded. A rejected send — expired key,
+       sending domain not verified after a DNS change — still showed the
+       customer a thank-you page. */
+    if (!res.ok) {
+      const detail = await res.text().catch(() => "");
+      console.error(`[quote] Resend rejected the send (HTTP ${res.status})`, detail, {
+        name,
+        email,
+        phone,
       });
+      return NextResponse.json(
+        {
+          error:
+            "We couldn't send your request right now. Please call (303) 520-8023 and we'll take the details over the phone.",
+        },
+        { status: 502 }
+      );
     }
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (err) {
+    console.error("[quote] Failed to reach Resend", err, { name, email, phone });
     return NextResponse.json(
-      { error: "Failed to process quote request" },
-      { status: 500 }
+      {
+        error:
+          "We couldn't send your request right now. Please call (303) 520-8023 and we'll take the details over the phone.",
+      },
+      { status: 502 }
     );
   }
 }

@@ -1,30 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ServicePage } from "@/components/ServicePage";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/JsonLd";
 import { boatCeramicCoatingData } from "@/data/services/boat-ceramic-coating";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Boat Ceramic Coating",
   description:
-    "Professional detailing and System X Marine Ceramic Coating",
-  alternates: {
-    canonical: "https://frontrangedetailstudio.com/boat-ceramic-coating/",
-  },
-  openGraph: {
-    title: "Boat Ceramic Coating - Front Range Detail Studio",
-    description:
-      "Professional detailing and System X Marine Ceramic Coating",
-    url: "https://frontrangedetailstudio.com/boat-ceramic-coating/",
-    images: [
-      {
-        url: "https://d8j0ntlcm91z4.cloudfront.net/user_3EVpSF8J7BYGcfrDJ4Z3bxfTn0C/hf_20260617_234445_6c35146a-5d69-4372-80d6-a91c3c0cd694.png",
-        width: 1200,
-        height: 630,
-        alt: "Boat Ceramic Coating - Front Range Detail Studio",
-      },
-    ],
-  },
-};
+    "System X Marine ceramic coating and SunTek Reaction PPF for boats, with a 3-year warranty on new hulls. Hull, deck and topside protection near Denver.",
+  path: "/boat-ceramic-coating/",
+  image: "/images/og/og-boat-ceramic-coating.jpg",
+});
 
 export default function BoatCeramicCoatingPage() {
   return (
