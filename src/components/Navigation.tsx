@@ -94,7 +94,7 @@ export function Navigation() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "18px clamp(20px, 5vw, 64px)",
+        padding: "16px clamp(16px, 2.4vw, 40px)",
         background: scrolled
           ? "rgba(0,0,0,0.9)"
           : "linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0))",
@@ -112,14 +112,14 @@ export function Navigation() {
           alt="Front Range Detail Studio"
           width={180}
           height={46}
-          style={{ height: 46, width: "auto", display: "block" }}
+          style={{ height: 40, width: "auto", display: "block" }}
           priority
         />
       </Link>
 
       {/* Desktop links + CTA */}
-      <div style={{ display: "flex", alignItems: "center", gap: "clamp(18px, 2.6vw, 40px)" }}>
-        <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "clamp(16px, 2vw, 34px)" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "clamp(12px, 1.5vw, 22px)" }}>
+        <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "clamp(11px, 1.3vw, 22px)" }}>
           {navLinks.map((link) => (
             <div
               key={link.label}
@@ -131,9 +131,9 @@ export function Navigation() {
                 href={link.href}
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: 14,
+                  fontSize: 13,
                   fontWeight: 500,
-                  letterSpacing: "0.04em",
+                  letterSpacing: "0.02em",
                   textTransform: "uppercase",
                   color: openDropdown === link.label ? "#00BCD4" : "rgba(255,255,255,0.9)",
                   textDecoration: "none",
@@ -212,11 +212,11 @@ export function Navigation() {
             fontFamily: "var(--font-button)",
             textTransform: "uppercase",
             letterSpacing: "0.05em",
-            fontSize: "12.5px",
+            fontSize: "12px",
             color: "#0d0d0d",
             background: "#00BCD4",
             borderRadius: "3.125rem",
-            padding: "14px 26px",
+            padding: "12px 20px",
             textDecoration: "none",
             whiteSpace: "nowrap",
             transition: "background .2s ease, transform .2s ease, box-shadow .2s ease",
@@ -231,14 +231,14 @@ export function Navigation() {
             (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
           }}
         >
-          Get A Free Quote
+          Free Quote
         </Link>
         <a
           href="tel:+13035208023"
           style={{
             fontFamily: "var(--font-display)",
             fontWeight: 600,
-            fontSize: 14,
+            fontSize: 13.5,
             color: "#00BCD4",
             textDecoration: "none",
             whiteSpace: "nowrap",
@@ -304,10 +304,18 @@ export function Navigation() {
 
       {/* Mobile breakpoint styles */}
       <style>{`
-        @media (max-width: 880px) {
+        /* The desktop row is 9 items + CTA + phone. Measured, it needs ~1250px
+           before it stops crowding the logo; below 880px it was overflowing the
+           viewport outright and pushing the phone number off-screen. Collapse
+           to the drawer as soon as it no longer fits comfortably. */
+        @media (max-width: 1249px) {
           .desktop-nav { display: none !important; }
           .desktop-cta { display: none !important; }
           .hamburger { display: flex !important; }
+        }
+        /* Below ~380px the logo, phone and hamburger stop fitting on one line. */
+        @media (max-width: 379px) {
+          .phone-nav { display: none !important; }
         }
       `}</style>
     </nav>
@@ -353,8 +361,7 @@ export function Navigation() {
           display: "flex",
           flexDirection: "column",
           padding: "22px 24px 28px",
-          overflowY: "auto",
-          WebkitOverflowScrolling: "touch",
+          overflow: "hidden",
           boxShadow: "-30px 0 60px rgba(0,0,0,0.5)",
         }}
       >
@@ -386,6 +393,17 @@ export function Navigation() {
           </button>
         </div>
 
+        {/* Scrollable link region — keeps the CTA below pinned in view */}
+        <div
+          style={{
+            flex: 1,
+            minHeight: 0,
+            overflowY: "auto",
+            WebkitOverflowScrolling: "touch",
+            marginRight: -8,
+            paddingRight: 8,
+          }}
+        >
         {navLinks.map((link) => (
           <div key={link.label}>
             <Link
@@ -415,9 +433,9 @@ export function Navigation() {
                   display: "block",
                   fontFamily: "var(--font-display)",
                   fontSize: 14,
-                  color: "rgba(255,255,255,0.5)",
+                  color: "rgba(255,255,255,0.55)",
                   textDecoration: "none",
-                  padding: "8px 0 8px 16px",
+                  padding: "7px 0 7px 16px",
                 }}
               >
                 {child.label}
@@ -425,12 +443,13 @@ export function Navigation() {
             ))}
           </div>
         ))}
+        </div>
 
         <Link
           href="/free-quote"
           onClick={closeMenu}
           style={{
-            marginTop: 22,
+            marginTop: 18,
             fontFamily: "var(--font-button)",
             textTransform: "uppercase",
             letterSpacing: "0.05em",
@@ -444,7 +463,7 @@ export function Navigation() {
             flexShrink: 0,
           }}
         >
-          Get A Free Quote
+          Free Quote
         </Link>
 
         <a
